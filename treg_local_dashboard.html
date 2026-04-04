@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TurboRegime Dashboard</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --panel: #121a2b;
+      --text: #e8eefc;
+      --muted: #9fb0d1;
+      --border: #24324d;
+      --shadow: 0 12px 28px rgba(0,0,0,.25);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #08101d 0%, #0e1728 100%);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 2rem;
+      letter-spacing: .4px;
+    }
+
+    .pill {
+      padding: 18px 28px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-weight: 800;
+      font-size: 1.2rem;
+      min-width: 280px;
+      text-align: center;
+    }
+
+    .pill.riskon { background: rgba(46, 204, 113, .14); color: #8ff0ba; }
+    .pill.riskoff { background: rgba(255, 107, 107, .14); color: #ffaaaa; }
+    .pill.riskpp { background: rgba(77, 163, 255, .14); color: #8bc2ff; }
+
+    .section-label {
+      margin: 24px 0 12px;
+      color: var(--muted);
+      font-size: .95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .divider {
+      margin: 28px 0;
+      border-top: 1px solid rgba(255,255,255,.10);
+      position: relative;
+    }
+
+    .divider span {
+      position: absolute;
+      top: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #0e1728;
+      padding: 0 12px;
+      color: var(--muted);
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid.cards {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-bottom: 18px;
+    }
+
+    .grid.main {
+      grid-template-columns: 1.35fr 1fr;
+      margin-bottom: 18px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(255,255,255,.01));
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .card h3 {
+      margin: 0 0 14px;
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+
+    .metric-value {
+      font-size: 1.9rem;
+      font-weight: 800;
+      line-height: 1.1;
+    }
+
+    .sub-value {
+      color: var(--muted);
+      margin-top: 8px;
+      font-size: .92rem;
+    }
+
+    .split {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+
+    .split:last-child { border-bottom: none; }
+
+    .alloc-row {
+      margin-bottom: 14px;
+    }
+
+    .alloc-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+      font-size: .95rem;
+    }
+
+    .bar {
+      width: 100%;
+      height: 12px;
+      border-radius: 999px;
+      overflow: hidden;
+      background: #0b1322;
+      border: 1px solid rgba(255,255,255,.05);
+    }
+
+    .bar-fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #3d86ff, #59c1ff);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: .95rem;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      text-align: left;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+
+    th {
+      color: var(--muted);
+      font-size: .85rem;
+      text-transform: uppercase;
+      letter-spacing: .05em;
+    }
+
+    .muted { color: var(--muted); }
+
+    .img-wrap {
+      border-radius: 14px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background: #0b1322;
+    }
+
+    .img-wrap img {
+      width: 100%;
+      display: block;
+    }
+
+    .zoomable {
+      cursor: zoom-in;
+    }
+
+    .zoom-overlay {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      inset: 0;
+      background: rgba(0,0,0,.88);
+      align-items: center;
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .zoom-overlay img {
+      max-width: 95vw;
+      max-height: 95vh;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,.5);
+    }
+
+    .footer-note {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .error {
+      background: rgba(255, 107, 107, .12);
+      border: 1px solid rgba(255, 107, 107, .35);
+      padding: 14px;
+      border-radius: 12px;
+      color: #ffd7d7;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 980px) {
+      .grid.cards, .grid.main { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 700px) {
+      .grid.cards, .grid.main { grid-template-columns: 1fr; }
+      .metric-value { font-size: 1.6rem; }
+      .container { padding: 16px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand">
+        <h1>TurboRegime Dashboard</h1>
+      </div>
+      <div id="regimePill" class="pill">Loading...</div>
+    </div>
+
+    <div id="errorBox"></div>
+
+    <div class="section-label">Free Tier</div>
+
+    <div class="grid cards">
+      <div class="card">
+        <h3>Regime</h3>
+        <div id="regimeName" class="metric-value">--</div>
+        <div id="regimeMeta" class="sub-value">--</div>
+      </div>
+
+      <div class="card">
+        <h3>Current CAGR</h3>
+        <div id="currentCagr" class="metric-value">--</div>
+        <div id="currentReturn" class="sub-value">--</div>
+      </div>
+
+      <div class="card">
+        <h3>Last Updated</h3>
+        <div id="lastUpdated" class="metric-value" style="font-size:1.2rem;">--</div>
+      </div>
+    </div>
+
+    <div class="grid main">
+      <div class="card">
+        <h3>Performance Summary</h3>
+        <div id="perfPeriodLine" class="sub-value" style="margin-bottom:12px;">--</div>
+        <table>
+          <thead>
+            <tr>
+              <th>Series</th>
+              <th>Total Return</th>
+              <th>CAGR</th>
+              <th>Max DD</th>
+              <th>Sharpe</th>
+              <th>Sortino</th>
+              <th>UPI</th>
+            </tr>
+          </thead>
+          <tbody id="perfBody"></tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h3>Performance Metrics</h3>
+        <div id="currentMetrics"></div>
+      </div>
+    </div>
+
+    <div class="grid main">
+      <div class="card">
+        <h3>Equity Curve</h3>
+        <div class="img-wrap">
+          <img id="equityImg" class="zoomable" alt="Equity curve" />
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Ratio Chart</h3>
+        <div class="img-wrap">
+          <img id="ratioImg" class="zoomable" alt="Ratio chart" />
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"><span>Premium Tier</span></div>
+
+    <div id="premiumSection">
+      <div class="grid main">
+        <div class="card">
+          <h3>Allocations</h3>
+          <div id="allocations"></div>
+        </div>
+
+        <div class="card">
+          <h3>Signal Details</h3>
+          <div class="split"><span class="muted">Ratio</span><strong id="ratioVal">--</strong></div>
+          <div class="split"><span class="muted">Ratio MA</span><strong id="ratioMaVal">--</strong></div>
+          <div class="split"><span class="muted">Ratio Delta</span><strong id="ratioDeltaVal">--</strong></div>
+          <div class="split"><span class="muted">Risk On</span><strong id="riskOnVal">--</strong></div>
+          <div class="split"><span class="muted">Last Risk On</span><strong id="lastRiskOnVal">--</strong></div>
+          <div class="split"><span class="muted">Signal Change</span><strong id="signalChangeVal">--</strong></div>
+        </div>
+      </div>
+
+      <div class="grid main">
+        <div class="card">
+          <h3>Signal Reason</h3>
+          <div id="signalReasonVal" class="sub-value" style="color:var(--text); line-height:1.6;">--</div>
+        </div>
+
+        <div class="card">
+          <h3>Status</h3>
+          <div class="split"><span class="muted">Engine</span><strong id="engineState">--</strong></div>
+          <div class="split"><span class="muted">Kill Switch</span><strong id="killVal">--</strong></div>
+          <div class="split"><span class="muted">Last Trade Time</span><strong id="lastTradeTime">--</strong></div>
+          <div class="split"><span class="muted">Adjusted Close</span><strong id="useAcloseVal">--</strong></div>
+          <div class="split"><span class="muted">Heartbeat</span><strong id="engineHeartbeatVal">--</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-note">
+      Place this HTML file in the same folder as <strong>backtestState.JSON</strong> and keep your chart images under <strong>reports/</strong>.
+    </div>
+  </div>
+
+  <div id="zoomOverlay" class="zoom-overlay">
+    <img id="zoomedImg" alt="Zoomed chart" />
+  </div>
+
+  <script>
+    const stateFile = 'backtestState.JSON';
+    const isPremium = true;
+
+    function regimeClass(regime) {
+      if (!regime) return '';
+      const normalized = String(regime).toLowerCase();
+      if (normalized === 'riskon') return 'riskon';
+      if (normalized === 'riskoff') return 'riskoff';
+      if (normalized === 'risk++') return 'riskpp';
+      return '';
+    }
+
+    function fmt(value, suffix) {
+      if (suffix === undefined) suffix = '';
+      if (value === null || value === undefined || value === '') return '--';
+      return String(value) + suffix;
+    }
+
+    function fmtPercentFromDecimal(value) {
+      if (value === null || value === undefined || value === '') return '--';
+      const num = Number(value);
+      if (isNaN(num)) return '--';
+      return (num * 100).toFixed(2) + '%';
+    }
+
+    function escapeHtml(value) {
+      return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/\"/g, '&quot;')
+        .replace(/'/g, '&#039;');
+    }
+
+    function normalizePath(path) {
+      if (!path) return '';
+      return String(path).replace(/\\/g, '/');
+    }
+
+    function timeSince(dateString) {
+      if (!dateString) return '--';
+
+      const d = new Date(dateString);
+      if (isNaN(d.getTime())) return '--';
+
+      const seconds = Math.floor((Date.now() - d.getTime()) / 1000);
+
+      if (seconds < 0) return '0s ago';
+      if (seconds < 60) return seconds + 's ago';
+
+      const minutes = Math.floor(seconds / 60);
+      if (minutes < 60) return minutes + 'm ago';
+
+      const hours = Math.floor(minutes / 60);
+      if (hours < 24) return hours + 'h ago';
+
+      const days = Math.floor(hours / 24);
+      return days + 'd ago';
+    }
+
+    function setText(id, value) {
+      var el = document.getElementById(id);
+      if (el) {
+        el.textContent = value === null || value === undefined ? '--' : value;
+      }
+    }
+
+    function renderBars(targetId, allocs) {
+      var container = document.getElementById(targetId);
+      if (!container) return;
+
+      container.innerHTML = '';
+
+      Object.entries(allocs || {}).forEach(function(entry) {
+        var symbol = entry[0];
+        var rawVal = entry[1];
+        var num = Number(rawVal);
+        var pct = isNaN(num) ? 0 : num * 100;
+
+        var row = document.createElement('div');
+        row.className = 'alloc-row';
+        row.innerHTML =
+          '<div class="alloc-header">' +
+            '<span>' + escapeHtml(symbol) + '</span>' +
+            '<strong>' + pct.toFixed(0) + '%</strong>' +
+          '</div>' +
+          '<div class="bar">' +
+            '<div class="bar-fill" style="width:' + pct + '%;"></div>' +
+          '</div>';
+
+        container.appendChild(row);
+      });
+    }
+
+    function renderCurrentMetrics(current) {
+      var container = document.getElementById('currentMetrics');
+      if (!container) return;
+
+      container.innerHTML = '';
+
+      var rows = [
+        ['Total Return', fmt(current.totalReturnPct, '%')],
+        ['CAGR', fmt(current.cagrPct, '%')],
+        ['Max Drawdown', fmt(current.maxDrawdownPct, '%')],
+        ['Sharpe', fmt(current.sharpe)],
+        ['MAR', fmt(current.mar)],
+        ['Sortino', fmt(current.sortino)],
+        ['Ulcer', fmt(current.ulcer)],
+        ['UPI', fmt(current.upi)]
+      ];
+
+      rows.forEach(function(rowData) {
+        var div = document.createElement('div');
+        div.className = 'split';
+        div.innerHTML =
+          '<span class="muted">' + rowData[0] + '</span>' +
+          '<strong>' + rowData[1] + '</strong>';
+        container.appendChild(div);
+      });
+    }
+
+    function renderPerformanceTable(performance) {
+      var body = document.getElementById('perfBody');
+      if (!body) return;
+
+      body.innerHTML = '';
+
+      var strategyName =
+        (performance.meta && performance.meta.strategyName) ?
+        performance.meta.strategyName : 'Current';
+
+      var rows = [
+        { name: strategyName, data: performance.current || {} }
+      ];
+
+      Object.entries(performance.benchmarks || {}).forEach(function(entry) {
+        rows.push({ name: entry[0], data: entry[1] });
+      });
+
+      rows.forEach(function(row) {
+        var tr = document.createElement('tr');
+
+        if (row.name === strategyName) {
+          tr.style.background = 'rgba(77,163,255,0.15)';
+        }
+
+        tr.innerHTML =
+          '<td><strong>' + escapeHtml(row.name) + '</strong></td>' +
+          '<td>' + fmt(row.data.totalReturnPct, '%') + '</td>' +
+          '<td>' + fmt(row.data.cagrPct, '%') + '</td>' +
+          '<td>' + fmt(row.data.maxDrawdownPct, '%') + '</td>' +
+          '<td>' + fmt(row.data.sharpe) + '</td>' +
+          '<td>' + fmt(row.data.sortino) + '</td>' +
+          '<td>' + fmt(row.data.upi) + '</td>';
+
+        body.appendChild(tr);
+      });
+    }
+
+    function setupZoom() {
+      var overlay = document.getElementById('zoomOverlay');
+      var zoomedImg = document.getElementById('zoomedImg');
+      var equityImg = document.getElementById('equityImg');
+      var ratioImg = document.getElementById('ratioImg');
+
+      function openZoom(src) {
+        zoomedImg.src = src;
+        overlay.style.display = 'flex';
+      }
+
+      if (equityImg) {
+        equityImg.onclick = function() {
+          if (equityImg.src) openZoom(equityImg.src);
+        };
+      }
+
+      if (ratioImg) {
+        ratioImg.onclick = function() {
+          if (ratioImg.src) openZoom(ratioImg.src);
+        };
+      }
+
+      if (overlay) {
+        overlay.onclick = function() {
+          overlay.style.display = 'none';
+          zoomedImg.src = '';
+        };
+      }
+    }
+
+    function render(state) {
+      var perf = state.performance || {};
+      var meta = perf.meta || {};
+      var current = perf.current || {};
+      var regime = state.regime || '--';
+
+      var pill = document.getElementById('regimePill');
+      if (pill) {
+        pill.textContent = regime;
+        pill.className = 'pill ' + regimeClass(regime);
+      }
+
+      document.getElementById('premiumSection').style.display = isPremium ? 'block' : 'none';
+
+      setText('regimeName', regime);
+      setText('regimeMeta', fmt(state.regimeDays) + ' days • Gain: ' + fmtPercentFromDecimal(state.regimeGain));
+      setText('currentCagr', fmt(current.cagrPct, '%'));
+      setText('currentReturn', 'Total Return: ' + fmt(current.totalReturnPct, '%'));
+
+      var rawUpdated = meta.lastUpdated || '';
+      var formattedUpdated = '--';
+
+      if (rawUpdated) {
+        var d = new Date(rawUpdated);
+        if (!isNaN(d.getTime())) {
+          formattedUpdated = d.toLocaleString() + ' (' + timeSince(rawUpdated) + ')';
+        } else {
+          formattedUpdated = rawUpdated;
+        }
+      }
+
+      setText('lastUpdated', formattedUpdated);
+
+      setText(
+        'perfPeriodLine',
+        (meta.startDate ? String(meta.startDate).split(' ')[0] : '--') +
+        ' to ' +
+        (meta.endDate ? String(meta.endDate).split(' ')[0] : '--') +
+        ' • ' +
+        fmt(meta.periodYears) +
+        ' yrs'
+      );
+
+      setText('ratioVal', fmt(state.ratio));
+      setText('ratioMaVal', fmt(state.ratioMA));
+      setText('ratioDeltaVal', fmt(state.ratioDelta));
+      setText('riskOnVal', String(state.riskOn));
+      setText('lastRiskOnVal', String(state.lastRiskOn));
+      setText('signalChangeVal', String(state.signalChange));
+      setText('signalReasonVal', state.signal_reason || '--');
+
+      setText('engineState', state.engineRunning ? 'Running' : 'Stopped');
+      setText('killVal', state.kill ? 'On' : 'Off');
+      setText('lastTradeTime', state.lastTradeTime || '--');
+      setText('useAcloseVal', state.useAclose ? 'True' : 'False');
+      setText('engineHeartbeatVal', fmt(state.engineHeartbeat) + ' • page ' + new Date().toLocaleTimeString());
+
+      renderBars('allocations', state.allocations || {});
+      renderCurrentMetrics(current);
+      renderPerformanceTable(perf);
+
+      var equityImg = document.getElementById('equityImg');
+      var ratioImg = document.getElementById('ratioImg');
+
+      if (equityImg && state.equityFilename) {
+        equityImg.src = normalizePath(state.equityFilename) + '?t=' + Date.now();
+      }
+
+      if (ratioImg && state.ratioFilename) {
+        ratioImg.src = normalizePath(state.ratioFilename) + '?t=' + Date.now();
+      }
+    }
+
+    async function loadDashboard() {
+      try {
+        var res = await fetch(stateFile + '?t=' + Date.now(), { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+
+        var state = await res.json();
+        render(state);
+
+        var errorBox = document.getElementById('errorBox');
+        if (errorBox) errorBox.innerHTML = '';
+      } catch (err) {
+        console.error('Dashboard load failed:', err);
+        var errorBox = document.getElementById('errorBox');
+        if (errorBox) {
+          errorBox.innerHTML =
+            '<div class="error">' +
+            'Could not load <strong>' + escapeHtml(stateFile) + '</strong>.<br><br>' +
+            'Error: ' + escapeHtml(err.message) +
+            '</div>';
+        }
+      }
+    }
+
+    setupZoom();
+    loadDashboard();
+    setInterval(loadDashboard, 10000);
+  </script>
+</body>
+</html>
