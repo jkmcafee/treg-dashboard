@@ -507,7 +507,7 @@
         <div class="brand-title">Landing Page Layout Mockup</div>
       </div>
       <div class="nav-actions">
-        <a class="btn btn-primary" href="http://localhost:8000/dashboard.html" target="_blank">Follow Regime</a>
+        <a class="btn btn-primary" href="dashboard.html" target="_self">Follow Regime</a>
         <a class="btn" href="https://collective2.com/details/155341343" target="_blank">Follow/Mirror Trades</a>
       </div>
     </div>
@@ -677,7 +677,7 @@
         <div class="cta-label">Final call to action</div>
         <h2>Let’s go.</h2>
         <div class="cta-actions">
-          <a class="btn btn-primary" href="http://localhost:8000/dashboard.html" target="_blank">Follow Regime</a>
+          <a class="btn btn-primary" href="dashboard.html" target="_self">Follow Regime</a>
           <a class="btn" href="https://collective2.com/details/155341343" target="_blank">Follow/Mirror Trades</a>
         </div>
         <div class="cta-foot">Content access adapts to your login: basic (delayed) or premium (real-time signals and allocations).</div>
@@ -687,7 +687,14 @@
 
   <script>
     (function () {
-      const JSON_PATHS = ['backtestState.json', 'backtestState.JSON'];
+      // ===== DATA SOURCE CONFIG =====
+      const useGitHubJson = true;
+      const localFile = 'backtestState.json';
+      const githubFile = 'https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtestState.json';
+
+      const JSON_PATHS = useGitHubJson
+        ? [githubFile]
+        : [localFile, 'backtestState.JSON'];
       const FALLBACK_DATA = {
         equityFilename: 'reports\\TReg_2025-03-31_2026-04-05_Equity.png',
         performance: {
@@ -742,11 +749,14 @@
       async function loadJsonOrFallback(paths) {
         for (const path of paths) {
           try {
-            return await tryFetchJson(path);
+            const data = await tryFetchJson(path);
+            console.log('Loaded JSON from:', path);
+            return data;
           } catch (error) {
             console.warn(`Unable to load ${path}`, error);
           }
         }
+        console.warn('All JSON sources failed. Using fallback data.');
         return FALLBACK_DATA;
       }
 
