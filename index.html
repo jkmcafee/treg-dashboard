@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TurboRegime Landing Page Mockup</title>
+  <style>
+    :root {
+      --bg: #020617;
+      --panel: rgba(15, 23, 42, 0.72);
+      --border: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --white: #ffffff;
+      --sky: #38bdf8;
+      --sky-soft: rgba(56, 189, 248, 0.12);
+      --emerald: #34d399;
+      --emerald-soft: rgba(52, 211, 153, 0.12);
+      --shadow: 0 20px 50px rgba(0,0,0,0.25);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+      background: rgba(2, 6, 23, 0.95);
+      backdrop-filter: blur(8px);
+    }
+
+    .container {
+      width: min(1240px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 18px 0;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.28em;
+      color: rgba(125, 211, 252, 0.75);
+    }
+
+    .brand-title {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--text);
+      padding: 12px 18px;
+      border-radius: 16px;
+      font-weight: 700;
+      font-size: 14px;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--sky);
+      color: #082f49;
+      border-color: transparent;
+    }
+
+    main {
+      padding: 40px 0 64px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+      gap: 28px;
+      align-items: center;
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      background: var(--sky-soft);
+      color: #bae6fd;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 20px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(42px, 6vw, 72px);
+      line-height: 0.98;
+      letter-spacing: -0.04em;
+      color: var(--white);
+    }
+
+    .subhead {
+      margin: 12px 0 0;
+      font-size: clamp(24px, 2.6vw, 34px);
+      color: #cbd5e1;
+    }
+
+    .lede {
+      margin-top: 18px;
+      max-width: 720px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #cbd5e1;
+    }
+
+    .metrics {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      min-width: 0;
+    }
+
+    .metric-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+
+    .metric-value {
+      margin-top: 10px;
+      font-size: 34px;
+      line-height: 1.05;
+      font-weight: 800;
+      color: var(--emerald);
+      white-space: nowrap;
+    }
+
+    .metric-sub {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+
+    .chart-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 32px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      min-width: 0;
+    }
+
+    .chart-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .chart-title {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .chart-sub {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #64748b;
+    }
+
+    .badge {
+      padding: 7px 12px;
+      border-radius: 999px;
+      background: rgba(52, 211, 153, 0.15);
+      color: #a7f3d0;
+      font-size: 12px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .chart-box {
+      cursor: zoom-in;
+      position: relative;
+      min-height: 390px;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid var(--border);
+      background:
+        linear-gradient(to right, rgba(148,163,184,.16) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(148,163,184,.16) 1px, transparent 1px),
+        linear-gradient(180deg, #0f172a 0%, #020617 100%);
+      background-size: 64px 64px, 64px 64px, auto;
+    }
+
+    .chart-zoom-link {
+      position: absolute;
+      inset: 0;
+      z-index: 3;
+      display: block;
+      text-indent: -9999px;
+      overflow: hidden;
+    }
+
+    .chart-lines {
+      position: absolute;
+      inset: 18px 18px 64px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 18px;
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(15, 23, 42, 0.96) 0%, rgba(2, 6, 23, 0.96) 100%);
+    }
+
+    .chart-image {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: contain;
+      object-position: center center;
+      background: #020617;
+      cursor: zoom-in;
+    }
+
+    .zoom-hint {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 2;
+      padding: 8px 10px;
+      border-radius: 999px;
+      background: rgba(2, 6, 23, 0.78);
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      font-size: 12px;
+      font-weight: 700;
+      backdrop-filter: blur(8px);
+      pointer-events: none;
+    }
+
+    .note {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      max-width: 75%;
+      padding: 14px 16px;
+      border-radius: 18px;
+      background: rgba(2, 6, 23, 0.85);
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      font-size: 14px;
+    }
+
+    .section {
+      margin-top: 28px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .two-col-a { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
+    .two-col-b { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); }
+    .two-col-c { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+
+    .section-tag {
+      color: #7dd3fc;
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    h2 {
+      margin: 8px 0 0;
+      font-size: 38px;
+      line-height: 1.1;
+      color: var(--white);
+    }
+
+    .section p {
+      margin: 16px 0 0;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #cbd5e1;
+    }
+
+    .state-grid,
+    .scenario-grid,
+    .path-grid {
+      display: grid;
+      gap: 16px;
+    }
+
+    .state-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .scenario-grid { grid-template-columns: 1fr; }
+    .path-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .bar {
+      width: 64px;
+      height: 8px;
+      border-radius: 999px;
+    }
+
+    .slate { background: #64748b; }
+    .blue { background: #3b82f6; }
+    .green { background: #10b981; }
+
+    .state-name,
+    .scenario-title,
+    .path-title {
+      margin-top: 18px;
+      color: var(--white);
+      font-size: 26px;
+      line-height: 1.15;
+      font-weight: 700;
+    }
+
+    .state-detail,
+    .scenario-detail,
+    .path-detail {
+      margin-top: 8px;
+      color: #cbd5e1;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    .highlight {
+      margin-top: 22px;
+      border-radius: 24px;
+      padding: 18px;
+      border: 1px solid rgba(52, 211, 153, 0.2);
+      background: var(--emerald-soft);
+    }
+
+    .highlight .small {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #86efac;
+    }
+
+    .highlight .big {
+      margin-top: 8px;
+      color: var(--white);
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    ul.clean {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      color: #cbd5e1;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .cta {
+      margin-top: 28px;
+      text-align: center;
+      border-radius: 32px;
+      border: 1px solid var(--border);
+      background: linear-gradient(90deg, #0f172a 0%, #020617 100%);
+      padding: 40px 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .cta-label {
+      color: #7dd3fc;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      font-weight: 700;
+    }
+
+    .cta h2 {
+      margin-top: 10px;
+    }
+
+    .cta-actions {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .cta-foot {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .full-width-banner {
+      margin-top: 20px;
+      border-radius: 18px;
+      background: var(--sky);
+      color: #082f49;
+      font-weight: 800;
+      text-align: center;
+      padding: 16px 18px;
+      font-size: 18px;
+    }
+
+    @media (max-width: 1120px) {
+      .hero,
+      .two-col-a,
+      .two-col-b,
+      .two-col-c,
+      .state-grid,
+      .path-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .metrics {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .chart-box {
+        min-height: 320px;
+      }
+    }
+
+    @media (max-width: 900px) {
+      .metrics {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .state-grid,
+      .path-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container {
+        width: min(1240px, calc(100% - 20px));
+      }
+
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .metrics {
+        grid-template-columns: 1fr;
+      }
+
+      .metric-label,
+      .metric-sub {
+        white-space: normal;
+      }
+
+      .metric-value {
+        font-size: 30px;
+      }
+
+      h2 {
+        font-size: 32px;
+      }
+
+      .note {
+        max-width: calc(100% - 36px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <div class="container nav">
+      <div>
+        <div class="eyebrow">TurboRegime</div>
+        <div class="brand-title">Landing Page Layout Mockup</div>
+      </div>
+      <div class="nav-actions">
+        <a class="btn btn-primary" href="http://localhost:8000/dashboard.html" target="_blank">Follow Regime</a>
+        <a class="btn" href="https://collective2.com/details/155341343" target="_blank">Follow/Mirror Trades</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <div>
+          <div class="pill">Regime-based allocation strategy</div>
+          <h1>Leverage when it matters.</h1>
+          <div class="subhead">Protection when it doesn’t.</div>
+          <div class="lede">
+            TurboRegime dynamically adjusts market exposure to protect capital during downturns and aggressively capture recoveries.
+          </div>
+
+          <div id="metricsContext" style="margin-top: 24px; color: #94a3b8; font-size: 13px; letter-spacing: 0.02em;">
+            Performance metrics shown below are sourced from the current backtest file.
+          </div>
+          <div id="metricsUpdated" style="margin-top: 8px; color: #64748b; font-size: 12px; letter-spacing: 0.02em;">
+            Updated automatically from backtestState.json
+          </div>
+          <div class="metrics">
+            <div class="card">
+              <div class="metric-label">Total Return</div>
+              <div class="metric-value">25.41%</div>
+              <div class="metric-sub">1Y · vs SPY 18.60%</div>
+            </div>
+            <div class="card">
+              <div class="metric-label">CAGR</div>
+              <div class="metric-value">25.27%</div>
+              <div class="metric-sub">1Y · vs SPY 18.50%</div>
+            </div>
+            <div class="card">
+              <div class="metric-label">Max Drawdown</div>
+              <div class="metric-value">-12.15%</div>
+              <div class="metric-sub">1Y · vs SPY -11.99%</div>
+            </div>
+            <div class="card">
+              <div class="metric-label">MAR / Calmar</div>
+              <div class="metric-value">2.08</div>
+              <div class="metric-sub">1Y · vs SPY 1.54</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-head">
+            <div>
+              <div class="chart-title" id="chartTitle">Backtest Equity Curve (1Y)</div>
+              <div class="chart-sub">SPY vs SPXL vs TurboRegime</div>
+            </div>
+            <div class="badge" id="chartBadge">1Y Backtest</div>
+          </div>
+          <div class="chart-box">
+            <a class="chart-zoom-link" id="chartZoomLink" href="reports/TReg_2025-03-31_2026-04-05_Equity.png" target="_blank" rel="noopener noreferrer">Open full-size equity curve</a>
+            <div class="zoom-hint">Click chart to open full size</div>
+            <div class="chart-lines">
+              <img src="reports/TReg_2025-03-31_2026-04-05_Equity.png" alt="TurboRegime Equity Curve" class="chart-image" id="equityChartPreview" />
+            </div>
+            <div class="note" id="chartNote">This chart corresponds to the performance metrics shown at left.</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section two-col-a">
+        <div class="card">
+          <div class="section-tag">A smarter way to use leverage</div>
+          <h2>Three market states. One systematic process.</h2>
+          <p>TurboRegime rotates between defense, core exposure, and high-conviction growth based on changing market conditions. It is not always leveraged. It uses leverage selectively.</p>
+        </div>
+        <div class="state-grid">
+          <div class="card">
+            <div class="bar slate"></div>
+            <div class="state-name">Risk Off</div>
+            <div class="state-detail">Defensive positioning · reduced exposure</div>
+          </div>
+          <div class="card">
+            <div class="bar blue"></div>
+            <div class="state-name">Risk On</div>
+            <div class="state-detail">Balanced exposure · participating in the market</div>
+          </div>
+          <div class="card">
+            <div class="bar green"></div>
+            <div class="state-name">Turbo Mode</div>
+            <div class="state-detail">Aggressive positioning · increased exposure in favorable conditions</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section two-col-b">
+        <div class="card">
+          <div class="section-tag">Designed for the moments that matter most</div>
+          <h2>Built to protect during stress and accelerate into recoveries.</h2>
+          <p>The largest gains often happen after downturns. TurboRegime is designed to manage risk during difficult periods, then step harder on the gas when conditions improve.</p>
+          <div class="highlight">
+            <div style="margin-bottom:10px;">
+              <a href="#" style="color:#7dd3fc; font-size:13px; text-decoration:none;">View Tariff Shock Event →</a>
+            </div>
+            <div class="small">Recent 1-Year Performance (Mar 2025 – Apr 2026)</div>
+            <div class="big">+25.4% vs SPY +18.6%</div>
+            <div style="margin-top:12px; font-size:15px; color:#e2e8f0; line-height:1.6;">
+              Max Drawdown: <strong>-12.15%</strong> vs SPY -11.99%<br>
+              Sharpe Ratio: <strong>1.13</strong> vs SPY 0.98<br>
+              MAR Ratio: <strong>2.08</strong> vs SPY 1.54
+            </div>
+            <div style="margin-top:14px; font-size:13px; color:#94a3b8;">
+              Demonstrates strong recent outperformance with improved risk-adjusted returns.
+            </div>
+          </div>
+        </div>
+        <div class="card">
+          <div class="section-tag">Consistent across market conditions</div>
+          <div class="scenario-grid" style="margin-top:20px;">
+            <div class="card" style="background: rgba(2,6,23,0.65); box-shadow:none;">
+              <div class="scenario-title" style="font-size:22px; margin-top:0;">Best case</div>
+              <div class="scenario-detail">Strong outperformance through recovery</div>
+            </div>
+            <div class="card" style="background: rgba(2,6,23,0.65); box-shadow:none;">
+              <div class="scenario-title" style="font-size:22px; margin-top:0;">Shock test</div>
+              <div class="scenario-detail">Higher return and lower drawdown than SPY</div>
+            </div>
+            <div class="card" style="background: rgba(2,6,23,0.65); box-shadow:none;">
+              <div class="scenario-title" style="font-size:22px; margin-top:0;">Worst case</div>
+              <div class="scenario-detail">Still beats SPY on key risk-adjusted metrics</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section two-col-c">
+        <div class="card">
+          <div class="section-tag">Fully systematic</div>
+          <h2>No emotion. No guessing.</h2>
+          <ul class="clean">
+            <li>End-of-day signals</li>
+            <li>Automated execution</li>
+            <li>No discretionary trade decisions</li>
+            <li>Built for disciplined consistency</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="section-tag">Four ways to participate in TReg</div>
+          <div class="path-grid" style="margin-top:20px;">
+            <div class="card" style="background: rgba(2,6,23,0.55); box-shadow:none;">
+              <div class="path-title" style="font-size:22px; margin-top:0;">Follow Regime (Free)</div>
+              <div class="path-detail">Website · delayed regime state and performance data.</div>
+            </div>
+            <div class="card" style="background: rgba(52,211,153,0.10); border-color: rgba(52,211,153,0.30); box-shadow:none;">
+              <div class="path-title" style="font-size:22px; margin-top:0;">Real-Time Signal (Premium)</div>
+              <div class="path-detail">Website · real-time regime state, signal, and allocations so you can place trades manually.</div>
+            </div>
+            <div class="card" style="background: rgba(2,6,23,0.55); box-shadow:none;">
+              <div class="path-title" style="font-size:22px; margin-top:0;">Follow Trades (Free)</div>
+              <div class="path-detail">Collective2 · track verified trades and performance.</div>
+            </div>
+            <div class="card" style="background: rgba(52,211,153,0.10); border-color: rgba(52,211,153,0.30); box-shadow:none;">
+              <div class="path-title" style="font-size:22px; margin-top:0;">Mirror Trades (Premium)</div>
+              <div class="path-detail">Collective2 · automated trade replication via subscription.</div>
+            </div>
+          </div>
+          <div class="full-width-banner">You only pay when TurboRegime outperforms SPY.</div>
+        </div>
+      </section>
+
+      <section class="cta">
+        <div class="cta-label">Final call to action</div>
+        <h2>Let’s go.</h2>
+        <div class="cta-actions">
+          <a class="btn btn-primary" href="http://localhost:8000/dashboard.html" target="_blank">Follow Regime</a>
+          <a class="btn" href="https://collective2.com/details/155341343" target="_blank">Follow/Mirror Trades</a>
+        </div>
+        <div class="cta-foot">Content access adapts to your login: basic (delayed) or premium (real-time signals and allocations).</div>
+      </section>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const JSON_PATHS = ['backtestState.json', 'backtestState.JSON'];
+      const FALLBACK_DATA = {
+        equityFilename: 'reports\\TReg_2025-03-31_2026-04-05_Equity.png',
+        performance: {
+          meta: {
+            periodYears: '1.00',
+            lastUpdated: '2026-04-05T09:35:50.972853'
+          },
+          current: {
+            totalReturnPct: '25.41',
+            cagrPct: '25.27',
+            maxDrawdownPct: '-12.15',
+            mar: '2.08'
+          },
+          benchmarks: {
+            SPY: {
+              totalReturnPct: '18.60',
+              cagrPct: '18.50',
+              maxDrawdownPct: '-11.99',
+              mar: '1.54'
+            }
+          }
+        }
+      };
+
+      const previewImage = document.getElementById('equityChartPreview');
+      const zoomLink = document.getElementById('chartZoomLink');
+      const metricsContext = document.getElementById('metricsContext');
+      const chartTitle = document.getElementById('chartTitle');
+      const chartBadge = document.getElementById('chartBadge');
+      const chartNote = document.getElementById('chartNote');
+      const metricsUpdated = document.getElementById('metricsUpdated');
+
+      function setEquityImage(path) {
+        if (!path) return;
+        if (previewImage) previewImage.src = path;
+        if (zoomLink) zoomLink.href = path;
+      }
+
+      function normalizePath(path) {
+        if (!path || typeof path !== 'string') return '';
+        return path.replace(/\\/g, '/');
+      }
+
+      async function tryFetchJson(path) {
+        const response = await fetch(path, { cache: 'no-store' });
+        if (!response.ok) {
+          throw new Error(`Could not load ${path}`);
+        }
+        return response.json();
+      }
+
+      async function loadJsonOrFallback(paths) {
+        for (const path of paths) {
+          try {
+            return await tryFetchJson(path);
+          } catch (error) {
+            console.warn(`Unable to load ${path}`, error);
+          }
+        }
+        return FALLBACK_DATA;
+      }
+
+      function safeNumber(value, digits = 2) {
+        const n = Number(value);
+        return Number.isFinite(n) ? n.toFixed(digits) : null;
+      }
+
+      function formatPercent(value, digits = 2) {
+        const formatted = safeNumber(value, digits);
+        return formatted === null ? '—' : `${formatted}%`;
+      }
+
+      function formatPlain(value, digits = 2) {
+        const formatted = safeNumber(value, digits);
+        return formatted === null ? '—' : formatted;
+      }
+
+      function formatDateTime(value) {
+        if (!value) return '';
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return '';
+        return date.toLocaleString(undefined, {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric',
+          hour: 'numeric',
+          minute: '2-digit'
+        });
+      }
+
+      function applyMetricCard(card, value, subtext) {
+        if (!card) return;
+        const valueNode = card.querySelector('.metric-value');
+        const subNode = card.querySelector('.metric-sub');
+        if (valueNode) valueNode.textContent = value;
+        if (subNode) subNode.textContent = subtext;
+      }
+
+      function applyMarketingData(data, usingFallback) {
+        const imagePath = normalizePath(data?.equityFilename) || normalizePath(FALLBACK_DATA.equityFilename);
+        setEquityImage(imagePath);
+
+        const performance = data && data.performance;
+        const current = performance && performance.current;
+        const spy = performance && performance.benchmarks && performance.benchmarks.SPY;
+        const meta = performance && performance.meta ? performance.meta : {};
+        const metricCards = document.querySelectorAll('.metrics > .card');
+
+        if (!current || metricCards.length < 4) {
+          return;
+        }
+
+        const periodYears = meta.periodYears ? Number(meta.periodYears) : null;
+        const periodLabel = Number.isFinite(periodYears)
+          ? (periodYears < 1.05 ? '1Y' : `${periodYears.toFixed(1)}Y`)
+          : 'Backtest';
+
+        if (metricsContext) {
+          metricsContext.textContent = usingFallback
+            ? `Preview mode: showing embedded ${periodLabel} backtest metrics.`
+            : `Performance metrics shown below are sourced from the current ${periodLabel} backtest file.`;
+        }
+
+        const updatedText = formatDateTime(meta.lastUpdated);
+        if (metricsUpdated) {
+          metricsUpdated.textContent = usingFallback
+            ? 'Using embedded fallback data because the JSON file could not be loaded in this preview.'
+            : (updatedText ? `Last updated: ${updatedText}` : 'Updated automatically from backtestState.json');
+        }
+
+        if (chartTitle) {
+          chartTitle.textContent = Number.isFinite(periodYears)
+            ? `Backtest Equity Curve (${periodLabel})`
+            : 'Backtest Equity Curve';
+        }
+
+        if (chartBadge) {
+          chartBadge.textContent = `${periodLabel} Backtest`;
+        }
+
+        if (chartNote) {
+          chartNote.textContent = usingFallback
+            ? 'Preview is using embedded fallback data. On your hosted site, this chart will read from backtestState.json when available.'
+            : (updatedText
+              ? `This chart corresponds to the performance metrics shown at left. Updated ${updatedText}.`
+              : 'This chart corresponds to the performance metrics shown at left.');
+        }
+
+        applyMetricCard(
+          metricCards[0],
+          formatPercent(current.totalReturnPct),
+          spy ? `${periodLabel} · vs SPY ${formatPercent(spy.totalReturnPct)}` : periodLabel
+        );
+
+        applyMetricCard(
+          metricCards[1],
+          formatPercent(current.cagrPct),
+          spy ? `${periodLabel} · vs SPY ${formatPercent(spy.cagrPct)}` : periodLabel
+        );
+
+        applyMetricCard(
+          metricCards[2],
+          formatPercent(current.maxDrawdownPct),
+          spy ? `${periodLabel} · vs SPY ${formatPercent(spy.maxDrawdownPct)}` : periodLabel
+        );
+
+        applyMetricCard(
+          metricCards[3],
+          formatPlain(current.mar),
+          spy ? `${periodLabel} · vs SPY ${formatPlain(spy.mar)}` : periodLabel
+        );
+      }
+
+      loadJsonOrFallback(JSON_PATHS)
+        .then((data) => {
+          const usingFallback = data === FALLBACK_DATA;
+          applyMarketingData(data, usingFallback);
+        })
+        .catch((error) => {
+          console.error('Unexpected failure while preparing marketing data:', error);
+          applyMarketingData(FALLBACK_DATA, true);
+        });
+    })();
+  </script>
+</body>
+</html>
+
+
+
+
