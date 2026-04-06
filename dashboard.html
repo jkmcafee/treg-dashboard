@@ -218,7 +218,6 @@ th, td {
 
 </div>
 
-<!-- ✅ DISCLAIMER ADDED HERE -->
 <div style="max-width:1200px; margin:40px auto 20px; padding:20px; border-top:1px solid #24324d; color:#9fb0d1; font-size:12px; line-height:1.6;">
   <strong>Disclaimer:</strong> Past performance is not indicative of future results. The results shown are hypothetical backtested performance and do not reflect actual trading. Hypothetical results have limitations and may differ materially from live results. Trading involves risk of loss. This content is for informational purposes only and is not investment advice. Live results are being tracked beginning 4/1/2026.
 </div>
@@ -227,79 +226,105 @@ th, td {
 
 <script>
 const useGitHubJson = true;
-const localFile = "backtestState.JSON";
-const githubFile = "https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtestState.json?t=" + new Date().getTime();
+const localFile = "backtestState.json";
+const githubBase = "https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtestState.json";
 
-const file = useGitHubJson ? githubFile : localFile;
+function getJsonUrl() {
+  const base = useGitHubJson ? githubBase : localFile;
+  return base + "?t=" + Date.now();
+}
 
 function timeSince(d){
-  let s=(Date.now()-new Date(d))/1000;
-  if(s<60)return s|0+"s";
-  if(s<3600)return s/60|0+"m";
-  return s/3600|0+"h";
+  let s = (Date.now() - new Date(d)) / 1000;
+  if (s < 60) return (s | 0) + "s";
+  if (s < 3600) return ((s / 60) | 0) + "m";
+  return ((s / 3600) | 0) + "h";
+}
+
+function getRegimeClass(regime) {
+  if (regime === "RiskOn") return "riskon";
+  if (regime === "RiskOff") return "riskoff";
+  if (regime === "RiskOn++") return "riskpp";
+  return "";
 }
 
 function render(x){
+  document.getElementById("regimeName").innerText = x.regime;
+  document.getElementById("regimeMeta").innerText = x.regimeDays + " days";
 
-  document.getElementById("regimeName").innerText=x.regime;
-  document.getElementById("regimeMeta").innerText=x.regimeDays+" days";
+  let pill = document.getElementById("regimePill");
+  pill.innerText = x.regime;
+  pill.className = "pill " + getRegimeClass(x.regime);
 
-  let pill=document.getElementById("regimePill");
-  pill.innerText=x.regime;
-  pill.className="pill "+x.regime.toLowerCase();
+  document.getElementById("cagr").innerText = x.performance.current.cagrPct + "%";
+  document.getElementById("ret").innerText = "Return " + x.performance.current.totalReturnPct + "%";
 
-  document.getElementById("cagr").innerText=x.performance.current.cagrPct+"%";
-  document.getElementById("ret").innerText="Return "+x.performance.current.totalReturnPct+"%";
+  let d = x.performance.meta.lastUpdated;
+  document.getElementById("updated").innerText =
+    new Date(d).toLocaleString() + " (" + timeSince(d) + ")";
 
-  let d=x.performance.meta.lastUpdated;
-  document.getElementById("updated").innerText=new Date(d).toLocaleString()+" ("+timeSince(d)+")";
+  document.getElementById("period").innerText =
+    x.performance.meta.startDate.split(" ")[0] + " to " +
+    x.performance.meta.endDate.split(" ")[0] +
+    " • " + x.performance.meta.periodYears + " yrs";
 
-  document.getElementById("period").innerText=
-    x.performance.meta.startDate.split(" ")[0]+" to "+
-    x.performance.meta.endDate.split(" ")[0]+
-    " • "+x.performance.meta.periodYears+" yrs";
-
-  let html=`<tr style="background:#223"><td>TReg</td><td>${x.performance.current.cagrPct}%</td><td>${x.performance.current.upi}</td></tr>`;
-  for(let k in x.performance.benchmarks){
-    let b=x.performance.benchmarks[k];
-    html+=`<tr><td>${k}</td><td>${b.cagrPct}%</td><td>${b.upi}</td></tr>`;
+  let html = `<tr style="background:#223"><td>TReg</td><td>${x.performance.current.cagrPct}%</td><td>${x.performance.current.upi}</td></tr>`;
+  for (let k in x.performance.benchmarks) {
+    let b = x.performance.benchmarks[k];
+    html += `<tr><td>${k}</td><td>${b.cagrPct}%</td><td>${b.upi}</td></tr>`;
   }
-  document.getElementById("table").innerHTML=html;
+  document.getElementById("table").innerHTML = html;
 
-  document.getElementById("metrics").innerHTML=
+  document.getElementById("metrics").innerHTML =
     `Sharpe ${x.performance.current.sharpe}<br>
      Sortino ${x.performance.current.sortino}<br>
      Ulcer ${x.performance.current.ulcer}`;
 
-  document.getElementById("eq").src=x.equityFilename+"?t="+Date.now();
-  document.getElementById("ra").src=x.ratioFilename+"?t="+Date.now();
+  document.getElementById("eq").src = x.equityFilename + "?t=" + Date.now();
+  document.getElementById("ra").src = x.ratioFilename + "?t=" + Date.now();
 
-  let a="";
-  for(let k in x.allocations){
-    let v=x.allocations[k]*100;
-    a+=`${k} ${v.toFixed(0)}%<div class="bar"><div class="bar-fill" style="width:${v}%"></div></div>`;
+  let a = "";
+  for (let k in x.allocations) {
+    let v = x.allocations[k] * 100;
+    a += `${k} ${v.toFixed(0)}%<div class="bar"><div class="bar-fill" style="width:${v}%"></div></div>`;
   }
-  document.getElementById("alloc").innerHTML=a;
+  document.getElementById("alloc").innerHTML = a;
 
-  document.getElementById("r").innerText=x.ratio;
-  document.getElementById("ma").innerText=x.ratioMA;
-  document.getElementById("d").innerText=x.ratioDelta;
-  document.getElementById("reason").innerText=x.signal_reason;
+  document.getElementById("r").innerText = x.ratio;
+  document.getElementById("ma").innerText = x.ratioMA;
+  document.getElementById("d").innerText = x.ratioDelta;
+  document.getElementById("reason").innerText = x.signal_reason;
 }
 
 async function load(){
-  let r=await fetch(file+"?t="+Date.now());
-  let j=await r.json();
-  render(j);
+  try {
+    let r = await fetch(getJsonUrl(), { cache: "no-store" });
+    let j = await r.json();
+    render(j);
+  } catch (err) {
+    console.error("Error loading dashboard JSON:", err);
+  }
 }
 
-setInterval(load,10000);
 load();
+setInterval(load, 10000);
 
-let z=document.getElementById("zoom");
-document.getElementById("eq").onclick=e=>{z.style.display="flex";zoomImg.src=e.target.src;}
-document.getElementById("ra").onclick=e=>{z.style.display="flex";zoomImg.src=e.target.src;}
-z.onclick=()=>{z.style.display="none";}
+let z = document.getElementById("zoom");
+let zoomImg = document.getElementById("zoomImg");
+
+document.getElementById("eq").onclick = e => {
+  z.style.display = "flex";
+  zoomImg.src = e.target.src;
+};
+
+document.getElementById("ra").onclick = e => {
+  z.style.display = "flex";
+  zoomImg.src = e.target.src;
+};
+
+z.onclick = () => {
+  z.style.display = "none";
+};
 </script>
 
 </body>
