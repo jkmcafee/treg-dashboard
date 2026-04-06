@@ -228,7 +228,7 @@ th, td {
 <script>
 const useGitHubJson = true;
 const localFile = "backtestState.JSON";
-const githubFile = "https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtestState.json"
+const githubFile = "https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtestState.json?t=" + new Date().getTime();
 
 const file = useGitHubJson ? githubFile : localFile;
 
