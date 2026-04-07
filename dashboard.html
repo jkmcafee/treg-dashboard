@@ -83,58 +83,63 @@ h3 {
 }
 
 .split {
-  display:flex;
-  justify-content:space-between;
-  padding:6px 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
 }
 
 .bar {
-  height:10px;
-  background:#222;
-  border-radius:5px;
+  height: 10px;
+  background: #222;
+  border-radius: 5px;
+  overflow: hidden;
 }
 
 .bar-fill {
-  height:10px;
-  background:#4da3ff;
+  height: 10px;
+  background: #4da3ff;
 }
 
 table {
-  width:100%;
+  width: 100%;
+  border-collapse: collapse;
 }
 
 th, td {
-  padding:8px;
-  border-bottom:1px solid #333;
+  padding: 8px;
+  border-bottom: 1px solid #333;
+  text-align: left;
 }
 
 .divider {
-  margin:30px 0;
-  border-top:1px solid #333;
-  text-align:center;
-  color:var(--muted);
+  margin: 30px 0;
+  border-top: 1px solid #333;
+  text-align: center;
+  color: var(--muted);
+  padding-top: 10px;
 }
 
 .img-wrap img {
-  width:100%;
+  width: 100%;
   cursor: zoom-in;
+  display: block;
 }
 
 .zoom-overlay {
-  display:none;
-  position:fixed;
-  inset:0;
-  background:rgba(0,0,0,.9);
-  justify-content:center;
-  align-items:center;
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .zoom-overlay img {
-  max-width:95%;
-  max-height:95%;
+  max-width: 95%;
+  max-height: 95%;
 }
 
-/* PREMIUM BLUR */
 .blurred {
   filter: blur(6px);
   pointer-events: none;
@@ -147,82 +152,88 @@ th, td {
 <body>
 <div class="container">
 
-<div class="header">
-  <div class="brand">
-    <h1>TurboRegime Dashboard</h1>
-  </div>
-  <div id="regimePill" class="pill">--</div>
-</div>
-
-<div class="grid cards">
-  <div class="card">
-    <h3>Regime</h3>
-    <div id="regimeName" class="metric"></div>
-    <div id="regimeMeta" class="sub"></div>
+  <div class="header">
+    <div class="brand">
+      <h1>TurboRegime Dashboard</h1>
+    </div>
+    <div id="regimePill" class="pill">--</div>
   </div>
 
-  <div class="card">
-    <h3>CAGR</h3>
-    <div id="cagr" class="metric"></div>
-    <div id="ret" class="sub"></div>
-  </div>
-
-  <div class="card">
-    <h3>Last Updated</h3>
-    <div id="updated"></div>
-  </div>
-</div>
-
-<div class="grid main">
-  <div class="card">
-    <h3>Performance Summary</h3>
-    <div id="period" class="sub"></div>
-    <table>
-      <thead>
-        <tr>
-          <th>Series</th><th>CAGR</th><th>UPI</th>
-        </tr>
-      </thead>
-      <tbody id="table"></tbody>
-    </table>
-  </div>
-
-  <div class="card">
-    <h3>Metrics</h3>
-    <div id="metrics"></div>
-  </div>
-</div>
-
-<div class="grid main">
-  <div class="card">
-    <h3>Equity</h3>
-    <div class="img-wrap"><img id="eq"></div>
-  </div>
-
-  <div class="card">
-    <h3>Ratio</h3>
-    <div class="img-wrap"><img id="ra"></div>
-  </div>
-</div>
-
-<div class="divider">Premium</div>
-
-<div id="premium">
-  <div class="grid main">
-    <div class="card"><h3>Allocations</h3><div id="alloc"></div></div>
+  <div class="grid cards">
     <div class="card">
-      <h3>Signal</h3>
-      <div class="split"><span>Ratio</span><span id="r"></span></div>
-      <div class="split"><span>MA</span><span id="ma"></span></div>
-      <div class="split"><span>Delta</span><span id="d"></span></div>
+      <h3>Regime</h3>
+      <div id="regimeName" class="metric"></div>
+      <div id="regimeMeta" class="sub"></div>
+    </div>
+
+    <div class="card">
+      <h3>CAGR</h3>
+      <div id="cagr" class="metric"></div>
+      <div id="ret" class="sub"></div>
+    </div>
+
+    <div class="card">
+      <h3>Last Updated</h3>
+      <div id="updated"></div>
     </div>
   </div>
 
-  <div class="card">
-    <h3>Reason</h3>
-    <div id="reason"></div>
+  <div class="grid main">
+    <div class="card">
+      <h3>Performance Summary</h3>
+      <div id="period" class="sub"></div>
+      <table>
+        <thead>
+          <tr>
+            <th>Series</th>
+            <th>CAGR</th>
+            <th>UPI</th>
+          </tr>
+        </thead>
+        <tbody id="table"></tbody>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Metrics</h3>
+      <div id="metrics"></div>
+    </div>
   </div>
-</div>
+
+  <div class="grid main">
+    <div class="card">
+      <h3>Equity</h3>
+      <div class="img-wrap"><img id="eq" alt="Equity curve"></div>
+    </div>
+
+    <div class="card">
+      <h3>Ratio</h3>
+      <div class="img-wrap"><img id="ra" alt="Ratio chart"></div>
+    </div>
+  </div>
+
+  <div class="divider">Premium</div>
+
+  <div id="premium">
+    <div class="grid main">
+      <div class="card">
+        <h3>Allocations</h3>
+        <div id="alloc"></div>
+      </div>
+
+      <div class="card">
+        <h3>Signal</h3>
+        <div class="split"><span>Ratio</span><span id="r"></span></div>
+        <div class="split"><span>MA</span><span id="ma"></span></div>
+        <div class="split"><span>Delta</span><span id="d"></span></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Reason</h3>
+      <div id="reason"></div>
+    </div>
+  </div>
 
 </div>
 
@@ -230,12 +241,12 @@ th, td {
   <strong>Disclaimer:</strong> Past performance is not indicative of future results. The results shown are hypothetical backtested performance and do not reflect actual trading. Hypothetical results have limitations and may differ materially from live results. Trading involves risk of loss. This content is for informational purposes only and is not investment advice. Live results are being tracked beginning 4/1/2026.
 </div>
 
-<div id="zoom" class="zoom-overlay"><img id="zoomImg"></div>
+<div id="zoom" class="zoom-overlay"><img id="zoomImg" alt="Zoomed chart"></div>
 
 <script>
-const isPremium = false; // TOGGLE
+const isPremium = false;          // premium blur toggle
+const useGitHubJson = true;       // true = GitHub raw file, false = local file
 
-const useGitHubJson = true;
 const localFile = "backtestState.json";
 const githubBase = "https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtestState.json";
 
@@ -244,68 +255,84 @@ function getJsonUrl() {
   return base + "?t=" + Date.now();
 }
 
-function timeSince(d){
-  let s = (Date.now() - new Date(d)) / 1000;
-  if (s < 60) return (s | 0) + "s";
-  if (s < 3600) return ((s / 60) | 0) + "m";
-  return ((s / 3600) | 0) + "h";
+function timeSince(d) {
+  const seconds = (Date.now() - new Date(d)) / 1000;
+  if (seconds < 60) return (seconds | 0) + "s";
+  if (seconds < 3600) return ((seconds / 60) | 0) + "m";
+  return ((seconds / 3600) | 0) + "h";
 }
 
 function getRegimeClass(regime) {
   if (regime === "RiskOn") return "riskon";
   if (regime === "RiskOff") return "riskoff";
-  if (regime === "RiskOn++") return "riskpp";
+  if (regime === "RiskOn++" || regime === "Risk++") return "riskpp";
   return "";
 }
 
-function render(x){
-  document.getElementById("regimeName").innerText = x.regime;
-  document.getElementById("regimeMeta").innerText = x.regimeDays + " days";
+function normalizeImagePath(path) {
+  return String(path || "").replace(/\\/g, "/");
+}
 
-  let pill = document.getElementById("regimePill");
-  pill.innerText = x.regime;
+function render(x) {
+  document.getElementById("regimeName").innerText = x.regime || "--";
+  document.getElementById("regimeMeta").innerText = (x.regimeDays ?? "--") + " days";
+
+  const pill = document.getElementById("regimePill");
+  pill.innerText = x.regime || "--";
   pill.className = "pill " + getRegimeClass(x.regime);
 
-  document.getElementById("cagr").innerText = x.performance.current.cagrPct + "%";
-  document.getElementById("ret").innerText = "Return " + x.performance.current.totalReturnPct + "%";
+  document.getElementById("cagr").innerText = (x.performance?.current?.cagrPct ?? "--") + "%";
+  document.getElementById("ret").innerText = "Return " + (x.performance?.current?.totalReturnPct ?? "--") + "%";
 
-  let d = x.performance.meta.lastUpdated;
-  document.getElementById("updated").innerText =
-    new Date(d).toLocaleString() + " (" + timeSince(d) + ")";
+  const updatedValue = x.performance?.meta?.lastUpdated;
+  if (updatedValue) {
+    document.getElementById("updated").innerText =
+      new Date(updatedValue).toLocaleString() + " (" + timeSince(updatedValue) + ")";
+  } else {
+    document.getElementById("updated").innerText = "--";
+  }
+
+  const startDate = x.performance?.meta?.startDate ? x.performance.meta.startDate.split(" ")[0] : "--";
+  const endDate = x.performance?.meta?.endDate ? x.performance.meta.endDate.split(" ")[0] : "--";
+  const periodYears = x.performance?.meta?.periodYears ?? "--";
 
   document.getElementById("period").innerText =
-    x.performance.meta.startDate.split(" ")[0] + " to " +
-    x.performance.meta.endDate.split(" ")[0] +
-    " • " + x.performance.meta.periodYears + " yrs";
+    startDate + " to " + endDate + " • " + periodYears + " yrs";
 
-  let html = `<tr style="background:#223"><td>TReg</td><td>${x.performance.current.cagrPct}%</td><td>${x.performance.current.upi}</td></tr>`;
-  for (let k in x.performance.benchmarks) {
-    let b = x.performance.benchmarks[k];
-    html += `<tr><td>${k}</td><td>${b.cagrPct}%</td><td>${b.upi}</td></tr>`;
+  let html = `<tr style="background:#223"><td>TReg</td><td>${x.performance?.current?.cagrPct ?? "--"}%</td><td>${x.performance?.current?.upi ?? "--"}</td></tr>`;
+
+  const benchmarks = x.performance?.benchmarks || {};
+  for (const k in benchmarks) {
+    const b = benchmarks[k];
+    html += `<tr><td>${k}</td><td>${b.cagrPct ?? "--"}%</td><td>${b.upi ?? "--"}</td></tr>`;
   }
   document.getElementById("table").innerHTML = html;
 
   document.getElementById("metrics").innerHTML =
-    `Sharpe ${x.performance.current.sharpe}<br>
-     Sortino ${x.performance.current.sortino}<br>
-     Ulcer ${x.performance.current.ulcer}`;
+    `Sharpe ${x.performance?.current?.sharpe ?? "--"}<br>
+     Sortino ${x.performance?.current?.sortino ?? "--"}<br>
+     Ulcer ${x.performance?.current?.ulcer ?? "--"}`;
 
-  document.getElementById("eq").src = x.equityFilename + "?t=" + Date.now();
-  document.getElementById("ra").src = x.ratioFilename + "?t=" + Date.now();
+  const eqPath = normalizeImagePath(x.equityFilename);
+  const raPath = normalizeImagePath(x.ratioFilename);
 
-  let a = "";
-  for (let k in x.allocations) {
-    let v = x.allocations[k] * 100;
-    a += `${k} ${v.toFixed(0)}%<div class="bar"><div class="bar-fill" style="width:${v}%"></div></div>`;
+  document.getElementById("eq").src = eqPath ? (eqPath + "?t=" + Date.now()) : "";
+  document.getElementById("ra").src = raPath ? (raPath + "?t=" + Date.now()) : "";
+
+  let allocHtml = "";
+  const allocations = x.allocations || x.lastRecommendation || {};
+  for (const k in allocations) {
+    const raw = Number(allocations[k]);
+    const v = isNaN(raw) ? 0 : raw * 100;
+    allocHtml += `${k} ${v.toFixed(0)}%<div class="bar"><div class="bar-fill" style="width:${v}%"></div></div>`;
   }
-  document.getElementById("alloc").innerHTML = a;
+  document.getElementById("alloc").innerHTML = allocHtml;
 
-  document.getElementById("r").innerText = x.ratio;
-  document.getElementById("ma").innerText = x.ratioMA;
-  document.getElementById("d").innerText = x.ratioDelta;
-  document.getElementById("reason").innerText = x.signal_reason;
+  document.getElementById("r").innerText = x.ratio ?? "--";
+  document.getElementById("ma").innerText = x.ratioMA ?? "--";
+  document.getElementById("d").innerText = x.ratioDelta ?? "--";
+  document.getElementById("reason").innerText = x.signal_reason ?? "--";
 
-  // PREMIUM CONTROL
   const premiumDiv = document.getElementById("premium");
   if (!isPremium) {
     premiumDiv.classList.add("blurred");
@@ -314,29 +341,49 @@ function render(x){
   }
 }
 
-async function load(){
+async function load() {
   try {
-    let r = await fetch(getJsonUrl(), { cache: "no-store" });
-    let j = await r.json();
+    const url = getJsonUrl();
+    console.log("Fetching:", url);
+
+    const r = await fetch(url, { cache: "no-store" });
+    console.log("Status:", r.status);
+
+    if (!r.ok) {
+      throw new Error("HTTP " + r.status + " loading " + url);
+    }
+
+    const text = await r.text();
+    console.log("Raw response preview:", text.substring(0, 300));
+
+    const j = JSON.parse(text);
     render(j);
+
   } catch (err) {
-    console.error("Error loading dashboard JSON:", err);
-    document.body.innerHTML = "<h2 style='color:red;text-align:center'>ERROR LOADING DATA</h2>";
+    console.error("FULL ERROR:", err);
+    document.body.innerHTML = `
+      <div style="padding:40px; color:#fff; font-family:Arial; background:#08101d; min-height:100vh;">
+        <h2 style="color:#ff6b6b;">ERROR LOADING DATA</h2>
+        <pre style="white-space:pre-wrap; color:#ffdede;">${String(err)}</pre>
+      </div>
+    `;
   }
 }
 
 load();
 setInterval(load, 10000);
 
-let z = document.getElementById("zoom");
-let zoomImg = document.getElementById("zoomImg");
+const z = document.getElementById("zoom");
+const zoomImg = document.getElementById("zoomImg");
 
 document.getElementById("eq").onclick = e => {
+  if (!e.target.src) return;
   z.style.display = "flex";
   zoomImg.src = e.target.src;
 };
 
 document.getElementById("ra").onclick = e => {
+  if (!e.target.src) return;
   z.style.display = "flex";
   zoomImg.src = e.target.src;
 };
