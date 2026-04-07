@@ -528,7 +528,7 @@
             Performance metrics shown below are sourced from the current backtest file.
           </div>
           <div id="metricsUpdated" style="margin-top: 8px; color: #64748b; font-size: 12px; letter-spacing: 0.02em;">
-            Updated automatically from backtestState.json
+            Updated automatically from backtest2008.json
           </div>
           <div class="metrics">
             <div class="card">
@@ -607,14 +607,14 @@
             <div style="margin-bottom:10px;">
               <a href="#" style="color:#7dd3fc; font-size:13px; text-decoration:none;">View Tariff Shock Event →</a>
             </div>
-            <div class="small">Recent 1-Year Performance (Mar 2025 – Apr 2026)</div>
-            <div class="big">+25.4% vs SPY +18.6%</div>
+            <div class="small" id="shockPeriodLabel">Recent 1-Year Performance (Mar 2025 – Apr 2026)</div>
+            <div class="big" id="shockHeadline">+25.4% vs SPY +18.6%</div>
             <div style="margin-top:12px; font-size:15px; color:#e2e8f0; line-height:1.6;">
-              Max Drawdown: <strong>-12.15%</strong> vs SPY -11.99%<br>
-              Sharpe Ratio: <strong>1.13</strong> vs SPY 0.98<br>
-              MAR Ratio: <strong>2.08</strong> vs SPY 1.54
+              Max Drawdown: <strong id="shockMaxDd">-12.15%</strong> <span id="shockMaxDdVs">vs SPY -11.99%</span><br>
+              Sharpe Ratio: <strong id="shockSharpe">1.13</strong> <span id="shockSharpeVs">vs SPY 0.98</span><br>
+              MAR Ratio: <strong id="shockMar">2.08</strong> <span id="shockMarVs">vs SPY 1.54</span>
             </div>
-            <div style="margin-top:14px; font-size:13px; color:#94a3b8;">
+            <div id="shockFooter" style="margin-top:14px; font-size:13px; color:#94a3b8;">
               Demonstrates strong recent outperformance with improved risk-adjusted returns.
             </div>
           </div>
@@ -695,16 +695,49 @@
     (function () {
       // ===== DATA SOURCE CONFIG =====
       const useGitHubJson = true;
-      const localFile = 'backtestState.json';
-      const githubFile = 'https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtestState.json';
+      const mainLocalFile = 'backtest2008.json';
+      const mainGitHubFile = 'https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtest2008.json';
+      const shockLocalFile = 'backtest2025.json';
+      const shockGitHubFile = 'https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtest2025.json';
 
-      const JSON_PATHS = useGitHubJson
-        ? [githubFile]
-        : [localFile, 'backtestState.JSON'];
-      const FALLBACK_DATA = {
-        equityFilename: 'reports\\TReg_2025-03-31_2026-04-05_Equity.png',
+      const MAIN_JSON_PATHS = useGitHubJson
+        ? [mainGitHubFile]
+        : [mainLocalFile, 'backtest2008.JSON'];
+
+      const SHOCK_JSON_PATHS = useGitHubJson
+        ? [shockGitHubFile]
+        : [shockLocalFile, 'backtest2025.JSON'];
+
+      const MAIN_FALLBACK_DATA = {
+        equityFilename: 'reports\TReg_2008_2026_Equity.png',
         performance: {
           meta: {
+            periodYears: '17.40',
+            lastUpdated: '2026-04-05T09:35:50.972853'
+          },
+          current: {
+            totalReturnPct: '3130.04',
+            cagrPct: '22.13',
+            maxDrawdownPct: '-47.20',
+            mar: '0.47'
+          },
+          benchmarks: {
+            SPY: {
+              totalReturnPct: '836.10',
+              cagrPct: '13.73',
+              maxDrawdownPct: '-33.72',
+              mar: '0.41'
+            }
+          }
+        }
+      };
+
+      const SHOCK_FALLBACK_DATA = {
+        equityFilename: 'reports\TReg_2025-03-31_2026-04-05_Equity.png',
+        performance: {
+          meta: {
+            startDate: '2025-03-31',
+            endDate: '2026-04-05',
             periodYears: '1.00',
             lastUpdated: '2026-04-05T09:35:50.972853'
           },
@@ -712,6 +745,7 @@
             totalReturnPct: '25.41',
             cagrPct: '25.27',
             maxDrawdownPct: '-12.15',
+            sharpe: '1.13',
             mar: '2.08'
           },
           benchmarks: {
@@ -719,6 +753,7 @@
               totalReturnPct: '18.60',
               cagrPct: '18.50',
               maxDrawdownPct: '-11.99',
+              sharpe: '0.98',
               mar: '1.54'
             }
           }
@@ -732,6 +767,15 @@
       const chartBadge = document.getElementById('chartBadge');
       const chartNote = document.getElementById('chartNote');
       const metricsUpdated = document.getElementById('metricsUpdated');
+      const shockPeriodLabel = document.getElementById('shockPeriodLabel');
+      const shockHeadline = document.getElementById('shockHeadline');
+      const shockMaxDd = document.getElementById('shockMaxDd');
+      const shockMaxDdVs = document.getElementById('shockMaxDdVs');
+      const shockSharpe = document.getElementById('shockSharpe');
+      const shockSharpeVs = document.getElementById('shockSharpeVs');
+      const shockMar = document.getElementById('shockMar');
+      const shockMarVs = document.getElementById('shockMarVs');
+      const shockFooter = document.getElementById('shockFooter');
 
       function setEquityImage(path) {
         if (!path) return;
@@ -741,7 +785,7 @@
 
       function normalizePath(path) {
         if (!path || typeof path !== 'string') return '';
-        return path.replace(/\\/g, '/');
+        return path.replace(/\/g, '/');
       }
 
       async function tryFetchJson(path) {
@@ -752,18 +796,18 @@
         return response.json();
       }
 
-      async function loadJsonOrFallback(paths) {
+      async function loadJsonOrFallback(paths, fallbackData) {
         for (const path of paths) {
           try {
             const data = await tryFetchJson(path);
             console.log('Loaded JSON from:', path);
-            return data;
+            return { data, usingFallback: false, sourcePath: path };
           } catch (error) {
             console.warn(`Unable to load ${path}`, error);
           }
         }
         console.warn('All JSON sources failed. Using fallback data.');
-        return FALLBACK_DATA;
+        return { data: fallbackData, usingFallback: true, sourcePath: null };
       }
 
       function safeNumber(value, digits = 2) {
@@ -794,6 +838,16 @@
         });
       }
 
+      function formatShortDate(value) {
+        if (!value) return '';
+        const date = new Date(`${value}T00:00:00`);
+        if (Number.isNaN(date.getTime())) return value;
+        return date.toLocaleDateString(undefined, {
+          month: 'short',
+          year: 'numeric'
+        });
+      }
+
       function applyMetricCard(card, value, subtext) {
         if (!card) return;
         const valueNode = card.querySelector('.metric-value');
@@ -802,8 +856,8 @@
         if (subNode) subNode.textContent = subtext;
       }
 
-      function applyMarketingData(data, usingFallback) {
-        const imagePath = normalizePath(data?.equityFilename) || normalizePath(FALLBACK_DATA.equityFilename);
+      function applyMainMarketingData(data, usingFallback) {
+        const imagePath = normalizePath(data?.equityFilename) || normalizePath(MAIN_FALLBACK_DATA.equityFilename);
         setEquityImage(imagePath);
 
         const performance = data && data.performance;
@@ -824,14 +878,14 @@
         if (metricsContext) {
           metricsContext.textContent = usingFallback
             ? `Preview mode: showing embedded ${periodLabel} backtest metrics.`
-            : `Performance metrics shown below are sourced from the current ${periodLabel} backtest file.`;
+            : `Performance metrics shown below are sourced from backtest2008.json (${periodLabel}).`;
         }
 
         const updatedText = formatDateTime(meta.lastUpdated);
         if (metricsUpdated) {
           metricsUpdated.textContent = usingFallback
-            ? 'Using embedded fallback data because the JSON file could not be loaded in this preview.'
-            : (updatedText ? `Last updated: ${updatedText}` : 'Updated automatically from backtestState.json');
+            ? 'Using embedded fallback data because backtest2008.json could not be loaded in this preview.'
+            : (updatedText ? `Last updated: ${updatedText}` : 'Updated automatically from backtest2008.json');
         }
 
         if (chartTitle) {
@@ -846,7 +900,7 @@
 
         if (chartNote) {
           chartNote.textContent = usingFallback
-            ? 'Preview is using embedded fallback data. On your hosted site, this chart will read from backtestState.json when available.'
+            ? 'Preview is using embedded fallback data. On your hosted site, this chart will read from backtest2008.json when available.'
             : (updatedText
               ? `This chart corresponds to the performance metrics shown at left. Updated ${updatedText}.`
               : 'This chart corresponds to the performance metrics shown at left.');
@@ -877,20 +931,82 @@
         );
       }
 
-      loadJsonOrFallback(JSON_PATHS)
-        .then((data) => {
-          const usingFallback = data === FALLBACK_DATA;
-          applyMarketingData(data, usingFallback);
+      function applyShockTestData(data, usingFallback) {
+        const performance = data && data.performance;
+        const current = performance && performance.current;
+        const spy = performance && performance.benchmarks && performance.benchmarks.SPY;
+        const meta = performance && performance.meta ? performance.meta : {};
+
+        if (!current) {
+          return;
+        }
+
+        const startLabel = formatShortDate(meta.startDate);
+        const endLabel = formatShortDate(meta.endDate);
+        const hasRange = startLabel && endLabel;
+        const periodText = hasRange
+          ? `Recent 1-Year Performance (${startLabel} – ${endLabel})`
+          : 'Recent 1-Year Performance';
+
+        if (shockPeriodLabel) {
+          shockPeriodLabel.textContent = periodText;
+        }
+
+        if (shockHeadline) {
+          shockHeadline.textContent = spy
+            ? `${formatPercent(current.totalReturnPct)} vs SPY ${formatPercent(spy.totalReturnPct)}`
+            : formatPercent(current.totalReturnPct);
+        }
+
+        if (shockMaxDd) {
+          shockMaxDd.textContent = formatPercent(current.maxDrawdownPct);
+        }
+        if (shockMaxDdVs) {
+          shockMaxDdVs.textContent = spy
+            ? `vs SPY ${formatPercent(spy.maxDrawdownPct)}`
+            : '';
+        }
+
+        if (shockSharpe) {
+          shockSharpe.textContent = formatPlain(current.sharpe);
+        }
+        if (shockSharpeVs) {
+          shockSharpeVs.textContent = spy && spy.sharpe !== undefined
+            ? `vs SPY ${formatPlain(spy.sharpe)}`
+            : '';
+        }
+
+        if (shockMar) {
+          shockMar.textContent = formatPlain(current.mar);
+        }
+        if (shockMarVs) {
+          shockMarVs.textContent = spy ? `vs SPY ${formatPlain(spy.mar)}` : '';
+        }
+
+        if (shockFooter) {
+          shockFooter.textContent = usingFallback
+            ? 'Preview is using embedded fallback data for the recent-period comparison.'
+            : 'This section is sourced automatically from backtest2025.json.';
+        }
+      }
+
+      Promise.all([
+        loadJsonOrFallback(MAIN_JSON_PATHS, MAIN_FALLBACK_DATA),
+        loadJsonOrFallback(SHOCK_JSON_PATHS, SHOCK_FALLBACK_DATA)
+      ])
+        .then(([mainResult, shockResult]) => {
+          applyMainMarketingData(mainResult.data, mainResult.usingFallback);
+          applyShockTestData(shockResult.data, shockResult.usingFallback);
         })
         .catch((error) => {
           console.error('Unexpected failure while preparing marketing data:', error);
-          applyMarketingData(FALLBACK_DATA, true);
+          applyMainMarketingData(MAIN_FALLBACK_DATA, true);
+          applyShockTestData(SHOCK_FALLBACK_DATA, true);
         });
     })();
   </script>
 </body>
 </html>
-
 
 
 
