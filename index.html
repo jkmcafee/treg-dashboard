@@ -528,7 +528,7 @@
             Performance metrics shown below are sourced from the current backtest file.
           </div>
           <div id="metricsUpdated" style="margin-top: 8px; color: #64748b; font-size: 12px; letter-spacing: 0.02em;">
-            Updated automatically from backtest2008.json
+            Updated automatically from backtest2008.JSON
           </div>
           <div class="metrics">
             <div class="card">
@@ -695,10 +695,10 @@
     (function () {
       // ===== DATA SOURCE CONFIG =====
       const useGitHubJson = true;
-      const mainLocalFile = 'backtest2008.json';
-      const mainGitHubFile = 'https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtest2008.json';
-      const shockLocalFile = 'backtest2025.json';
-      const shockGitHubFile = 'https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtest2025.json';
+      const mainLocalFile = 'backtest2008.JSON';
+      const mainGitHubFile = 'https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtest2008.JSON';
+      const shockLocalFile = 'backtest2025.JSON';
+      const shockGitHubFile = 'https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtest2025.JSON';
 
       const MAIN_JSON_PATHS = useGitHubJson
         ? [mainGitHubFile]
@@ -709,7 +709,7 @@
         : [shockLocalFile, 'backtest2025.JSON'];
 
       const MAIN_FALLBACK_DATA = {
-        equityFilename: 'reports\TReg_2008_2026_Equity.png',
+        equityFilename: 'reports/TReg_2008_2026_Equity.png',
         performance: {
           meta: {
             periodYears: '17.40',
@@ -733,7 +733,7 @@
       };
 
       const SHOCK_FALLBACK_DATA = {
-        equityFilename: 'reports\TReg_2025-03-31_2026-04-05_Equity.png',
+        equityFilename: 'reports/TReg_2025-03-31_2026-04-05_Equity.png',
         performance: {
           meta: {
             startDate: '2025-03-31',
@@ -785,7 +785,7 @@
 
       function normalizePath(path) {
         if (!path || typeof path !== 'string') return '';
-        return path.replace(/\/g, '/');
+        return path.replace(/\\/g, '/');
       }
 
       async function tryFetchJson(path) {
@@ -878,14 +878,14 @@
         if (metricsContext) {
           metricsContext.textContent = usingFallback
             ? `Preview mode: showing embedded ${periodLabel} backtest metrics.`
-            : `Performance metrics shown below are sourced from backtest2008.json (${periodLabel}).`;
+            : `Performance metrics shown below are sourced from backtest2008.JSON (${periodLabel}).`;
         }
 
         const updatedText = formatDateTime(meta.lastUpdated);
         if (metricsUpdated) {
           metricsUpdated.textContent = usingFallback
-            ? 'Using embedded fallback data because backtest2008.json could not be loaded in this preview.'
-            : (updatedText ? `Last updated: ${updatedText}` : 'Updated automatically from backtest2008.json');
+            ? 'Using embedded fallback data because backtest2008.JSON could not be loaded in this preview.'
+            : (updatedText ? `Last updated: ${updatedText}` : 'Updated automatically from backtest2008.JSON');
         }
 
         if (chartTitle) {
@@ -900,7 +900,7 @@
 
         if (chartNote) {
           chartNote.textContent = usingFallback
-            ? 'Preview is using embedded fallback data. On your hosted site, this chart will read from backtest2008.json when available.'
+            ? 'Preview is using embedded fallback data. On your hosted site, this chart will read from backtest2008.JSON when available.'
             : (updatedText
               ? `This chart corresponds to the performance metrics shown at left. Updated ${updatedText}.`
               : 'This chart corresponds to the performance metrics shown at left.');
@@ -986,7 +986,7 @@
         if (shockFooter) {
           shockFooter.textContent = usingFallback
             ? 'Preview is using embedded fallback data for the recent-period comparison.'
-            : 'This section is sourced automatically from backtest2025.json.';
+            : 'This section is sourced automatically from backtest2025.JSON.';
         }
       }
 
@@ -1007,6 +1007,5 @@
   </script>
 </body>
 </html>
-
 
 
