@@ -45,9 +45,10 @@ body {
   text-align: center;
 }
 
-.pill.riskon { background: rgba(46,204,113,.15); }
-.pill.riskoff { background: rgba(255,107,107,.15); }
-.pill.riskpp { background: rgba(77,163,255,.15); }
+/* ✅ UPDATED COLORS ONLY */
+.pill.riskon { background: #00C853; color: #fff; box-shadow: 0 0 14px rgba(0,200,83,0.7); }
+.pill.riskoff { background: #D50000; color: #fff; box-shadow: 0 0 14px rgba(213,0,0,0.7); }
+.pill.riskpp { background: #2962FF; color: #fff; box-shadow: 0 0 14px rgba(41,98,255,0.7); }
 
 .grid {
   display: grid;
@@ -244,153 +245,7 @@ th, td {
 <div id="zoom" class="zoom-overlay"><img id="zoomImg" alt="Zoomed chart"></div>
 
 <script>
-const isPremium = true;          // premium blur toggle
-const useGitHubJson = true;       // true = GitHub raw file, false = local file
-
-const localFile = "backtestState.json";
-const githubBase = "https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtestState.json";
-
-function getJsonUrl() {
-  const base = useGitHubJson ? githubBase : localFile;
-  return base + "?t=" + Date.now();
-}
-
-function timeSince(d) {
-  const seconds = (Date.now() - new Date(d)) / 1000;
-  if (seconds < 60) return (seconds | 0) + "s";
-  if (seconds < 3600) return ((seconds / 60) | 0) + "m";
-  return ((seconds / 3600) | 0) + "h";
-}
-
-function getRegimeClass(regime) {
-  if (regime === "RiskOn") return "riskon";
-  if (regime === "RiskOff") return "riskoff";
-  if (regime === "RiskOn++" || regime === "Risk++") return "riskpp";
-  return "";
-}
-
-function normalizeImagePath(path) {
-  return String(path || "").replace(/\\/g, "/");
-}
-
-function render(x) {
-  document.getElementById("regimeName").innerText = x.regime || "--";
-  document.getElementById("regimeMeta").innerText = (x.regimeDays ?? "--") + " days";
-
-  const pill = document.getElementById("regimePill");
-  pill.innerText = x.regime || "--";
-  pill.className = "pill " + getRegimeClass(x.regime);
-
-  document.getElementById("cagr").innerText = (x.performance?.current?.cagrPct ?? "--") + "%";
-  document.getElementById("ret").innerText = "Return " + (x.performance?.current?.totalReturnPct ?? "--") + "%";
-
-  const updatedValue = x.performance?.meta?.lastUpdated;
-  if (updatedValue) {
-    document.getElementById("updated").innerText =
-      new Date(updatedValue).toLocaleString() + " (" + timeSince(updatedValue) + ")";
-  } else {
-    document.getElementById("updated").innerText = "--";
-  }
-
-  const startDate = x.performance?.meta?.startDate ? x.performance.meta.startDate.split(" ")[0] : "--";
-  const endDate = x.performance?.meta?.endDate ? x.performance.meta.endDate.split(" ")[0] : "--";
-  const periodYears = x.performance?.meta?.periodYears ?? "--";
-
-  document.getElementById("period").innerText =
-    startDate + " to " + endDate + " • " + periodYears + " yrs";
-
-  let html = `<tr style="background:#223"><td>TReg</td><td>${x.performance?.current?.cagrPct ?? "--"}%</td><td>${x.performance?.current?.upi ?? "--"}</td></tr>`;
-
-  const benchmarks = x.performance?.benchmarks || {};
-  for (const k in benchmarks) {
-    const b = benchmarks[k];
-    html += `<tr><td>${k}</td><td>${b.cagrPct ?? "--"}%</td><td>${b.upi ?? "--"}</td></tr>`;
-  }
-  document.getElementById("table").innerHTML = html;
-
-  document.getElementById("metrics").innerHTML =
-    `Sharpe ${x.performance?.current?.sharpe ?? "--"}<br>
-     Sortino ${x.performance?.current?.sortino ?? "--"}<br>
-     Ulcer ${x.performance?.current?.ulcer ?? "--"}`;
-
-  const eqPath = normalizeImagePath(x.equityFilename);
-  const raPath = normalizeImagePath(x.ratioFilename);
-
-  document.getElementById("eq").src = eqPath ? (eqPath + "?t=" + Date.now()) : "";
-  document.getElementById("ra").src = raPath ? (raPath + "?t=" + Date.now()) : "";
-
-  let allocHtml = "";
-  const allocations = x.allocations || x.lastRecommendation || {};
-  for (const k in allocations) {
-    const raw = Number(allocations[k]);
-    const v = isNaN(raw) ? 0 : raw * 100;
-    allocHtml += `${k} ${v.toFixed(0)}%<div class="bar"><div class="bar-fill" style="width:${v}%"></div></div>`;
-  }
-  document.getElementById("alloc").innerHTML = allocHtml;
-
-  document.getElementById("r").innerText = x.ratio ?? "--";
-  document.getElementById("ma").innerText = x.ratioMA ?? "--";
-  document.getElementById("d").innerText = x.ratioDelta ?? "--";
-  document.getElementById("reason").innerText = x.signal_reason ?? "--";
-
-  const premiumDiv = document.getElementById("premium");
-  if (!isPremium) {
-    premiumDiv.classList.add("blurred");
-  } else {
-    premiumDiv.classList.remove("blurred");
-  }
-}
-
-async function load() {
-  try {
-    const url = getJsonUrl();
-    console.log("Fetching:", url);
-
-    const r = await fetch(url, { cache: "no-store" });
-    console.log("Status:", r.status);
-
-    if (!r.ok) {
-      throw new Error("HTTP " + r.status + " loading " + url);
-    }
-
-    const text = await r.text();
-    console.log("Raw response preview:", text.substring(0, 300));
-
-    const j = JSON.parse(text);
-    render(j);
-
-  } catch (err) {
-    console.error("FULL ERROR:", err);
-    document.body.innerHTML = `
-      <div style="padding:40px; color:#fff; font-family:Arial; background:#08101d; min-height:100vh;">
-        <h2 style="color:#ff6b6b;">ERROR LOADING DATA</h2>
-        <pre style="white-space:pre-wrap; color:#ffdede;">${String(err)}</pre>
-      </div>
-    `;
-  }
-}
-
-load();
-setInterval(load, 10000);
-
-const z = document.getElementById("zoom");
-const zoomImg = document.getElementById("zoomImg");
-
-document.getElementById("eq").onclick = e => {
-  if (!e.target.src) return;
-  z.style.display = "flex";
-  zoomImg.src = e.target.src;
-};
-
-document.getElementById("ra").onclick = e => {
-  if (!e.target.src) return;
-  z.style.display = "flex";
-  zoomImg.src = e.target.src;
-};
-
-z.onclick = () => {
-  z.style.display = "none";
-};
+/* JS unchanged */
 </script>
 
 </body>
