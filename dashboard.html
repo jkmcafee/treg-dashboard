@@ -133,6 +133,14 @@ th, td {
   max-width:95%;
   max-height:95%;
 }
+
+/* PREMIUM BLUR */
+.blurred {
+  filter: blur(6px);
+  pointer-events: none;
+  user-select: none;
+  opacity: 0.6;
+}
 </style>
 </head>
 
@@ -225,9 +233,11 @@ th, td {
 <div id="zoom" class="zoom-overlay"><img id="zoomImg"></div>
 
 <script>
+const isPremium = false; // TOGGLE
+
 const useGitHubJson = true;
-const localFile = "backtestState.json";
-const githubBase = "https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtestState.json";
+const localFile = "backtestState.JSON";
+const githubBase = "https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtestState.JSON";
 
 function getJsonUrl() {
   const base = useGitHubJson ? githubBase : localFile;
@@ -294,6 +304,14 @@ function render(x){
   document.getElementById("ma").innerText = x.ratioMA;
   document.getElementById("d").innerText = x.ratioDelta;
   document.getElementById("reason").innerText = x.signal_reason;
+
+  // PREMIUM CONTROL
+  const premiumDiv = document.getElementById("premium");
+  if (!isPremium) {
+    premiumDiv.classList.add("blurred");
+  } else {
+    premiumDiv.classList.remove("blurred");
+  }
 }
 
 async function load(){
@@ -303,6 +321,7 @@ async function load(){
     render(j);
   } catch (err) {
     console.error("Error loading dashboard JSON:", err);
+    document.body.innerHTML = "<h2 style='color:red;text-align:center'>ERROR LOADING DATA</h2>";
   }
 }
 
