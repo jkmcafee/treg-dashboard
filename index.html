@@ -50,7 +50,7 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      padding: 18px 0;
+      padding: 22px 0;
     }
 
     .eyebrow {
@@ -64,6 +64,21 @@
       font-size: 18px;
       font-weight: 700;
     }
+
+    .brand-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo {
+      height: 64px;
+      width: auto;
+      display: block;
+      filter: drop-shadow(0 0 8px rgba(56,189,248,0.35));
+      flex-shrink: 0;
+    }
+
 
     .nav-actions {
       display: flex;
@@ -476,6 +491,14 @@
         flex-direction: column;
       }
 
+      .brand-wrap {
+        align-items: center;
+      }
+
+      .logo {
+        height: 32px;
+      }
+
       .metrics {
         grid-template-columns: 1fr;
       }
@@ -502,9 +525,8 @@
 <body>
   <div class="topbar">
     <div class="container nav">
-      <div>
-        <div class="eyebrow">DYNAMIC REGIME-BASED ALLOCATION</div>
-        <div class="brand-title">TurboRegime</div>
+      <div class="brand-wrap">
+        <img src="logo.png" alt="TurboRegime logo" class="logo" />
       </div>
       <div class="nav-actions">
         <a class="btn btn-primary" href="dashboard.html" target="_self">Dashboard</a>
