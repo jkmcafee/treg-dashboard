@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TurboRegime</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      min-height: 100vh;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    main { padding: 20px 0 64px; }
+
+    .hero {
+      padding-bottom: 10px;
+    }
+
+    .hero-card {
+      padding: 22px;
+      margin-bottom: 22px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      color: #7dd3fc;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 8px;
+      font-weight: 700;
+    }
+
+    .page-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      background: var(--sky-soft);
+      color: #bae6fd;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 20px;
+    }
+
+
+    .subhead {
+      margin: 12px 0 0;
+      font-size: clamp(24px, 2.6vw, 34px);
+      color: #cbd5e1;
+    }
+
+    .kicker {
+      margin: 0;
+      font-size: 14px;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      line-height: 1.5;
+      max-width: 1500px;
+    }
+
+    .lede {
+      margin-top: 18px;
+      max-width: 850px;
+      font-size: 18px;
+      line-height: 1.8;
+      color: #cbd5e1;
+    }
+
+    .status-line {
+      margin-top: 16px;
+      color: #94a3b8;
+      font-size: 13px;
+      letter-spacing: 0.02em;
+    }
+
+    .metrics {
+      margin-top: 28px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      min-width: 0;
+    }
+
+    .metric-label {
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      line-height: 1.3;
+      white-space: nowrap;
+    }
+
+    .metric-value {
+      margin-top: 10px;
+      font-size: clamp(24px, 2.3vw, 30px);
+      line-height: 1.05;
+      font-weight: 800;
+      color: var(--emerald);
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    .metric-sub {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.35;
+      white-space: nowrap;
+    }
+
+    .section {
+      margin-top: 28px;
+      display: grid;
+      gap: 24px;
+    }
+
+    .chart-title {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .chart-sub {
+      margin-top: 4px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: #64748b;
+    }
+
+    .table-toolbar {
+      margin-top: 16px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .toggle-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .toggle {
+      border: 1px solid #334155;
+      background: rgba(2, 6, 23, 0.65);
+      color: #cbd5e1;
+      padding: 9px 12px;
+      border-radius: 999px;
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .toggle.active {
+      border-color: rgba(56, 189, 248, 0.8);
+      color: #bae6fd;
+      background: rgba(56, 189, 248, 0.12);
+    }
+
+    .table-wrap {
+      margin-top: 14px;
+      max-height: 640px;
+      overflow: auto;
+      border: 1px solid #1e293b;
+      border-radius: 18px;
+      background: rgba(2, 6, 23, 0.45);
+    }
+
+    table {
+      width: 100%;
+      min-width: 900px;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+
+    th, td {
+      padding: 12px 18px;
+      border-bottom: 1px solid #1e293b;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    th:first-child,
+    td:first-child {
+      text-align: left;
+      position: sticky;
+      left: 0;
+      background: #020617;
+      z-index: 1;
+    }
+
+    th {
+      position: sticky;
+      top: 0;
+      z-index: 2;
+      background: #020617;
+      color: #94a3b8;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+    }
+
+    th:first-child { z-index: 3; }
+
+    tr:nth-child(even) td {
+      background-color: rgba(255,255,255,0.02);
+    }
+
+    tr:nth-child(even) td:first-child {
+      background-color: #061020;
+    }
+
+    .row-outperform td {
+      background-color: rgba(52, 211, 153, 0.045);
+    }
+
+    .row-underperform td {
+      background-color: rgba(248, 113, 113, 0.045);
+    }
+
+    tr:nth-child(even).row-outperform td {
+      background-color: rgba(52, 211, 153, 0.065);
+    }
+
+    tr:nth-child(even).row-underperform td {
+      background-color: rgba(248, 113, 113, 0.065);
+    }
+
+    .row-outperform td:first-child {
+      background-color: rgba(52, 211, 153, 0.09);
+    }
+
+    .row-underperform td:first-child {
+      background-color: rgba(248, 113, 113, 0.09);
+    }
+
+    .pos { color: var(--emerald); font-weight: 700; }
+    .neg { color: var(--red); font-weight: 700; }
+    .muted { color: var(--muted); }
+
+    .debug-box {
+      display: none;
+      margin-top: 18px;
+      padding: 14px;
+      border-radius: 16px;
+      border: 1px solid #334155;
+      background: rgba(2, 6, 23, 0.7);
+      color: #94a3b8;
+      font-size: 12px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      overflow: auto;
+      max-height: 220px;
+    }
+
+    .debug-box.show { display: block; }
+
+    footer {
+      margin-top: 40px;
+      padding: 20px 0;
+      border-top: 1px solid #1e293b;
+      color: #94a3b8;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1120px) {
+      .metrics { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 900px) {
+      .metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    }
+
+    @media (max-width: 640px) {
+      .metrics { grid-template-columns: 1fr; }
+      .metric-label, .metric-sub { white-space: normal; }
+      .metric-value { font-size: 30px; }
+      table { font-size: 13px; }
+      th, td { padding: 10px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-mark">T</div>
+        <div>TurboRegime - Yealy Performance</div>
+      </div>
+
+<div class="nav">
+  <a href="index.html">Home</a>
+  <a href="how.html">How It Works</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="scenarios.html">Scenarios</a>
+  <a href="yearly.html" class="active">Yearly</a>
+  <a href="trades.html">Trades</a>
+  <a href="about.html">About</a>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="hero">
+        <div class="hero-card">
+          <div class="eyebrow">Annual Returns</div>
+          <div class="page-title">TReg vs SPY</div>
+          <div class="kicker">Backtested across normal and dislocated market cycles, spanning 500+ regime changes, TReg outperformed SPY in every full year except 2008 and 2012 (with 2008 representing a partial year beginning 11/5/2008). Performance was materially stronger in most years, including a 42% outperformance in 2010. Max drawdowns were generally lower than or comparable to SPY, with 2012 being the only year where both return and drawdown trailed the benchmark.     </div>
+        </div>
+
+        <div class="metrics">
+          <div class="card">
+            <div class="metric-label">Best TReg Year</div>
+            <div class="metric-value" id="bestYear">--</div>
+            <div class="metric-sub" id="bestYearSub">--</div>
+          </div>
+          <div class="card">
+            <div class="metric-label">Worst TReg Year</div>
+            <div class="metric-value" id="worstYear">--</div>
+            <div class="metric-sub" id="worstYearSub">--</div>
+          </div>
+          <div class="card">
+            <div class="metric-label">Average TReg Return</div>
+            <div class="metric-value" id="avgReturn">--</div>
+            <div class="metric-sub" id="avgReturnSub">Annual average</div>
+          </div>
+          <div class="card">
+            <div class="metric-label">Beta</div>
+            <div class="metric-value" id="betaValue">--</div>
+            <div class="metric-sub">vs SPY</div>
+          </div>
+          <div class="card">
+            <div class="metric-label">Sharpe</div>
+            <div class="metric-value" id="sharpeValue">--</div>
+            <div class="metric-sub" id="sharpeSub">vs SPY</div>
+          </div>
+          <div class="card">
+            <div class="metric-label">MAR</div>
+            <div class="metric-value" id="marValue">--</div>
+            <div class="metric-sub" id="marSub">vs SPY</div>
+          </div>
+          <div class="card">
+            <div class="metric-label">Sortino</div>
+            <div class="metric-value" id="sortinoValue">--</div>
+            <div class="metric-sub" id="sortinoSub">vs SPY</div>
+          </div>
+
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="card">
+
+          <div class="table-wrap">
+            <table id="yearlyTable">
+              <thead id="yearlyHead"></thead>
+              <tbody id="yearlyBody"></tbody>
+            </table>
+          </div>
+
+          <div class="debug-box" id="debugBox"></div>
+        </div>
+      </section>
+
+      <footer>
+        <strong>Disclaimer:</strong> Jeff McAfee is not a registered investment adviser. TurboRegime is intended to provide insight into how Jeff trades and is not personalized investment advice. Past performance is not indicative of future results. Performance results shown on this website may include hypothetical or backtested results, which have inherent limitations and may differ materially from live trading. Trading involves risk of loss. Live results are being tracked beginning 4/1/2026.
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const DEBUG_MODE = false;
+      const ANNUAL_JSON_PATHS = [
+        'annual2008.JSON',
+        'annual2008.json'
+      ];
+
+      const BACKTEST_JSON_PATHS = [
+        'backtest2008.JSON',
+        'backtest2008.json'
+      ];
+
+      const FALLBACK_ROWS = [
+        { year: 2008, "bSTRAT%": -8.75, "SPY%": -5.44, "SPXL%": -28.51, "SHV%": 0.38, "bStratdd%": -13.21, "SPYdd%": -21.57, "SPXLdd%": -53.01, "SHVdd%": -0.10 },
+        { year: 2009, "bSTRAT%": 43.48, "SPY%": 26.21, "SPXL%": 65.14, "SHV%": 0.19, "bStratdd%": -18.57, "SPYdd%": -27.14, "SPXLdd%": -64.33, "SHVdd%": -0.22 },
+        { year: 2010, "bSTRAT%": 57.59, "SPY%": 15.03, "SPXL%": 39.83, "SHV%": 0.16, "bStratdd%": -17.79, "SPYdd%": -15.72, "SPXLdd%": -43.44, "SHVdd%": -0.06 }
+      ];
+
+      let currentRows = [];
+      let currentView = 'both';
+      let debugLines = [];
+
+      const dataStatus = document.getElementById('dataStatus');
+      const tableSub = document.getElementById('tableSub');
+      const debugBox = document.getElementById('debugBox');
+
+      function logDebug(message, obj) {
+        const line = obj === undefined ? message : `${message}: ${JSON.stringify(obj, null, 2)}`;
+        debugLines.push(line);
+        if (DEBUG_MODE) console.log(message, obj || '');
+        if (debugBox) debugBox.textContent = debugLines.join('\n\n');
+      }
+
+      function normalizeKey(key) {
+        return String(key || '')
+          .trim()
+          .toLowerCase()
+          .replace(/\s+/g, '')
+          .replace(/_/g, '')
+          .replace(/-/g, '')
+          .replace(/\./g, '')
+          .replace(/\$/g, '');
+      }
+
+      function makeKeyMap(row) {
+        const map = {};
+        Object.keys(row || {}).forEach(k => {
+          map[normalizeKey(k)] = k;
+        });
+        return map;
+      }
+
+      function firstValue(row, aliases) {
+        if (!row) return null;
+
+        for (const key of aliases) {
+          if (Object.prototype.hasOwnProperty.call(row, key)) {
+            return row[key];
+          }
+        }
+
+        const keyMap = makeKeyMap(row);
+        for (const key of aliases) {
+          const normalized = normalizeKey(key);
+          if (Object.prototype.hasOwnProperty.call(keyMap, normalized)) {
+            return row[keyMap[normalized]];
+          }
+        }
+
+        return null;
+      }
+
+      function numberValue(row, aliases) {
+        const raw = firstValue(row, aliases);
+        if (raw === null || raw === undefined || raw === '') return null;
+        const cleaned = String(raw).replace('%', '').replace(',', '').trim();
+        const n = Number(cleaned);
+        return Number.isFinite(n) ? n : null;
+      }
+
+      function textValue(row, aliases) {
+        const raw = firstValue(row, aliases);
+        return raw === null || raw === undefined ? '' : String(raw);
+      }
+
+      function normalizeYear(raw) {
+        const n = Number(String(raw).trim());
+        if (!Number.isFinite(n)) return String(raw || '');
+        if (n > 1000000) return String(Math.floor(n / 10000));
+        if (n > 10000) return String(Math.floor(n / 100));
+        return String(Math.floor(n));
+      }
+
+      function normalizeRow(row) {
+        const yearRaw = textValue(row, ['year', 'Year', 'YEAR', 'date', 'Date']);
+        return {
+          year: normalizeYear(yearRaw),
+          tRegReturn: numberValue(row, ['strategyReturnPct', 'tregReturnPct', 'TReg%', 'TREG%', 'bSTRAT%', 'bStrat%', 'bSTRAT', 'bStrat', 'Strategy%', 'strategy%']),
+          spyReturn: numberValue(row, ['spyReturnPct', 'SPY%', 'SPY', 'spy%']),
+          spxlReturn: numberValue(row, ['spxlReturnPct', 'SPXL%', 'SPXL', 'spxl%']),
+          shvReturn: numberValue(row, ['shvReturnPct', 'SHV%', 'SHV', 'shv%']),
+          ratioReturn: numberValue(row, ['SPXL/SPY%', 'spxlSpyReturnPct', 'SPXLSPY%', 'ratioReturnPct']),
+          tRegDd: numberValue(row, ['strategyMaxDrawdownPct', 'tregMaxDrawdownPct', 'TRegdd%', 'TREGdd%', 'bStratdd%', 'bSTRATdd%', 'bStratDD%', 'bSTRATDD%', 'bStratdd', 'Strategydd%']),
+          spyDd: numberValue(row, ['spyMaxDrawdownPct', 'SPYdd%', 'SPYDD%', 'SPYdd', 'spydd%']),
+          spxlDd: numberValue(row, ['spxlMaxDrawdownPct', 'SPXLdd%', 'SPXLDD%', 'SPXLdd', 'spxldd%']),
+          shvDd: numberValue(row, ['shvMaxDrawdownPct', 'SHVdd%', 'SHVDD%', 'SHVdd', 'shvdd%']),
+          ratioDd: numberValue(row, ['SPXL/SPYdd%', 'SPXL/SPYDD%', 'spxlSpyMaxDrawdownPct', 'ratioMaxDrawdownPct'])
+        };
+      }
+
+      function extractRows(json) {
+        if (Array.isArray(json)) return json;
+
+        if (json && Array.isArray(json.yearly)) return json.yearly;
+        if (json && Array.isArray(json.annual)) return json.annual;
+        if (json && Array.isArray(json.data)) return json.data;
+        if (json && json.performance && Array.isArray(json.performance.yearly)) return json.performance.yearly;
+
+        return [];
+      }
+
+      async function tryFetchJson(path) {
+        const response = await fetch(path, { cache: 'no-store' });
+        if (!response.ok) throw new Error(`HTTP ${response.status} loading ${path}`);
+        return response.json();
+      }
+
+      async function loadJsonOrFallback() {
+        for (const path of ANNUAL_JSON_PATHS) {
+          try {
+            const json = await tryFetchJson(path);
+            const rawRows = extractRows(json);
+            logDebug(`Loaded ${path}`, { rowCount: rawRows.length, firstRowKeys: rawRows[0] ? Object.keys(rawRows[0]) : [] });
+
+            if (!rawRows.length) {
+              throw new Error(`${path} loaded but no annual rows were found`);
+            }
+
+            return { rows: rawRows.map(normalizeRow), usingFallback: false, sourcePath: path, rawRows, rawJson: json };
+          } catch (error) {
+            logDebug(`Unable to load ${path}`, String(error && error.message ? error.message : error));
+          }
+        }
+
+        logDebug('Using embedded fallback rows', { rowCount: FALLBACK_ROWS.length });
+        return { rows: FALLBACK_ROWS.map(normalizeRow), usingFallback: true, sourcePath: null, rawRows: FALLBACK_ROWS, rawJson: null };
+      }
+
+      function fmtPercent(value, digits = 1) {
+        if (value === null || value === undefined || !Number.isFinite(Number(value))) return '<span class="muted">--</span>';
+        const n = Number(value);
+        return `<span class="${n >= 0 ? 'pos' : 'neg'}">${n.toFixed(digits)}%</span>`;
+      }
+
+      function fmtPlainPercent(value, digits = 1) {
+        if (value === null || value === undefined || !Number.isFinite(Number(value))) return '--';
+        return `${Number(value).toFixed(digits)}%`;
+      }
+
+      function fmtNeutralPercent(value, digits = 1) {
+        if (value === null || value === undefined || !Number.isFinite(Number(value))) return '<span class="muted">--</span>';
+        return `<span class="muted">${Number(value).toFixed(digits)}%</span>`;
+      }
+
+      function fmtDeltaInline(value, digits = 1, suffix = '%') {
+        if (value === null || value === undefined || !Number.isFinite(Number(value))) return '<span class="muted">--</span>';
+        const n = Number(value);
+        return `<span class="${n >= 0 ? 'pos' : 'neg'}">${n.toFixed(digits)}${suffix}</span>`;
+      }
+
+      function fmtText(value) {
+        return value === null || value === undefined || value === '' ? '--' : String(value);
+      }
+
+      function setMetric(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function setText(id, text) {
+        const el = document.getElementById(id);
+        if (el) el.textContent = text;
+      }
+
+      function setHTML(id, html) {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = html;
+      }
+
+      function populateSummary(rows) {
+        const valid = rows.filter(r => Number.isFinite(r.tRegReturn));
+        const validSpy = rows.filter(r => Number.isFinite(r.spyReturn));
+
+        if (!valid.length) {
+          setText('bestYear', '--');
+          setText('worstYear', '--');
+          setText('avgReturn', '--');
+          setText('positivePct', '--');
+          return;
+        }
+
+        const best = valid.reduce((a, b) => b.tRegReturn > a.tRegReturn ? b : a, valid[0]);
+        const worst = valid.reduce((a, b) => b.tRegReturn < a.tRegReturn ? b : a, valid[0]);
+
+        const spyBest = validSpy.length
+          ? validSpy.reduce((a, b) => b.spyReturn > a.spyReturn ? b : a, validSpy[0])
+          : null;
+
+        const spyWorst = validSpy.length
+          ? validSpy.reduce((a, b) => b.spyReturn < a.spyReturn ? b : a, validSpy[0])
+          : null;
+
+        const avg = valid.reduce((sum, r) => sum + r.tRegReturn, 0) / valid.length;
+        const spyAvg = validSpy.length
+          ? validSpy.reduce((sum, r) => sum + r.spyReturn, 0) / validSpy.length
+          : null;
+
+        const positiveCount = valid.filter(r => r.tRegReturn > 0).length;
+        const positivePct = positiveCount / valid.length * 100;
+
+        const spyPositiveCount = validSpy.filter(r => r.spyReturn > 0).length;
+        const spyPositivePct = validSpy.length ? spyPositiveCount / validSpy.length * 100 : null;
+
+        const bestDelta = spyBest && Number.isFinite(best.tRegReturn) && Number.isFinite(spyBest.spyReturn)
+          ? best.tRegReturn - spyBest.spyReturn
+          : null;
+
+        const worstDelta = spyWorst && Number.isFinite(worst.tRegReturn) && Number.isFinite(spyWorst.spyReturn)
+          ? worst.tRegReturn - spyWorst.spyReturn
+          : null;
+
+        const avgDelta = Number.isFinite(avg) && Number.isFinite(spyAvg)
+          ? avg - spyAvg
+          : null;
+
+        const positiveDelta = Number.isFinite(positivePct) && Number.isFinite(spyPositivePct)
+          ? positivePct - spyPositivePct
+          : null;
+
+        setMetric('bestYear', `${fmtPercent(best.tRegReturn)} <span class="metric-sub">(${best.year})</span>`);
+        setHTML(
+          'bestYearSub',
+          spyBest
+            ? `SPY: ${fmtPlainPercent(spyBest.spyReturn)} (${spyBest.year}) · Δ ${fmtDeltaInline(avgSafe(bestDelta))}`
+            : ''
+        );
+
+        setMetric('worstYear', `${fmtPercent(worst.tRegReturn)} <span class="metric-sub">(${worst.year})</span>`);
+        setHTML(
+          'worstYearSub',
+          spyWorst
+            ? `SPY: ${fmtPlainPercent(spyWorst.spyReturn)} (${spyWorst.year}) · Δ ${fmtDeltaInline(avgSafe(worstDelta))}`
+            : ''
+        );
+
+        setMetric('avgReturn', fmtPercent(avg));
+        setHTML(
+          'avgReturnSub',
+          `SPY ${fmtPlainPercent(spyAvg)} · Δ ${fmtDeltaInline(avgSafe(avgDelta))}`
+        );
+
+
+      }
+
+      function avgSafe(value) {
+        return Number.isFinite(value) ? value : null;
+      }
+
+      function renderHeader() {
+        const head = document.getElementById('yearlyHead');
+
+        let columns = ['Year'];
+
+        if (currentView === 'returns' || currentView === 'both') {
+          columns = columns.concat(['TReg', 'SPY', 'Δ Return']);
+        }
+
+        if (currentView === 'drawdowns' || currentView === 'both') {
+          columns = columns.concat(['TReg DD', 'SPY DD', 'Δ DD']);
+        }
+
+        head.innerHTML = `<tr>${columns.map(c => `<th>${c}</th>`).join('')}</tr>`;
+      }
+
+      function deltaValue(a, b) {
+        if (!Number.isFinite(a) || !Number.isFinite(b)) return null;
+        return a - b;
+      }
+
+      function renderTable(rows) {
+        const body = document.getElementById('yearlyBody');
+        renderHeader();
+
+        body.innerHTML = rows.map(row => {
+          const cells = [`<td>${fmtText(row.year)}</td>`];
+          const returnDelta = deltaValue(row.tRegReturn, row.spyReturn);
+
+          if (currentView === 'returns' || currentView === 'both') {
+            cells.push(`<td>${fmtNeutralPercent(row.tRegReturn)}</td>`);
+            cells.push(`<td>${fmtNeutralPercent(row.spyReturn)}</td>`);
+            cells.push(`<td>${fmtPercent(returnDelta)}</td>`);
+          }
+
+          if (currentView === 'drawdowns' || currentView === 'both') {
+            const drawdownDelta = deltaValue(row.tRegDd, row.spyDd);
+
+            cells.push(`<td>${fmtNeutralPercent(row.tRegDd)}</td>`);
+            cells.push(`<td>${fmtNeutralPercent(row.spyDd)}</td>`);
+            cells.push(`<td>${fmtPercent(drawdownDelta)}</td>`);
+          }
+
+          const rowClass = Number.isFinite(returnDelta)
+            ? (returnDelta >= 0 ? 'row-outperform' : 'row-underperform')
+            : '';
+
+          return `<tr class="${rowClass}">${cells.join('')}</tr>`;
+        }).join('');
+      }
+
+      async function loadBacktestJsonOrNull() {
+        for (const path of BACKTEST_JSON_PATHS) {
+          try {
+            const json = await tryFetchJson(path);
+            logDebug(`Loaded ${path}`);
+            return json;
+          } catch (error) {
+            logDebug(`Unable to load ${path}`, String(error && error.message ? error.message : error));
+          }
+        }
+
+        return null;
+      }
+
+      function setPlainMetric(id, value, digits = 2) {
+        const el = document.getElementById(id);
+        const n = Number(value);
+        if (el && Number.isFinite(n)) {
+          el.textContent = n.toFixed(digits);
+        }
+      }
+
+      function setMetricComparison(valueId, subId, tregValue, spyValue, digits = 2) {
+        setPlainMetric(valueId, tregValue, digits);
+
+        const subEl = document.getElementById(subId);
+        const tregNum = Number(tregValue);
+        const spyNum = Number(spyValue);
+
+        if (!subEl || !Number.isFinite(tregNum) || !Number.isFinite(spyNum)) return;
+
+        const delta = tregNum - spyNum;
+        subEl.innerHTML = `SPY ${spyNum.toFixed(digits)} · Δ ${fmtDeltaInline(delta, digits, '')}`;
+      }
+
+      function findSpyBenchmark(backtestJson) {
+        const benchmarks = backtestJson && backtestJson.performance
+          ? backtestJson.performance.benchmarks
+          : null;
+
+        if (!benchmarks) return null;
+
+        if (benchmarks.SPY) return benchmarks.SPY;
+        if (benchmarks.spy) return benchmarks.spy;
+
+        const keys = Object.keys(benchmarks);
+        const spyKey = keys.find(k => String(k).toUpperCase() === 'SPY');
+        return spyKey ? benchmarks[spyKey] : null;
+      }
+
+      function populateRiskMetricCards(annualJson, backtestJson) {
+        const beta = annualJson && annualJson.meta
+          ? annualJson.meta.betaVsSpy
+          : null;
+
+        setPlainMetric('betaValue', beta, 2);
+
+        const current = backtestJson && backtestJson.performance
+          ? backtestJson.performance.current
+          : null;
+
+        if (!current) return;
+
+        const spy = findSpyBenchmark(backtestJson);
+
+        if (!spy) {
+          setPlainMetric('sharpeValue', current.sharpe, 2);
+          setPlainMetric('marValue', current.mar, 2);
+          setPlainMetric('sortinoValue', current.sortino, 2);
+          return;
+        }
+
+        setMetricComparison('sharpeValue', 'sharpeSub', current.sharpe, spy.sharpe, 2);
+        setMetricComparison('marValue', 'marSub', current.mar, spy.mar, 2);
+        setMetricComparison('sortinoValue', 'sortinoSub', current.sortino, spy.sortino, 2);
+      }
+
+      function setupControls() {}
+
+      function applyStatus(result) {
+        if (result.usingFallback) {
+          if (dataStatus) dataStatus.textContent = 'Preview mode: using embedded fallback data because annual2008.JSON could not be loaded.';
+          if (tableSub) if (tableSub) tableSub.textContent = 'Using embedded fallback annual data.';
+        } else {
+          if (dataStatus) dataStatus.textContent = `Annual performance sourced from ${result.sourcePath}.`;
+          if (tableSub) tableSub.textContent = `Loaded ${currentRows.length} annual rows from ${result.sourcePath}.`;
+        }
+      }
+
+      setupControls();
+
+      loadJsonOrFallback()
+        .then(async result => {
+          currentRows = result.rows;
+          const backtestJson = await loadBacktestJsonOrNull();
+          populateRiskMetricCards(result.rawJson, backtestJson);
+          applyStatus(result);
+          populateSummary(currentRows);
+          renderTable(currentRows);
+        })
+        .catch(error => {
+          logDebug('Unexpected failure', String(error && error.message ? error.message : error));
+          currentRows = FALLBACK_ROWS.map(normalizeRow);
+          if (dataStatus) dataStatus.textContent = 'Preview mode: using embedded fallback data because annual data failed to render.';
+          if (tableSub) tableSub.textContent = 'Using embedded fallback annual data.';
+          populateSummary(currentRows);
+          renderTable(currentRows);
+        });
+    })();
+  </script>
+</body>
+</html>

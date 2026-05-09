@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<title>TurboRegime — How It Works</title>
+<link rel="stylesheet" href="styles.css">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 24px 80px;
+}
+
+/* HERO */
+
+.hero {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.hero h1 {
+  font-size: 54px;
+  margin: 0 0 20px;
+  line-height: 1.1;
+  color: var(--white);
+}
+
+.hero p {
+  max-width: 760px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+/* SECTION */
+
+.section {
+  margin-bottom: 70px;
+}
+
+.section-title {
+  font-size: 34px;
+  margin-bottom: 28px;
+  color: var(--white);
+}
+
+.info-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 34px;
+  box-shadow: var(--shadow);
+}
+
+.info-card p {
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1.8;
+  margin-top: 0;
+}
+
+.bullets {
+  margin-top: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.bullet {
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 12px 18px;
+  color: var(--white);
+  font-size: 15px;
+}
+
+/* PARTICIPATION CARDS */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.card {
+  background: var(--panel);
+  padding: 34px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  transition: transform 0.15s ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+}
+
+.card.featured {
+  border-color: rgba(56, 189, 248, 0.85);
+  box-shadow:
+    0 0 0 1px rgba(56, 189, 248, 0.20) inset,
+    0 0 24px rgba(56, 189, 248, 0.20);
+}
+
+.plan {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+  text-transform: uppercase;
+}
+
+.card h3 {
+  margin: 0 0 14px;
+  font-size: 30px;
+  color: var(--white);
+}
+
+.card p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 16px;
+}
+
+.features {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.features div {
+  color: var(--text);
+  font-size: 15px;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 28px;
+  padding: 14px 22px;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--white);
+  background: #2563eb;
+  font-weight: bold;
+}
+
+.button.secondary {
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+}
+
+/* PHILOSOPHY */
+
+.philosophy {
+  text-align: center;
+  padding: 50px 30px;
+  border-radius: 12px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.philosophy h2 {
+  font-size: 40px;
+  margin-top: 0;
+  color: var(--white);
+}
+
+.philosophy p {
+  max-width: 760px;
+  margin: auto;
+  color: var(--muted);
+  font-size: 19px;
+  line-height: 1.8;
+}
+
+/* DISCLAIMER */
+
+.disclaimer {
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+  opacity: 0.9;
+
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: left;
+}
+
+@media(max-width: 768px) {
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .hero p {
+    font-size: 18px;
+  }
+}
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">T</div>
+      <div>TurboRegime - How It Works</div>
+    </div>
+
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="how.html" class="active">How It Works</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="scenarios.html">Scenarios</a>
+      <a href="yearly.html">Yearly</a>
+      <a href="trades.html">Trades</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- HERO -->
+
+  <div class="hero">
+
+    <h1>How TurboRegime Works</h1>
+
+    <p>
+      You don’t have to constantly watch the market.
+      TurboRegime monitors market conditions, detects regime changes,
+      and shows how Jeff is positioned.
+    </p>
+
+  </div>
+
+  <!-- WHAT WE DO -->
+
+  <div class="section">
+
+    <div class="section-title">What TReg Does</div>
+
+    <div class="info-card">
+
+      <p>
+     TurboRegime is a rules-based market regime system designed for my own use to participate in upside opportunities while attempting to reduce exposure during periods of elevated risk.
+
+     Over time, I decided to make the system available to others who may find it useful.
+      </p>
+
+      <p>
+        Based on market conditions, allocations dynamically shift between:
+      </p>
+
+      <div class="bullets">
+        <div class="bullet">SPY</div>
+        <div class="bullet">SPXL</div>
+        <div class="bullet">SHV</div>
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- THREE WAYS -->
+
+  <div class="section">
+
+    <div class="section-title">Three Ways To Use TReg</div>
+
+    <div class="cards">
+
+      <!-- FREE -->
+
+      <div class="card">
+
+        <div class="plan">Free</div>
+
+        <h3>Track My Performance</h3>
+
+        <p>
+          Monitor the system, view dashboards,
+          track performance, and review historical trades.
+        </p>
+
+        <div class="features">
+          <div>• View dashboards with delayed trades</div>
+          <div>• Track performance</div>
+          <div>• Follow along for free</div>
+        </div>
+
+        <a class="button secondary" href="dashboard.html">
+          View Dashboard →
+        </a>
+
+      </div>
+
+      <!-- PREMIUM -->
+
+      <div class="card featured">
+
+        <div class="plan">FREE during softlaunch then $49/Month</div>
+
+        <h3>Receive My Signals</h3>
+
+        <p>
+         Receive real-time signals, allocation updates, notifications, and alerts — everything needed to place trades yourself
+        </p>
+
+        <div class="features">
+          <div>• Real-time monitoring</div>
+          <div>• End of day trade signals</div>
+          <div>• Allocation updates</div>
+          <div>• Email notifications/alerts</div>
+          <div>• Full control of your account</div>
+          <div>• Ideal for manual trading</div>
+        </div>
+
+        <a class="button" href="dashboard.html">
+          Get Real-Time Signals →
+        </a>
+
+      </div>
+
+      <!-- AUTOMATED -->
+
+      <div class="card">
+
+        <div class="plan">Collective2 Subscription</div>
+
+        <h3>Mirror My Trades</h3>
+
+        <p>
+          Automatically mirror TurboRegime trades
+          through Collective2.
+        </p>
+
+        <div class="features">
+          <div>• Fully automated execution</div>
+          <div>• Sync to your account using Collective2</div>
+          <div>• Hands-off experience</div>
+          <div>• Trades mirrored automatically</div>
+        </div>
+
+        <a class="button secondary" href="#">
+          Automate My Trades →
+        </a>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <!-- PHILOSOPHY -->
+
+  <div class="philosophy">
+
+    <h2>No Predictions. No Emotion.</h2>
+
+    <p>
+      TurboRegime reacts to market conditions and adjusts exposure accordingly.
+      The system shows how Jeff is positioned — you decide how involved you
+      want to be.
+    </p>
+
+  </div>
+
+  <!-- DISCLAIMER -->
+
+  <div class="disclaimer">
+
+  <strong>Disclaimer:</strong> Jeff McAfee is not a registered investment adviser. TurboRegime is intended to provide insight into how Jeff trades and is not personalized investment advice. Past performance is not indicative of future results. Performance results shown on this website may include hypothetical or backtested results, which have inherent limitations and may differ materially from live trading. Trading involves risk of loss. Live results are being tracked beginning 4/1/2026.
+
+  </div>
+
+</div>
+
+</body>
+</html>

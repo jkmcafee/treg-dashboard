@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TurboRegime - Trades</title>
+<link rel="stylesheet" href="styles.css">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.header h1 {
+  margin: 0;
+  color: var(--white);
+}
+
+.grid {
+  display: grid;
+  gap: 10px;
+}
+
+.grid.cards {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid.main {
+  grid-template-columns: 1fr 1fr;
+}
+
+.card {
+  background: var(--panel);
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.hero-card {
+  margin-bottom: 10px;
+}
+
+.hero-card h2 {
+  margin: 0 0 8px;
+  font-size: 28px;
+  color: var(--white);
+}
+
+.hero-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+h3 {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0 0 6px;
+  letter-spacing: 0.5px;
+}
+
+.metric {
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.metric.good {
+  color: #34d399;
+}
+
+.metric.bad {
+  color: #f87171;
+}
+
+.sub {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.stat-card {
+  background: var(--panel-soft);
+  padding: 12px 10px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.stat-card .label {
+  color: var(--muted);
+  font-size: 11px;
+  margin-bottom: 5px;
+}
+
+.stat-card .value {
+  color: var(--text);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.stat-card .value.good {
+  color: #34d399;
+}
+
+.stat-card .value.bad {
+  color: #f87171;
+}
+
+.stat-card .note {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.badge-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel-soft);
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.badge.live {
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.45);
+  background: rgba(52, 211, 153, 0.08);
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 8px;
+}
+
+.compare-table th,
+.compare-table td {
+  text-align: left;
+  padding: 10px 8px;
+  border-bottom: 1px solid var(--border);
+  font-size: 14px;
+}
+
+.compare-table th {
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: normal;
+}
+
+.compare-table td {
+  color: var(--text);
+}
+
+.compare-table td.good {
+  color: #34d399;
+  font-weight: bold;
+}
+
+.compare-table td.bad {
+  color: #f87171;
+  font-weight: bold;
+}
+
+.muted-text {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.disclaimer {
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+  opacity: 0.9;
+
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: left;
+}
+
+.error {
+  color: #f87171;
+}
+
+@media (max-width: 900px) {
+  .grid.cards,
+  .stat-grid,
+  .detail-grid,
+  .grid.main {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">T</div>
+      <div>TurboRegime - Trades</div>
+    </div>
+
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="how.html">How It Works</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="scenarios.html">Scenarios</a>
+      <a href="yearly.html">Yearly</a>
+      <a href="trades.html" class="active">Trades</a>
+      <a href="about.html">About</a>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+
+  <div class="card hero-card">
+    <h2>Live Trading</h2>
+    <p>
+      TurboRegime live results are tracked through Collective2. This page shows the live update,
+      including cumulative return, drawdown, relative return versus SPY, and current portfolio value.
+    </p>
+    <div class="badge-row">
+      <div class="badge live">● Live Tracking</div>
+      <div class="badge" id="sourceBadge">Source: --</div>
+      <div class="badge" id="updatedBadge">Last Update from Collective2: --</div>
+    </div>
+  </div>
+
+  <div class="grid cards">
+    <div class="card">
+      <h3>Collective2 Strategy</h3>
+      <div id="strategyName" class="metric">--</div>
+      <div id="strategyId" class="sub">--</div>
+    </div>
+
+    <div class="card">
+      <h3>Live Since</h3>
+      <div id="startDate" class="metric">--</div>
+      <div id="daysLive" class="sub">--</div>
+    </div>
+
+    <div class="card">
+      <h3>Portfolio Value</h3>
+      <div id="modelValue" class="metric">--</div>
+      <div id="startingValue" class="sub">Starting Value: --</div>
+    </div>
+
+    <div class="card">
+      <h3>Profit</h3>
+      <div id="profit" class="metric">--</div>
+      <div id="profitSub" class="sub">--</div>
+    </div>
+  </div>
+
+  <div class="stat-grid">
+    <div class="stat-card">
+      <div class="label">Return</div>
+      <div id="returnPct" class="value">--</div>
+      <div class="note" id="returnNote">Cumulative live return</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="label">SPY Return</div>
+      <div id="spyReturnPct" class="value">--</div>
+      <div class="note">Same live window (buy/hold)</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="label">Relative Return</div>
+      <div id="relativeReturnPct" class="value">--</div>
+      <div class="note">TurboRegime minus SPY</div>
+    </div>
+
+    <div class="stat-card">
+      <div class="label">Max Drawdown</div>
+      <div id="maxDrawdownPct" class="value">--</div>
+      <div class="note">Peak-to-valley decline</div>
+    </div>
+  </div>
+
+  <div class="detail-grid">
+    <div class="card">
+      <h3>Live Performance Summary</h3>
+      <table class="compare-table">
+        <tr>
+          <th>Metric</th>
+          <th>Value</th>
+        </tr>
+        <tr>
+          <td>TurboRegime Return</td>
+          <td id="tableReturn">--</td>
+        </tr>
+        <tr>
+          <td>SPY Return</td>
+          <td id="tableSpy">--</td>
+        </tr>
+        <tr>
+          <td>Relative Return</td>
+          <td id="tableRelative">--</td>
+        </tr>
+        <tr>
+          <td>Max Drawdown</td>
+          <td id="tableMaxDD">--</td>
+        </tr>
+        <tr>
+          <td>Profit Factor</td>
+          <td id="tableProfitFactor">--</td>
+        </tr>
+        <tr>
+          <td>Win Percentage</td>
+          <td id="tableWinPct">--</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="card">
+      <h3>Live Trading Notes</h3>
+      <div class="muted-text">
+        Live results are tracked directly through Collective2 and reflect actual trades published by TurboRegime. Early live results should be interpreted carefully because the current live track record is still short (since Apr 1, 2026).
+      </div>
+    </div>
+  </div>
+
+  <div id="loadError" class="card error" style="display:none;"></div>
+
+</div>
+
+<script>
+function money(v) {
+  if (v === undefined || v === null || v === "") return "--";
+  const n = Number(v);
+  if (Number.isNaN(n)) return "--";
+  return n.toLocaleString("en-US", { style: "currency", currency: "USD", maximumFractionDigits: 0 });
+}
+
+function pct(v) {
+  if (v === undefined || v === null || v === "") return "--";
+  const n = Number(v);
+  if (Number.isNaN(n)) return "--";
+  return n.toFixed(2) + "%";
+}
+
+function num(v, digits = 2) {
+  if (v === undefined || v === null || v === "") return "--";
+  const n = Number(v);
+  if (Number.isNaN(n)) return "--";
+  return n.toFixed(digits);
+}
+
+function intNum(v) {
+  if (v === undefined || v === null || v === "") return "--";
+  const n = Number(v);
+  if (Number.isNaN(n)) return "--";
+  return Math.round(n).toLocaleString("en-US");
+}
+
+function firstValue(...values) {
+  for (const v of values) {
+    if (v !== undefined && v !== null && v !== "") return v;
+  }
+  return null;
+}
+
+function setClassBySign(id, value, positiveIsGood = true) {
+  const el = document.getElementById(id);
+  const n = Number(value);
+  el.classList.remove("good", "bad");
+  if (Number.isNaN(n)) return;
+  if (n > 0) el.classList.add(positiveIsGood ? "good" : "bad");
+  if (n < 0) el.classList.add(positiveIsGood ? "bad" : "good");
+}
+
+function formatDate(value) {
+  if (!value) return "--";
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return "--";
+  return d.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" });
+}
+
+function formatDateTime(value) {
+  if (!value) return "--";
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return "--";
+  return d.toLocaleString("en-US", { month: "short", day: "numeric", hour: "numeric", minute: "2-digit" });
+}
+
+function daysSince(value) {
+  if (!value) return "--";
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return "--";
+  const days = Math.floor((Date.now() - d.getTime()) / 86400000);
+  return days + " days live";
+}
+
+function render(data) {
+  const strategy = data.strategy;
+
+  if (!strategy) {
+    throw new Error("No strategy found in c2State.json");
+  }
+
+  const tradeCount = firstValue(strategy.NumTrades, strategy.NumberOfTrades, strategy.Trades, strategy.TotalTrades, strategy.ClosedTrades);
+
+  document.getElementById("sourceBadge").innerText = "Source: " + (data.meta?.source || "Collective2");
+  document.getElementById("updatedBadge").innerText = "Last Update from Collective2: " + formatDateTime(data.meta?.lastUpdated);
+
+  document.getElementById("strategyName").innerText = strategy.StrategyName || "--";
+  document.getElementById("strategyId").innerText = strategy.StrategyId ? "Strategy ID: " + strategy.StrategyId : "--";
+
+  document.getElementById("startDate").innerText = formatDate(strategy.StartDate);
+  document.getElementById("daysLive").innerText = daysSince(strategy.StartDate);
+
+  document.getElementById("modelValue").innerText = money(strategy.ModelAccountValue);
+  document.getElementById("startingValue").innerText = "Starting Value: " + money(strategy.StartingCash);
+
+  document.getElementById("profit").innerText = money((strategy.ModelAccountValue - strategy.StartingCash));
+  document.getElementById("profitSub").innerText = "Profit since live tracking began";
+  setClassBySign("profit", strategy.ModelAccountValue - strategy.StartingCash);
+
+  document.getElementById("returnPct").innerText = pct(strategy.Return);
+
+  document.getElementById("returnNote").innerText =
+    "Cumulative live return (" + num(strategy.NumTrades, 0) + " trades)";
+
+  document.getElementById("spyReturnPct").innerText = pct(strategy.SP500Return);
+  document.getElementById("relativeReturnPct").innerText = pct(strategy.ReturnVsSP500);
+  document.getElementById("maxDrawdownPct").innerText = pct(strategy.MaxDrawdown);
+
+  setClassBySign("returnPct", strategy.Return);
+  setClassBySign("spyReturnPct", strategy.SP500Return);
+  setClassBySign("relativeReturnPct", strategy.ReturnVsSP500);
+  document.getElementById("maxDrawdownPct").classList.add("bad");
+
+  document.getElementById("tableReturn").innerText = pct(strategy.Return);
+  document.getElementById("tableSpy").innerText = pct(strategy.SP500Return);
+  document.getElementById("tableRelative").innerText = pct(strategy.ReturnVsSP500);
+  document.getElementById("tableMaxDD").innerText = pct(strategy.MaxDrawdown);
+  document.getElementById("tableProfitFactor").innerText = num(strategy.ProfitFactor);
+
+  document.getElementById("tableWinPct").innerText =
+    num(strategy.WinMonthsRatio, 0) + "%";
+
+  document.getElementById("tableReturn").className = Number(strategy.Return) >= 0 ? "good" : "bad";
+  document.getElementById("tableSpy").className = Number(strategy.SP500Return) >= 0 ? "good" : "bad";
+  document.getElementById("tableRelative").className = Number(strategy.ReturnVsSP500) >= 0 ? "good" : "bad";
+  document.getElementById("tableMaxDD").className = "bad";
+}
+
+async function load() {
+  try {
+    const r = await fetch("c2State.json?t=" + Date.now());
+    if (!r.ok) throw new Error("Unable to load c2State.json");
+    const data = await r.json();
+    render(data);
+  } catch (err) {
+    const el = document.getElementById("loadError");
+    el.style.display = "block";
+    el.innerText = "Error loading c2State.json: " + err.message;
+  }
+}
+
+load();
+setInterval(load, 10000);
+</script>
+</body>
+</html>
+
+<div class="disclaimer">
+<strong>Disclaimer:</strong> Jeff McAfee is not a registered investment adviser. TurboRegime is intended to provide insight into how Jeff trades and is not personalized investment advice. Past performance is not indicative of future results. Performance results shown on this website may include hypothetical or backtested results, which have inherent limitations and may differ materially from live trading. Trading involves risk of loss. Live results are being tracked beginning 4/1/2026.
+</div>

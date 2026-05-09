@@ -1,1033 +1,1055 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TurboRegime Landing Page Mockup</title>
-  <style>
-    :root {
-      --bg: #020617;
-      --panel: rgba(15, 23, 42, 0.72);
-      --border: #1e293b;
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --white: #ffffff;
-      --sky: #38bdf8;
-      --sky-soft: rgba(56, 189, 248, 0.12);
-      --emerald: #34d399;
-      --emerald-soft: rgba(52, 211, 153, 0.12);
-      --shadow: 0 20px 50px rgba(0,0,0,0.25);
-      --radius: 28px;
-    }
-
-    * { box-sizing: border-box; }
-    html, body { margin: 0; padding: 0; }
-
-    body {
-      min-height: 100vh;
-      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.5;
-    }
-
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 10;
-      border-bottom: 1px solid rgba(56, 189, 248, 0.25);
-      background: rgba(2, 6, 23, 0.95);
-      backdrop-filter: blur(8px);
-    }
-
-    .container {
-      width: min(1240px, calc(100% - 40px));
-      margin: 0 auto;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 16px;
-      padding: 22px 0;
-    }
-
-    .eyebrow {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.28em;
-      color: rgba(125, 211, 252, 0.75);
-    }
-
-    .brand-title {
-      font-size: 18px;
-      font-weight: 700;
-    }
-
-    .brand-wrap {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
-    .logo {
-      height: 64px;
-      width: auto;
-      display: block;
-      filter: drop-shadow(0 0 8px rgba(56,189,248,0.35));
-      flex-shrink: 0;
-    }
-
-
-    .nav-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      border: 1px solid var(--border);
-      background: transparent;
-      color: var(--text);
-      padding: 12px 18px;
-      border-radius: 16px;
-      font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: var(--sky);
-      color: #082f49;
-      border-color: transparent;
-    }
-
-    main {
-      padding: 40px 0 64px;
-    }
-
-    .hero {
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-      gap: 28px;
-      align-items: center;
-    }
-
-    .pill {
-      display: inline-flex;
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      background: var(--sky-soft);
-      color: #bae6fd;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
-      margin-bottom: 20px;
-    }
-
-    h1 {
-      margin: 0;
-      font-size: clamp(42px, 6vw, 72px);
-      line-height: 0.98;
-      letter-spacing: -0.04em;
-      color: var(--white);
-    }
-
-    .subhead {
-      margin: 12px 0 0;
-      font-size: clamp(24px, 2.6vw, 34px);
-      color: #cbd5e1;
-    }
-
-    .lede {
-      margin-top: 18px;
-      max-width: 720px;
-      font-size: 18px;
-      line-height: 1.8;
-      color: #cbd5e1;
-    }
-
-    .metrics {
-      margin-top: 28px;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 16px;
-    }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 22px;
-      box-shadow: var(--shadow);
-      min-width: 0;
-    }
-
-    .metric-label {
-      font-size: 10px;
-      text-transform: uppercase;
-      letter-spacing: 0.14em;
-      color: var(--muted);
-      line-height: 1.3;
-      white-space: nowrap;
-    }
-
-    .metric-value {
-      margin-top: 10px;
-      font-size: 34px;
-      line-height: 1.05;
-      font-weight: 800;
-      color: var(--emerald);
-      white-space: nowrap;
-    }
-
-    .metric-sub {
-      margin-top: 8px;
-      color: var(--muted);
-      font-size: 13px;
-      line-height: 1.35;
-      white-space: nowrap;
-    }
-
-    .chart-card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 32px;
-      padding: 20px;
-      box-shadow: var(--shadow);
-      min-width: 0;
-    }
-
-    .chart-head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 16px;
-    }
-
-    .chart-title {
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    .chart-sub {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #64748b;
-    }
-
-    .badge {
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(52, 211, 153, 0.15);
-      color: #a7f3d0;
-      font-size: 12px;
-      font-weight: 700;
-      white-space: nowrap;
-    }
-
-    .chart-box {
-      cursor: zoom-in;
-      position: relative;
-      min-height: 390px;
-      overflow: hidden;
-      border-radius: 24px;
-      border: 1px solid var(--border);
-      background:
-        linear-gradient(to right, rgba(148,163,184,.16) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(148,163,184,.16) 1px, transparent 1px),
-        linear-gradient(180deg, #0f172a 0%, #020617 100%);
-      background-size: 64px 64px, 64px 64px, auto;
-    }
-
-    .chart-zoom-link {
-      position: absolute;
-      inset: 0;
-      z-index: 3;
-      display: block;
-      text-indent: -9999px;
-      overflow: hidden;
-    }
-
-    .chart-lines {
-      position: absolute;
-      inset: 18px 18px 64px 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 18px;
-      overflow: hidden;
-      background: linear-gradient(180deg, rgba(15, 23, 42, 0.96) 0%, rgba(2, 6, 23, 0.96) 100%);
-    }
-
-    .chart-image {
-      width: 100%;
-      height: 100%;
-      display: block;
-      object-fit: contain;
-      object-position: center center;
-      background: #020617;
-      cursor: zoom-in;
-    }
-
-    .zoom-hint {
-      position: absolute;
-      top: 16px;
-      right: 16px;
-      z-index: 2;
-      padding: 8px 10px;
-      border-radius: 999px;
-      background: rgba(2, 6, 23, 0.78);
-      border: 1px solid #334155;
-      color: #cbd5e1;
-      font-size: 12px;
-      font-weight: 700;
-      backdrop-filter: blur(8px);
-      pointer-events: none;
-    }
-
-    .note {
-      position: absolute;
-      left: 18px;
-      bottom: 18px;
-      max-width: 75%;
-      padding: 14px 16px;
-      border-radius: 18px;
-      background: rgba(2, 6, 23, 0.85);
-      border: 1px solid #334155;
-      color: #cbd5e1;
-      font-size: 14px;
-    }
-
-    .section {
-      margin-top: 28px;
-      display: grid;
-      gap: 24px;
-    }
-
-    .two-col-a { grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr); }
-    .two-col-b { grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr); }
-    .two-col-c { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
-
-    .section-tag {
-      color: #7dd3fc;
-      font-size: 15px;
-      font-weight: 700;
-    }
-
-    h2 {
-      margin: 8px 0 0;
-      font-size: 38px;
-      line-height: 1.1;
-      color: var(--white);
-    }
-
-    .section p {
-      margin: 16px 0 0;
-      font-size: 18px;
-      line-height: 1.8;
-      color: #cbd5e1;
-    }
-
-    .state-grid,
-    .scenario-grid,
-    .path-grid {
-      display: grid;
-      gap: 16px;
-    }
-
-    .state-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-    .scenario-grid { grid-template-columns: 1fr; }
-    .path-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-
-    .bar {
-      width: 64px;
-      height: 8px;
-      border-radius: 999px;
-    }
-
-    .slate { background: #64748b; }
-    .blue { background: #3b82f6; }
-    .green { background: #10b981; }
-
-    .state-name,
-    .scenario-title,
-    .path-title {
-      margin-top: 18px;
-      color: var(--white);
-      font-size: 26px;
-      line-height: 1.15;
-      font-weight: 700;
-    }
-
-    .state-detail,
-    .scenario-detail,
-    .path-detail {
-      margin-top: 8px;
-      color: #cbd5e1;
-      font-size: 16px;
-      line-height: 1.7;
-    }
-
-    .highlight {
-      margin-top: 22px;
-      border-radius: 24px;
-      padding: 18px;
-      border: 1px solid rgba(52, 211, 153, 0.2);
-      background: var(--emerald-soft);
-    }
-
-    .highlight .small {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.18em;
-      color: #86efac;
-    }
-
-    .highlight .big {
-      margin-top: 8px;
-      color: var(--white);
-      font-size: 24px;
-      font-weight: 700;
-      line-height: 1.35;
-    }
-
-    ul.clean {
-      margin: 18px 0 0;
-      padding-left: 18px;
-      color: #cbd5e1;
-      font-size: 18px;
-      line-height: 1.8;
-    }
-
-    .cta {
-      margin-top: 28px;
-      text-align: center;
-      border-radius: 32px;
-      border: 1px solid var(--border);
-      background: linear-gradient(90deg, #0f172a 0%, #020617 100%);
-      padding: 40px 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .cta-label {
-      color: #7dd3fc;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 0.22em;
-      font-weight: 700;
-    }
-
-    .cta h2 {
-      margin-top: 10px;
-    }
-
-    .cta-actions {
-      margin-top: 28px;
-      display: flex;
-      justify-content: center;
-      gap: 14px;
-      flex-wrap: wrap;
-    }
-
-    .cta-foot {
-      margin-top: 14px;
-      color: var(--muted);
-      font-size: 14px;
-    }
-
-    .full-width-banner {
-      margin-top: 20px;
-      border-radius: 18px;
-      background: var(--sky);
-      color: #082f49;
-      font-weight: 800;
-      text-align: center;
-      padding: 16px 18px;
-      font-size: 18px;
-    }
-
-    @media (max-width: 1120px) {
-      .hero,
-      .two-col-a,
-      .two-col-b,
-      .two-col-c,
-      .state-grid,
-      .path-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .metrics {
-        grid-template-columns: repeat(4, minmax(0, 1fr));
-      }
-
-      .chart-box {
-        min-height: 320px;
-      }
-    }
-
-    @media (max-width: 900px) {
-      .metrics {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .state-grid,
-      .path-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 640px) {
-      .container {
-        width: min(1240px, calc(100% - 20px));
-      }
-
-      .nav {
-        align-items: flex-start;
-        flex-direction: column;
-      }
-
-      .brand-wrap {
-        align-items: center;
-      }
-
-      .logo {
-        height: 32px;
-      }
-
-      .metrics {
-        grid-template-columns: 1fr;
-      }
-
-      .metric-label,
-      .metric-sub {
-        white-space: normal;
-      }
-
-      .metric-value {
-        font-size: 30px;
-      }
-
-      h2 {
-        font-size: 32px;
-      }
-
-      .note {
-        max-width: calc(100% - 36px);
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TurboRegime</title>
+<link rel="stylesheet" href="styles.css">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: var(--bg);
+  color: var(--text);
+}
+
+.header h1 {
+  margin: 0;
+  color: var(--white);
+}
+
+.home-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 44px 24px 70px;
+}
+
+.hero {
+  text-align: center;
+  padding: 34px 20px 48px;
+  border-bottom: 1px solid var(--border);
+}
+
+.hero-logo {
+  display: block;
+  width: min(560px, 92%);
+  height: auto;
+  margin: 0 auto 26px;
+  opacity: 0.96;
+}
+
+.hero h1 {
+  margin: 0;
+  color: var(--white);
+  font-size: 44px;
+  line-height: 1.05;
+  letter-spacing: -1px;
+}
+
+.hero h1 span {
+  color: #4da3ff;
+}
+
+.hero p {
+  max-width: 680px;
+  margin: 18px auto 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.hero-actions {
+  margin-top: 28px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.section {
+  padding: 36px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.section-label {
+  color: #4da3ff;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.section h2 {
+  margin: 0;
+  color: var(--white);
+  font-size: 26px;
+  line-height: 1.15;
+}
+
+.section-intro {
+  margin: 8px 0 0;
+  color: var(--muted);
+  max-width: 820px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 22px;
+}
+
+.metric-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: var(--shadow);
+}
+
+.metric-card .value {
+  font-size: 24px;
+  font-weight: bold;
+  color: #34d399;
+  margin-bottom: 5px;
+}
+
+.metric-card .value.bad {
+  color: #f87171;
+}
+
+.metric-card .label {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.chart-card {
+  margin-top: 18px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: var(--shadow);
+}
+
+.chart-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  color: var(--muted);
+  font-size: 12px;
+  margin-bottom: 12px;
+}
+
+.chart {
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.chart svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.chart img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  cursor: zoom-in;
+  object-fit: contain;
+  max-height: 520px;
+}
+
+.chart-notes {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.note-card {
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 12px;
+}
+
+.note-card .value {
+  font-size: 18px;
+  font-weight: bold;
+  color: #34d399;
+}
+
+.note-card .value.bad {
+  color: #f87171;
+}
+
+.note-card .label {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.35;
+}
+
+.note-card .kicker {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.note-card .year-inline {
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: bold;
+  margin-left: 6px;
+}
+
+.note-card .subline {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 8px;
+  line-height: 1.35;
+}
+
+.note-card .delta {
+  color: #34d399;
+  font-weight: bold;
+}
+
+.premium-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.premium-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: var(--shadow);
+}
+
+.card-mark {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(77, 163, 255, 0.12);
+  color: #4da3ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 18px;
+}
+
+.card-mark.green {
+  background: rgba(52, 211, 153, 0.10);
+  color: #34d399;
+}
+
+.card-mark.purple {
+  background: rgba(168, 85, 247, 0.12);
+  color: #c084fc;
+}
+
+.premium-card h3 {
+  margin: 0 0 6px;
+  color: var(--white);
+  font-size: 18px;
+}
+
+.question {
+  color: #4da3ff;
+  font-style: italic;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 1.4;
+  margin-bottom: 14px;
+}
+
+.premium-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.premium-card ul {
+  margin: 16px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.premium-card li {
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.45;
+  margin-bottom: 9px;
+}
+
+.premium-card li::before {
+  content: "•";
+  color: #4da3ff;
+  margin-right: 6px;
+}
+
+.mini-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+  margin: 16px 0;
+}
+
+.mini {
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  border-radius: 9px;
+  padding: 9px 10px;
+}
+
+.mini .value {
+  color: #34d399;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.mini .value.bad {
+  color: #f87171;
+}
+
+.mini .label {
+  color: var(--muted);
+  font-size: 10px;
+  line-height: 1.25;
+}
+
+.premium-footer {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.soft-launch-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-top: 22px;
+  padding: 16px 18px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.soft-launch-banner strong {
+  display: block;
+  color: #34d399;
+  font-size: 13px;
+  margin-bottom: 4px;
+}
+
+.soft-launch-banner span {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.premium-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.55);
+  background: rgba(52, 211, 153, 0.08);
+  border-radius: 999px;
+  padding: 4px 9px;
+  font-size: 10px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 10px 14px;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: var(--panel-soft);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.card-link:hover {
+  opacity: 0.9;
+}
+
+.cta {
+  text-align: center;
+  padding: 44px 20px 20px;
+}
+
+.cta h2 {
+  margin: 0;
+  color: var(--white);
+  font-size: 26px;
+}
+
+.cta p {
+  max-width: 620px;
+  margin: 12px auto 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.button {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 18px;
+  border-radius: 9px;
+  border: 1px solid var(--border);
+  background: var(--panel-soft);
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.button.primary {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.cta-note {
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.disclaimer {
+  margin-top: 40px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+  opacity: 0.9;
+  padding-top: 8px;
+}
+
+@media (max-width: 900px) {
+  .hero h1 {
+    font-size: 36px;
+  }
+
+  .metrics,
+  .premium-grid,
+  .chart-notes {
+    grid-template-columns: 1fr;
+  }
+
+  .soft-launch-banner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+</style>
 </head>
+
 <body>
-  <div class="topbar">
-    <div class="container nav">
-      <div class="brand-wrap">
-        <img src="logo.png" alt="TurboRegime logo" class="logo" />
-      </div>
-      <div class="nav-actions">
-        <a class="btn btn-primary" href="dashboard.html" target="_self">Dashboard</a>
-        <a class="btn" href="https://collective2.com/details/155341343" target="_blank">Trades</a>
-      </div>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">T</div>
+      <div>TurboRegime</div>
+    </div>
+
+    <div class="nav">
+      <a href="index.html" class="active">Home</a>
+      <a href="how.html">How It Works</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="scenarios.html">Scenarios</a>
+      <a href="yearly.html">Yearly</a>
+      <a href="trades.html">Trades</a>
+      <a href="about.html">About</a>
     </div>
   </div>
+</header>
 
-  <main>
-    <div class="container">
-      <section class="hero">
-        <div>
-          <div class="pill">Regime-based allocation strategy</div>
-          <h1>Leverage when it matters.</h1>
-          <div class="subhead">Protection when it doesn’t.</div>
-          <div class="lede">
-            TurboRegime dynamically adjusts market exposure to protect capital during downturns and aggressively capture recoveries.
-          </div>
+<div class="home-wrap">
 
-          <div id="metricsContext" style="margin-top: 24px; color: #94a3b8; font-size: 13px; letter-spacing: 0.02em;">
-            Performance metrics shown below are sourced from the current backtest file.
-          </div>
-          <div id="metricsUpdated" style="margin-top: 8px; color: #64748b; font-size: 12px; letter-spacing: 0.02em;">
-            Updated automatically from backtest2008.JSON
-          </div>
-          <div class="metrics">
-            <div class="card">
-              <div class="metric-label">Total Return</div>
-              <div class="metric-value">25.41%</div>
-              <div class="metric-sub">1Y · vs SPY 18.60%</div>
-            </div>
-            <div class="card">
-              <div class="metric-label">CAGR</div>
-              <div class="metric-value">25.27%</div>
-              <div class="metric-sub">1Y · vs SPY 18.50%</div>
-            </div>
-            <div class="card">
-              <div class="metric-label">Max Drawdown</div>
-              <div class="metric-value">-12.15%</div>
-              <div class="metric-sub">1Y · vs SPY -11.99%</div>
-            </div>
-            <div class="card">
-              <div class="metric-label">MAR / Calmar</div>
-              <div class="metric-value">2.08</div>
-              <div class="metric-sub">1Y · vs SPY 1.54</div>
-            </div>
-          </div>
-        </div>
+  <section class="hero">
+    <img class="hero-logo" src="logo.png" alt="TReg TurboRegime logo">
 
-        <div class="chart-card">
-          <div class="chart-head">
-            <div>
-              <div class="chart-title" id="chartTitle">Backtest Equity Curve (1Y)</div>
-              <div class="chart-sub">SPY vs SPXL vs TurboRegime</div>
-            </div>
-            <div class="badge" id="chartBadge">1Y Backtest</div>
-          </div>
-          <div class="chart-box">
-            <a class="chart-zoom-link" id="chartZoomLink" href="reports/TReg_2025-03-31_2026-04-05_Equity.png" target="_blank" rel="noopener noreferrer">Open full-size equity curve</a>
-            <div class="zoom-hint">Click chart to open full size</div>
-            <div class="chart-lines">
-              <img src="reports/TReg_2025-03-31_2026-04-05_Equity.png" alt="TurboRegime Equity Curve" class="chart-image" id="equityChartPreview" />
-            </div>
-            <div class="note" id="chartNote">This chart corresponds to the performance metrics shown at left.</div>
-          </div>
-        </div>
-      </section>
+    <h1>
+      Leverage when it matters.<br>
+      <span>Protection when it doesn’t.</span>
+    </h1>
 
-      <section class="section two-col-a">
-        <div class="card">
-          <div class="section-tag">A smarter way to use leverage</div>
-          <h2>Three market states. One systematic process.</h2>
-          <p>TurboRegime rotates between defense, core exposure, and high-conviction growth based on changing market conditions. It is not always leveraged. It uses leverage selectively.</p>
-        </div>
-        <div class="state-grid">
-          <div class="card">
-            <div class="bar slate"></div>
-            <div class="state-name">Risk Off</div>
-            <div class="state-detail">Defensive positioning · reduced exposure</div>
-          </div>
-          <div class="card">
-            <div class="bar blue"></div>
-            <div class="state-name">Risk On</div>
-            <div class="state-detail">Balanced exposure · participating in the market</div>
-          </div>
-          <div class="card">
-            <div class="bar green"></div>
-            <div class="state-name">Turbo Mode</div>
-            <div class="state-detail">Aggressive positioning · increased exposure in favorable conditions</div>
-          </div>
-        </div>
-      </section>
+    <p>
+      TurboRegime dynamically adjusts market exposure based on risk conditions — moving to defense when markets are stressed and applying leverage when conditions are favorable.
+    </p>
+    <p>
+      Built by a defense engineer with four decades of systems thinking. No emotion. No guessing.
+   <p>
 
-      <section class="section two-col-b">
-        <div class="card">
-          <div class="section-tag">Designed for the moments that matter most</div>
-          <h2>Built to protect during stress and accelerate into recoveries.</h2>
-          <p>The largest gains often happen after downturns. TurboRegime is designed to manage risk during difficult periods, then step harder on the gas when conditions improve.</p>
-          <div class="highlight">
-            <div style="margin-bottom:10px;">
-              <a href="#" style="color:#7dd3fc; font-size:13px; text-decoration:none;">View Tariff Shock Event →</a>
-            </div>
-            <div class="small" id="shockPeriodLabel">Recent 1-Year Performance (Mar 2025 – Apr 2026)</div>
-            <div class="big" id="shockHeadline">+25.4% vs SPY +18.6%</div>
-            <div style="margin-top:12px; font-size:15px; color:#e2e8f0; line-height:1.6;">
-              Max Drawdown: <strong id="shockMaxDd">-12.15%</strong> <span id="shockMaxDdVs">vs SPY -11.99%</span><br>
-              Sharpe Ratio: <strong id="shockSharpe">1.13</strong> <span id="shockSharpeVs">vs SPY 0.98</span><br>
-              MAR Ratio: <strong id="shockMar">2.08</strong> <span id="shockMarVs">vs SPY 1.54</span>
-            </div>
-            <div id="shockFooter" style="margin-top:14px; font-size:13px; color:#94a3b8;">
-              Demonstrates strong recent outperformance with improved risk-adjusted returns.
-            </div>
-          </div>
-        </div>
-        <div class="card">
-          <div class="section-tag">Consistent across market conditions</div>
-          <div class="scenario-grid" style="margin-top:20px;">
-            <div class="card" style="background: rgba(2,6,23,0.65); box-shadow:none;">
-              <div class="scenario-title" style="font-size:22px; margin-top:0;">Best case</div>
-              <div class="scenario-detail">Strong outperformance through recovery</div>
-            </div>
-            <div class="card" style="background: rgba(2,6,23,0.65); box-shadow:none;">
-              <div class="scenario-title" style="font-size:22px; margin-top:0;">Shock test</div>
-              <div class="scenario-detail">Higher return and lower drawdown than SPY</div>
-            </div>
-            <div class="card" style="background: rgba(2,6,23,0.65); box-shadow:none;">
-              <div class="scenario-title" style="font-size:22px; margin-top:0;">Worst case</div>
-              <div class="scenario-detail">Still beats SPY on key risk-adjusted metrics</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section class="section two-col-c">
-        <div class="card">
-          <div class="section-tag">Fully systematic</div>
-          <h2>No emotion. No guessing.</h2>
-          <ul class="clean">
-            <li>End-of-day signals</li>
-            <li>Automated execution</li>
-            <li>No discretionary trade decisions</li>
-            <li>Built for disciplined consistency</li>
-          </ul>
-        </div>
-        <div class="card">
-          <div class="section-tag">Four ways to participate in TReg</div>
-          <div class="path-grid" style="margin-top:20px;">
-            <div class="card" style="background: rgba(2,6,23,0.55); box-shadow:none;">
-              <div class="path-title" style="font-size:22px; margin-top:0;">Follow Regime</div>
-              <div class="path-detail">Website · delayed regime state and performance data.</div>
-            </div>
-            <div class="card" style="background: rgba(52,211,153,0.10); border-color: rgba(52,211,153,0.30); box-shadow:none;">
-              <div class="path-title" style="font-size:22px; margin-top:0;">Real-Time Signal (Premium)</div>
-              <div class="path-detail">Website · real-time regime state, signal, and allocations so you can place trades manually.</div>
-            </div>
-            <div class="card" style="background: rgba(2,6,23,0.55); box-shadow:none;">
-              <div class="path-title" style="font-size:22px; margin-top:0;">Follow Trades</div>
-              <div class="path-detail">Collective2 · track verified trades and performance.</div>
-            </div>
-            <div class="card" style="background: rgba(52,211,153,0.10); border-color: rgba(52,211,153,0.30); box-shadow:none;">
-              <div class="path-title" style="font-size:22px; margin-top:0;">Mirror Trades (Premium)</div>
-              <div class="path-detail">Collective2 · automated trade replication via subscription.</div>
-            </div>
-          </div>
-          
-        </div>
-      </section>
-
-      <section class="cta">
-        <div class="cta-label">Final call to action</div>
-        <h2>Let’s go.</h2>
-        <div class="cta-actions">
-          <a class="btn btn-primary" href="dashboard.html" target="_self">Follow Strategy</a>
-          <a class="btn" href="https://collective2.com/details/155341343" target="_blank">Follow/Mirror Trades</a>
-        </div>
-        <div class="cta-foot">Content access adapts to your login: basic (delayed) or premium (real-time signals and allocations).</div>
-      </section>
+    <div class="hero-actions">
+      <a class="button primary" href="dashboard.html">View Current Risk Regime →</a>
+      <a class="button" href="how.html">3 Ways to Use TurboRegime →</a>
     </div>
-    <div class="container">
-    <section style="margin-top:40px; padding:20px 0; border-top:1px solid #1e293b; color:#94a3b8; font-size:12px; line-height:1.6;">
-      <strong>Disclaimer:</strong> Past performance is not indicative of future results. The performance results shown are hypothetical backtested results and do not reflect actual trading. Hypothetical results have inherent limitations and may differ materially from live trading. Trading involves risk of loss. This content is for informational purposes only and is not investment advice. Live results are being tracked beginning 4/1/2026.
-    </section>
+  </section>
+
+  <section class="section">
+    <div class="section-label">17+ Year Backtest</div>
+    <h2>Built to outperform. Designed to protect.</h2>
+    <p class="section-intro">
+      Backtested from Nov 2008 through Apr 2026 across bull markets, crashes,
+      corrections, and recoveries.
+    </p>
+
+    <div class="metrics">
+      <div class="metric-card">
+        <div id="homeTotalReturn" class="value">40.5x</div>
+        <div id="homeTotalReturnSub" class="label">TReg total return<br>vs SPY 2.7x</div>
+      </div>
+
+      <div class="metric-card">
+        <div id="homeCagr" class="value">23.6%</div>
+        <div id="homeCagrSub" class="label">CAGR annualized<br>vs SPY 9.4%</div>
+      </div>
+
+      <div class="metric-card">
+        <div id="homeMaxDD" class="value bad">-23.4%</div>
+        <div id="homeMaxDDSub" class="label">Max drawdown<br>vs SPY -33.7%</div>
+      </div>
+
+      <div class="metric-card">
+        <div id="homeMar" class="value">1.01</div>
+        <div id="homeMarSub" class="label">MAR / Calmar ratio<br>vs SPY 0.42</div>
+      </div>
     </div>
 
-  </main>
+    <div class="chart-card">
+      <div class="chart-head">
+        <div id="homeChartTitle">Equity growth — TReg vs SPY (Nov 2008 – Apr 2026)</div>
+        <div id="homeChartSummary">TReg 40.5x · SPY 2.7x</div>
+      </div>
 
-  <script>
-    (function () {
-      // ===== DATA SOURCE CONFIG =====
-      const useGitHubJson = true;
-      const mainLocalFile = 'backtest2008.JSON';
-      const mainGitHubFile = 'https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtest2008.json';
-      const shockLocalFile = 'backtest2025.JSON';
-      const shockGitHubFile = 'https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtest2025.json';
+      <div class="chart">
+        <img id="homeEquityChart" alt="TurboRegime equity growth chart">
+      </div>
 
-      const MAIN_JSON_PATHS = useGitHubJson
-        ? [mainGitHubFile]
-        : [mainLocalFile, 'backtest2008.JSON'];
+      <div class="chart-notes">
+        <div class="note-card">
+          <div class="kicker">Best TREG Year</div>
+          <div>
+            <span id="homeBestYear" class="value">57.4%</span>
+            <span id="homeBestYearYear" class="year-inline">(2019)</span>
+          </div>
+          <div id="homeBestYearSub" class="subline">SPY: 32.3% (2013) · <span class="delta">Δ 25.0%</span></div>
+        </div>
 
-      const SHOCK_JSON_PATHS = useGitHubJson
-        ? [shockGitHubFile]
-        : [shockLocalFile, 'backtest2025.JSON'];
+        <div class="note-card">
+          <div class="kicker">Worst TREG Year</div>
+          <div>
+            <span id="homeWorstYear" class="value bad">-15.3%</span>
+            <span id="homeWorstYearYear" class="year-inline">(2022)</span>
+          </div>
+          <div id="homeWorstYearSub" class="subline">SPY: -18.2% (2022) · <span class="delta">Δ 2.8%</span></div>
+        </div>
 
-      const MAIN_FALLBACK_DATA = {
-        equityFilename: 'reports/TReg_2008_2026_Equity.png',
-        performance: {
-          meta: {
-            periodYears: '17.40',
-            lastUpdated: '2026-04-05T09:35:50.972853'
-          },
-          current: {
-            totalReturnPct: '3130.04',
-            cagrPct: '22.13',
-            maxDrawdownPct: '-47.20',
-            mar: '0.47'
-          },
-          benchmarks: {
-            SPY: {
-              totalReturnPct: '836.10',
-              cagrPct: '13.73',
-              maxDrawdownPct: '-33.72',
-              mar: '0.41'
-            }
-          }
-        }
-      };
+        <div class="note-card">
+          <div class="kicker">Average TREG Yearly Return</div>
+          <div id="homeAvgAnnual" class="value">23.3%</div>
+          <div id="homeAvgAnnualSub" class="subline">SPY 13.9% · <span class="delta">Δ 9.4%</span></div>
+        </div>
 
-      const SHOCK_FALLBACK_DATA = {
-        equityFilename: 'reports/TReg_2025-03-31_2026-04-05_Equity.png',
-        performance: {
-          meta: {
-            startDate: '2025-03-31',
-            endDate: '2026-04-05',
-            periodYears: '1.00',
-            lastUpdated: '2026-04-05T09:35:50.972853'
-          },
-          current: {
-            totalReturnPct: '25.41',
-            cagrPct: '25.27',
-            maxDrawdownPct: '-12.15',
-            sharpe: '1.13',
-            mar: '2.08'
-          },
-          benchmarks: {
-            SPY: {
-              totalReturnPct: '18.60',
-              cagrPct: '18.50',
-              maxDrawdownPct: '-11.99',
-              sharpe: '0.98',
-              mar: '1.54'
-            }
-          }
-        }
-      };
+        <div class="note-card">
+          <div class="kicker">Beta</div>
+          <div id="homeBeta" class="value">1.23</div>
+          <div class="subline">vs SPY</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-      const previewImage = document.getElementById('equityChartPreview');
-      const zoomLink = document.getElementById('chartZoomLink');
-      const metricsContext = document.getElementById('metricsContext');
-      const chartTitle = document.getElementById('chartTitle');
-      const chartBadge = document.getElementById('chartBadge');
-      const chartNote = document.getElementById('chartNote');
-      const metricsUpdated = document.getElementById('metricsUpdated');
-      const shockPeriodLabel = document.getElementById('shockPeriodLabel');
-      const shockHeadline = document.getElementById('shockHeadline');
-      const shockMaxDd = document.getElementById('shockMaxDd');
-      const shockMaxDdVs = document.getElementById('shockMaxDdVs');
-      const shockSharpe = document.getElementById('shockSharpe');
-      const shockSharpeVs = document.getElementById('shockSharpeVs');
-      const shockMar = document.getElementById('shockMar');
-      const shockMarVs = document.getElementById('shockMarVs');
-      const shockFooter = document.getElementById('shockFooter');
+  <section class="section">
+    <div class="section-label">Premium Content</div>
+    <h2>Go deeper when you’re ready.</h2>
+    <p class="section-intro">
+      Explore historical scenarios, yearly performance, and independently verified live trades.
+    </p>
 
-      function setEquityImage(path) {
-        if (!path) return;
-        if (previewImage) previewImage.src = path;
-        if (zoomLink) zoomLink.href = path;
-      }
+    <div class="soft-launch-banner">
+      <div>
+        <strong>Soft launch underway.</strong>
+        <span>These pages will eventually require a premium subscription at $49/month. Currently, all pages are open and available for free — no signup required.</span>
+      </div>
+      <span class="premium-pill">Open during soft launch</span>
+    </div>
 
-      function normalizePath(path) {
-        if (!path || typeof path !== 'string') return '';
-        return path.replace(/\\/g, '/');
-      }
+    <div class="premium-grid">
 
-      async function tryFetchJson(path) {
-        const response = await fetch(path, { cache: 'no-store' });
-        if (!response.ok) {
-          throw new Error(`Could not load ${path}`);
-        }
-        return response.json();
-      }
+      <div class="premium-card">
+        <div class="card-mark">SCN</div>
+        <h3>Scenario Backtests</h3>
+        <div class="question">“What if I started at the worst possible time?”</div>
+        <p>
+          TurboRegime tested across real-world entry points and market events —
+          so you can see how the strategy performs regardless of when you start.
+        </p>
 
-      async function loadJsonOrFallback(paths, fallbackData) {
-        for (const path of paths) {
-          try {
-            const data = await tryFetchJson(path);
-            console.log('Loaded JSON from:', path);
-            return { data, usingFallback: false, sourcePath: path };
-          } catch (error) {
-            console.warn(`Unable to load ${path}`, error);
-          }
-        }
-        console.warn('All JSON sources failed. Using fallback data.');
-        return { data: fallbackData, usingFallback: true, sourcePath: null };
-      }
+        <ul>
+          <li>2008 post-GFC entry</li>
+          <li>2025 tariff shock event</li>
+          <li>COVID entry — March 2020</li>
+          <li>Peak market entries</li>
+          <li>Mid-cycle corrections and recoveries</li>
+        </ul>
 
-      function safeNumber(value, digits = 2) {
-        const n = Number(value);
-        return Number.isFinite(n) ? n.toFixed(digits) : null;
-      }
+        <div class="premium-footer">
+          <span class="premium-pill">Open</span>
+          <a class="card-link" href="scenarios.html">View Scenarios →</a>
+        </div>
+      </div>
 
-      function formatPercent(value, digits = 2) {
-        const formatted = safeNumber(value, digits);
-        return formatted === null ? '—' : `${formatted}%`;
-      }
+      <div class="premium-card">
+        <div class="card-mark green">YR</div>
+        <h3>Yearly Performance</h3>
+        <div class="question">“Show me the bad years too.”</div>
+        <p>
+          17 years of annual returns versus SPY — including every year TReg
+          underperformed. No cherry picking. No hiding the full picture.
+        </p>
 
-      function formatPlain(value, digits = 2) {
-        const formatted = safeNumber(value, digits);
-        return formatted === null ? '—' : formatted;
-      }
+        <div class="mini-metrics">
+          <div class="mini">
+            <div id="premiumBestYear" class="value">57.4%</div>
+            <div id="premiumBestYearSub" class="label">Best year (2019)</div>
+          </div>
 
-      function formatDateTime(value) {
-        if (!value) return '';
-        const date = new Date(value);
-        if (Number.isNaN(date.getTime())) return '';
-        return date.toLocaleString(undefined, {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric',
-          hour: 'numeric',
-          minute: '2-digit'
-        });
-      }
+          <div class="mini">
+            <div id="premiumWorstYear" class="value bad">-15.3%</div>
+            <div id="premiumWorstYearSub" class="label">Worst year (2022)</div>
+          </div>
 
-      function formatShortDate(value) {
-        if (!value) return '';
-        const date = new Date(`${value}T00:00:00`);
-        if (Number.isNaN(date.getTime())) return value;
-        return date.toLocaleDateString(undefined, {
-          month: 'short',
-          year: 'numeric'
-        });
-      }
+          <div class="mini">
+            <div id="premiumAvgAnnual" class="value">23.3%</div>
+            <div class="label">Average return</div>
+          </div>
 
-      function applyMetricCard(card, value, subtext) {
-        if (!card) return;
-        const valueNode = card.querySelector('.metric-value');
-        const subNode = card.querySelector('.metric-sub');
-        if (valueNode) valueNode.textContent = value;
-        if (subNode) subNode.textContent = subtext;
-      }
+          <div class="mini">
+            <div id="premiumSharpe" class="value">1.22</div>
+            <div class="label">Sharpe ratio</div>
+          </div>
+        </div>
 
-      function applyMainMarketingData(data, usingFallback) {
-        const imagePath = normalizePath(data?.equityFilename) || normalizePath(MAIN_FALLBACK_DATA.equityFilename);
-        setEquityImage(imagePath);
+        <ul>
+          <li>Year-by-year TReg vs SPY comparison</li>
+          <li>Annual drawdown vs SPY drawdown</li>
+          <li>Outperformed SPY in 15 of 17 full years</li>
+        </ul>
 
-        const performance = data && data.performance;
-        const current = performance && performance.current;
-        const spy = performance && performance.benchmarks && performance.benchmarks.SPY;
-        const meta = performance && performance.meta ? performance.meta : {};
-        const metricCards = document.querySelectorAll('.metrics > .card');
+        <div class="premium-footer">
+          <span class="premium-pill">Open</span>
+          <a class="card-link" href="yearly.html">View Yearly Returns →</a>
+        </div>
+      </div>
 
-        if (!current || metricCards.length < 4) {
-          return;
-        }
+      <div class="premium-card">
+        <div class="card-mark purple">TRD</div>
+        <h3>Live Trades</h3>
+        <div class="question">“Show me the actual trades.”</div>
+        <p>
+          Every trade Jeff makes is tracked in real time on Collective2 —
+          timestamped, verified independently, and presented with full transparency.
+        </p>
 
-        const periodYears = meta.periodYears ? Number(meta.periodYears) : null;
-        const periodLabel = Number.isFinite(periodYears)
-          ? (periodYears < 1.05 ? '1Y' : `${periodYears.toFixed(1)}Y`)
-          : 'Backtest';
+        <div class="mini-metrics">
+          <div class="mini">
+            <div class="value">29.3%</div>
+            <div class="label">Live return</div>
+          </div>
 
-        if (metricsContext) {
-          metricsContext.textContent = usingFallback
-            ? `Preview mode: showing embedded ${periodLabel} backtest metrics.`
-            : `Performance metrics shown below are sourced from backtest2008.JSON (${periodLabel}).`;
-        }
+          <div class="mini">
+            <div class="value">Apr 1</div>
+            <div class="label">Live since</div>
+          </div>
 
-        const updatedText = formatDateTime(meta.lastUpdated);
-        if (metricsUpdated) {
-          metricsUpdated.textContent = usingFallback
-            ? 'Using embedded fallback data because backtest2008.JSON could not be loaded in this preview.'
-            : (updatedText ? `Last updated: ${updatedText}` : 'Updated automatically from backtest2008.JSON');
-        }
+          <div class="mini">
+            <div class="value">100%</div>
+            <div class="label">Win rate</div>
+          </div>
 
-        if (chartTitle) {
-          chartTitle.textContent = Number.isFinite(periodYears)
-            ? `Backtest Equity Curve (${periodLabel})`
-            : 'Backtest Equity Curve';
-        }
+          <div class="mini">
+            <div class="value bad">-2.5%</div>
+            <div class="label">Max drawdown</div>
+          </div>
+        </div>
 
-        if (chartBadge) {
-          chartBadge.textContent = `${periodLabel} Backtest`;
-        }
+        <ul>
+          <li>Full trade history — entry, exit, return</li>
+          <li>Live performance vs SPY over same window</li>
+          <li>Verified independently on Collective2</li>
+        </ul>
 
-        if (chartNote) {
-          chartNote.textContent = usingFallback
-            ? 'Preview is using embedded fallback data. On your hosted site, this chart will read from backtest2008.JSON when available.'
-            : (updatedText
-              ? `This chart corresponds to the performance metrics shown at left. Updated ${updatedText}.`
-              : 'This chart corresponds to the performance metrics shown at left.');
-        }
+        <div class="premium-footer">
+          <span class="premium-pill">Open</span>
+          <a class="card-link" href="trades.html">View Live Trades →</a>
+        </div>
+      </div>
 
-        applyMetricCard(
-          metricCards[0],
-          formatPercent(current.totalReturnPct),
-          spy ? `${periodLabel} · vs SPY ${formatPercent(spy.totalReturnPct)}` : periodLabel
-        );
+    </div>
+  </section>
 
-        applyMetricCard(
-          metricCards[1],
-          formatPercent(current.cagrPct),
-          spy ? `${periodLabel} · vs SPY ${formatPercent(spy.cagrPct)}` : periodLabel
-        );
 
-        applyMetricCard(
-          metricCards[2],
-          formatPercent(current.maxDrawdownPct),
-          spy ? `${periodLabel} · vs SPY ${formatPercent(spy.maxDrawdownPct)}` : periodLabel
-        );
+  <div class="disclaimer">
+   <strong>Disclaimer:</strong> Jeff McAfee is not a registered investment adviser. TurboRegime is intended to provide insight into how Jeff trades and is not personalized investment advice. Past performance is not indicative of future results. Performance results shown on this website may include hypothetical or backtested results, which have inherent limitations and may differ materially from live trading. Trading involves risk of loss. Live results are being tracked beginning 4/1/2026.
+  </div>
 
-        applyMetricCard(
-          metricCards[3],
-          formatPlain(current.mar),
-          spy ? `${periodLabel} · vs SPY ${formatPlain(spy.mar)}` : periodLabel
-        );
-      }
+</div>
 
-      function applyShockTestData(data, usingFallback) {
-        const performance = data && data.performance;
-        const current = performance && performance.current;
-        const spy = performance && performance.benchmarks && performance.benchmarks.SPY;
-        const meta = performance && performance.meta ? performance.meta : {};
 
-        if (!current) {
-          return;
-        }
+<script>
+function normalizeImagePath(path) {
+  return String(path || "").replace(/\\/g, "/");
+}
 
-        const startLabel = formatShortDate(meta.startDate);
-        const endLabel = formatShortDate(meta.endDate);
-        const hasRange = startLabel && endLabel;
-        const periodText = hasRange
-          ? `Recent 1-Year Performance (${startLabel} – ${endLabel})`
-          : 'Recent 1-Year Performance';
+function getPath(obj, path) {
+  return path.split(".").reduce((o, key) => (o && o[key] !== undefined ? o[key] : undefined), obj);
+}
 
-        if (shockPeriodLabel) {
-          shockPeriodLabel.textContent = periodText;
-        }
+function firstNumber(obj, paths) {
+  for (const path of paths) {
+    const value = getPath(obj, path);
+    if (value === undefined || value === null || value === "") continue;
+    const n = Number(value);
+    if (!Number.isNaN(n)) return n;
+  }
+  return null;
+}
 
-        if (shockHeadline) {
-          shockHeadline.textContent = spy
-            ? `${formatPercent(current.totalReturnPct)} vs SPY ${formatPercent(spy.totalReturnPct)}`
-            : formatPercent(current.totalReturnPct);
-        }
+function firstText(obj, paths) {
+  for (const path of paths) {
+    const value = getPath(obj, path);
+    if (value !== undefined && value !== null && value !== "") return String(value);
+  }
+  return "";
+}
 
-        if (shockMaxDd) {
-          shockMaxDd.textContent = formatPercent(current.maxDrawdownPct);
-        }
-        if (shockMaxDdVs) {
-          shockMaxDdVs.textContent = spy
-            ? `vs SPY ${formatPercent(spy.maxDrawdownPct)}`
-            : '';
-        }
+function pct(value) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return "--";
+  return Number(value).toFixed(1) + "%";
+}
 
-        if (shockSharpe) {
-          shockSharpe.textContent = formatPlain(current.sharpe);
-        }
-        if (shockSharpeVs) {
-          shockSharpeVs.textContent = spy && spy.sharpe !== undefined
-            ? `vs SPY ${formatPlain(spy.sharpe)}`
-            : '';
-        }
+function num(value, digits = 2) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return "--";
+  return Number(value).toFixed(digits);
+}
 
-        if (shockMar) {
-          shockMar.textContent = formatPlain(current.mar);
-        }
-        if (shockMarVs) {
-          shockMarVs.textContent = spy ? `vs SPY ${formatPlain(spy.mar)}` : '';
-        }
+function multipleFromReturnPct(value) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return "--";
+  return (1 + Number(value) / 100).toFixed(1) + "x";
+}
 
-        if (shockFooter) {
-          shockFooter.textContent = usingFallback
-            ? 'Preview is using embedded fallback data for the recent-period comparison.'
-            : 'This section is sourced automatically from backtest2025.JSON.';
-        }
-      }
+function formatMonthYear(value) {
+  if (!value) return "";
+  const d = new Date(value);
+  if (Number.isNaN(d.getTime())) return "";
+  return d.toLocaleDateString("en-US", { month: "short", year: "numeric" });
+}
 
-      Promise.all([
-        loadJsonOrFallback(MAIN_JSON_PATHS, MAIN_FALLBACK_DATA),
-        loadJsonOrFallback(SHOCK_JSON_PATHS, SHOCK_FALLBACK_DATA)
-      ])
-        .then(([mainResult, shockResult]) => {
-          applyMainMarketingData(mainResult.data, mainResult.usingFallback);
-          applyShockTestData(shockResult.data, shockResult.usingFallback);
-        })
-        .catch((error) => {
-          console.error('Unexpected failure while preparing marketing data:', error);
-          applyMainMarketingData(MAIN_FALLBACK_DATA, true);
-          applyShockTestData(SHOCK_FALLBACK_DATA, true);
-        });
-    })();
-  </script>
+function fmtYear(value) {
+  if (value === undefined || value === null || value === "") return "";
+  const s = String(value);
+  if (/^\d{4}/.test(s)) return s.slice(0, 4);
+  const d = new Date(s);
+  if (!Number.isNaN(d.getTime())) return String(d.getFullYear());
+  return s;
+}
+
+function pctOne(value) {
+  if (value === null || value === undefined || Number.isNaN(Number(value))) return "--";
+  return Number(value).toFixed(1) + "%";
+}
+
+function deltaText(tregValue, spyValue) {
+  if (tregValue === null || tregValue === undefined || spyValue === null || spyValue === undefined) return "";
+  const d = Number(tregValue) - Number(spyValue);
+  if (Number.isNaN(d)) return "";
+  return "Δ " + Math.abs(d).toFixed(1) + "%";
+}
+
+function setText(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.innerText = value;
+}
+
+function setHTML(id, value) {
+  const el = document.getElementById(id);
+  if (el) el.innerHTML = value;
+}
+
+function renderHomepage(state) {
+  const perf = state.performance || {};
+  const current = perf.current || perf.strategy || perf;
+
+  // SPY comparison data must come from the SPY benchmark object.
+  // Keep a few fallback names so the page is tolerant of small JSON schema differences.
+  const spyBenchmark =
+    perf.benchmarks?.SPY ||
+    perf.benchmarks?.spy ||
+    perf.benchmark?.SPY ||
+    perf.benchmark?.spy ||
+    perf.spyBenchmark ||
+    perf.SPY ||
+    state.spyBenchmark ||
+    state.SPY ||
+    {};
+
+  const totalReturnPct = firstNumber({ current, state }, [
+    "current.totalReturnPct",
+    "current.returnPct",
+    "state.performance.current.totalReturnPct",
+    "state.performance.totalReturnPct",
+    "state.totalReturnPct",
+    "state.perfStrat"
+  ]);
+
+  const spyReturnPct = firstNumber({ spyBenchmark }, [
+    "spyBenchmark.totalReturnPct",
+    "spyBenchmark.returnPct",
+    "spyBenchmark.refReturnPct"
+  ]);
+
+  const cagrPct = firstNumber({ current, state }, [
+    "current.cagrPct",
+    "current.cagr",
+    "state.performance.current.cagrPct",
+    "state.performance.cagrPct",
+    "state.cagrPct"
+  ]);
+
+  const spyCagrPct = firstNumber({ spyBenchmark }, [
+    "spyBenchmark.cagrPct",
+    "spyBenchmark.cagr",
+    "spyBenchmark.refCagrPct"
+  ]);
+
+  const maxDrawdownPct = firstNumber({ current, state }, [
+    "current.maxDrawdownPct",
+    "current.maxDDPct",
+    "state.performance.current.maxDrawdownPct",
+    "state.performance.maxDrawdownPct",
+    "state.maxDrawdownPct"
+  ]);
+
+  const spyMaxDrawdownPct = firstNumber({ spyBenchmark }, [
+    "spyBenchmark.maxDrawdownPct",
+    "spyBenchmark.maxDDPct",
+    "spyBenchmark.refMaxDrawdownPct"
+  ]);
+
+  const mar = firstNumber({ current, state }, [
+    "current.mar",
+    "current.marRatio",
+    "state.performance.current.mar",
+    "state.performance.current.marRatio",
+    "state.performance.mar",
+    "state.mar",
+    "state.marRatio"
+  ]);
+
+  const spyMar = firstNumber({ spyBenchmark }, [
+    "spyBenchmark.mar",
+    "spyBenchmark.marRatio",
+    "spyBenchmark.refMar"
+  ]);
+
+  const bestYearPct = firstNumber(state, [
+    "performance.yearly.bestYearReturnPct",
+    "performance.yearlySummary.bestYearReturnPct",
+    "performance.bestYearReturnPct",
+    "bestYearReturnPct"
+  ]);
+
+  const bestYear = firstText(state, [
+    "performance.yearly.bestYear",
+    "performance.yearlySummary.bestYear",
+    "performance.bestYear",
+    "bestYear"
+  ]);
+
+  const worstYearPct = firstNumber(state, [
+    "performance.yearly.worstYearReturnPct",
+    "performance.yearlySummary.worstYearReturnPct",
+    "performance.worstYearReturnPct",
+    "worstYearReturnPct"
+  ]);
+
+  const worstYear = firstText(state, [
+    "performance.yearly.worstYear",
+    "performance.yearlySummary.worstYear",
+    "performance.worstYear",
+    "worstYear"
+  ]);
+
+  const bestYearSpyPct = firstNumber(state, [
+    "performance.yearly.bestYearSpyReturnPct",
+    "performance.yearlySummary.bestYearSpyReturnPct",
+    "performance.bestYearSpyReturnPct",
+    "bestYearSpyReturnPct"
+  ]);
+
+  const bestYearSpyYear = firstText(state, [
+    "performance.yearly.bestYearSpyYear",
+    "performance.yearlySummary.bestYearSpyYear",
+    "performance.bestYearSpyYear",
+    "bestYearSpyYear"
+  ]);
+
+  const worstYearSpyPct = firstNumber(state, [
+    "performance.yearly.worstYearSpyReturnPct",
+    "performance.yearlySummary.worstYearSpyReturnPct",
+    "performance.worstYearSpyReturnPct",
+    "worstYearSpyReturnPct"
+  ]);
+
+  const worstYearSpyYear = firstText(state, [
+    "performance.yearly.worstYearSpyYear",
+    "performance.yearlySummary.worstYearSpyYear",
+    "performance.worstYearSpyYear",
+    "worstYearSpyYear"
+  ]);
+
+  const avgAnnualSpyPct = firstNumber(state, [
+    "performance.yearly.averageSpyAnnualReturnPct",
+    "performance.yearlySummary.averageSpyAnnualReturnPct",
+    "performance.avgSpyAnnualReturnPct",
+    "averageSpyAnnualReturnPct",
+    "avgSpyAnnualReturnPct"
+  ]);
+
+  const beta = firstNumber({ current, state }, [
+    "current.beta",
+    "state.performance.current.beta",
+    "state.performance.beta",
+    "state.beta"
+  ]);
+
+  const avgAnnualPct = firstNumber(state, [
+    "performance.yearly.averageAnnualReturnPct",
+    "performance.yearlySummary.averageAnnualReturnPct",
+    "performance.avgAnnualReturnPct",
+    "averageAnnualReturnPct",
+    "avgAnnualReturnPct"
+  ]);
+
+  const sharpe = firstNumber({ current, state }, [
+    "current.sharpe",
+    "state.performance.current.sharpe",
+    "state.performance.sharpe",
+    "state.sharpe"
+  ]);
+
+  if (totalReturnPct !== null) setText("homeTotalReturn", multipleFromReturnPct(totalReturnPct));
+  if (spyReturnPct !== null) setHTML("homeTotalReturnSub", "TReg total return<br>vs SPY " + multipleFromReturnPct(spyReturnPct));
+
+  if (cagrPct !== null) setText("homeCagr", pct(cagrPct));
+  if (spyCagrPct !== null) setHTML("homeCagrSub", "CAGR annualized<br>vs SPY " + pct(spyCagrPct));
+
+  if (maxDrawdownPct !== null) setText("homeMaxDD", pct(maxDrawdownPct));
+  if (spyMaxDrawdownPct !== null) setHTML("homeMaxDDSub", "Max drawdown<br>vs SPY " + pct(spyMaxDrawdownPct));
+
+  if (mar !== null) setText("homeMar", num(mar, 2));
+  if (spyMar !== null) setHTML("homeMarSub", "MAR / Calmar ratio<br>vs SPY " + num(spyMar, 2));
+
+  if (bestYearPct !== null) setText("homeBestYear", pctOne(bestYearPct));
+  if (bestYear) setText("homeBestYearYear", "(" + fmtYear(bestYear) + ")");
+  if (bestYearSpyPct !== null) {
+    const y = bestYearSpyYear ? " (" + fmtYear(bestYearSpyYear) + ")" : "";
+    const d = deltaText(bestYearPct, bestYearSpyPct);
+    setHTML("homeBestYearSub", "SPY: " + pctOne(bestYearSpyPct) + y + (d ? " · <span class=\"delta\">" + d + "</span>" : ""));
+  }
+
+  if (worstYearPct !== null) setText("homeWorstYear", pctOne(worstYearPct));
+  if (worstYear) setText("homeWorstYearYear", "(" + fmtYear(worstYear) + ")");
+  if (worstYearSpyPct !== null) {
+    const y = worstYearSpyYear ? " (" + fmtYear(worstYearSpyYear) + ")" : "";
+    const d = deltaText(worstYearPct, worstYearSpyPct);
+    setHTML("homeWorstYearSub", "SPY: " + pctOne(worstYearSpyPct) + y + (d ? " · <span class=\"delta\">" + d + "</span>" : ""));
+  }
+
+  if (avgAnnualPct !== null) setText("homeAvgAnnual", pctOne(avgAnnualPct));
+  if (avgAnnualSpyPct !== null) {
+    const d = deltaText(avgAnnualPct, avgAnnualSpyPct);
+    setHTML("homeAvgAnnualSub", "SPY " + pctOne(avgAnnualSpyPct) + (d ? " · <span class=\"delta\">" + d + "</span>" : ""));
+  }
+
+  if (beta !== null) setText("homeBeta", num(beta, 2));
+
+  if (bestYearPct !== null) setText("premiumBestYear", pct(bestYearPct));
+  if (bestYear) setText("premiumBestYearSub", "Best year (" + bestYear + ")");
+  if (worstYearPct !== null) setText("premiumWorstYear", pct(worstYearPct));
+  if (worstYear) setText("premiumWorstYearSub", "Worst year (" + worstYear + ")");
+  if (avgAnnualPct !== null) setText("premiumAvgAnnual", pct(avgAnnualPct));
+  if (sharpe !== null) setText("premiumSharpe", num(sharpe, 2));
+
+  if (totalReturnPct !== null && spyReturnPct !== null) {
+    setText("homeChartSummary", "TReg " + multipleFromReturnPct(totalReturnPct) + " · SPY " + multipleFromReturnPct(spyReturnPct));
+  }
+
+  const startDate = firstText(state, ["performance.meta.startDate", "perfStartDate", "startDate"]);
+  const endDate = firstText(state, ["performance.meta.endDate", "endDate"]);
+  const startLabel = formatMonthYear(startDate);
+  const endLabel = formatMonthYear(endDate);
+  if (startLabel || endLabel) {
+    setText("homeChartTitle", "Equity growth — TReg vs SPY (" + (startLabel || "Start") + " – " + (endLabel || "Current") + ")");
+  }
+
+  const equityFilename = firstText(state, ["equityFilename", "performance.meta.equityFilename"]);
+  const img = document.getElementById("homeEquityChart");
+  if (img && equityFilename) {
+    img.src = normalizeImagePath(equityFilename);
+  }
+}
+
+async function loadHomepageState() {
+  const files = ["backtest2008.json", "backtest2008.JSON"];
+  for (const f of files) {
+    try {
+      const r = await fetch(f + "?t=" + Date.now());
+      if (!r.ok) continue;
+      const state = await r.json();
+      renderHomepage(state);
+      return;
+    } catch {}
+  }
+}
+
+loadHomepageState();
+setInterval(loadHomepageState, 10000);
+</script>
+
 </body>
 </html>
-
-

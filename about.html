@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TurboRegime - About</title>
+<link rel="stylesheet" href="styles.css">
+
+<style>
+.about-wrap {
+  display: grid;
+  gap: 14px;
+}
+
+.about-profile {
+  padding: 20px;
+  border-radius: 22px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.about-photo-frame {
+  width: 220px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--border);
+  padding: 6px;
+}
+
+.about-photo {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+  filter: contrast(0.96) brightness(0.96);
+}
+
+.about-name-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.about-name-row h1 {
+  margin: 0;
+  font-size: 26px;
+  line-height: 1.1;
+  color: var(--white);
+}
+
+.about-brand-tag {
+  color: var(--sky);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.about-subtitle {
+  color: var(--text);
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.about-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.about-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 5px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  border: 1px solid var(--sky-border);
+  background: var(--sky-soft);
+  color: #bae6fd;
+}
+
+.about-pill.green {
+  border-color: var(--emerald-border);
+  background: var(--emerald-soft);
+  color: var(--emerald);
+}
+
+.about-pill.muted {
+  border-color: var(--border);
+  background: var(--panel-soft);
+  color: var(--muted);
+}
+
+.about-quote {
+  margin: 0 0 12px;
+  font-size: 16px;
+  line-height: 1.55;
+  color: var(--white);
+  font-style: italic;
+}
+
+.about-lede {
+  margin: 0;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.65;
+  max-width: 1080px;
+}
+
+.about-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.about-stat {
+  text-align: center;
+  padding: 16px;
+  border-radius: 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.about-stat-value {
+  font-size: 34px;
+  line-height: 1;
+  color: var(--sky);
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.about-stat-label {
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.about-card {
+  padding: 22px;
+  border-radius: 18px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.about-card h2 {
+  margin: 0 0 14px;
+  color: var(--white);
+  font-size: 18px;
+  line-height: 1.25;
+  padding-left: 12px;
+  border-left: 3px solid var(--sky);
+}
+
+.about-card p {
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.7;
+  margin: 0 0 12px;
+}
+
+.about-card p:last-child {
+  margin-bottom: 0;
+}
+
+.signal-code {
+  margin: 14px 0;
+  padding: 12px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(52, 211, 153, 0.65);
+  background: rgba(52, 211, 153, 0.08);
+  color: var(--emerald);
+  font-family: Consolas, Monaco, monospace;
+  font-size: 14px;
+  text-align: center;
+  letter-spacing: 0.08em;
+}
+
+.philosophy-callout {
+  margin: 14px 0;
+  padding: 18px;
+  border-radius: 14px;
+  border: 1px solid var(--sky-border);
+  background: rgba(56, 189, 248, 0.08);
+  text-align: center;
+}
+
+.philosophy-callout strong {
+  display: block;
+  color: var(--white);
+  font-size: 18px;
+  margin-bottom: 4px;
+}
+
+.philosophy-callout span {
+  color: var(--sky);
+  font-weight: 700;
+}
+
+.about-disclaimer {
+  font-size: 13px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 850px) {
+  .about-profile {
+    grid-template-columns: 1fr;
+  }
+
+  .about-photo-frame {
+    width: 220px;
+  }
+
+  .about-stats {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
+</head>
+
+<body>
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">
+      <div class="brand-mark">T</div>
+      <div>TurboRegime - About</div>
+    </div>
+
+<div class="nav">
+  <a href="index.html">Home</a>
+  <a href="how.html">How It Works</a>
+  <a href="dashboard.html">Dashboard</a>
+  <a href="scenarios.html">Scenarios</a>
+  <a href="yearly.html">Yearly</a>
+  <a href="trades.html">Trades</a>
+  <a href="about.html"class="active">About</a>
+
+</div>
+  </div>
+</header>
+
+<div class="container">
+  <main class="about-wrap">
+
+    <section class="about-profile">
+      <div class="about-photo-frame">
+        <img src="jeff.jpg" alt="Jeff McAfee" class="about-photo">
+      </div>
+
+      <div>
+        <div class="about-name-row">
+          <h1>Jeff McAfee</h1>
+          <span class="about-brand-tag">· TurboRegime Creator/Developer</span>
+        </div>
+        <div class="about-subtitle"> </div>
+
+        <div class="about-pills">
+
+          <span class="about-pill green">Inventor</span>
+          <span class="about-pill green">Systematic Trader</span>
+          <span class="about-pill green">Defense Industry</span>
+          <span class="about-pill green">Retired Northrop Grumman Fellow</span>
+          <span class="about-pill green">Systems Engineer</span>
+
+        </div>
+
+        <p class="about-quote">“I didn’t come from Wall Street. I came from the defense industry.”</p>
+
+        <p class="about-lede">
+          For 39 years I designed and managed the development of sophisticated systems for the defense industry.  I have supported many Air Force programs including the F-35 Joint Strike Fighter, B-2 Spirit stealth bomber, F-15 Eagle fighter, UK E-2D AWACS and others.  I even had a very small role in supporting the development of the  James Webb Telescope. When you’re building systems that have to work in the most unforgiving environments imaginable, you learn to think differently about discipline, risk management, reliability, and signal detection. It turns out those systems-thinking skills translate directly to the markets.
+        </p>
+      </div>
+    </section>
+
+    <section class="about-stats">
+      <div class="about-stat">
+        <div class="about-stat-value">39</div>
+        <div class="about-stat-label">Years of systems<br>engineering experience</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-value">40+</div>
+        <div class="about-stat-label">Years of market<br>experience</div>
+      </div>
+      <div class="about-stat">
+        <div class="about-stat-value">25+</div>
+        <div class="about-stat-label">Years of automated<br>rules-based trading</div>
+      </div>
+    </section>
+
+    <section class="about-card">
+      <h2>The Beginning</h2>
+      <p>My systematic trading journey didn’t start with TurboRegime. It started in the 2000s with a program I designed called <em>Flipper</em>.</p>
+      <p>Flipper was a Visual Basic program that sampled US market activity between international market close and the US 4pm close, detected a statistically significant edge in international mutual funds, and automatically dialed up through a modem to place trades in multiple 401(k)s. No emotion. No hesitation. Just signal and execution.</p>
+      <p>It averaged more than 70% annually during the period we ran it.</p>
+      <p>My longtime friend and engineering colleague, Miguel Diaz, was my collaborator and sounding board through that entire period — and has been ever since. Between us we bring 80 years of combined engineering experience and market thinking dating back to the 1980s.</p>
+    </section>
+
+    <section class="about-card">
+      <h2>The Evolution</h2>
+      <p>As markets evolved, so did our approach. When Flipper’s edge closed, we kept refining the thinking. How do you systematically detect regime changes in the market? How do you protect capital during stress and accelerate into recoveries? How do you remove emotion from the equation entirely?</p>
+      <p>Those questions drove 25+ years of automated, rules-based trading research.</p>
+      <p>Along the way we learned some memorable lessons in system reliability. In the early 2000s, sitting in meetings at Honeywell, we needed a way to know whether our automated system had executed. Our solution was pure engineering — we encoded the signal into our pagers.</p>
+      <div class="signal-code">1 = we flipped&nbsp;&nbsp;·&nbsp;&nbsp;0 = we held</div>
+      <p>If neither pager went off, it was time to find a computer.</p>
+      <p>That’s how engineers solve problems.</p>
+    </section>
+
+    <section class="about-card">
+      <h2>TurboRegime</h2>
+      <p>TurboRegime is the culmination of 40 years of parallel experience in systems engineering and market research.</p>
+      <p>It is a regime-based allocation strategy that dynamically rotates between three states — RiskOff, RiskOn, and RiskOn++ (Turbo Mode) — based on systematic signal detection. It is not always leveraged. It uses leverage selectively, when conditions historically support it. And it moves to defense when they don’t.</p>
+      <p>The strategy has been backtested across 17+ years of market history including the 2008 financial crisis, multiple corrections, COVID, and the 2025 tariff shock. It has been designed to be transparent — the bad years are shown alongside the good ones, because that’s the only honest way to present a strategy.</p>
+      <p>Live trading began April 1st, 2026. The track record is verified independently on Collective2.</p>
+    </section>
+
+    <section class="about-card">
+      <h2>The Philosophy</h2>
+      <div class="philosophy-callout">
+        <strong>No emotion. No guessing. No market watching.</strong>
+        <span>The signal tells me what to do — and I follow it. That’s the entire process.</span>
+      </div>
+      <p>I built TurboRegime the same way I built systems in the defense industry — with discipline, rigor, and zero tolerance for discretionary decisions that introduce human error.</p>
+      <p>I built this for myself first. Then I found that others were interested. And so here we are.</p>
+    </section>
+
+    <section class="about-card">
+      <h2>A Personal Note</h2>
+      <p>I spent decades building systems for others. TurboRegime is something I built for myself — and ultimately for my friends and family. It is designed as a simple way to generate good returns that compound over time, protect capital when markets get difficult, and require minimal ongoing attention.</p>
+      <p>Because the whole point of a good system is that it runs without you.</p>
+      <p>For me, that means more time on the golf course. For you, it might mean something different. But the goal is the same — a systematic, disciplined approach to the market that works while you live your life.</p>
+      <p>That’s what TurboRegime is built for.</p>
+    </section>
+
+    <section class="about-card">
+      <div class="about-disclaimer">
+       <strong>Disclaimer:</strong> Jeff McAfee is not a registered investment adviser. TurboRegime is intended to provide insight into how Jeff trades and is not personalized investment advice. Past performance is not indicative of future results. Performance results shown on this website may include hypothetical or backtested results, which have inherent limitations and may differ materially from live trading. Trading involves risk of loss. Live results are being tracked beginning 4/1/2026.
+      </div>
+    </section>
+
+  </main>
+</div>
+</body>
+</html>
