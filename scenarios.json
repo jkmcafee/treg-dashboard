@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-09T15:18:52",
+  "lastUpdated": "2026-05-09T15:21:47",
   "scenarioCount": 14,
   "scenarios": [
     {
@@ -354,7 +354,7 @@
       "id": "TReg_2025-03-31_2025-05-30",
       "order": 13,
       "type": "fixed",
-      "title": "2025 Tariff Shock",
+      "title": "2025 Tariff Shock Event",
       "subtitle": "Fixed-window test during the tariff shock",
       "startDate": "2025-03-31",
       "endDate": "2025-05-30",
@@ -383,8 +383,8 @@
       "id": "TReg_2025-01-03_2026-05-09",
       "order": 14,
       "type": "fixed",
-      "title": "Retirement - focused on beating SPY",
-      "subtitle": "Starting when TREg development began",
+      "title": "Retirement Event - focused on beating SPY!",
+      "subtitle": "Starting when TReg development began",
       "startDate": "2025-01-03",
       "endDate": "2026-05-09",
       "periodYears": 1.34,
