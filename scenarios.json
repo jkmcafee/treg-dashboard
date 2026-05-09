@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-05-09T15:13:33",
+  "lastUpdated": "2026-05-09T15:18:52",
   "scenarioCount": 14,
   "scenarios": [
     {
@@ -13,7 +13,7 @@
       "periodYears": 17.51,
       "equityFile": "reports/TReg_2008-11-05_2026-05-09_Equity.png",
       "metrics": {
-        "tregReturnPct": 4368.7,
+        "tregReturnPct": 4369.54,
         "spyReturnPct": 957.0,
         "tregCagrPct": 24.24,
         "spyCagrPct": 14.42,
@@ -42,7 +42,7 @@
       "periodYears": 15.35,
       "equityFile": "reports/TReg_2010-12-31_2026-05-09_Equity.png",
       "metrics": {
-        "tregReturnPct": 2061.04,
+        "tregReturnPct": 2060.35,
         "spyReturnPct": 668.8,
         "tregCagrPct": 22.16,
         "spyCagrPct": 14.21,
@@ -100,7 +100,7 @@
       "periodYears": 11.35,
       "equityFile": "reports/TReg_2014-12-31_2026-05-09_Equity.png",
       "metrics": {
-        "tregReturnPct": 1025.71,
+        "tregReturnPct": 1025.82,
         "spyReturnPct": 333.3,
         "tregCagrPct": 23.77,
         "spyCagrPct": 13.79,
@@ -129,7 +129,7 @@
       "periodYears": 10.94,
       "equityFile": "reports/TReg_2015-06-01_2026-05-09_Equity.png",
       "metrics": {
-        "tregReturnPct": 1033.76,
+        "tregReturnPct": 1033.7,
         "spyReturnPct": 319.1,
         "tregCagrPct": 24.86,
         "spyCagrPct": 14.0,
@@ -158,7 +158,7 @@
       "periodYears": 8.35,
       "equityFile": "reports/TReg_2018-01-01_2026-05-09_Equity.png",
       "metrics": {
-        "tregReturnPct": 584.94,
+        "tregReturnPct": 584.88,
         "spyReturnPct": 211.8,
         "tregCagrPct": 25.92,
         "spyCagrPct": 14.59,
@@ -187,7 +187,7 @@
       "periodYears": 7.68,
       "equityFile": "reports/TReg_2018-09-01_2026-05-09_Equity.png",
       "metrics": {
-        "tregReturnPct": 555.85,
+        "tregReturnPct": 555.82,
         "spyReturnPct": 186.7,
         "tregCagrPct": 27.76,
         "spyCagrPct": 14.71,
@@ -274,7 +274,7 @@
       "periodYears": 4.52,
       "equityFile": "reports/TReg_2021-11-01_2026-05-09_Equity.png",
       "metrics": {
-        "tregReturnPct": 154.91,
+        "tregReturnPct": 154.89,
         "spyReturnPct": 70.5,
         "tregCagrPct": 23.01,
         "spyCagrPct": 12.54,
