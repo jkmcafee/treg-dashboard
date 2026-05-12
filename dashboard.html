@@ -4,9 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TurboRegime - Dashboard</title>
+
 <link rel="stylesheet" href="styles.css">
 
 <style>
+
 body {
   margin: 0;
   font-family: Arial;
@@ -19,9 +21,18 @@ body {
   color: var(--white);
 }
 
-.grid { display: grid; gap: 10px; }
-.grid.cards { grid-template-columns: repeat(2,1fr); }
-.grid.main { grid-template-columns: 1fr 1fr; }
+.grid {
+  display: grid;
+  gap: 10px;
+}
+
+.grid.cards {
+  grid-template-columns: repeat(2,1fr);
+}
+
+.grid.main {
+  grid-template-columns: 1fr 1fr;
+}
 
 .card {
   background: var(--panel);
@@ -57,6 +68,7 @@ body {
     rgba(56, 189, 248, 0.34),
     rgba(56, 189, 248, 0.12)
   );
+
   box-shadow:
     0 0 0 1px rgba(56, 189, 248, 0.20) inset,
     0 0 24px rgba(56, 189, 248, 0.28);
@@ -166,6 +178,7 @@ h3 {
   font-size: 14px;
   line-height: 1.6;
   opacity: 0.95;
+  white-space: pre-wrap;
 }
 
 .zoom-overlay {
@@ -205,12 +218,14 @@ h3 {
 .error {
   color: #f87171;
 }
+
 </style>
 </head>
 
 <body>
 
 <header class="topbar">
+
   <div class="topbar-inner">
 
     <div class="brand">
@@ -230,6 +245,7 @@ h3 {
     </div>
 
   </div>
+
 </header>
 
 <div class="container">
@@ -241,26 +257,22 @@ h3 {
     <div class="dashboard-stack">
 
       <div id="regimeCard" class="card regime-card">
+
         <h3>Current Regime</h3>
+
         <div id="regimeName" class="metric"></div>
+
         <div id="regimeMeta" class="sub"></div>
+
       </div>
 
       <div class="card">
+
         <h3>Last Updated</h3>
+
         <div id="updated"></div>
+
       </div>
-
-      <div class="card notes-card">
-        <h3>Notes</h3>
-        <div id="notes" class="notes-text"></div>
-      </div>
-
-    </div>
-
-    <!-- RIGHT COLUMN -->
-
-    <div class="dashboard-stack">
 
       <div class="card">
 
@@ -296,6 +308,20 @@ h3 {
         </div>
 
       </div>
+
+      <div class="card notes-card">
+
+        <h3>Notes</h3>
+
+        <div id="notes" class="notes-text"></div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+
+    <div class="dashboard-stack">
 
       <div class="card">
 
@@ -354,17 +380,23 @@ h3 {
   <div class="grid main">
 
     <div class="card">
+
       <h3>Equity Growth</h3>
+
       <div class="img-wrap">
         <img id="eq">
       </div>
+
     </div>
 
     <div class="card">
+
       <h3>Regime Signals</h3>
+
       <div class="img-wrap">
         <img id="ra">
       </div>
+
     </div>
 
   </div>
@@ -382,16 +414,24 @@ function normalizeImagePath(path) {
 }
 
 function getRegimeClass(regime) {
+
   if (regime === "RiskOn") return "riskon";
+
   if (regime === "RiskOff") return "riskoff";
+
   if (regime === "RiskOn++" || regime === "Risk++") return "riskpp";
+
   return "";
 }
 
 function formatPrice(v) {
+
   if (v === undefined || v === null || v === "") return "--";
+
   const n = Number(v);
+
   if (Number.isNaN(n)) return "--";
+
   return n.toFixed(2);
 }
 
@@ -408,7 +448,9 @@ function render(x) {
   document.getElementById("regimeName").innerHTML = regimeText;
 
   const regimeCard = document.getElementById("regimeCard");
-  regimeCard.className = "card regime-card " + getRegimeClass(x.regime);
+
+  regimeCard.className =
+    "card regime-card " + getRegimeClass(x.regime);
 
   const regimeStartRaw = x.regimeStartDate;
 
@@ -553,7 +595,7 @@ setInterval(load, 10000);
 const overlay = document.getElementById("zoomOverlay");
 const zoomImg = document.getElementById("zoomImg");
 
-["eq", "ra"].forEach(id => {
+["eq","ra"].forEach(id => {
 
   const img = document.getElementById(id);
 
@@ -568,7 +610,9 @@ const zoomImg = document.getElementById("zoomImg");
 
 });
 
-overlay.onclick = () => overlay.style.display = "none";
+overlay.onclick = () => {
+  overlay.style.display = "none";
+};
 
 function setTheme(theme) {
 
@@ -599,16 +643,23 @@ window.addEventListener("DOMContentLoaded", () => {
 </script>
 
 <div class="disclaimer">
+
   <strong>Disclaimer:</strong>
+
   Jeff McAfee is not a registered investment adviser.
   TurboRegime is intended to provide insight into how Jeff trades
   and is not personalized investment advice.
+
   Past performance is not indicative of future results.
+
   Performance results shown on this website may include hypothetical
   or backtested results, which have inherent limitations and may
   differ materially from live trading.
+
   Trading involves risk of loss.
+
   Live results are being tracked beginning 4/1/2026.
+
 </div>
 
 </body>
