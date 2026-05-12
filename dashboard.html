@@ -21,19 +21,6 @@ body {
   color: var(--white);
 }
 
-.grid {
-  display: grid;
-  gap: 10px;
-}
-
-.grid.cards {
-  grid-template-columns: repeat(2,1fr);
-}
-
-.grid.main {
-  grid-template-columns: 1fr 1fr;
-}
-
 .card {
   background: var(--panel);
   padding: 14px 16px;
@@ -91,19 +78,6 @@ h3 {
   color: var(--muted);
 }
 
-.img-wrap {
-  width: 100%;
-  margin-top: 6px;
-}
-
-.img-wrap img {
-  width: 100%;
-  height: auto;
-  display: block;
-  cursor: zoom-in;
-  border-radius: 10px;
-}
-
 .trade-grid {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -124,11 +98,6 @@ h3 {
   border-radius: 10px;
   text-align: center;
   border: 1px solid var(--border);
-  transition: transform 0.15s ease;
-}
-
-.trade-card:hover {
-  transform: translateY(-2px);
 }
 
 .trade-card .label {
@@ -148,29 +117,40 @@ h3 {
   margin-top: 14px;
 }
 
-.trade-levels h3 {
-  margin-top: 0;
-}
-
-.dashboard-top {
+.dashboard-layout {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.35fr 0.65fr;
   gap: 10px;
   align-items: start;
 }
 
-.dashboard-stack {
+.left-column,
+.right-column {
   display: grid;
   gap: 10px;
 }
 
+.graph-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.img-wrap {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  cursor: zoom-in;
+}
+
 .notes-card {
-  display: flex;
-  flex-direction: column;
-  margin-top: 1px;
-  margin-bottom: 12px;
-  padding-top: 10px;
-  padding-bottom: 16px;
+  min-height: 100%;
 }
 
 .notes-text {
@@ -215,10 +195,6 @@ h3 {
   text-align: left;
 }
 
-.error {
-  color: #f87171;
-}
-
 </style>
 </head>
 
@@ -250,11 +226,41 @@ h3 {
 
 <div class="container">
 
-  <div class="dashboard-top">
+  <div class="dashboard-layout">
 
     <!-- LEFT COLUMN -->
 
-    <div class="dashboard-stack">
+    <div class="left-column">
+
+      <div class="graph-grid">
+
+        <div class="card">
+
+          <h3>Equity Growth</h3>
+
+          <div class="img-wrap">
+            <img id="eq">
+          </div>
+
+        </div>
+
+        <div class="card">
+
+          <h3>Regime Signals</h3>
+
+          <div class="img-wrap">
+            <img id="ra">
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+
+    <div class="right-column">
 
       <div id="regimeCard" class="card regime-card">
 
@@ -309,20 +315,6 @@ h3 {
 
       </div>
 
-      <div class="card notes-card">
-
-        <h3>Notes</h3>
-
-        <div id="notes" class="notes-text"></div>
-
-      </div>
-
-    </div>
-
-    <!-- RIGHT COLUMN -->
-
-    <div class="dashboard-stack">
-
       <div class="card">
 
         <h3>Portfolio Allocation</h3>
@@ -373,28 +365,12 @@ h3 {
 
       </div>
 
-    </div>
+      <div class="card notes-card">
 
-  </div>
+        <h3>Notes</h3>
 
-  <div class="grid main">
+        <div id="notes" class="notes-text"></div>
 
-    <div class="card">
-
-      <h3>Equity Growth</h3>
-
-      <div class="img-wrap">
-        <img id="eq">
-      </div>
-
-    </div>
-
-    <div class="card">
-
-      <h3>Regime Signals</h3>
-
-      <div class="img-wrap">
-        <img id="ra">
       </div>
 
     </div>
@@ -416,9 +392,7 @@ function normalizeImagePath(path) {
 function getRegimeClass(regime) {
 
   if (regime === "RiskOn") return "riskon";
-
   if (regime === "RiskOff") return "riskoff";
-
   if (regime === "RiskOn++" || regime === "Risk++") return "riskpp";
 
   return "";
@@ -613,32 +587,6 @@ const zoomImg = document.getElementById("zoomImg");
 overlay.onclick = () => {
   overlay.style.display = "none";
 };
-
-function setTheme(theme) {
-
-  if (theme === "light") {
-
-    document.body.classList.add("light");
-    localStorage.setItem("theme", "light");
-
-  } else {
-
-    document.body.classList.remove("light");
-    localStorage.setItem("theme", "dark");
-
-  }
-
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-
-  const savedTheme = localStorage.getItem("theme");
-
-  if (savedTheme === "light") {
-    document.body.classList.add("light");
-  }
-
-});
 
 </script>
 
