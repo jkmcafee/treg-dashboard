@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Collective2",
-    "lastUpdated": "2026-05-11T19:44:44.168541"
+    "lastUpdated": "2026-05-11T22:59:45.288386"
   },
   "strategy": {
     "StrategyId": 155341343,
@@ -46,17 +46,20 @@
     "MaxDrawdownEndDate": "20260421",
     "AvgWinDollars": 10613,
     "AvgLossDollars": 0,
-    "AvgTradeDuration": 15.752,
+    "AvgTradeDuration": 15.805,
     "CorrelationSP500": 0.6992,
-    "SP500Return": 12.78,
+    "SP500Return": 12.74,
     "ReturnVsSP500": 18.82,
     "AvgLeverage": 2.24867,
     "MaxLeverage": 2.98,
     "Alpha": 0.32,
     "Beta": 1.26,
     "Treynor": 0.55,
-    "Sortino": 35.82,
-    "Sharpe": 9.83,
-    "Calmar": 744.34
+    "Sortino": 35.85,
+    "Sharpe": 9.84,
+    "Calmar": 746.3
+  },
+  "shares": {
+    "SPXL": 490
   }
 }
