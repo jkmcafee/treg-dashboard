@@ -430,15 +430,17 @@ const zoomImg = document.getElementById("zoomImg");
 
 ["eq","ra"].forEach(id=>{
   const img = document.getElementById(id);
+
   img.onclick = ()=>{
     if (!img.src) return;
+
     zoomImg.src = img.src;
-    overlay.style.display="flex";
+    overlay.style.display = "flex";
   };
 });
 
-overlay.onclick = ()=> overlay.style.display="none";
-<script>
+overlay.onclick = ()=> overlay.style.display = "none";
+
 function setTheme(theme) {
   if (theme === "light") {
     document.body.classList.add("light");
@@ -457,9 +459,10 @@ window.addEventListener("DOMContentLoaded", () => {
   }
 });
 </script>
+
+<div class="disclaimer">
+  <strong>Disclaimer:</strong> Jeff McAfee is not a registered investment adviser. TurboRegime is intended to provide insight into how Jeff trades and is not personalized investment advice. Past performance is not indicative of future results. Performance results shown on this website may include hypothetical or backtested results, which have inherent limitations and may differ materially from live trading. Trading involves risk of loss. Live results are being tracked beginning 4/1/2026.
+</div>
+
 </body>
 </html>
-
-  <div class="disclaimer">
-   <strong>Disclaimer:</strong> Jeff McAfee is not a registered investment adviser. TurboRegime is intended to provide insight into how Jeff trades and is not personalized investment advice. Past performance is not indicative of future results. Performance results shown on this website may include hypothetical or backtested results, which have inherent limitations and may differ materially from live trading. Trading involves risk of loss. Live results are being tracked beginning 4/1/2026.
-  </div>
