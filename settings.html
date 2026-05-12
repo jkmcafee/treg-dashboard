@@ -1,9 +1,60 @@
-<h1>Settings</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TurboRegime Settings</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
 
-<div class="card">
-  <h2>Appearance</h2>
-  <p>Choose how TurboRegime appears on this device.</p>
+<body>
 
-  <button onclick="setTheme('dark')">Dark Mode</button>
-  <button onclick="setTheme('light')">Light Mode</button>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">TurboRegime</div>
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="dashboard.html">Dashboard</a>
+      <a href="scenarios.html">Scenarios</a>
+      <a href="yearly.html">Yearly</a>
+      <a href="trades.html">Trades</a>
+      <a href="about.html">About</a>
+      <a href="settings.html" class="active">Settings</a>
+    </div>
+  </div>
 </div>
+
+<main class="page">
+  <h1 class="page-title">Settings</h1>
+
+  <div class="card" style="padding:24px;">
+    <h2>Appearance</h2>
+    <p>Choose how TurboRegime appears on this device.</p>
+
+    <button onclick="setTheme('dark')">Dark Mode</button>
+    <button onclick="setTheme('light')">Light Mode</button>
+  </div>
+</main>
+
+<script>
+function setTheme(theme) {
+  if (theme === "light") {
+    document.body.classList.add("light");
+    localStorage.setItem("theme", "light");
+  } else {
+    document.body.classList.remove("light");
+    localStorage.setItem("theme", "dark");
+  }
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme");
+
+  if (savedTheme === "light") {
+    document.body.classList.add("light");
+  }
+});
+</script>
+
+</body>
+</html>
