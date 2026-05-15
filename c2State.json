@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Collective2",
-    "lastUpdated": "2026-05-15T09:11:27.558093"
+    "lastUpdated": "2026-05-15T10:11:30.159415"
   },
   "strategy": {
     "StrategyId": 155341343,
@@ -19,16 +19,16 @@
     "StrategyOwnerId": 154092868,
     "StrategyOwnerName": "McStrat",
     "SuggestedCapital": 15000,
-    "Score": 225,
+    "Score": 223,
     "Return": 36.28,
     "ReturnLabel": "Cumul. Return",
-    "Equity": 34672,
-    "Cash": 26128,
+    "Equity": 39,
+    "Cash": 74240,
     "StartingCash": 100000,
     "ProfitFactor": 25.5,
     "CashDividends": 0,
-    "BuyingPower": 86052,
-    "MarginUsed": -25252,
+    "BuyingPower": 131966,
+    "MarginUsed": -57686,
     "AgeInDays": 43,
     "ModelAccountValue": 136557,
     "NumTrades": 3,
@@ -60,6 +60,6 @@
     "Calmar": 726.2
   },
   "shares": {
-    "SPXL": 490
+    "SPY": 156
   }
 }
