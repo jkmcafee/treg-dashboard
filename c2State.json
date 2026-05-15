@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Collective2",
-    "lastUpdated": "2026-05-15T10:11:30.159415"
+    "lastUpdated": "2026-05-15T10:34:44.182060"
   },
   "strategy": {
     "StrategyId": 155341343,
@@ -22,12 +22,12 @@
     "Score": 223,
     "Return": 36.28,
     "ReturnLabel": "Cumul. Return",
-    "Equity": 39,
+    "Equity": 338,
     "Cash": 74240,
     "StartingCash": 100000,
     "ProfitFactor": 25.5,
     "CashDividends": 0,
-    "BuyingPower": 131966,
+    "BuyingPower": 132265,
     "MarginUsed": -57686,
     "AgeInDays": 43,
     "ModelAccountValue": 136557,
