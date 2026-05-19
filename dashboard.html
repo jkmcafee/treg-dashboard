@@ -61,6 +61,62 @@ body {
     0 0 24px rgba(56, 189, 248, 0.28);
 }
 
+.regime-card.signal-active {
+  border-color: rgba(148, 163, 184, 0.28) !important;
+
+  background: var(--panel) !important;
+
+  box-shadow: var(--shadow) !important;
+
+  opacity: 0.82;
+}
+
+.regime-card.signal-active .metric {
+  color: rgba(255,255,255,0.92);
+}
+
+.regime-card.signal-active .sub {
+  color: rgba(148,163,184,0.82);
+}
+
+.pending-transition {
+  margin-top: 8px;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  color: rgba(251, 191, 36, 0.92);
+}
+
+.signal-card {
+  display: none;
+  border-color: rgba(251, 191, 36, 0.75);
+  background: linear-gradient(
+    rgba(251, 191, 36, 0.22),
+    rgba(251, 191, 36, 0.08)
+  );
+  box-shadow:
+    0 0 0 1px rgba(251, 191, 36, 0.14) inset,
+    0 0 18px rgba(251, 191, 36, 0.18);
+}
+
+.signal-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.signal-sub {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.signal-allocation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 6px;
+}
+
 h3 {
   color: var(--muted);
   font-size: 12px;
@@ -112,6 +168,32 @@ h3 {
   color: var(--text);
 }
 
+.trade-card.triggered {
+  border-color: rgba(248, 113, 113, 0.85);
+
+  background: linear-gradient(
+    rgba(248, 113, 113, 0.22),
+    rgba(248, 113, 113, 0.08)
+  );
+
+  box-shadow:
+    0 0 0 1px rgba(248, 113, 113, 0.18) inset,
+    0 0 18px rgba(248, 113, 113, 0.22);
+}
+
+.trade-card.triggered .value {
+  font-size: 24px;
+  color: var(--white);
+}
+
+.trigger-status {
+  margin-top: 6px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.4px;
+  color: #f87171;
+}
+
 .trade-levels {
   display: none;
   margin-top: 14px;
@@ -151,10 +233,6 @@ h3 {
 
   max-height: 240px;
   object-fit: contain;
-}
-
-.notes-card {
-  margin-top: 10px;
 }
 
 .notes-text {
@@ -256,6 +334,14 @@ h3 {
 
       </div>
 
+      <div class="card notes-card">
+
+        <h3>Notes</h3>
+
+        <div id="notes" class="notes-text"></div>
+
+      </div>
+
     </div>
 
     <!-- RIGHT COLUMN -->
@@ -270,7 +356,54 @@ h3 {
 
         <div id="regimeMeta" class="sub"></div>
 
+        <div id="pendingTransition"
+             class="pending-transition"
+             style="display:none;">
+
+          Pending transition detected
+
+        </div>
+
       </div>
+
+<div id="signalCard" class="card signal-card">
+
+  <h3>Signal Status</h3>
+
+  <div class="signal-title">
+    Regime Change Detected
+  </div>
+
+  <div class="signal-sub">
+    Next Regime:
+    <span id="signalRegime">--</span>
+  </div>
+
+  <div class="signal-sub">
+    Detected:
+    <span id="signalDate">--</span>
+  </div>
+
+  <div class="signal-allocation-grid">
+
+    <div class="trade-card">
+      <div class="label">SPY</div>
+      <div id="signal_spy" class="value"></div>
+    </div>
+
+    <div class="trade-card">
+      <div class="label">SPXL</div>
+      <div id="signal_spxl" class="value"></div>
+    </div>
+
+    <div class="trade-card">
+      <div class="label">SHV</div>
+      <div id="signal_shv" class="value"></div>
+    </div>
+
+  </div>
+
+</div>
 
       <div class="card">
 
@@ -344,19 +477,31 @@ h3 {
 
           <div class="allocation-grid">
 
-            <div class="trade-card">
+            <div id="riskpp_current_card" class="trade-card">
+
               <div class="label">Current Price</div>
+
               <div id="riskpp_current" class="value"></div>
+
+              <div id="riskpp_status"
+                   class="trigger-status"></div>
+
             </div>
 
             <div class="trade-card">
+
               <div class="label">Entry</div>
+
               <div id="riskpp_entry" class="value"></div>
+
             </div>
 
             <div class="trade-card">
+
               <div class="label">Watch Point</div>
+
               <div id="riskpp_stop" class="value"></div>
+
             </div>
 
           </div>
@@ -369,16 +514,6 @@ h3 {
 
   </div>
 
-  <!-- FULL WIDTH NOTES -->
-
-  <div class="card notes-card">
-
-    <h3>Notes</h3>
-
-    <div id="notes" class="notes-text"></div>
-
-  </div>
-
 </div>
 
 <div id="zoomOverlay" class="zoom-overlay">
@@ -388,7 +523,9 @@ h3 {
 <script>
 
 function normalizeImagePath(path) {
-  return String(path || "").replace(/\\/g, "/");
+
+  return String(path || "")
+    .replace(/\\/g, "/");
 }
 
 function getRegimeClass(regime) {
@@ -397,14 +534,21 @@ function getRegimeClass(regime) {
 
   if (regime === "RiskOff") return "riskoff";
 
-  if (regime === "RiskOn++" || regime === "Risk++") return "riskpp";
+  if (
+    regime === "RiskOn++" ||
+    regime === "Risk++"
+  ) return "riskpp";
 
   return "";
 }
 
 function formatPrice(v) {
 
-  if (v === undefined || v === null || v === "") return "--";
+  if (
+    v === undefined ||
+    v === null ||
+    v === ""
+  ) return "--";
 
   const n = Number(v);
 
@@ -412,6 +556,28 @@ function formatPrice(v) {
 
   return n.toFixed(2);
 }
+
+function formatAllocation(v) {
+
+  const n = Number(v);
+
+  if (Number.isNaN(n)) return "--";
+
+  return (n * 100).toFixed(0) + "%";
+}
+
+function formatShortDate(v) {
+
+  if (!v) return "--";
+
+  const d = new Date(v + "T00:00:00");
+
+  return d.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric"
+  });
+}
+
 
 function render(x) {
 
@@ -423,65 +589,131 @@ function render(x) {
     ? 'RiskOn++ <span class="turbo">(Turbo Mode)</span>'
     : regime || "--";
 
-  document.getElementById("regimeName").innerHTML = regimeText;
+  document.getElementById("regimeName").innerHTML =
+    regimeText;
 
-  const regimeCard = document.getElementById("regimeCard");
+  const regimeCard =
+    document.getElementById("regimeCard");
 
   regimeCard.className =
-    "card regime-card " + getRegimeClass(x.regime);
+    "card regime-card " +
+    getRegimeClass(x.regime);
 
   const regimeStartRaw = x.regimeStartDate;
 
   if (regimeStartRaw) {
 
-    const d = new Date(regimeStartRaw + "T00:00:00");
+    const d =
+      new Date(regimeStartRaw + "T00:00:00");
 
-    const formatted = d.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric"
-    });
+    const formatted =
+      d.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric"
+      });
 
-    document.getElementById("regimeMeta").innerText =
+    document.getElementById("regimeMeta")
+      .innerText =
       "Active since " + formatted;
 
   } else {
 
-    document.getElementById("regimeMeta").innerText = "--";
-
+    document.getElementById("regimeMeta")
+      .innerText = "--";
   }
 
-  const updatedRaw = x.performance?.meta?.lastUpdated;
+  const signalCard =
+    document.getElementById("signalCard");
+
+  const signalActive =
+    x.signalRegimeChange === true;
+
+  signalCard.style.display =
+    signalActive ? "block" : "none";
+
+  const pendingTransition =
+    document.getElementById(
+      "pendingTransition"
+    );
+
+  regimeCard.classList.toggle(
+    "signal-active",
+    signalActive
+  );
+
+  pendingTransition.style.display =
+    signalActive ? "block" : "none";
+
+  if (signalActive) {
+
+    const sigAlloc =
+      x.signalAllocations || {};
+
+    document.getElementById("signalRegime")
+      .innerText =
+      x.signal || "--";
+
+    document.getElementById("signalDate")
+      .innerText =
+      formatShortDate(x.signalDate);
+
+    document.getElementById("signal_spy")
+      .innerText =
+      formatAllocation(sigAlloc.SPY || 0);
+
+    document.getElementById("signal_spxl")
+      .innerText =
+      formatAllocation(sigAlloc.SPXL || 0);
+
+    document.getElementById("signal_shv")
+      .innerText =
+      formatAllocation(sigAlloc.SHV || 0);
+  }
+
+  const updatedRaw =
+    x.performance?.meta?.lastUpdated;
 
   if (updatedRaw) {
 
     const d = new Date(updatedRaw);
 
-    const mins = Math.floor((Date.now() - d) / 60000);
+    const mins =
+      Math.floor((Date.now() - d) / 60000);
 
     const ago =
       mins < 60
         ? `${mins}m ago`
         : `${Math.floor(mins / 60)}h ago`;
 
-    const year  = d.getFullYear();
-    const month = String(d.getMonth() + 1).padStart(2, "0");
-    const day   = String(d.getDate()).padStart(2, "0");
+    const year =
+      d.getFullYear();
 
-    const time = d.toLocaleTimeString("en-US", {
-      hour: "numeric",
-      minute: "2-digit"
-    });
+    const month =
+      String(d.getMonth() + 1)
+      .padStart(2, "0");
 
-    document.getElementById("updated").innerHTML =
+    const day =
+      String(d.getDate())
+      .padStart(2, "0");
+
+    const time =
+      d.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "2-digit"
+      });
+
+    document.getElementById("updated")
+      .innerHTML =
       `${year}-${month}-${day} ${time}<br>
-      <span style="color: var(--muted); font-size: 12px;">
+      <span style="color: var(--muted);
+      font-size: 12px;">
       Updated ${ago}
       </span>`;
 
   } else {
 
-    document.getElementById("updated").innerText = "--";
-
+    document.getElementById("updated")
+      .innerText = "--";
   }
 
   document.getElementById("eq").src =
@@ -490,54 +722,113 @@ function render(x) {
   document.getElementById("ra").src =
     normalizeImagePath(x.ratioFilename);
 
-  const gain = x.regimeGain ?? 0;
-  const peak = x.regimePeak ?? 0;
-  const capture = x.regimePeakCapture ?? 0;
-  const dd = x.regimeMaxDD ?? 0;
+  const gain =
+    x.regimeGain ?? 0;
 
-  document.getElementById("t_return").innerText =
+  const peak =
+    x.regimePeak ?? 0;
+
+  const capture =
+    x.regimePeakCapture ?? 0;
+
+  const dd =
+    x.regimeMaxDD ?? 0;
+
+  document.getElementById("t_return")
+    .innerText =
     (gain * 100).toFixed(2) + "%";
 
-  document.getElementById("t_peak").innerText =
+  document.getElementById("t_peak")
+    .innerText =
     (peak * 100).toFixed(2) + "%";
 
-  document.getElementById("t_capture").innerText =
+  document.getElementById("t_capture")
+    .innerText =
     (capture * 100).toFixed(1) + "%";
 
-  document.getElementById("t_dd").innerText =
+  document.getElementById("t_dd")
+    .innerText =
     (dd * 100).toFixed(2) + "%";
 
-  document.getElementById("t_days").innerText =
+  document.getElementById("t_days")
+    .innerText =
     x.regimeDays ?? "--";
 
   const isRiskPP =
     x.regime === "RiskOn++" ||
     x.regime === "Risk++";
 
-  document.getElementById("tradeLevels").style.display =
+  document.getElementById("tradeLevels")
+    .style.display =
     isRiskPP ? "block" : "none";
 
-  document.getElementById("riskpp_current").innerText =
-    isRiskPP ? formatPrice(x.riskOnPPCurrent) : "";
+  document.getElementById("riskpp_current")
+    .innerText =
+    isRiskPP
+      ? formatPrice(x.riskOnPPCurrent)
+      : "";
 
-  document.getElementById("riskpp_entry").innerText =
-    isRiskPP ? formatPrice(x.riskOnPPEntry) : "";
+  document.getElementById("riskpp_entry")
+    .innerText =
+    isRiskPP
+      ? formatPrice(x.riskOnPPEntry)
+      : "";
 
-  document.getElementById("riskpp_stop").innerText =
-    isRiskPP ? formatPrice(x.riskOnPPStop) : "";
+  document.getElementById("riskpp_stop")
+    .innerText =
+    isRiskPP
+      ? formatPrice(x.riskOnPPStop)
+      : "";
 
-  const rec = x.lastRecommendation || {};
+  const currentPrice =
+    Number(x.riskOnPPCurrent);
 
-  document.getElementById("alloc_spy").innerText =
-    ((Number(rec.SPY || 0)) * 100).toFixed(0) + "%";
+  const watchPoint =
+    Number(x.riskOnPPStop);
 
-  document.getElementById("alloc_spxl").innerText =
-    ((Number(rec.SPXL || 0)) * 100).toFixed(0) + "%";
+  const currentCard =
+    document.getElementById(
+      "riskpp_current_card"
+    );
 
-  document.getElementById("alloc_shv").innerText =
-    ((Number(rec.SHV || 0)) * 100).toFixed(0) + "%";
+  const status =
+    document.getElementById(
+      "riskpp_status"
+    );
 
-  document.getElementById("notes").innerText =
+  const priceTriggered =
+    isRiskPP &&
+    !Number.isNaN(currentPrice) &&
+    !Number.isNaN(watchPoint) &&
+    currentPrice < watchPoint;
+
+  currentCard.classList.toggle(
+    "triggered",
+    priceTriggered
+  );
+
+  status.innerText =
+    priceTriggered
+      ? "BELOW WATCH POINT"
+      : "";
+
+  const rec =
+    x.allocations || {};
+
+  document.getElementById("alloc_spy")
+    .innerText =
+    formatAllocation(rec.SPY || 0);
+
+  document.getElementById("alloc_spxl")
+    .innerText =
+    formatAllocation(rec.SPXL || 0);
+
+  document.getElementById("alloc_shv")
+    .innerText =
+    formatAllocation(rec.SHV || 0);
+
+  document.getElementById("notes")
+    .innerText =
     x.signal_reason || "--";
 }
 
@@ -552,7 +843,10 @@ async function load() {
 
     try {
 
-      const r = await fetch(f + "?t=" + Date.now());
+      const r =
+        await fetch(
+          f + "?t=" + Date.now()
+        );
 
       if (!r.ok) continue;
 
@@ -561,21 +855,27 @@ async function load() {
       return;
 
     } catch {}
-
   }
-
 }
 
 load();
 
 setInterval(load, 10000);
 
-const overlay = document.getElementById("zoomOverlay");
-const zoomImg = document.getElementById("zoomImg");
+const overlay =
+  document.getElementById(
+    "zoomOverlay"
+  );
+
+const zoomImg =
+  document.getElementById(
+    "zoomImg"
+  );
 
 ["eq","ra"].forEach(id => {
 
-  const img = document.getElementById(id);
+  const img =
+    document.getElementById(id);
 
   img.onclick = () => {
 
@@ -585,10 +885,10 @@ const zoomImg = document.getElementById("zoomImg");
 
     overlay.style.display = "flex";
   };
-
 });
 
 overlay.onclick = () => {
+
   overlay.style.display = "none";
 };
 
@@ -598,39 +898,74 @@ overlay.onclick = () => {
 
   <strong>Disclaimer:</strong>
 
-  Jeff McAfee is not a registered investment adviser.
-  TurboRegime is intended to provide insight into how Jeff trades
-  and is not personalized investment advice.
+  Jeff McAfee is not a registered
+  investment adviser.
 
-  Past performance is not indicative of future results.
+  TurboRegime is intended to provide
+  insight into how Jeff trades and is
+  not personalized investment advice.
 
-  Performance results shown on this website may include hypothetical
-  or backtested results, which have inherent limitations and may
-  differ materially from live trading.
+  Past performance is not indicative
+  of future results.
+
+  Performance results shown on this
+  website may include hypothetical
+  or backtested results, which have
+  inherent limitations and may differ
+  materially from live trading.
 
   Trading involves risk of loss.
 
-  Live results are being tracked beginning 4/1/2026.
+  Live results are being tracked
+  beginning 4/1/2026.
 
 </div>
+
 <script>
+
 function setTheme(theme) {
+
   if (theme === "light") {
-    document.body.classList.add("light");
-    localStorage.setItem("theme", "light");
+
+    document.body.classList.add(
+      "light"
+    );
+
+    localStorage.setItem(
+      "theme",
+      "light"
+    );
+
   } else {
-    document.body.classList.remove("light");
-    localStorage.setItem("theme", "dark");
+
+    document.body.classList.remove(
+      "light"
+    );
+
+    localStorage.setItem(
+      "theme",
+      "dark"
+    );
   }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  const savedTheme = localStorage.getItem("theme");
+window.addEventListener(
+  "DOMContentLoaded",
+  () => {
 
-  if (savedTheme === "light") {
-    document.body.classList.add("light");
+    const savedTheme =
+      localStorage.getItem("theme");
+
+    if (savedTheme === "light") {
+
+      document.body.classList.add(
+        "light"
+      );
+    }
   }
-});
+);
+
 </script>
+
 </body>
 </html>

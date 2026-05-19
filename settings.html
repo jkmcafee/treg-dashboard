@@ -27,16 +27,41 @@
 <main class="page">
   <h1 class="page-title">Settings</h1>
 
-  <div class="card" style="padding:24px;">
+  <div class="card" style="padding:24px; margin-bottom:24px;">
     <h2>Appearance</h2>
     <p>Choose how TurboRegime appears on this device.</p>
 
     <button onclick="setTheme('dark')">Dark Mode</button>
     <button onclick="setTheme('light')">Light Mode</button>
   </div>
+
+  <div class="card" style="padding:24px;">
+    <h2>Turbo Regime Revisions</h2>
+
+    <div style="
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      padding-top:12px;
+      font-size:1rem;
+    ">
+      <span>Engine</span>
+      <span id="engineRevision">--</span>
+    </div>
+  </div>
+
 </main>
 
 <script>
+
+const USE_GITHUB = false;
+
+const LOCAL_JSON = "backtestState.json";
+const GITHUB_JSON =
+  "https://raw.githubusercontent.com/jkmcafee/treg-dashboard/main/backtestState.json";
+
+const DATA_URL = USE_GITHUB ? GITHUB_JSON : LOCAL_JSON;
+
 function setTheme(theme) {
   if (theme === "light") {
     document.body.classList.add("light");
@@ -47,14 +72,33 @@ function setTheme(theme) {
   }
 }
 
-window.addEventListener("DOMContentLoaded", () => {
+window.addEventListener("DOMContentLoaded", async () => {
+
   const savedTheme = localStorage.getItem("theme");
 
   if (savedTheme === "light") {
     document.body.classList.add("light");
   }
+
+  try {
+
+    const response = await fetch(DATA_URL);
+    const data = await response.json();
+
+    if (data.engineRevision) {
+      document.getElementById("engineRevision").textContent =
+        data.engineRevision;
+    }
+
+  } catch (err) {
+
+    console.error("Unable to load revision information:", err);
+
+  }
+
 });
+
 </script>
- 
+
 </body>
 </html>
