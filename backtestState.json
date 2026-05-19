@@ -4,9 +4,9 @@
   "riskOn": true,
   "lastRiskOn": true,
   "signalChange": false,
-  "ratio": "1.3444",
-  "ratioMA": "1.3218",
-  "ratioDelta": "0.0226",
+  "ratio": "1.3411",
+  "ratioMA": "1.3216",
+  "ratioDelta": "0.0195",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
@@ -20,7 +20,7 @@
     "SPXL": "1.10",
     "SHV": "0.00"
   },
-  "signal_reason": "2026-05-18 22:14:40\n\nYesterday\u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a6 markets finally showed some fatigue after the recent melt-up to all-time highs. Rising Treasury yields, renewed inflation concerns tied to oil prices, and geopolitical tension surrounding Iran pressured high-beta tech and semiconductors. The Nasdaq led lower while the S&P 500 finished roughly flat to slightly down.\n\nToday\u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a6 the market remained mixed and rotational. Bond yields stayed elevated, with the 10-year Treasury pushing toward the highest levels seen since early 2025, while the 30-year yield briefly traded above 5%. That environment created pressure on growth and leveraged names, especially semiconductors and momentum tech. However, underneath the surface, breadth was better than the indexes suggested, with many non-tech sectors holding up reasonably well. Oil volatility and inflation fears remain the primary macro drivers right now.\n\nTReg trade is\u00c3\u00a2\u00e2\u201a\u00ac\u00c2\u00a6 still firmly in a Risk On regime. Despite the recent volatility and rising yields, the broader trend structure remains constructive. This pullback currently looks more like digestion after a strong advance rather than a confirmed regime deterioration. Elevated yields and geopolitical stress are important risks to monitor, but TReg remains aligned with the primary trend until the signal changes. The current environment continues to favor disciplined participation over emotional reaction",
+  "signal_reason": "2026-05-19 10:10:16\n\ntest",
   "engineHeartbeat": 0,
   "logs": [],
   "regime": "RiskOn",
@@ -30,7 +30,7 @@
     "SHV": "0.15"
   },
   "regimeDays": 2,
-  "regimeGain": -0.006171754899999993,
+  "regimeGain": -0.007446015400000117,
   "performance": {
     "meta": {
       "strategyName": "TReg",
@@ -41,48 +41,48 @@
       "startDate": "2025-05-19",
       "endDate": "2026-05-19",
       "periodYears": "1.00",
-      "lastUpdated": "2026-05-19T09:47:34.945835"
+      "lastUpdated": "2026-05-19T10:18:04.755155"
     },
     "current": {
-      "totalReturnPct": "39.46",
-      "cagrPct": "39.49",
+      "totalReturnPct": "39.28",
+      "cagrPct": "39.31",
       "maxDrawdownPct": "-8.30",
-      "sharpe": "2.37",
-      "mar": "4.76",
-      "sortino": "4.09",
+      "sharpe": "2.36",
+      "mar": "4.74",
+      "sortino": "4.07",
       "ulcer": "2.66",
-      "upi": "13.37"
+      "upi": "13.30"
     },
     "benchmarks": {
       "SPY": {
-        "totalReturnPct": "24.80",
-        "cagrPct": "24.82",
+        "totalReturnPct": "24.60",
+        "cagrPct": "24.62",
         "maxDrawdownPct": "-8.82",
-        "sharpe": "1.89",
-        "mar": "2.81",
-        "sortino": "2.84",
+        "sharpe": "1.88",
+        "mar": "2.79",
+        "sortino": "2.82",
         "ulcer": "1.91",
-        "upi": "10.91"
+        "upi": "10.80"
       },
       "SPXL": {
-        "totalReturnPct": "67.70",
-        "cagrPct": "67.76",
+        "totalReturnPct": "67.10",
+        "cagrPct": "67.16",
         "maxDrawdownPct": "-26.76",
-        "sharpe": "1.61",
-        "mar": "2.53",
-        "sortino": "2.39",
+        "sharpe": "1.60",
+        "mar": "2.51",
+        "sortino": "2.37",
         "ulcer": "6.37",
-        "upi": "10.01"
+        "upi": "9.91"
       },
       "SHV": {
-        "totalReturnPct": "3.94",
+        "totalReturnPct": "3.95",
         "cagrPct": "3.95",
         "maxDrawdownPct": "-0.01",
-        "sharpe": "1412.83",
-        "mar": "434.12",
+        "sharpe": "1412.79",
+        "mar": "435.00",
         "sortino": "149.55",
         "ulcer": "0.00",
-        "upi": "24.43"
+        "upi": "24.46"
       }
     }
   },
@@ -91,12 +91,12 @@
   "regimeSignalDate": "2026-05-15",
   "regimePeak": -0.0005800000000000249,
   "regimePeakLimit": -0.0,
-  "regimePeakCapture": 10.64095672413746,
-  "regimeMaxDD": -0.005595000000000017,
+  "regimePeakCapture": 12.837957586206546,
+  "regimeMaxDD": -0.006870000000000043,
   "riskOnPPCurrent": 266.6,
   "riskOnPPEntry": 206.9,
   "riskOnPPStop": 273.3664394194132,
-  "regimeEstGain": -0.0222,
+  "regimeEstGain": -0.026000000000000002,
   "signal": "RiskOn",
   "signal_change": true,
   "signalRegimeChange": false,
