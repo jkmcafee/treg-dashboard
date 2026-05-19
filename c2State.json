@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Collective2",
-    "lastUpdated": "2026-05-18T22:14:56.807301"
+    "lastUpdated": "2026-05-19T08:30:41.299027"
   },
   "strategy": {
     "StrategyId": 155341343,
@@ -19,7 +19,7 @@
     "StrategyOwnerId": 154092868,
     "StrategyOwnerName": "McStrat",
     "SuggestedCapital": 15000,
-    "Score": 225,
+    "Score": 228,
     "AUM": 131765,
     "AUM_NumberOfAccounts": 1,
     "Return": 31.5,
@@ -48,18 +48,18 @@
     "MaxDrawdownEndDate": "20260518",
     "AvgWinDollars": 7982.25,
     "AvgLossDollars": 144,
-    "AvgTradeDuration": 11.488,
-    "CorrelationSP500": 0.7537,
+    "AvgTradeDuration": 11.726,
+    "CorrelationSP500": 0.7546,
     "SP500Return": 12.59,
-    "ReturnVsSP500": 18.93,
+    "ReturnVsSP500": 18.91,
     "AvgLeverage": 2.32636,
     "MaxLeverage": 2.98,
-    "Alpha": 0.23,
-    "Beta": 1.46,
-    "Treynor": 0.41,
-    "Sortino": 18.16,
-    "Sharpe": 7.73,
-    "Calmar": 250.14
+    "Alpha": 0.22,
+    "Beta": 1.47,
+    "Treynor": 0.4,
+    "Sortino": 17.95,
+    "Sharpe": 7.61,
+    "Calmar": 227.18
   },
   "shares": {
     "SPY": 156,
