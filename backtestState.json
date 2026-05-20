@@ -4,7 +4,7 @@
   "riskOn": true,
   "lastRiskOn": true,
   "signalChange": false,
-  "ratio": "7.7138",
+  "ratio": "7.7137",
   "ratioMA": "7.4673",
   "ratioDelta": "0.2465",
   "perfStartDate": "2025-01-03",
@@ -41,10 +41,10 @@
       "startDate": "2008-11-05",
       "endDate": "2026-05-20",
       "periodYears": "17.54",
-      "lastUpdated": "2026-05-20T16:45:14.832037"
+      "lastUpdated": "2026-05-20T17:45:12.090142"
     },
     "current": {
-      "totalReturnPct": "5166.08",
+      "totalReturnPct": "5163.62",
       "cagrPct": "25.36",
       "maxDrawdownPct": "-23.44",
       "sharpe": "1.32",
