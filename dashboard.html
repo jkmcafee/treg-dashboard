@@ -424,7 +424,7 @@ h3 {
             <div id="t_return" class="value"></div>
           </div>
 
-          <div class="trade-card">
+          <div id="peakCard" class="trade-card">
             <div class="label">Peak</div>
             <div id="t_peak" class="value"></div>
           </div>
@@ -738,9 +738,17 @@ function render(x) {
     .innerText =
     (gain * 100).toFixed(2) + "%";
 
+  const peakCard =
+    document.getElementById("peakCard");
+
+  peakCard.style.display =
+    isTurbo ? "block" : "none";
+
   document.getElementById("t_peak")
     .innerText =
-    (peak * 100).toFixed(2) + "%";
+    isTurbo
+      ? (peak * 100).toFixed(2) + "%"
+      : "--";
 
   const captureCard =
     document.getElementById("captureCard");
