@@ -41,11 +41,11 @@
       "startDate": "2008-11-05",
       "endDate": "2026-05-20",
       "periodYears": "17.54",
-      "lastUpdated": "2026-05-20T05:06:58.852976"
+      "lastUpdated": "2026-05-20T05:15:02.233066"
     },
     "current": {
-      "totalReturnPct": "5098.10",
-      "cagrPct": "25.27",
+      "totalReturnPct": "5118.07",
+      "cagrPct": "25.30",
       "maxDrawdownPct": "-23.44",
       "sharpe": "1.32",
       "mar": "1.08",
@@ -92,7 +92,7 @@
   "regimePeak": -0.0005800000000000249,
   "regimePeakLimit": -0.0,
   "regimePeakCapture": 10.787423448275439,
-  "regimeMaxDD": -0.005680000000000018,
+  "regimeMaxDD": -0.006256705600000023,
   "riskOnPPCurrent": 266.6,
   "riskOnPPEntry": 206.9,
   "riskOnPPStop": 273.3664394194132,
