@@ -4,16 +4,16 @@
   "riskOn": true,
   "lastRiskOn": true,
   "signalChange": false,
-  "ratio": "7.5625",
+  "ratio": "7.5622",
   "ratioMA": "7.4349",
-  "ratioDelta": "0.1276",
+  "ratioDelta": "0.1273",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
   "perfStrat": 2227.6,
   "useAclose": true,
-  "equityFilename": "reports\\TReg_2008-11-05_2026-05-19_Equity.png",
-  "ratioFilename": "reports\\TReg_2008-11-05_2026-05-19_Ratio.png",
+  "equityFilename": "reports\\TReg_2008-11-05_2026-05-20_Equity.png",
+  "ratioFilename": "reports\\TReg_2008-11-05_2026-05-20_Ratio.png",
   "lastTradeTime": "2026-01-22 12:45:00",
   "lastRecommendation": {
     "SPY": "0.00",
@@ -29,7 +29,7 @@
     "SPXL": "0.00",
     "SHV": "0.15"
   },
-  "regimeDays": 2,
+  "regimeDays": 3,
   "regimeGain": -0.006256705600000023,
   "performance": {
     "meta": {
@@ -39,19 +39,19 @@
       "refSymbol": "SHV",
       "symbolPair": "SPY/SPXL",
       "startDate": "2008-11-05",
-      "endDate": "2026-05-19",
-      "periodYears": "17.53",
-      "lastUpdated": "2026-05-19T16:21:15.324522"
+      "endDate": "2026-05-20",
+      "periodYears": "17.54",
+      "lastUpdated": "2026-05-20T05:06:58.852976"
     },
     "current": {
-      "totalReturnPct": "5119.72",
-      "cagrPct": "25.30",
+      "totalReturnPct": "5098.10",
+      "cagrPct": "25.27",
       "maxDrawdownPct": "-23.44",
       "sharpe": "1.32",
       "mar": "1.08",
       "sortino": "2.03",
       "ulcer": "7.21",
-      "upi": "3.33"
+      "upi": "nan"
     },
     "benchmarks": {
       "SPY": {
@@ -62,27 +62,27 @@
         "mar": "0.43",
         "sortino": "1.15",
         "ulcer": "6.55",
-        "upi": "1.99"
+        "upi": "nan"
       },
       "SPXL": {
-        "totalReturnPct": "7852.20",
-        "cagrPct": "28.35",
+        "totalReturnPct": "7851.90",
+        "cagrPct": "28.34",
         "maxDrawdownPct": "-76.86",
         "sharpe": "0.73",
         "mar": "0.37",
         "sortino": "1.03",
         "ulcer": "23.06",
-        "upi": "1.17"
+        "upi": "nan"
       },
       "SHV": {
-        "totalReturnPct": "25.67",
-        "cagrPct": "1.31",
+        "totalReturnPct": "nan",
+        "cagrPct": "nan",
         "maxDrawdownPct": "-0.45",
         "sharpe": "253.72",
-        "mar": "2.91",
+        "mar": "nan",
         "sortino": "8.95",
         "ulcer": "0.06",
-        "upi": "0.21"
+        "upi": "nan"
       }
     }
   },
@@ -100,7 +100,7 @@
   "signal": "RiskOn",
   "signal_change": true,
   "signalRegimeChange": false,
-  "signalDate": "2000-01-01",
+  "signalDate": "2026-05-20",
   "signalAllocations": {
     "SPY": "0.85",
     "SPXL": "0.00",
