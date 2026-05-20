@@ -41,11 +41,11 @@
       "startDate": "2008-11-05",
       "endDate": "2026-05-20",
       "periodYears": "17.54",
-      "lastUpdated": "2026-05-20T07:45:11.849082"
+      "lastUpdated": "2026-05-20T08:45:11.369206"
     },
     "current": {
-      "totalReturnPct": "5120.82",
-      "cagrPct": "25.30",
+      "totalReturnPct": "5096.46",
+      "cagrPct": "25.27",
       "maxDrawdownPct": "-23.44",
       "sharpe": "1.32",
       "mar": "1.08",
