@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Collective2",
-    "lastUpdated": "2026-05-20T15:30:29.926194"
+    "lastUpdated": "2026-05-20T16:00:23.394815"
   },
   "strategy": {
     "StrategyId": 155341343,
@@ -20,16 +20,16 @@
     "StrategyOwnerName": "McStrat",
     "SuggestedCapital": 15000,
     "Score": 222,
-    "AUM": 132191,
+    "AUM": 132145,
     "AUM_NumberOfAccounts": 1,
     "Return": 31.71,
     "ReturnLabel": "Cumul. Return",
-    "Equity": 287,
+    "Equity": 354,
     "Cash": 58069,
     "StartingCash": 100000,
     "ProfitFactor": 498.9,
     "CashDividends": 0,
-    "BuyingPower": 132214,
+    "BuyingPower": 132281,
     "MarginUsed": -73858,
     "AgeInDays": 49,
     "ModelAccountValue": 131999,
