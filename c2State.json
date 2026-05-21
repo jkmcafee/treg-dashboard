@@ -42,7 +42,7 @@
     "NumMonths": 2,
     "WinMonths": 2,
     "WinMonthsRatio": 100,
-    "MaxDrawdown": -4.49,
+    "MaxDrawdown": -0.94,
     "MaxDrawdownDays": 5,
     "MaxDrawdownStartDate": "20260514",
     "MaxDrawdownEndDate": "20260519",
