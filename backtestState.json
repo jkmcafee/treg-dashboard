@@ -4,23 +4,23 @@
   "riskOn": true,
   "lastRiskOn": true,
   "signalChange": false,
-  "ratio": "7.6641",
-  "ratioMA": "7.4906",
-  "ratioDelta": "0.1734",
+  "ratio": "7.7440",
+  "ratioMA": "7.4945",
+  "ratioDelta": "0.2496",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
   "perfStrat": 2227.6,
   "useAclose": true,
-  "equityFilename": "reports\\TReg_2008-11-05_2026-05-21_Equity.png",
-  "ratioFilename": "reports\\TReg_2008-11-05_2026-05-21_Ratio.png",
+  "equityFilename": "reports\\TReg_2008-11-05_2026-05-22_Equity.png",
+  "ratioFilename": "reports\\TReg_2008-11-05_2026-05-22_Ratio.png",
   "lastTradeTime": "2026-01-22 12:45:00",
   "lastRecommendation": {
     "SPY": "0.00",
     "SPXL": "1.10",
     "SHV": "0.00"
   },
-  "signal_reason": "2026-05-21 13:00:06\n\n Note - TReg will not be running at the close today.  I will be on travel.  The market traded relatively flat with modest pullback behavior beneath the surface. TReg’s active trade is essentially unchanged at -0.02%, with a contained drawdown of -0.63% over the first four trading days of the regime. The system continues to favor measured participation rather than an aggressive, leverage trade. Current allocation remains:\n\n85% SPY\n15% SHV\n0% SPXL\n\nTReg remains in RiskOn, active since May 18. The system is participating in market upside while maintaining a defensive cash buffer until conditions strengthen further.",
+  "signal_reason": "2026-05-21 13:00:06\n\n Note - TReg will not be running at the close today.  I will be on travel.  The market traded relatively flat with modest pullback behavior beneath the surface. TReg\u00e2\u20ac\u2122s active trade is essentially unchanged at -0.02%, with a contained drawdown of -0.63% over the first four trading days of the regime. The system continues to favor measured participation rather than an aggressive, leverage trade. Current allocation remains:\n\n85% SPY\n15% SHV\n0% SPXL\n\nTReg remains in RiskOn, active since May 18. The system is participating in market upside while maintaining a defensive cash buffer until conditions strengthen further.",
   "engineHeartbeat": 0,
   "logs": [],
   "regime": "RiskOn",
@@ -29,8 +29,8 @@
     "SPXL": "0.00",
     "SHV": "0.15"
   },
-  "regimeDays": 4,
-  "regimeGain": -0.00016723053442646574,
+  "regimeDays": 5,
+  "regimeGain": 0.004107957957999897,
   "performance": {
     "meta": {
       "strategyName": "TReg",
@@ -39,68 +39,68 @@
       "refSymbol": "SHV",
       "symbolPair": "SPY/SPXL",
       "startDate": "2008-11-05",
-      "endDate": "2026-05-21",
+      "endDate": "2026-05-22",
       "periodYears": "17.54",
-      "lastUpdated": "2026-05-21T12:45:12.669961"
+      "lastUpdated": "2026-05-22T07:30:18.679105"
     },
     "current": {
-      "totalReturnPct": "5149.55",
-      "cagrPct": "25.34",
+      "totalReturnPct": "5173.72",
+      "cagrPct": "25.36",
       "maxDrawdownPct": "-23.44",
       "sharpe": "1.32",
       "mar": "1.08",
-      "sortino": "2.03",
-      "ulcer": "7.21",
-      "upi": "3.33"
+      "sortino": "2.04",
+      "ulcer": "7.20",
+      "upi": "nan"
     },
     "benchmarks": {
       "SPY": {
-        "totalReturnPct": "959.10",
-        "cagrPct": "14.40",
+        "totalReturnPct": "964.40",
+        "cagrPct": "14.43",
         "maxDrawdownPct": "-33.72",
         "sharpe": "0.82",
         "mar": "0.43",
         "sortino": "1.16",
         "ulcer": "6.54",
-        "upi": "2.00"
+        "upi": "nan"
       },
       "SPXL": {
-        "totalReturnPct": "8017.00",
-        "cagrPct": "28.49",
+        "totalReturnPct": "8142.90",
+        "cagrPct": "28.60",
         "maxDrawdownPct": "-76.86",
         "sharpe": "0.74",
         "mar": "0.37",
         "sortino": "1.03",
         "ulcer": "23.06",
-        "upi": "1.18"
+        "upi": "nan"
       },
       "SHV": {
-        "totalReturnPct": "25.70",
-        "cagrPct": "1.31",
+        "totalReturnPct": "nan",
+        "cagrPct": "nan",
         "maxDrawdownPct": "-0.45",
         "sharpe": "253.25",
-        "mar": "2.91",
-        "sortino": "8.95",
+        "mar": "nan",
+        "sortino": "8.96",
         "ulcer": "0.06",
-        "upi": "0.21"
+        "upi": "nan"
       }
     }
   },
   "boostTrigger": false,
   "regimeStartDate": "2026-05-18",
   "regimeSignalDate": "2026-05-15",
-  "regimePeak": 0.00238886106127989,
-  "regimePeakLimit": 0,
-  "regimePeakCapture": -0.07000429499104814,
+  "regimePeak": 0.004107957957999897,
+  "regimePeakLimit": 0.0,
+  "regimePeakCapture": 1.0,
   "regimeMaxDD": -0.006256705600000023,
   "riskOnPPCurrent": 266.6,
   "riskOnPPEntry": 206.9,
   "riskOnPPStop": 273.3664394194132,
-  "regimeEstGain": -0.0010000000000000026,
+  "regimeEstGain": 0.014299999999999997,
   "signal": "RiskOn",
   "signal_change": true,
   "signalRegimeChange": false,
-  "signalDate": "2000-01-01",
+  "signalDate": "2026-05-22",
   "signalAllocations": {
     "SPY": "0.85",
     "SPXL": "0.00",
