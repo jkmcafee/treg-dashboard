@@ -14,11 +14,6 @@ body {
   color: var(--text);
 }
 
-.header h1 {
-  margin: 0;
-  color: var(--white);
-}
-
 .grid {
   display: grid;
   gap: 10px;
@@ -26,10 +21,6 @@ body {
 
 .grid.cards {
   grid-template-columns: repeat(4, 1fr);
-}
-
-.grid.main {
-  grid-template-columns: 1fr 1fr;
 }
 
 .card {
@@ -70,14 +61,6 @@ h3 {
   color: var(--white);
 }
 
-.metric.good {
-  color: #34d399;
-}
-
-.metric.bad {
-  color: #f87171;
-}
-
 .sub {
   color: var(--muted);
   font-size: 13px;
@@ -86,14 +69,7 @@ h3 {
 
 .stat-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
-  margin-bottom: 10px;
-}
-
-.detail-grid {
-  display: grid;
-  grid-template-columns: repeat(1.6fr, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 10px;
   margin-bottom: 10px;
 }
@@ -195,40 +171,6 @@ h3 {
   letter-spacing: 0.5px;
 }
 
-.compare-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 8px;
-}
-
-.compare-table th,
-.compare-table td {
-  text-align: left;
-  padding: 10px 8px;
-  border-bottom: 1px solid var(--border);
-  font-size: 14px;
-}
-
-.compare-table th {
-  color: var(--muted);
-  font-size: 12px;
-  font-weight: normal;
-}
-
-.compare-table td {
-  color: var(--text);
-}
-
-.compare-table td.good {
-  color: #34d399;
-  font-weight: bold;
-}
-
-.compare-table td.bad {
-  color: #f87171;
-  font-weight: bold;
-}
-
 .muted-text {
   color: var(--muted);
   font-size: 14px;
@@ -265,9 +207,7 @@ h3 {
 
 @media (max-width: 900px) {
   .grid.cards,
-  .stat-grid,
-  .detail-grid,
-  .grid.main {
+  .stat-grid {
     grid-template-columns: 1fr;
   }
 }
@@ -371,43 +311,19 @@ h3 {
       <div class="note">TurboRegime minus SPY</div>
     </div>
 
-
-
-  <div class="detail-grid">
-    <div class="card">
-      <h3>Live Performance Summary</h3>
-      <table class="compare-table">
-        <tr>
-          <th>Metric</th>
-          <th>Value</th>
-        </tr>
-        <tr>
-          <td>TurboRegime Return</td>
-          <td id="tableReturn">--</td>
-        </tr>
-        <tr>
-          <td>SPY Return</td>
-          <td id="tableSpy">--</td>
-        </tr>
-        <tr>
-          <td>Relative Return</td>
-          <td id="tableRelative">--</td>
-        </tr>
-
-        <tr>
-          <td>Win Percentage</td>
-          <td id="tableWinPct">--</td>
-        </tr>
-      </table>
+    <div class="stat-card">
+      <div class="label">Win Percentage</div>
+      <div id="winPct" class="value">--</div>
+      <div class="note">Closed winning trades</div>
     </div>
+  </div>
 
-    <div class="card">
-      <h3>Live Trading Notes</h3>
-      <div class="muted-text">
-        Live results are tracked directly through IBKR and reflect actual trades published by TurboRegime.
-        Early live results should be interpreted carefully because the current live track record is still short
-        (since Apr 1, 2026).
-      </div>
+  <div class="card">
+    <h3>Live Trading Notes</h3>
+    <div class="muted-text">
+      Live results are tracked directly through IBKR and reflect actual trades published by TurboRegime.
+      Early live results should be interpreted carefully because the current live track record is still short
+      (since Apr 1, 2026).
     </div>
   </div>
 
@@ -450,21 +366,11 @@ function setClassBySign(id, value, positiveIsGood = true) {
 }
 
 function formatDate(value) {
-
   if (!value) return "--";
 
-  //
-  // Prevent YYYY-MM-DD timezone rollback
-  //
   if (typeof value === "string" && value.length === 10) {
-
     const parts = value.split("-");
-
-    const d = new Date(
-      Number(parts[0]),
-      Number(parts[1]) - 1,
-      Number(parts[2])
-    );
+    const d = new Date(Number(parts[0]), Number(parts[1]) - 1, Number(parts[2]));
 
     return d.toLocaleDateString("en-US", {
       month: "short",
@@ -474,7 +380,6 @@ function formatDate(value) {
   }
 
   const d = new Date(value);
-
   if (Number.isNaN(d.getTime())) return "--";
 
   return d.toLocaleDateString("en-US", {
@@ -521,7 +426,6 @@ function render(data) {
   const returnPct = strategy.ScaledReturn ?? strategy.Return ?? 0;
   const spyReturn = strategy.SP500Return ?? 0;
   const relativeReturn = strategy.ReturnVsSP500 ?? (returnPct - spyReturn);
-
   const winRate = strategy.WinRate ?? strategy.WinMonthsRatio ?? 0;
 
   document.getElementById("sourceBadge").innerText =
@@ -548,22 +452,12 @@ function render(data) {
 
   document.getElementById("spyReturnPct").innerText = pct(spyReturn);
   document.getElementById("relativeReturnPct").innerText = pct(relativeReturn);
-
+  document.getElementById("winPct").innerText = num(winRate, 0) + "%";
 
   setClassBySign("returnPct", returnPct);
   setClassBySign("spyReturnPct", spyReturn);
   setClassBySign("relativeReturnPct", relativeReturn);
-
-
-  document.getElementById("tableReturn").innerText = pct(returnPct);
-  document.getElementById("tableSpy").innerText = pct(spyReturn);
-  document.getElementById("tableRelative").innerText = pct(relativeReturn);
-
-  document.getElementById("tableWinPct").innerText = num(winRate, 0) + "%";
-
-  document.getElementById("tableReturn").className = Number(returnPct) >= 0 ? "good" : "bad";
-  document.getElementById("tableSpy").className = Number(spyReturn) >= 0 ? "good" : "bad";
-  document.getElementById("tableRelative").className = Number(relativeReturn) >= 0 ? "good" : "bad";
+  setClassBySign("winPct", winRate);
 
   const err = document.getElementById("loadError");
   err.style.display = "none";
