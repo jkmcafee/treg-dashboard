@@ -354,8 +354,7 @@ h3 {
   <div class="grid cards">
 <div class="card">
   <h3>IBKR Strategy</h3>
-  <div id="strategyName" class="metric">--</div>
-  <div id="strategyId" class="sub">--</div>
+  <div id="strategyName" class="metric">TurboRegime</div>
 </div>
 
     <div class="card">
@@ -528,9 +527,6 @@ function render(data) {
 
   document.getElementById("sourceBadge").innerText = "Source: " + (data.meta?.source || "Collective2");
   document.getElementById("updatedBadge").innerText = "Last Update from IBKR " + formatDateTime(data.meta?.lastUpdated);
-
-  document.getElementById("strategyName").innerText = strategy.StrategyName || "--";
-  document.getElementById("strategyId").innerText = strategy.StrategyId ? "Strategy ID: " + strategy.StrategyId : "--";
 
   document.getElementById("startDate").innerText = formatDate(strategy.StartDate);
   document.getElementById("daysLive").innerText = daysSince(strategy.StartDate);
