@@ -1,0 +1,30 @@
+{
+  "meta": {
+    "source": "IBKR",
+    "lastUpdated": "2026-05-25T17:05:51.225596"
+  },
+  "accounts": {
+    "U25808550": {
+      "label": "IBKR Live IRA",
+      "broker": "IBKR",
+      "environment": "LIVE",
+      "StartingCash": 150000.0,
+      "StartDate": "2026-05-15",
+      "ModelAccountValue": 150474.93,
+      "Cash": 1902.95,
+      "Profit": 474.929999999993,
+      "Return": 0.31661999999999535,
+      "ScaledStartDate": "2026-04-01",
+      "ScaledStartingCash": 112994.35,
+      "ScaledProfit": 37480.579999999994,
+      "ScaledReturn": 33.17031338292578,
+      "SP500Return": 13.796475453478818,
+      "ReturnVsSP500": 19.373837929446957,
+      "WinRate": 100.0,
+      "positions": {
+        "SPY": 170.0,
+        "SHV": 200.0
+      }
+    }
+  }
+}
