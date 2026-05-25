@@ -430,7 +430,7 @@ h3 {
     </div>
 
     <div class="card">
-      <h3>Profit (scaled)</h3>
+      <h3>Profit</h3>
       <div id="profit" class="metric">--</div>
       <div id="profitSub" class="sub">--</div>
     </div>
@@ -801,7 +801,7 @@ function render(data) {
     money(profit);
 
   document.getElementById("profitSub").innerText =
-    "Profit since live tracking began";
+    "Scaled profit since live tracking began";
 
   setClassBySign("profit", profit);
 
