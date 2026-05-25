@@ -426,7 +426,7 @@ h3 {
     <div class="card">
       <h3>Portfolio Value</h3>
       <div id="modelValue" class="metric">--</div>
-      <div id="startingValue" class="sub">Starting Value (scaled): --</div>
+      <div id="startingValue" class="sub"></div>
     </div>
 
     <div class="card">
@@ -793,15 +793,13 @@ function render(data) {
   document.getElementById("modelValue").innerText =
     money(strategy.ModelAccountValue);
 
-  document.getElementById("startingValue").innerText =
-    "Starting Value: " +
-    money(startingCash);
+ document.getElementById("startingValue").innerText = "";
 
   document.getElementById("profit").innerText =
     money(profit);
 
   document.getElementById("profitSub").innerText =
-    "Scaled profit since live tracking began";
+  "Profit since live tracking began";
 
   setClassBySign("profit", profit);
 
