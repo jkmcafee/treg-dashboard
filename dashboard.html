@@ -1,61 +1,990 @@
-.capital-badge {
-  margin-left: auto;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TurboRegime - Dashboard</title>
 
-  display: flex;
-  align-items: center;
-  gap: 12px;
+<link rel="stylesheet" href="styles.css">
 
-  padding: 10px 18px;
+<style>
 
-  border-radius: 18px;
+body {
+  margin: 0;
+  font-family: Arial;
+  background: var(--bg);
+  color: var(--text);
+}
 
-  border: 1px solid rgba(52, 211, 153, 0.55);
+.header h1 {
+  margin: 0;
+  color: var(--white);
+}
 
+.card {
+  background: var(--panel);
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+
+.regime-card {
+  border: 1px solid var(--border);
+}
+
+.regime-card.riskon {
+  border-color: rgba(52, 211, 153, 0.6);
   background: linear-gradient(
-    135deg,
-    rgba(16, 24, 40, 0.92),
-    rgba(8, 16, 32, 0.96)
+    rgba(52, 211, 153, 0.28),
+    rgba(52, 211, 153, 0.10)
+  );
+}
+
+.regime-card.riskoff {
+  border-color: rgba(248, 113, 113, 0.6);
+  background: linear-gradient(
+    rgba(248, 113, 113, 0.28),
+    rgba(248, 113, 113, 0.10)
+  );
+}
+
+.regime-card.riskpp {
+  border-color: rgba(56, 189, 248, 0.85);
+  background: linear-gradient(
+    rgba(56, 189, 248, 0.34),
+    rgba(56, 189, 248, 0.12)
   );
 
   box-shadow:
-    0 0 14px rgba(52, 211, 153, 0.18),
-    inset 0 0 12px rgba(52, 211, 153, 0.05);
-
-  min-width: 420px;
+    0 0 0 1px rgba(56, 189, 248, 0.20) inset,
+    0 0 24px rgba(56, 189, 248, 0.28);
 }
 
-.capital-badge img {
-  width: 64px;
-  height: 64px;
+.regime-card.signal-active {
+  border-color: rgba(148, 163, 184, 0.28) !important;
+
+  background: var(--panel) !important;
+
+  box-shadow: var(--shadow) !important;
+
+  opacity: 0.82;
+}
+
+.regime-card.signal-active .metric {
+  color: rgba(255,255,255,0.92);
+}
+
+.regime-card.signal-active .sub {
+  color: rgba(148,163,184,0.82);
+}
+
+.pending-transition {
+  margin-top: 8px;
+  font-size: 11px;
+  letter-spacing: 0.3px;
+  color: rgba(251, 191, 36, 0.92);
+}
+
+.signal-card {
+  display: none;
+  border-color: rgba(251, 191, 36, 0.75);
+  background: linear-gradient(
+    rgba(251, 191, 36, 0.22),
+    rgba(251, 191, 36, 0.08)
+  );
+  box-shadow:
+    0 0 0 1px rgba(251, 191, 36, 0.14) inset,
+    0 0 18px rgba(251, 191, 36, 0.18);
+}
+
+.signal-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.signal-sub {
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.signal-allocation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 6px;
+}
+
+h3 {
+  color: var(--muted);
+  font-size: 12px;
+  margin: 0 0 6px;
+  letter-spacing: 0.5px;
+}
+
+.metric {
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.sub {
+  color: var(--muted);
+}
+
+.trade-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.allocation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.trade-card {
+  background: var(--panel-soft);
+  padding: 8px 6px;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.trade-card .label {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.trade-card .value {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 3px;
+  color: var(--text);
+}
+
+.trade-card.triggered {
+  border-color: rgba(248, 113, 113, 0.85);
+
+  background: linear-gradient(
+    rgba(248, 113, 113, 0.22),
+    rgba(248, 113, 113, 0.08)
+  );
+
+  box-shadow:
+    0 0 0 1px rgba(248, 113, 113, 0.18) inset,
+    0 0 18px rgba(248, 113, 113, 0.22);
+}
+
+.trade-card.triggered .value {
+  font-size: 24px;
+  color: var(--white);
+}
+
+.trigger-status {
+  margin-top: 6px;
+  font-size: 10px;
+  font-weight: bold;
+  letter-spacing: 0.4px;
+  color: #f87171;
+}
+
+.trade-levels {
+  display: none;
+  margin-top: 14px;
+}
+
+.dashboard-layout {
+  display: grid;
+  grid-template-columns: 1.5fr 0.7fr;
+  gap: 10px;
+  align-items: start;
+}
+
+.left-column,
+.right-column {
+  display: grid;
+}
+
+.left-column {
+  gap: 10px;
+}
+
+.right-column {
+  gap: 8px;
+}
+
+.img-wrap {
+  width: 100%;
+  margin-top: 6px;
+}
+
+.img-wrap img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  cursor: zoom-in;
+
+  max-height: 240px;
   object-fit: contain;
 }
 
-.capital-badge-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.1;
+.notes-text {
+  color: var(--text);
+  font-size: 14px;
+  line-height: 1.75;
+  opacity: 0.92;
+  white-space: pre-wrap;
 }
 
-.capital-badge-text .line1 {
-  color: var(--white);
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+.zoom-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
 }
 
-.capital-badge-text .line2 {
-  color: #34d399;
-  font-size: 17px;
-  font-weight: 700;
-  letter-spacing: 0.5px;
+.zoom-overlay img {
+  max-width: 95vw;
+  max-height: 95vh;
+  object-fit: contain;
 }
 
-@media (max-width: 1200px) {
-  .capital-badge {
-    width: 100%;
-    min-width: unset;
-    margin-left: 0;
-    margin-top: 14px;
-    justify-content: center;
+.disclaimer {
+  margin-top: 40px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.7;
+  opacity: 0.9;
+
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+
+  text-align: left;
+}
+
+</style>
+</head>
+
+<body>
+
+<header class="topbar">
+
+  <div class="topbar-inner">
+
+    <div class="brand">
+      <div class="brand-mark">T</div>
+      <div>TurboRegime - Dashboard</div>
+    </div>
+
+    <div class="nav">
+      <a href="index.html">Home</a>
+      <a href="how.html">How It Works</a>
+      <a href="dashboard.html" class="active">Dashboard</a>
+      <a href="scenarios.html">Scenarios</a>
+      <a href="yearly.html">Yearly</a>
+      <a href="trades.html">Trades</a>
+      <a href="about.html">About</a>
+      <a href="settings.html">...</a>
+    </div>
+
+  </div>
+
+</header>
+
+<div class="container">
+
+  <div class="dashboard-layout">
+
+    <!-- LEFT COLUMN -->
+
+    <div class="left-column">
+
+      <div class="card">
+
+        <h3>Equity Growth</h3>
+
+        <div class="img-wrap">
+          <img id="eq">
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Regime Signals</h3>
+
+        <div class="img-wrap">
+          <img id="ra">
+        </div>
+
+      </div>
+
+      <div class="card notes-card">
+
+        <h3>Notes</h3>
+
+        <div id="notes" class="notes-text"></div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT COLUMN -->
+
+    <div class="right-column">
+
+      <div id="regimeCard" class="card regime-card">
+
+        <h3>Current Regime</h3>
+
+        <div id="regimeName" class="metric"></div>
+
+        <div id="regimeMeta" class="sub"></div>
+
+        <div id="pendingTransition"
+             class="pending-transition"
+             style="display:none;">
+
+          Pending transition detected
+
+        </div>
+
+      </div>
+
+<div id="signalCard" class="card signal-card">
+
+  <h3>Signal Status</h3>
+
+  <div class="signal-title">
+    Regime Change Detected
+  </div>
+
+  <div class="signal-sub">
+    Next Regime:
+    <span id="signalRegime">--</span>
+  </div>
+
+  <div class="signal-sub">
+    Detected:
+    <span id="signalDate">--</span>
+  </div>
+
+  <div class="signal-allocation-grid">
+
+    <div class="trade-card">
+      <div class="label">SPY</div>
+      <div id="signal_spy" class="value"></div>
+    </div>
+
+    <div class="trade-card">
+      <div class="label">SPXL</div>
+      <div id="signal_spxl" class="value"></div>
+    </div>
+
+    <div class="trade-card">
+      <div class="label">SHV</div>
+      <div id="signal_shv" class="value"></div>
+    </div>
+
+  </div>
+
+</div>
+
+      <div class="card">
+
+        <h3>Last Updated</h3>
+
+        <div id="updated"></div>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Active Trade</h3>
+
+        <div class="trade-grid">
+
+          <div class="trade-card">
+            <div class="label">Return</div>
+            <div id="t_return" class="value"></div>
+          </div>
+
+          <div id="peakCard" class="trade-card">
+            <div class="label">Peak</div>
+            <div id="t_peak" class="value"></div>
+          </div>
+
+          <div id="captureCard" class="trade-card">
+            <div class="label">Capture</div>
+            <div id="t_capture" class="value"></div>
+          </div>
+
+          <div class="trade-card">
+            <div class="label">Max DD</div>
+            <div id="t_dd" class="value"></div>
+          </div>
+
+          <div class="trade-card">
+            <div class="label">Trading Days</div>
+            <div id="t_days" class="value"></div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="card">
+
+        <h3>Portfolio Allocation</h3>
+
+        <div class="allocation-grid">
+
+          <div class="trade-card">
+            <div class="label">SPY</div>
+            <div id="alloc_spy" class="value"></div>
+          </div>
+
+          <div class="trade-card">
+            <div class="label">SPXL</div>
+            <div id="alloc_spxl" class="value"></div>
+          </div>
+
+          <div class="trade-card">
+            <div class="label">SHV</div>
+            <div id="alloc_shv" class="value"></div>
+          </div>
+
+        </div>
+
+        <div id="tradeLevels" class="trade-levels">
+
+          <h3>SPXL Trade Levels</h3>
+
+          <div class="allocation-grid">
+
+            <div id="riskpp_current_card" class="trade-card">
+
+              <div class="label">Current Price</div>
+
+              <div id="riskpp_current" class="value"></div>
+
+              <div id="riskpp_status"
+                   class="trigger-status"></div>
+
+            </div>
+
+            <div class="trade-card">
+
+              <div class="label">Entry</div>
+
+              <div id="riskpp_entry" class="value"></div>
+
+            </div>
+
+            <div class="trade-card">
+
+              <div class="label">Watch Point</div>
+
+              <div id="riskpp_stop" class="value"></div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+<div id="zoomOverlay" class="zoom-overlay">
+  <img id="zoomImg">
+</div>
+
+<script>
+
+function normalizeImagePath(path) {
+
+  return String(path || "")
+    .replace(/\\/g, "/");
+}
+
+function getRegimeClass(regime) {
+
+  if (regime === "RiskOn") return "riskon";
+
+  if (regime === "RiskOff") return "riskoff";
+
+  if (
+    regime === "RiskOn++" ||
+    regime === "Risk++"
+  ) return "riskpp";
+
+  return "";
+}
+
+function formatPrice(v) {
+
+  if (
+    v === undefined ||
+    v === null ||
+    v === ""
+  ) return "--";
+
+  const n = Number(v);
+
+  if (Number.isNaN(n)) return "--";
+
+  return n.toFixed(2);
+}
+
+function formatAllocation(v) {
+
+  const n = Number(v);
+
+  if (Number.isNaN(n)) return "--";
+
+  return (n * 100).toFixed(0) + "%";
+}
+
+function formatShortDate(v) {
+
+  if (!v) return "--";
+
+  const d = new Date(v + "T00:00:00");
+
+  return d.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric"
+  });
+}
+
+
+function render(x) {
+
+  const regime = (x.regime || "").trim();
+
+  const isTurbo = regime.includes("++");
+
+  const regimeText = isTurbo
+    ? 'RiskOn++ <span class="turbo">(Turbo Mode)</span>'
+    : regime || "--";
+
+  document.getElementById("regimeName").innerHTML =
+    regimeText;
+
+  const regimeCard =
+    document.getElementById("regimeCard");
+
+  regimeCard.className =
+    "card regime-card " +
+    getRegimeClass(x.regime);
+
+  const regimeStartRaw = x.regimeStartDate;
+
+  if (regimeStartRaw) {
+
+    const d =
+      new Date(regimeStartRaw + "T00:00:00");
+
+    const formatted =
+      d.toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric"
+      });
+
+    document.getElementById("regimeMeta")
+      .innerText =
+      "Active since " + formatted;
+
+  } else {
+
+    document.getElementById("regimeMeta")
+      .innerText = "--";
+  }
+
+  const signalCard =
+    document.getElementById("signalCard");
+
+  const signalActive =
+    x.signalRegimeChange === true;
+
+  signalCard.style.display =
+    signalActive ? "block" : "none";
+
+  const pendingTransition =
+    document.getElementById(
+      "pendingTransition"
+    );
+
+  regimeCard.classList.toggle(
+    "signal-active",
+    signalActive
+  );
+
+  pendingTransition.style.display =
+    signalActive ? "block" : "none";
+
+  if (signalActive) {
+
+    const sigAlloc =
+      x.signalAllocations || {};
+
+    document.getElementById("signalRegime")
+      .innerText =
+      x.signal || "--";
+
+    document.getElementById("signalDate")
+      .innerText =
+      formatShortDate(x.signalDate);
+
+    document.getElementById("signal_spy")
+      .innerText =
+      formatAllocation(sigAlloc.SPY || 0);
+
+    document.getElementById("signal_spxl")
+      .innerText =
+      formatAllocation(sigAlloc.SPXL || 0);
+
+    document.getElementById("signal_shv")
+      .innerText =
+      formatAllocation(sigAlloc.SHV || 0);
+  }
+
+  const updatedRaw =
+    x.performance?.meta?.lastUpdated;
+
+  if (updatedRaw) {
+
+    const d = new Date(updatedRaw);
+
+    const mins =
+      Math.floor((Date.now() - d) / 60000);
+
+    const ago =
+      mins < 60
+        ? `${mins}m ago`
+        : `${Math.floor(mins / 60)}h ago`;
+
+    const year =
+      d.getFullYear();
+
+    const month =
+      String(d.getMonth() + 1)
+      .padStart(2, "0");
+
+    const day =
+      String(d.getDate())
+      .padStart(2, "0");
+
+    const time =
+      d.toLocaleTimeString("en-US", {
+        hour: "numeric",
+        minute: "2-digit"
+      });
+
+    document.getElementById("updated")
+      .innerHTML =
+      `${year}-${month}-${day} ${time}<br>
+      <span style="color: var(--muted);
+      font-size: 12px;">
+      Updated ${ago}
+      </span>`;
+
+  } else {
+
+    document.getElementById("updated")
+      .innerText = "--";
+  }
+
+  document.getElementById("eq").src =
+    normalizeImagePath(x.equityFilename);
+
+  document.getElementById("ra").src =
+    normalizeImagePath(x.ratioFilename);
+
+  const gain =
+    x.regimeGain ?? 0;
+
+  const peak =
+    x.regimePeak ?? 0;
+
+  const capture =
+    x.regimePeakCapture ?? 0;
+
+  const dd =
+    x.regimeMaxDD ?? 0;
+
+  document.getElementById("t_return")
+    .innerText =
+    (gain * 100).toFixed(2) + "%";
+
+  const peakCard =
+    document.getElementById("peakCard");
+
+  peakCard.style.display =
+    isTurbo ? "block" : "none";
+
+  document.getElementById("t_peak")
+    .innerText =
+    isTurbo
+      ? (peak * 100).toFixed(2) + "%"
+      : "--";
+
+  const captureCard =
+    document.getElementById("captureCard");
+
+  const showCapture =
+    isTurbo && peak > 0;
+
+  captureCard.style.display =
+    showCapture ? "block" : "none";
+
+  document.getElementById("t_capture")
+    .innerText =
+    showCapture
+      ? (capture * 100).toFixed(1) + "%"
+      : "--";
+
+  document.getElementById("t_dd")
+    .innerText =
+    (dd * 100).toFixed(2) + "%";
+
+  document.getElementById("t_days")
+    .innerText =
+    x.regimeDays ?? "--";
+
+  const isRiskPP =
+    x.regime === "RiskOn++" ||
+    x.regime === "Risk++";
+
+  document.getElementById("tradeLevels")
+    .style.display =
+    isRiskPP ? "block" : "none";
+
+  document.getElementById("riskpp_current")
+    .innerText =
+    isRiskPP
+      ? formatPrice(x.riskOnPPCurrent)
+      : "";
+
+  document.getElementById("riskpp_entry")
+    .innerText =
+    isRiskPP
+      ? formatPrice(x.riskOnPPEntry)
+      : "";
+
+  document.getElementById("riskpp_stop")
+    .innerText =
+    isRiskPP
+      ? formatPrice(x.riskOnPPStop)
+      : "";
+
+  const currentPrice =
+    Number(x.riskOnPPCurrent);
+
+  const watchPoint =
+    Number(x.riskOnPPStop);
+
+  const currentCard =
+    document.getElementById(
+      "riskpp_current_card"
+    );
+
+  const status =
+    document.getElementById(
+      "riskpp_status"
+    );
+
+  const priceTriggered =
+    isRiskPP &&
+    !Number.isNaN(currentPrice) &&
+    !Number.isNaN(watchPoint) &&
+    currentPrice < watchPoint;
+
+  currentCard.classList.toggle(
+    "triggered",
+    priceTriggered
+  );
+
+  status.innerText =
+    priceTriggered
+      ? "BELOW WATCH POINT"
+      : "";
+
+  const rec =
+    x.allocations || {};
+
+  document.getElementById("alloc_spy")
+    .innerText =
+    formatAllocation(rec.SPY || 0);
+
+  document.getElementById("alloc_spxl")
+    .innerText =
+    formatAllocation(rec.SPXL || 0);
+
+  document.getElementById("alloc_shv")
+    .innerText =
+    formatAllocation(rec.SHV || 0);
+
+  document.getElementById("notes")
+    .innerText =
+    x.signal_reason || "--";
+}
+
+async function load() {
+
+  const files = [
+    "backtestState.json",
+    "backtestState.JSON"
+  ];
+
+  for (const f of files) {
+
+    try {
+
+      const r =
+        await fetch(
+          f + "?t=" + Date.now()
+        );
+
+      if (!r.ok) continue;
+
+      render(await r.json());
+
+      return;
+
+    } catch {}
   }
 }
+
+load();
+
+setInterval(load, 10000);
+
+const overlay =
+  document.getElementById(
+    "zoomOverlay"
+  );
+
+const zoomImg =
+  document.getElementById(
+    "zoomImg"
+  );
+
+["eq","ra"].forEach(id => {
+
+  const img =
+    document.getElementById(id);
+
+  img.onclick = () => {
+
+    if (!img.src) return;
+
+    zoomImg.src = img.src;
+
+    overlay.style.display = "flex";
+  };
+});
+
+overlay.onclick = () => {
+
+  overlay.style.display = "none";
+};
+
+</script>
+
+<div class="disclaimer">
+
+  <strong>Disclaimer:</strong>
+
+  Jeff McAfee is not a registered
+  investment adviser.
+
+  TurboRegime is intended to provide
+  insight into how Jeff trades and is
+  not personalized investment advice.
+
+  Past performance is not indicative
+  of future results.
+
+  Performance results shown on this
+  website may include hypothetical
+  or backtested results, which have
+  inherent limitations and may differ
+  materially from live trading.
+
+  Trading involves risk of loss.
+
+  Live results are being tracked
+  beginning 4/1/2026.
+
+</div>
+
+<script>
+
+function setTheme(theme) {
+
+  if (theme === "light") {
+
+    document.body.classList.add(
+      "light"
+    );
+
+    localStorage.setItem(
+      "theme",
+      "light"
+    );
+
+  } else {
+
+    document.body.classList.remove(
+      "light"
+    );
+
+    localStorage.setItem(
+      "theme",
+      "dark"
+    );
+  }
+}
+
+window.addEventListener(
+  "DOMContentLoaded",
+  () => {
+
+    const savedTheme =
+      localStorage.getItem("theme");
+
+    if (savedTheme === "light") {
+
+      document.body.classList.add(
+        "light"
+      );
+    }
+  }
+);
+
+</script>
+
+</body>
+</html>
