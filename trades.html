@@ -371,12 +371,7 @@ h3 {
       <div class="note">TurboRegime minus SPY</div>
     </div>
 
-    <div class="stat-card">
-      <div class="label">Max Drawdown</div>
-      <div id="maxDrawdownPct" class="value">--</div>
-      <div class="note">Peak-to-valley decline</div>
-    </div>
-  </div>
+
 
   <div class="detail-grid">
     <div class="card">
@@ -398,14 +393,7 @@ h3 {
           <td>Relative Return</td>
           <td id="tableRelative">--</td>
         </tr>
-        <tr>
-          <td>Max Drawdown</td>
-          <td id="tableMaxDD">--</td>
-        </tr>
-        <tr>
-          <td>Profit Factor</td>
-          <td id="tableProfitFactor">--</td>
-        </tr>
+
         <tr>
           <td>Win Percentage</td>
           <td id="tableWinPct">--</td>
@@ -533,8 +521,7 @@ function render(data) {
   const returnPct = strategy.ScaledReturn ?? strategy.Return ?? 0;
   const spyReturn = strategy.SP500Return ?? 0;
   const relativeReturn = strategy.ReturnVsSP500 ?? (returnPct - spyReturn);
-  const maxDrawdown = strategy.MaxDrawdown ?? 0;
-  const profitFactor = strategy.ProfitFactor ?? 0;
+
   const winRate = strategy.WinRate ?? strategy.WinMonthsRatio ?? 0;
 
   document.getElementById("sourceBadge").innerText =
@@ -561,24 +548,22 @@ function render(data) {
 
   document.getElementById("spyReturnPct").innerText = pct(spyReturn);
   document.getElementById("relativeReturnPct").innerText = pct(relativeReturn);
-  document.getElementById("maxDrawdownPct").innerText = pct(maxDrawdown);
+
 
   setClassBySign("returnPct", returnPct);
   setClassBySign("spyReturnPct", spyReturn);
   setClassBySign("relativeReturnPct", relativeReturn);
-  document.getElementById("maxDrawdownPct").classList.add("bad");
+
 
   document.getElementById("tableReturn").innerText = pct(returnPct);
   document.getElementById("tableSpy").innerText = pct(spyReturn);
   document.getElementById("tableRelative").innerText = pct(relativeReturn);
-  document.getElementById("tableMaxDD").innerText = pct(maxDrawdown);
-  document.getElementById("tableProfitFactor").innerText = num(profitFactor);
+
   document.getElementById("tableWinPct").innerText = num(winRate, 0) + "%";
 
   document.getElementById("tableReturn").className = Number(returnPct) >= 0 ? "good" : "bad";
   document.getElementById("tableSpy").className = Number(spyReturn) >= 0 ? "good" : "bad";
   document.getElementById("tableRelative").className = Number(relativeReturn) >= 0 ? "good" : "bad";
-  document.getElementById("tableMaxDD").className = "bad";
 
   const err = document.getElementById("loadError");
   err.style.display = "none";
