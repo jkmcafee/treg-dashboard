@@ -327,14 +327,14 @@ h3 {
         <h2>Live Trading</h2>
 
         <p>
-          TurboRegime live results are tracked through Collective2. This page shows the live update,
-          including cumulative return, drawdown, relative return versus SPY, and current portfolio value.
+          TurboRegime live results are tracked through IBKR. This page shows the live update,
+          including cumulative return, relative return versus SPY, and current IBKR portfolio value.
         </p>
 
         <div class="badge-row">
           <div class="badge live">● Live Tracking</div>
           <div class="badge" id="sourceBadge">Source: --</div>
-          <div class="badge" id="updatedBadge">Last Update from Collective2: --</div>
+          <div class="badge" id="updatedBadge">Last Update from IBKR: --</div>
         </div>
       </div>
 
@@ -353,9 +353,8 @@ h3 {
 
   <div class="grid cards">
     <div class="card">
-      <h3>Collective2 Strategy</h3>
+      <h3>IBKR Strategy</h3>
       <div id="strategyName" class="metric">--</div>
-      <div id="strategyId" class="sub">--</div>
     </div>
 
     <div class="card">
@@ -441,7 +440,7 @@ h3 {
     <div class="card">
       <h3>Live Trading Notes</h3>
       <div class="muted-text">
-        Live results are tracked directly through Collective2 and reflect actual trades published by TurboRegime. Early live results should be interpreted carefully because the current live track record is still short (since Apr 1, 2026).
+        Live results are tracked directly through IBKR and reflect actual trades published by TurboRegime. Early live results should be interpreted carefully because the current live track record is still short (since Apr 1, 2026).
       </div>
     </div>
   </div>
@@ -527,7 +526,7 @@ function render(data) {
   const tradeCount = firstValue(strategy.NumTrades, strategy.NumberOfTrades, strategy.Trades, strategy.TotalTrades, strategy.ClosedTrades);
 
   document.getElementById("sourceBadge").innerText = "Source: " + (data.meta?.source || "Collective2");
-  document.getElementById("updatedBadge").innerText = "Last Update from Collective2: " + formatDateTime(data.meta?.lastUpdated);
+  document.getElementById("updatedBadge").innerText = "Last Update from IBKR " + formatDateTime(data.meta?.lastUpdated);
 
   document.getElementById("strategyName").innerText = strategy.StrategyName || "--";
   document.getElementById("strategyId").innerText = strategy.StrategyId ? "Strategy ID: " + strategy.StrategyId : "--";
