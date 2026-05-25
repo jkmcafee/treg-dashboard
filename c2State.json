@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "Collective2",
-    "lastUpdated": "2026-05-24T07:50:06.511716"
+    "lastUpdated": "2026-05-25T16:11:49.064603"
   },
   "strategy": {
     "StrategyId": 155341343,
@@ -19,14 +19,14 @@
     "StrategyOwnerId": 154092868,
     "StrategyOwnerName": "McStrat",
     "SuggestedCapital": 500000,
-    "Score": 222,
+    "Score": 223,
     "Equity": 0,
     "Cash": 500000,
     "StartingCash": 500000,
     "CashDividends": 0,
     "BuyingPower": 500000,
     "MarginUsed": 0,
-    "AgeInDays": 2,
+    "AgeInDays": 3,
     "ModelAccountValue": 500000,
     "NumWinners": 0,
     "NumLosers": 0,
