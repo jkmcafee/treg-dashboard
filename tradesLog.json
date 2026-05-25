@@ -15,19 +15,19 @@
       "performanceEndDate": "2026-04-08",
       "allocation": {
         "SPY": 0.7,
-        "SPXL": 0.0,
+        "SPXL": 0,
         "SHV": 0.3
       },
-      "startValue": 180000.0,
-      "endValue": 187085.77,
-      "tradeProfit": 7085.77,
+      "startValue": 112994.35,
+      "endValue": 117442.42,
+      "tradeProfit": 4448.07,
       "tradeReturnPct": 3.94,
-      "cumulativeValue": 187085.77,
-      "cumulativeProfit": 7085.77,
+      "cumulativeValue": 117442.42,
+      "cumulativeProfit": 4448.07,
       "cumulativeReturnPct": 3.94,
-      "spyReturnPct": 0.0,
+      "spyReturnPct": 0,
       "relativeReturnPct": 3.94,
-      "notes": "Initial live-tracked defensive allocation."
+      "notes": "Initial live-tracked trade - defensive allocation while awaiting risk regime change."
     },
     {
       "tradeNumber": 2,
@@ -39,20 +39,20 @@
       "performanceStartDate": "2026-04-09",
       "performanceEndDate": "2026-05-15",
       "allocation": {
-        "SPY": 0.0,
-        "SPXL": 1.0,
-        "SHV": 0.0
+        "SPY": 0,
+        "SPXL": 1,
+        "SHV": 0
       },
-      "startValue": 187085.77,
-      "endValue": 238950.0,
-      "tradeProfit": 53226.0,
+      "startValue": 117442.42,
+      "endValue": 150000,
+      "tradeProfit": 33412.43,
       "tradeReturnPct": 28.5,
-      "cumulativeValue": 238950.0,
-      "cumulativeProfit": 58950.0,
+      "cumulativeValue": 150000.00,
+      "cumulativeProfit": 37005.65,
       "cumulativeReturnPct": 32.75,
       "spyReturnPct": 13.8,
       "relativeReturnPct": 18.95,
-      "notes": "Turbo allocation captured the strong rebound."
+      "notes": "Turbo Trade - aggressive, leveraged allocation captured the strong rebound.  Profit-harvest algorithm caused exit."
     },
     {
       "tradeNumber": 3,
@@ -64,19 +64,19 @@
       "performanceEndDate": null,
       "allocation": {
         "SPY": 0.85,
-        "SPXL": 0.0,
+        "SPXL": 0,
         "SHV": 0.15
       },
-      "startValue": 150000.0,
-      "currentValue": 150401.05,
-      "tradeProfit": 401.05,
+      "startValue": 150000,
+      "currentValue": 150474.93,
+      "tradeProfit": 474.93,
       "tradeReturnPct": 0.27,
       "cumulativeValue": 150401.05,
-      "cumulativeProfit": 37406.7,
-      "cumulativeReturnPct": 33.1,
+      "cumulativeProfit": 37480.58,
+      "cumulativeReturnPct": 33.17,
       "spyReturnPct": 13.8,
       "relativeReturnPct": 19.3,
-      "notes": "Reduced leverage after Turbo advance. Current live-capital allocation."
+      "notes": "Reduced leverage but still RiskOn.  Current live allocation, now using IBKR Live IRA Account (rescaled to $150,000)."
     }
   ]
 }
