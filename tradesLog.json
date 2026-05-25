@@ -1,0 +1,82 @@
+{
+  "meta": {
+    "source": "TurboRegime",
+    "lastUpdated": "2026-05-25T17:45:00",
+    "description": "Investor-facing regime transition log with cumulative performance."
+  },
+  "trades": [
+    {
+      "tradeNumber": 1,
+      "regime": "RiskOff",
+      "status": "Closed",
+      "signalDate": "2026-03-31",
+      "tradeDate": "2026-03-31",
+      "performanceStartDate": "2026-04-01",
+      "performanceEndDate": "2026-04-08",
+      "allocation": {
+        "SPY": 0.7,
+        "SPXL": 0.0,
+        "SHV": 0.3
+      },
+      "startValue": 180000.0,
+      "endValue": 187085.77,
+      "tradeProfit": 7085.77,
+      "tradeReturnPct": 3.94,
+      "cumulativeValue": 187085.77,
+      "cumulativeProfit": 7085.77,
+      "cumulativeReturnPct": 3.94,
+      "spyReturnPct": 0.0,
+      "relativeReturnPct": 3.94,
+      "notes": "Initial live-tracked defensive allocation."
+    },
+    {
+      "tradeNumber": 2,
+      "regime": "RiskOn++",
+      "regimeLabel": "RiskOn++ / Turbo",
+      "status": "Closed",
+      "signalDate": "2026-04-08",
+      "tradeDate": "2026-04-08",
+      "performanceStartDate": "2026-04-09",
+      "performanceEndDate": "2026-05-15",
+      "allocation": {
+        "SPY": 0.0,
+        "SPXL": 1.0,
+        "SHV": 0.0
+      },
+      "startValue": 187085.77,
+      "endValue": 238950.0,
+      "tradeProfit": 53226.0,
+      "tradeReturnPct": 28.5,
+      "cumulativeValue": 238950.0,
+      "cumulativeProfit": 58950.0,
+      "cumulativeReturnPct": 32.75,
+      "spyReturnPct": 13.8,
+      "relativeReturnPct": 18.95,
+      "notes": "Turbo allocation captured the strong rebound."
+    },
+    {
+      "tradeNumber": 3,
+      "regime": "RiskOn",
+      "status": "Open",
+      "signalDate": "2026-05-15",
+      "tradeDate": "2026-05-15",
+      "performanceStartDate": "2026-05-18",
+      "performanceEndDate": null,
+      "allocation": {
+        "SPY": 0.85,
+        "SPXL": 0.0,
+        "SHV": 0.15
+      },
+      "startValue": 150000.0,
+      "currentValue": 150401.05,
+      "tradeProfit": 401.05,
+      "tradeReturnPct": 0.27,
+      "cumulativeValue": 150401.05,
+      "cumulativeProfit": 37406.7,
+      "cumulativeReturnPct": 33.1,
+      "spyReturnPct": 13.8,
+      "relativeReturnPct": 19.3,
+      "notes": "Reduced leverage after Turbo advance. Current live-capital allocation."
+    }
+  ]
+}

@@ -172,6 +172,148 @@ h3 {
   letter-spacing: 0.4px;
 }
 
+.section-title {
+  margin: 18px 0 10px;
+  color: var(--white);
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.trade-log {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.trade-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  padding: 14px 16px;
+}
+
+.trade-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+
+.trade-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.trade-number {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 0.5px;
+}
+
+.regime-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+}
+
+.regime-riskoff {
+  color: #f87171;
+  border: 1px solid rgba(248, 113, 113, 0.45);
+  background: rgba(248, 113, 113, 0.08);
+}
+
+.regime-riskon {
+  color: #34d399;
+  border: 1px solid rgba(52, 211, 153, 0.45);
+  background: rgba(52, 211, 153, 0.08);
+}
+
+.regime-riskonpp {
+  color: #60a5fa;
+  border: 1px solid rgba(96, 165, 250, 0.45);
+  background: rgba(96, 165, 250, 0.08);
+}
+
+.status-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--panel-soft);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.status-open {
+  color: #34d399;
+  border-color: rgba(52, 211, 153, 0.45);
+  background: rgba(52, 211, 153, 0.08);
+}
+
+.trade-meta {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.trade-allocation {
+  color: var(--text);
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.trade-metrics {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.trade-metric {
+  background: var(--panel-soft);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.trade-metric .label {
+  color: var(--muted);
+  font-size: 11px;
+  margin-bottom: 5px;
+}
+
+.trade-metric .value {
+  color: var(--text);
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.trade-metric .value.good {
+  color: #34d399;
+}
+
+.trade-metric .value.bad {
+  color: #f87171;
+}
+
+.trade-notes {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
 .muted-text {
   color: var(--muted);
   font-size: 14px;
@@ -208,7 +350,8 @@ h3 {
 
 @media (max-width: 900px) {
   .grid.cards,
-  .stat-grid {
+  .stat-grid,
+  .trade-metrics {
     grid-template-columns: 1fr;
   }
 }
@@ -319,6 +462,13 @@ h3 {
     </div>
   </div>
 
+  <h2 class="section-title">Trade Log</h2>
+  <div id="tradeLog" class="trade-log">
+    <div class="card muted-text">Loading trade log...</div>
+  </div>
+
+  <div id="tradeLogError" class="card error" style="display:none;"></div>
+
   <div class="card">
     <h3>Live Trading Notes</h3>
     <div class="muted-text">
@@ -373,6 +523,14 @@ function setClassBySign(id, value, positiveIsGood = true) {
 
   if (n < 0)
     el.classList.add(positiveIsGood ? "bad" : "good");
+}
+
+function valueClass(value) {
+  const n = Number(value);
+  if (Number.isNaN(n)) return "";
+  if (n > 0) return "good";
+  if (n < 0) return "bad";
+  return "";
 }
 
 function formatDate(value) {
@@ -450,6 +608,126 @@ function getStrategy(data) {
   return liveAccount ||
          Object.values(accounts)[0] ||
          null;
+}
+
+function allocationText(allocation) {
+  if (!allocation) return "--";
+
+  return Object.entries(allocation)
+    .filter(([symbol, weight]) => Number(weight) > 0)
+    .map(([symbol, weight]) => {
+      const pctValue = Number(weight) * 100;
+      return symbol + " " + pctValue.toFixed(0) + "%";
+    })
+    .join(" / ");
+}
+
+function regimeClass(regime) {
+  if (regime === "RiskOff") return "regime-riskoff";
+  if (regime === "RiskOn++") return "regime-riskonpp";
+  if (regime === "RiskOn") return "regime-riskon";
+  return "";
+}
+
+function renderTradeLog(data) {
+  const tradeLog = document.getElementById("tradeLog");
+  const tradeLogError = document.getElementById("tradeLogError");
+
+  const trades = Array.isArray(data.trades) ? data.trades : [];
+
+  if (trades.length === 0) {
+    tradeLog.innerHTML = '<div class="card muted-text">No trades found.</div>';
+    return;
+  }
+
+  const sortedTrades = [...trades].sort((a, b) => {
+    return Number(b.tradeNumber || 0) - Number(a.tradeNumber || 0);
+  });
+
+  tradeLog.innerHTML = sortedTrades.map(trade => {
+    const regime = trade.regimeLabel || trade.regime || "--";
+    const status = trade.status || "--";
+    const isOpen = status.toLowerCase() === "open";
+
+    const endDate =
+      trade.performanceEndDate ||
+      (isOpen ? "Present" : "--");
+
+    const tradeProfit =
+      trade.tradeProfit ??
+      trade.profit ??
+      0;
+
+    const tradeReturn =
+      trade.tradeReturnPct ??
+      trade.returnPct ??
+      0;
+
+    const cumulativeProfit =
+      trade.cumulativeProfit ?? 0;
+
+    const cumulativeReturn =
+      trade.cumulativeReturnPct ?? 0;
+
+    const relativeReturn =
+      trade.relativeReturnPct ?? 0;
+
+    const statusClass =
+      isOpen ? "status-pill status-open" : "status-pill";
+
+    return `
+      <div class="trade-card">
+
+        <div class="trade-card-header">
+          <div class="trade-title">
+            <span class="trade-number">TRADE ${trade.tradeNumber ?? "--"}</span>
+            <span class="regime-pill ${regimeClass(trade.regime)}">${regime}</span>
+          </div>
+
+          <span class="${statusClass}">${status}</span>
+        </div>
+
+        <div class="trade-meta">
+          <div><strong>Live:</strong> ${formatDate(trade.performanceStartDate)} → ${endDate === "Present" ? "Present" : formatDate(endDate)}</div>
+          <div><strong>Signal:</strong> ${formatDate(trade.signalDate)}</div>
+        </div>
+
+        <div class="trade-allocation">
+          <strong>Allocation:</strong> ${allocationText(trade.allocation)}
+        </div>
+
+        <div class="trade-metrics">
+          <div class="trade-metric">
+            <div class="label">Trade Return</div>
+            <div class="value ${valueClass(tradeReturn)}">${pct(tradeReturn)}</div>
+          </div>
+
+          <div class="trade-metric">
+            <div class="label">Trade Profit</div>
+            <div class="value ${valueClass(tradeProfit)}">${money(tradeProfit)}</div>
+          </div>
+
+          <div class="trade-metric">
+            <div class="label">Cumulative Return</div>
+            <div class="value ${valueClass(cumulativeReturn)}">${pct(cumulativeReturn)}</div>
+          </div>
+
+          <div class="trade-metric">
+            <div class="label">Relative vs SPY</div>
+            <div class="value ${valueClass(relativeReturn)}">${pct(relativeReturn)}</div>
+          </div>
+        </div>
+
+        <div class="trade-notes">
+          ${trade.notes || ""}
+        </div>
+
+      </div>
+    `;
+  }).join("");
+
+  tradeLogError.style.display = "none";
+  tradeLogError.innerText = "";
 }
 
 function render(data) {
@@ -582,9 +860,42 @@ async function load() {
   }
 }
 
+async function loadTradeLog() {
+
+  try {
+
+    const r =
+      await fetch(
+        "tradesLog.json?t=" + Date.now()
+      );
+
+    if (!r.ok)
+      throw new Error(
+        "Unable to load tradesLog.json"
+      );
+
+    const data = await r.json();
+
+    renderTradeLog(data);
+
+  } catch (err) {
+
+    const el =
+      document.getElementById("tradeLogError");
+
+    el.style.display = "block";
+
+    el.innerText =
+      "Error loading tradesLog.json: " +
+      err.message;
+  }
+}
+
 load();
+loadTradeLog();
 
 setInterval(load, 10000);
+setInterval(loadTradeLog, 30000);
 
 function setTheme(theme) {
 
