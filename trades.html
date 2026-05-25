@@ -3,6 +3,7 @@ function money(v) {
   if (v === undefined || v === null || v === "") return "--";
   const n = Number(v);
   if (Number.isNaN(n)) return "--";
+
   return n.toLocaleString("en-US", {
     style: "currency",
     currency: "USD",
@@ -12,20 +13,40 @@ function money(v) {
 
 function pct(v) {
   if (v === undefined || v === null || v === "") return "--";
+
   const n = Number(v);
+
   if (Number.isNaN(n)) return "--";
+
   return n.toFixed(2) + "%";
 }
 
 function num(v, digits = 2) {
   if (v === undefined || v === null || v === "") return "--";
+
   const n = Number(v);
+
   if (Number.isNaN(n)) return "--";
+
   return n.toFixed(digits);
 }
 
+function firstValue(...values) {
+  for (const v of values) {
+    if (v !== undefined && v !== null && v !== "") {
+      return v;
+    }
+  }
+
+  return null;
+}
+
 function setClassBySign(id, value, positiveIsGood = true) {
+
   const el = document.getElementById(id);
+
+  if (!el) return;
+
   const n = Number(value);
 
   el.classList.remove("good", "bad");
@@ -33,13 +54,18 @@ function setClassBySign(id, value, positiveIsGood = true) {
   if (Number.isNaN(n)) return;
 
   if (n > 0)
-    el.classList.add(positiveIsGood ? "good" : "bad");
+    el.classList.add(
+      positiveIsGood ? "good" : "bad"
+    );
 
   if (n < 0)
-    el.classList.add(positiveIsGood ? "bad" : "good");
+    el.classList.add(
+      positiveIsGood ? "bad" : "good"
+    );
 }
 
 function formatDate(value) {
+
   if (!value) return "--";
 
   const d = new Date(value);
@@ -54,6 +80,7 @@ function formatDate(value) {
 }
 
 function formatDateTime(value) {
+
   if (!value) return "--";
 
   const d = new Date(value);
@@ -69,15 +96,17 @@ function formatDateTime(value) {
 }
 
 function daysSince(value) {
+
   if (!value) return "--";
 
   const d = new Date(value);
 
   if (Number.isNaN(d.getTime())) return "--";
 
-  const days = Math.floor(
-    (Date.now() - d.getTime()) / 86400000
-  );
+  const days =
+    Math.floor(
+      (Date.now() - d.getTime()) / 86400000
+    );
 
   return days + " days live";
 }
@@ -91,16 +120,22 @@ function render(data) {
   const strategy = Object.values(accounts)[0];
 
   if (!strategy) {
-    throw new Error("No IBKR account found in ibkrState.json");
+    throw new Error(
+      "No IBKR account found in ibkrState.json"
+    );
   }
 
   document.getElementById("sourceBadge").innerText =
-    "Source: " + (data.meta?.source || "IBKR");
+    "Source: " +
+    (data.meta?.source || "IBKR");
 
   document.getElementById("updatedBadge").innerText =
     "Last Update from IBKR: " +
     formatDateTime(data.meta?.lastUpdated);
 
+  //
+  // Header Metrics
+  //
   document.getElementById("startDate").innerText =
     formatDate(strategy.ScaledStartDate);
 
@@ -120,8 +155,14 @@ function render(data) {
   document.getElementById("profitSub").innerText =
     "Scaled profit since live tracking began";
 
-  setClassBySign("profit", strategy.ScaledProfit);
+  setClassBySign(
+    "profit",
+    strategy.ScaledProfit
+  );
 
+  //
+  // Main Stats
+  //
   document.getElementById("returnPct").innerText =
     pct(strategy.ScaledReturn ?? 0);
 
@@ -152,9 +193,13 @@ function render(data) {
     strategy.ReturnVsSP500 ?? 0
   );
 
-  document.getElementById("maxDrawdownPct")
+  document
+    .getElementById("maxDrawdownPct")
     .classList.add("bad");
 
+  //
+  // Table
+  //
   document.getElementById("tableReturn").innerText =
     pct(strategy.ScaledReturn ?? 0);
 
@@ -200,10 +245,11 @@ async function load() {
       "ibkrState.json?t=" + Date.now()
     );
 
-    if (!r.ok)
+    if (!r.ok) {
       throw new Error(
         "Unable to load ibkrState.json"
       );
+    }
 
     const data = await r.json();
 
