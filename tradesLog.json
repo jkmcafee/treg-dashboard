@@ -47,7 +47,7 @@
       "endValue": 150000,
       "tradeProfit": 33412.43,
       "tradeReturnPct": 28.5,
-      "cumulativeValue": 150000.00,
+      "cumulativeValue": 150000,
       "cumulativeProfit": 37005.65,
       "cumulativeReturnPct": 32.75,
       "spyReturnPct": 13.8,
@@ -76,7 +76,7 @@
       "cumulativeReturnPct": 33.17,
       "spyReturnPct": 13.8,
       "relativeReturnPct": 19.3,
-      "notes": "Reduced leverage but still RiskOn.  Current live allocation, now using IBKR Live IRA Account (rescaled to $150,000)."
+      "notes": "Reduced leverage but still RiskOn.  Current live allocation, now using IBKR Live IRA Account (starting value: $150K, rescaled from $180k (C2/Paper)."
     }
   ]
 }
