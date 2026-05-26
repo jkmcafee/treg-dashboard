@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "IBKR",
-    "lastUpdated": "2026-05-25T17:05:51.225596"
+    "lastUpdated": "2026-05-26T07:39:51.887173"
   },
   "accounts": {
     "U25808550": {
@@ -10,16 +10,16 @@
       "environment": "LIVE",
       "StartingCash": 150000.0,
       "StartDate": "2026-05-15",
-      "ModelAccountValue": 150474.93,
+      "ModelAccountValue": 151568.63,
       "Cash": 1902.95,
-      "Profit": 474.929999999993,
-      "Return": 0.31661999999999535,
+      "Profit": 1568.6300000000047,
+      "Return": 1.0457533333333364,
       "ScaledStartDate": "2026-04-01",
       "ScaledStartingCash": 112994.35,
-      "ScaledProfit": 37480.579999999994,
-      "ScaledReturn": 33.17031338292578,
+      "ScaledProfit": 38574.280000000006,
+      "ScaledReturn": 34.138237885345596,
       "SP500Return": 13.796475453478818,
-      "ReturnVsSP500": 19.373837929446957,
+      "ReturnVsSP500": 20.341762431866776,
       "WinRate": 100.0,
       "positions": {
         "SPY": 170.0,
