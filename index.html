@@ -643,28 +643,6 @@ body {
           underperformed. No cherry picking. No hiding the full picture.
         </p>
 
-        <div class="mini-metrics">
-          <div class="mini">
-            <div id="premiumBestYear" class="value">57.4%</div>
-            <div id="premiumBestYearSub" class="label">Best year (2019)</div>
-          </div>
-
-          <div class="mini">
-            <div id="premiumWorstYear" class="value bad">-15.3%</div>
-            <div id="premiumWorstYearSub" class="label">Worst year (2022)</div>
-          </div>
-
-          <div class="mini">
-            <div id="premiumAvgAnnual" class="value">23.3%</div>
-            <div class="label">Average return</div>
-          </div>
-
-          <div class="mini">
-            <div id="premiumSharpe" class="value">1.22</div>
-            <div class="label">Sharpe ratio</div>
-          </div>
-        </div>
-
         <ul>
           <li>Year-by-year TReg vs SPY comparison</li>
           <li>Annual drawdown vs SPY drawdown</li>
@@ -684,28 +662,6 @@ body {
         <p>
           Every trade Jeff makes is tracked in real time on IBKR and shared for full transparency.
         </p>
-
-        <div class="mini-metrics">
-          <div class="mini">
-            <div class="value">29.3%</div>
-            <div class="label">Live return</div>
-          </div>
-
-          <div class="mini">
-            <div class="value">Apr 1</div>
-            <div class="label">Live since</div>
-          </div>
-
-          <div class="mini">
-            <div class="value">100%</div>
-            <div class="label">Win rate</div>
-          </div>
-
-          <div class="mini">
-            <div class="value bad">-2.5%</div>
-            <div class="label">Max drawdown</div>
-          </div>
-        </div>
 
         <ul>
           <li>Full trade history — entry, exit, return</li>
@@ -1006,13 +962,6 @@ function renderHomepage(state) {
   }
 
   if (beta !== null) setText("homeBeta", num(beta, 2));
-
-  if (bestYearPct !== null) setText("premiumBestYear", pct(bestYearPct));
-  if (bestYear) setText("premiumBestYearSub", "Best year (" + bestYear + ")");
-  if (worstYearPct !== null) setText("premiumWorstYear", pct(worstYearPct));
-  if (worstYear) setText("premiumWorstYearSub", "Worst year (" + worstYear + ")");
-  if (avgAnnualPct !== null) setText("premiumAvgAnnual", pct(avgAnnualPct));
-  if (sharpe !== null) setText("premiumSharpe", num(sharpe, 2));
 
   if (totalReturnPct !== null && spyReturnPct !== null) {
     setText("homeChartSummary", "TReg " + multipleFromReturnPct(totalReturnPct) + " · SPY " + multipleFromReturnPct(spyReturnPct));
