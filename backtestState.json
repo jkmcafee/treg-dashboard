@@ -41,7 +41,7 @@
       "startDate": "2025-05-26",
       "endDate": "2026-05-26",
       "periodYears": "1.00",
-      "lastUpdated": "2026-05-26T07:29:27.315965"
+      "lastUpdated": "2026-05-26T07:30:58.338689"
     },
     "current": {
       "totalReturnPct": "41.71",
@@ -106,5 +106,5 @@
     "SPXL": "0.00",
     "SHV": "0.15"
   },
-  "engineRevision": "1.2.1"
+  "engineRevision": "1.2.2"
 }
