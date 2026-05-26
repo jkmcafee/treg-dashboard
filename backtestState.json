@@ -29,7 +29,7 @@
     "SPXL": "0.00",
     "SHV": "0.15"
   },
-  "regimeDays": 6,
+  "regimeDays": 7,
   "regimeGain": 0.007466699077369299,
   "performance": {
     "meta": {
@@ -40,38 +40,38 @@
       "symbolPair": "SPY/SPXL",
       "startDate": "2025-05-26",
       "endDate": "2026-05-26",
-      "periodYears": "0.99",
-      "lastUpdated": "2026-05-26T02:45:03.537026"
+      "periodYears": "1.00",
+      "lastUpdated": "2026-05-26T03:45:03.264378"
     },
     "current": {
       "totalReturnPct": "41.71",
-      "cagrPct": "42.02",
+      "cagrPct": "41.88",
       "maxDrawdownPct": "-8.30",
       "sharpe": "2.50",
-      "mar": "5.06",
-      "sortino": "4.33",
+      "mar": "5.05",
+      "sortino": "4.32",
       "ulcer": "2.69",
       "upi": "nan"
     },
     "benchmarks": {
       "SPY": {
         "totalReturnPct": "27.60",
-        "cagrPct": "27.79",
+        "cagrPct": "27.71",
         "maxDrawdownPct": "-8.93",
-        "sharpe": "2.13",
-        "mar": "3.11",
+        "sharpe": "2.12",
+        "mar": "3.10",
         "sortino": "3.20",
         "ulcer": "1.91",
         "upi": "nan"
       },
       "SPXL": {
         "totalReturnPct": "79.90",
-        "cagrPct": "80.56",
+        "cagrPct": "80.26",
         "maxDrawdownPct": "-26.78",
         "sharpe": "1.84",
-        "mar": "3.01",
-        "sortino": "2.74",
-        "ulcer": "6.34",
+        "mar": "3.00",
+        "sortino": "2.73",
+        "ulcer": "6.33",
         "upi": "nan"
       },
       "SHV": {
@@ -80,19 +80,19 @@
         "maxDrawdownPct": "-0.01",
         "sharpe": "1431.69",
         "mar": "nan",
-        "sortino": "148.08",
+        "sortino": "147.79",
         "ulcer": "0.00",
         "upi": "nan"
       }
     }
   },
   "boostTrigger": false,
-  "regimeStartDate": "2026-05-18",
-  "regimeSignalDate": "2026-05-15",
-  "regimePeak": 0.007466699077369299,
+  "regimeStartDate": "2026-05-26",
+  "regimeSignalDate": "2026-05-25",
+  "regimePeak": 0.0,
   "regimePeakLimit": 0.0,
-  "regimePeakCapture": 1.0,
-  "regimeMaxDD": -0.006256705600000023,
+  "regimePeakCapture": 0.0,
+  "regimeMaxDD": 0.0,
   "riskOnPPCurrent": 266.6,
   "riskOnPPEntry": 206.9,
   "riskOnPPStop": 273.3664394194132,
@@ -100,7 +100,7 @@
   "signal": "RiskOn",
   "signal_change": true,
   "signalRegimeChange": false,
-  "signalDate": "2026-05-25",
+  "signalDate": "2026-05-26",
   "signalAllocations": {
     "SPY": "0.85",
     "SPXL": "0.00",
