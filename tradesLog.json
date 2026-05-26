@@ -76,7 +76,7 @@
       "cumulativeReturnPct": 33.17,
       "spyReturnPct": 13.8,
       "relativeReturnPct": 19.3,
-      "notes": "Reduced leverage but still RiskOn.  Current live allocation, now using IBKR Live IRA Account (starting value: $150K, rescaled from $180k (C2/Paper)."
+      "notes": "Reduced leverage but still RiskOn.  Changed live account tracking to IBKR (instead of C2)."
     }
   ]
 }
