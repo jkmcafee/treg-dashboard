@@ -5,25 +5,25 @@
   },
   "accounts": {
     "IBKR TReg Live": {
-      "label": "IBKR TReg Live",
+      "label": "IBKR TReg Live!",
       "broker": "IBKR",
       "environment": "LIVE",
-      "StartingCash": 150000.0,
+      "StartingCash": 150000,
       "StartDate": "2026-05-15",
       "ModelAccountValue": 151631.23,
       "Cash": 1902.95,
-      "Profit": 1631.2300000000105,
+      "Profit": 1631.2300000000104,
       "Return": 1.0874866666666736,
       "ScaledStartDate": "2026-04-01",
       "ScaledStartingCash": 112994.35,
       "ScaledProfit": 38636.88000000001,
       "ScaledReturn": 34.193638885484106,
       "SP500Return": 13.796475453478818,
-      "ReturnVsSP500": 20.397163432005286,
-      "WinRate": 100.0,
+      "ReturnVsSP500": 20.397163432005285,
+      "WinRate": 100,
       "positions": {
-        "SPY": 170.0,
-        "SHV": 200.0
+        "SPY": 170,
+        "SHV": 200
       }
     }
   }
