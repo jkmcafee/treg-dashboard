@@ -20,7 +20,7 @@
     "SPXL": "1.10",
     "SHV": "0.00"
   },
-  "signal_reason": "2026-05-21 13:00:06\n\n Note - TReg will not be running at the close today.  I will be on travel.  The market traded relatively flat with modest pullback behavior beneath the surface. TReg\u00e2\u20ac\u2122s active trade is essentially unchanged at -0.02%, with a contained drawdown of -0.63% over the first four trading days of the regime. The system continues to favor measured participation rather than an aggressive, leverage trade. Current allocation remains:\n\n85% SPY\n15% SHV\n0% SPXL\n\nTReg remains in RiskOn, active since May 18. The system is participating in market upside while maintaining a defensive cash buffer until conditions strengthen further.",
+  "signal_reason": "2026-05-26 22:21:14\n\nThe market spent much of the session consolidating recent gains, with investors continuing to evaluate the strength and durability of the current move. Volatility remained relatively contained, and TReg\u2019s active trade continued to hold near break-even territory with only minor drawdown. The system remains patient, avoiding unnecessary leverage while conditions remain constructive but not fully confirmed.\n\n\nTReg remains in RiskOn, active since May 18. The current regime continues to favor measured market participation with embedded downside protection. No Turbo signal is active at this time, and the strategy remains focused on preserving recent gains while allowing participation if the market trend strengthens further. The system continues monitoring for either expanding momentum that could support leveraged exposure, or renewed weakness that would favor a more defensive posture.",
   "engineHeartbeat": 0,
   "logs": [],
   "regime": "RiskOn",
