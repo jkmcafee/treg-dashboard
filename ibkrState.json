@@ -1,27 +1,30 @@
 {
   "meta": {
     "source": "IBKR",
-    "lastUpdated": "2026-05-28T07:39:38.318978"
+    "lastUpdated": "2026-05-28T07:58:26.001482"
   },
   "accounts": {
-    "IBKR Roth IRA": {
-      "label": "IBKR Roth IRA",
+    "IBKR Paper": {
+      "label": "IBKR Paper",
       "broker": "IBKR",
-      "environment": "LIVE",
-      "StartingCash": 3.0,
+      "environment": "PAPER",
+      "StartingCash": 183487.0,
       "StartDate": "2026-04-01",
-      "ModelAccountValue": 3.0,
-      "Cash": 3.0,
-      "Profit": 0.0,
-      "Return": 0.0,
+      "ModelAccountValue": 238744.73,
+      "Cash": 712.04,
+      "Profit": 55257.73000000001,
+      "Return": 30.11533787134784,
       "ScaledStartDate": "2000-01-01",
       "ScaledStartingCash": 1e-05,
-      "ScaledProfit": 1e-05,
-      "ScaledReturn": 100.0,
-      "SP500Return": 721.3642919703957,
-      "ReturnVsSP500": -621.3642919703957,
+      "ScaledProfit": 55257.730010000014,
+      "ScaledReturn": 552577300100.0001,
+      "SP500Return": 721.3641547988376,
+      "ReturnVsSP500": 552577299378.636,
       "WinRate": 0.0,
-      "positions": {}
+      "positions": {
+        "SHV": 325.0,
+        "SPY": 270.0
+      }
     }
   }
 }
