@@ -41,7 +41,7 @@
       "startDate": "2025-05-28",
       "endDate": "2026-05-28",
       "periodYears": "1.00",
-      "lastUpdated": "2026-05-28T06:45:04.106805"
+      "lastUpdated": "2026-05-28T07:45:03.395175"
     },
     "current": {
       "totalReturnPct": "42.71",
@@ -79,10 +79,10 @@
         "cagrPct": "3.93",
         "maxDrawdownPct": "-0.01",
         "sharpe": "1428.77",
-        "mar": "431.90",
+        "mar": "432.84",
         "sortino": "148.79",
         "ulcer": "0.00",
-        "upi": "24.27"
+        "upi": "24.28"
       }
     }
   },
