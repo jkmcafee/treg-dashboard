@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "IBKR",
-    "lastUpdated": "2026-05-27T20:45:02.975716"
+    "lastUpdated": "2026-05-27T21:12:12.267602"
   },
   "accounts": {
     "IBKR Roth IRA": {
@@ -18,8 +18,8 @@
       "ScaledStartingCash": 1e-05,
       "ScaledProfit": 1e-05,
       "ScaledReturn": 100.0,
-      "SP500Return": 721.3640176273253,
-      "ReturnVsSP500": -621.3640176273253,
+      "SP500Return": 721.3639490415864,
+      "ReturnVsSP500": -621.3639490415864,
       "WinRate": 0.0,
       "positions": {}
     }
