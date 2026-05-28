@@ -4,16 +4,16 @@
   "riskOn": true,
   "lastRiskOn": true,
   "signalChange": false,
-  "ratio": "1.4282",
-  "ratioMA": "1.3731",
-  "ratioDelta": "0.0551",
+  "ratio": "1.4468",
+  "ratioMA": "1.3910",
+  "ratioDelta": "0.0558",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
   "perfStrat": 2227.6,
   "useAclose": true,
-  "equityFilename": "reports\\TReg_2025-05-27_2026-05-27_Equity.png",
-  "ratioFilename": "reports\\TReg_2025-05-27_2026-05-27_Ratio.png",
+  "equityFilename": "reports\\TReg_2025-05-28_2026-05-28_Equity.png",
+  "ratioFilename": "reports\\TReg_2025-05-28_2026-05-28_Ratio.png",
   "lastTradeTime": "2026-01-22 12:45:00",
   "lastRecommendation": {
     "SPY": "0.00",
@@ -38,51 +38,51 @@
       "riskOnSymbol": "SPXL",
       "refSymbol": "SHV",
       "symbolPair": "SPY/SPXL",
-      "startDate": "2025-05-27",
-      "endDate": "2026-05-27",
+      "startDate": "2025-05-28",
+      "endDate": "2026-05-28",
       "periodYears": "1.00",
-      "lastUpdated": "2026-05-27T23:45:03.374654"
+      "lastUpdated": "2026-05-28T00:45:03.332787"
     },
     "current": {
-      "totalReturnPct": "42.49",
-      "cagrPct": "42.53",
+      "totalReturnPct": "42.71",
+      "cagrPct": "42.89",
       "maxDrawdownPct": "-8.30",
-      "sharpe": "2.54",
-      "mar": "5.12",
-      "sortino": "4.39",
+      "sharpe": "2.55",
+      "mar": "5.17",
+      "sortino": "4.42",
       "ulcer": "2.69",
-      "upi": "14.37"
+      "upi": "14.48"
     },
     "benchmarks": {
       "SPY": {
-        "totalReturnPct": "28.40",
-        "cagrPct": "28.42",
-        "maxDrawdownPct": "-8.93",
-        "sharpe": "2.17",
-        "mar": "3.18",
-        "sortino": "3.28",
-        "ulcer": "1.91",
-        "upi": "12.84"
+        "totalReturnPct": "29.20",
+        "cagrPct": "29.31",
+        "maxDrawdownPct": "-8.88",
+        "sharpe": "2.23",
+        "mar": "3.30",
+        "sortino": "3.37",
+        "ulcer": "1.92",
+        "upi": "13.25"
       },
       "SPXL": {
-        "totalReturnPct": "83.40",
-        "cagrPct": "83.48",
-        "maxDrawdownPct": "-26.78",
-        "sharpe": "1.89",
-        "mar": "3.12",
-        "sortino": "2.82",
-        "ulcer": "6.32",
-        "upi": "12.58"
+        "totalReturnPct": "86.90",
+        "cagrPct": "87.30",
+        "maxDrawdownPct": "-26.79",
+        "sharpe": "1.95",
+        "mar": "3.26",
+        "sortino": "2.91",
+        "ulcer": "6.33",
+        "upi": "13.17"
       },
       "SHV": {
-        "totalReturnPct": "3.93",
+        "totalReturnPct": "3.92",
         "cagrPct": "3.93",
         "maxDrawdownPct": "-0.01",
-        "sharpe": "1422.15",
-        "mar": "432.75",
-        "sortino": "148.85",
+        "sharpe": "1428.78",
+        "mar": "432.92",
+        "sortino": "148.79",
         "ulcer": "0.00",
-        "upi": "24.33"
+        "upi": "24.29"
       }
     }
   },
