@@ -1,30 +1,27 @@
 {
   "meta": {
     "source": "IBKR",
-    "lastUpdated": "2026-05-27T00:06:30.707832"
+    "lastUpdated": "2026-05-27T20:45:02.975716"
   },
   "accounts": {
-    "TReg Live": {
-      "label": "TReg Live",
+    "IBKR Roth IRA": {
+      "label": "IBKR Roth IRA",
       "broker": "IBKR",
       "environment": "LIVE",
-      "StartingCash": 150000.0,
-      "StartDate": "2026-05-15",
-      "ModelAccountValue": 151678.14,
-      "Cash": 1902.95,
-      "Profit": 1678.140000000014,
-      "Return": 1.1187600000000093,
-      "ScaledStartDate": "2026-04-01",
-      "ScaledStartingCash": 112994.35,
-      "ScaledProfit": 38683.790000000015,
-      "ScaledReturn": 34.2351542355879,
-      "SP500Return": 14.551925713048686,
-      "ReturnVsSP500": 19.683228522539213,
-      "WinRate": 100.0,
-      "positions": {
-        "SPY": 170.0,
-        "SHV": 200.0
-      }
+      "StartingCash": 3.0,
+      "StartDate": "2026-04-01",
+      "ModelAccountValue": 3.0,
+      "Cash": 3.0,
+      "Profit": 0.0,
+      "Return": 0.0,
+      "ScaledStartDate": "2000-01-01",
+      "ScaledStartingCash": 1e-05,
+      "ScaledProfit": 1e-05,
+      "ScaledReturn": 100.0,
+      "SP500Return": 721.3640176273253,
+      "ReturnVsSP500": -621.3640176273253,
+      "WinRate": 0.0,
+      "positions": {}
     }
   }
 }
