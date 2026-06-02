@@ -20,7 +20,7 @@
     "SPXL": "1.10",
     "SHV": "0.00"
   },
-  "signal_reason": "2026-05-26 22:21:14\n\nThe market spent much of the session consolidating recent gains, with investors continuing to evaluate the strength and durability of the current move. Volatility remained relatively contained, and TReg\u2019s active trade continued to hold near break-even territory with only minor drawdown. The system remains patient, avoiding unnecessary leverage while conditions remain constructive but not fully confirmed.\n\n\nTReg remains in RiskOn, active since May 18. The current regime continues to favor measured market participation with embedded downside protection. No Turbo signal is active at this time, and the strategy remains focused on preserving recent gains while allowing participation if the market trend strengthens further. The system continues monitoring for either expanding momentum that could support leveraged exposure, or renewed weakness that would favor a more defensive posture.",
+  "signal_reason": "2026-06-02 12:29:59\n\nYesterday, markets continued to stabilize following the May volatility spike. TurboRegime remained in RiskOn, maintaining exposure to equities while avoiding leveraged positioning. \n\nToday, remains RiskOn, active since May 18, with an allocation of 85% SPY / 15% SHV. The current regime trade is up +2.35% over 11 trading days, while experiencing only a -0.63% maximum drawdown. The model continues to see a constructive market environment.",
   "engineHeartbeat": 0,
   "logs": [],
   "regime": "RiskOn",
