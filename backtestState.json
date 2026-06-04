@@ -4,9 +4,9 @@
   "riskOn": true,
   "lastRiskOn": true,
   "signalChange": false,
-  "ratio": "1.4336",
+  "ratio": "1.4334",
   "ratioMA": "1.3930",
-  "ratioDelta": "0.0405",
+  "ratioDelta": "0.0404",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
@@ -41,7 +41,7 @@
       "startDate": "2025-06-04",
       "endDate": "2026-06-04",
       "periodYears": "1.00",
-      "lastUpdated": "2026-06-04T14:45:03.843149"
+      "lastUpdated": "2026-06-04T15:45:04.275427"
     },
     "current": {
       "totalReturnPct": "41.94",
@@ -75,11 +75,11 @@
         "upi": "12.74"
       },
       "SHV": {
-        "totalReturnPct": "3.91",
-        "cagrPct": "3.91",
+        "totalReturnPct": "3.90",
+        "cagrPct": "3.90",
         "maxDrawdownPct": "-0.01",
-        "sharpe": "1433.13",
-        "mar": "430.29",
+        "sharpe": "1433.17",
+        "mar": "429.43",
         "sortino": "147.79",
         "ulcer": "0.00",
         "upi": "24.19"
@@ -96,7 +96,7 @@
   "riskOnPPCurrent": 266.6,
   "riskOnPPEntry": 206.9,
   "riskOnPPStop": 273.3664394194132,
-  "regimeEstGain": 0.0714,
+  "regimeEstGain": 0.0712,
   "signal": "RiskOn",
   "signal_change": true,
   "signalRegimeChange": false,
