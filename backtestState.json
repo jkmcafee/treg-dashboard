@@ -20,7 +20,7 @@
     "SPXL": "1.10",
     "SHV": "0.00"
   },
-  "signal_reason": "2026-06-02 12:29:59\n\nYesterday, markets continued to stabilize following the May volatility spike. TurboRegime remained in RiskOn, maintaining exposure to equities while avoiding leveraged positioning. \n\nToday, remains RiskOn, active since May 18, with an allocation of 85% SPY / 15% SHV. The current regime trade is up +2.35% over 11 trading days, while experiencing only a -0.63% maximum drawdown. The model continues to see a constructive market environment.",
+  "signal_reason": "2026-06-05 13:45:42\n\nTurboRegime remains officially RiskOn, but a Regime Change Detected alert has been generated. If conditions remain unchanged through the close, the model is expected to transition to RiskOff at the end of the day. The current trade has produced a modest +0.48% return over 14 trading days while maintaining a limited -0.63% maximum drawdown.\n\nThe proposed RiskOff allocation would shift the portfolio from 85% SPY / 15% SHV to a more defensive 60% SPY / 40% SHV, reducing market exposure while preserving participation should conditions improve.\n\nThe model has detected a deterioration in market conditions sufficient to warrant a defensive posture. As always, TurboRegime waits for end-of-day confirmation before executing any regime change. Until the the end-of-day confirmation, the signal remains provisional and could reverse if conditions improve.",
   "engineHeartbeat": 0,
   "logs": [],
   "regime": "RiskOn",
