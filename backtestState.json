@@ -20,7 +20,7 @@
     "SPXL": "1.10",
     "SHV": "0.00"
   },
-  "signal_reason": "2026-05-26 22:21:14\n\nThe market spent much of the session consolidating recent gains, with investors continuing to evaluate the strength and durability of the current move. Volatility remained relatively contained, and TReg\u2019s active trade continued to hold near break-even territory with only minor drawdown. The system remains patient, avoiding unnecessary leverage while conditions remain constructive but not fully confirmed.\n\n\nTReg remains in RiskOn, active since May 18. The current regime continues to favor measured market participation with embedded downside protection. No Turbo signal is active at this time, and the strategy remains focused on preserving recent gains while allowing participation if the market trend strengthens further. The system continues monitoring for either expanding momentum that could support leveraged exposure, or renewed weakness that would favor a more defensive posture.",
+  "signal_reason": "2026-06-05 13:45:42\n\nTurboRegime remains officially RiskOn, but a Regime Change Detected alert has been generated. If conditions remain unchanged through the close, the model is expected to transition to RiskOff at the end of the day. The current trade has produced a modest +0.48% return over 14 trading days while maintaining a limited -0.63% maximum drawdown.\n\nThe proposed RiskOff allocation would shift the portfolio from 85% SPY / 15% SHV to a more defensive 60% SPY / 40% SHV, reducing market exposure while preserving participation should conditions improve.\n\nThe model has detected a deterioration in market conditions sufficient to warrant a defensive posture. As always, TurboRegime waits for end-of-day confirmation before executing any regime change. Until the the end-of-day confirmation, the signal remains provisional and could reverse if conditions improve.",
   "engineHeartbeat": 0,
   "logs": [],
   "regime": "RiskOff",
@@ -41,7 +41,7 @@
       "startDate": "2025-06-09",
       "endDate": "2026-06-09",
       "periodYears": "1.00",
-      "lastUpdated": "2026-06-09T04:45:02.979157"
+      "lastUpdated": "2026-06-09T01:45:02.781201"
     },
     "current": {
       "totalReturnPct": "38.44",
@@ -79,7 +79,7 @@
         "cagrPct": "3.89",
         "maxDrawdownPct": "-0.01",
         "sharpe": "1443.64",
-        "mar": "428.30",
+        "mar": "428.19",
         "sortino": "147.02",
         "ulcer": "0.00",
         "upi": "24.02"
