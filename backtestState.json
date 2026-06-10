@@ -20,7 +20,7 @@
     "SPXL": "1.10",
     "SHV": "0.00"
   },
-  "signal_reason": "2026-06-05 13:45:42\n\nTurboRegime remains officially RiskOn, but a Regime Change Detected alert has been generated. If conditions remain unchanged through the close, the model is expected to transition to RiskOff at the end of the day. The current trade has produced a modest +0.48% return over 14 trading days while maintaining a limited -0.63% maximum drawdown.\n\nThe proposed RiskOff allocation would shift the portfolio from 85% SPY / 15% SHV to a more defensive 60% SPY / 40% SHV, reducing market exposure while preserving participation should conditions improve.\n\nThe model has detected a deterioration in market conditions sufficient to warrant a defensive posture. As always, TurboRegime waits for end-of-day confirmation before executing any regime change. Until the the end-of-day confirmation, the signal remains provisional and could reverse if conditions improve.",
+  "signal_reason": "2026-06-10 16:52:43\n\nTurboRegime transitioned to RiskOff on June 5 as market conditions weakened. The move reduced portfolio exposure and shifted capital toward defense, helping limit downside during recent volatility. Since the signal, SPY has declined approximately 2.6%, while the active TurboRegime trade is down just 0.97%, demonstrating the model's focus on capital preservation during deteriorating market conditions.\n\nCurrent allocation remains 60% SPY and 40% SHV. While markets continue to search for direction, TurboRegime is prioritizing risk management over aggressive participation. The model will continue monitoring trend and volatility conditions and will automatically reposition if a favorable risk environment returns.\n\nNo action is required. The current RiskOff posture remains active until a new regime signal is generated",
   "engineHeartbeat": 0,
   "logs": [],
   "regime": "RiskOff",
@@ -41,7 +41,7 @@
       "startDate": "2025-06-10",
       "endDate": "2026-06-10",
       "periodYears": "1.00",
-      "lastUpdated": "2026-06-10T16:45:03.033915"
+      "lastUpdated": "2026-06-10T16:29:32.164111"
     },
     "current": {
       "totalReturnPct": "36.34",
@@ -79,10 +79,10 @@
         "cagrPct": "3.89",
         "maxDrawdownPct": "-0.01",
         "sharpe": "1440.67",
-        "mar": "428.23",
+        "mar": "427.02",
         "sortino": "147.08",
         "ulcer": "0.00",
-        "upi": "24.07"
+        "upi": "24.06"
       }
     }
   },
@@ -106,5 +106,5 @@
     "SPXL": "0.00",
     "SHV": "0.40"
   },
-  "engineRevision": "1.2.2"
+  "engineRevision": "1.3.0"
 }
