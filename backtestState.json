@@ -4,9 +4,9 @@
   "riskOn": false,
   "lastRiskOn": false,
   "signalChange": false,
-  "ratio": "1.2822",
-  "ratioMA": "1.3594",
-  "ratioDelta": "-0.0772",
+  "ratio": "1.2940",
+  "ratioMA": "1.3600",
+  "ratioDelta": "-0.0660",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
@@ -20,7 +20,7 @@
     "SPXL": "1.10",
     "SHV": "0.00"
   },
-  "signal_reason": "2026-06-05 13:45:42\n\nTurboRegime remains officially RiskOn, but a Regime Change Detected alert has been generated. If conditions remain unchanged through the close, the model is expected to transition to RiskOff at the end of the day. The current trade has produced a modest +0.48% return over 14 trading days while maintaining a limited -0.63% maximum drawdown.\n\nThe proposed RiskOff allocation would shift the portfolio from 85% SPY / 15% SHV to a more defensive 60% SPY / 40% SHV, reducing market exposure while preserving participation should conditions improve.\n\nThe model has detected a deterioration in market conditions sufficient to warrant a defensive posture. As always, TurboRegime waits for end-of-day confirmation before executing any regime change. Until the the end-of-day confirmation, the signal remains provisional and could reverse if conditions improve.",
+  "signal_reason": "2026-06-10 16:27:24\n\ntest",
   "engineHeartbeat": 0,
   "logs": [],
   "regime": "RiskOff",
@@ -30,7 +30,7 @@
     "SHV": "0.40"
   },
   "regimeDays": 3,
-  "regimeGain": -0.008859990887880143,
+  "regimeGain": -0.006420679978040078,
   "performance": {
     "meta": {
       "strategyName": "TReg",
@@ -41,48 +41,48 @@
       "startDate": "2025-06-10",
       "endDate": "2026-06-10",
       "periodYears": "1.00",
-      "lastUpdated": "2026-06-10T15:56:03.148641"
+      "lastUpdated": "2026-06-10T13:48:25.067866"
     },
     "current": {
-      "totalReturnPct": "36.46",
-      "cagrPct": "36.49",
+      "totalReturnPct": "36.79",
+      "cagrPct": "36.82",
       "maxDrawdownPct": "-8.30",
-      "sharpe": "2.21",
-      "mar": "4.39",
-      "sortino": "3.72",
+      "sharpe": "2.23",
+      "mar": "4.44",
+      "sortino": "3.76",
       "ulcer": "2.75",
-      "upi": "11.87"
+      "upi": "11.99"
     },
     "benchmarks": {
       "SPY": {
-        "totalReturnPct": "21.90",
-        "cagrPct": "21.92",
+        "totalReturnPct": "22.30",
+        "cagrPct": "22.32",
         "maxDrawdownPct": "-8.86",
-        "sharpe": "1.69",
-        "mar": "2.47",
-        "sortino": "2.45",
+        "sharpe": "1.73",
+        "mar": "2.52",
+        "sortino": "2.51",
         "ulcer": "1.94",
-        "upi": "9.28"
+        "upi": "9.50"
       },
       "SPXL": {
-        "totalReturnPct": "56.20",
-        "cagrPct": "56.25",
+        "totalReturnPct": "58.30",
+        "cagrPct": "58.35",
         "maxDrawdownPct": "-26.78",
-        "sharpe": "1.41",
-        "mar": "2.10",
-        "sortino": "2.02",
+        "sharpe": "1.45",
+        "mar": "2.18",
+        "sortino": "2.08",
         "ulcer": "6.44",
-        "upi": "8.13"
+        "upi": "8.46"
       },
       "SHV": {
         "totalReturnPct": "3.88",
-        "cagrPct": "3.88",
+        "cagrPct": "3.89",
         "maxDrawdownPct": "-0.01",
-        "sharpe": "1440.71",
-        "mar": "427.76",
-        "sortino": "146.72",
+        "sharpe": "1440.67",
+        "mar": "427.36",
+        "sortino": "147.08",
         "ulcer": "0.00",
-        "upi": "24.03"
+        "upi": "24.04"
       }
     }
   },
@@ -91,12 +91,12 @@
   "regimeSignalDate": "2026-06-05",
   "regimePeak": 0.0014199999999999768,
   "regimePeakLimit": 0.0,
-  "regimePeakCapture": -6.2394302027325965,
-  "regimeMaxDD": -0.008859990887880143,
+  "regimePeakCapture": -4.521605618338157,
+  "regimeMaxDD": -0.006420679978040078,
   "riskOnPPCurrent": 266.6,
   "riskOnPPEntry": 206.9,
   "riskOnPPStop": 273.3664394194132,
-  "regimeEstGain": -0.0149,
+  "regimeEstGain": -0.0109,
   "signal": "RiskOff",
   "signal_change": true,
   "signalRegimeChange": false,
@@ -106,5 +106,5 @@
     "SPXL": "0.00",
     "SHV": "0.40"
   },
-  "engineRevision": "1.2.2"
+  "engineRevision": "1.3.0"
 }
