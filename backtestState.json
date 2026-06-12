@@ -4,9 +4,9 @@
   "riskOn": false,
   "lastRiskOn": false,
   "signalChange": false,
-  "ratio": "1.3363",
-  "ratioMA": "1.3561",
-  "ratioDelta": "-0.0197",
+  "ratio": "1.3305",
+  "ratioMA": "1.3558",
+  "ratioDelta": "-0.0253",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
@@ -20,7 +20,7 @@
     "SPXL": "1.10",
     "SHV": "0.00"
   },
-  "signal_reason": "2026-06-10 16:52:43\n\nTurboRegime transitioned to RiskOff on June 5 as market conditions weakened. The move reduced portfolio exposure and shifted capital toward defense, helping limit downside during recent volatility. Since the signal, SPY has declined approximately 2.6%, while the active TurboRegime trade is down just 0.97%, demonstrating the model's focus on capital preservation during deteriorating market conditions.\n\nCurrent allocation remains 60% SPY and 40% SHV. While markets continue to search for direction, TurboRegime is prioritizing risk management over aggressive participation. The model will continue monitoring trend and volatility conditions and will automatically reposition if a favorable risk environment returns.\n\nNo action is required. The current RiskOff posture remains active until a new regime signal is generated",
+  "signal_reason": "2026-06-11 14:17:37\n\nTurboRegime transitioned to RiskOff on June 5 as market conditions weakened. The move reduced portfolio exposure and shifted capital toward defense, helping limit downside during recent volatility. Since the signal, SPY has declined approximately 2.6%, while the active TurboRegime trade is down just 0.97%, demonstrating the model's focus on capital preservation during deteriorating market conditions.\n\nCurrent allocation remains 60% SPY and 40% SHV. While markets continue to search for direction, TurboRegime is prioritizing risk management over aggressive participation. The model will continue monitoring trend and volatility conditions and will automatically reposition if a favorable risk environment returns.\n\nNo action is required. The current RiskOff posture remains active until a new regime signal is generated.\n\nSince the RiskOff signal, SPY has fallen approximately -0.65%, SPXL -1.9%, while TReg has fallen -0.3%.   Remember... the goal of TurboRegime is to beat SPY during RiskOff, not dodge the market altogether.  There is too much that can happen with just a news story or POTUS tweet!",
   "engineHeartbeat": 0,
   "logs": [],
   "regime": "RiskOff",
@@ -30,7 +30,7 @@
     "SHV": "0.40"
   },
   "regimeDays": 5,
-  "regimeGain": 0.00450219272383201,
+  "regimeGain": 0.0031615758776404324,
   "performance": {
     "meta": {
       "strategyName": "TReg",
@@ -41,62 +41,62 @@
       "startDate": "2025-06-12",
       "endDate": "2026-06-12",
       "periodYears": "1.00",
-      "lastUpdated": "2026-06-12T11:02:39.590565"
+      "lastUpdated": "2026-06-12T11:45:03.365875"
     },
     "current": {
-      "totalReturnPct": "38.26",
-      "cagrPct": "38.29",
+      "totalReturnPct": "38.08",
+      "cagrPct": "38.11",
       "maxDrawdownPct": "-8.30",
-      "sharpe": "2.29",
-      "mar": "4.61",
-      "sortino": "3.87",
+      "sharpe": "2.28",
+      "mar": "4.59",
+      "sortino": "3.86",
       "ulcer": "2.77",
-      "upi": "12.43"
+      "upi": "12.36"
     },
     "benchmarks": {
       "SPY": {
-        "totalReturnPct": "24.40",
-        "cagrPct": "24.42",
+        "totalReturnPct": "24.10",
+        "cagrPct": "24.12",
         "maxDrawdownPct": "-8.86",
-        "sharpe": "1.84",
-        "mar": "2.75",
-        "sortino": "2.69",
+        "sharpe": "1.82",
+        "mar": "2.72",
+        "sortino": "2.66",
         "ulcer": "1.96",
-        "upi": "10.45"
+        "upi": "10.29"
       },
       "SPXL": {
-        "totalReturnPct": "66.30",
-        "cagrPct": "66.36",
+        "totalReturnPct": "65.20",
+        "cagrPct": "65.26",
         "maxDrawdownPct": "-26.76",
-        "sharpe": "1.57",
-        "mar": "2.48",
-        "sortino": "2.27",
+        "sharpe": "1.55",
+        "mar": "2.44",
+        "sortino": "2.24",
         "ulcer": "6.49",
-        "upi": "9.62"
+        "upi": "9.45"
       },
       "SHV": {
         "totalReturnPct": "3.90",
         "cagrPct": "3.90",
         "maxDrawdownPct": "-0.01",
-        "sharpe": "1444.51",
-        "mar": "429.51",
-        "sortino": "147.43",
+        "sharpe": "1444.47",
+        "mar": "429.68",
+        "sortino": "147.79",
         "ulcer": "0.00",
-        "upi": "24.15"
+        "upi": "24.16"
       }
     }
   },
   "boostTrigger": false,
   "regimeStartDate": "2026-06-08",
   "regimeSignalDate": "2026-06-05",
-  "regimePeak": 0.00450219272383201,
+  "regimePeak": 0.0031615758776404324,
   "regimePeakLimit": 0.0,
   "regimePeakCapture": 1.0,
   "regimeMaxDD": -0.009719748011840057,
   "riskOnPPCurrent": 266.6,
   "riskOnPPEntry": 206.9,
   "riskOnPPStop": 273.3664394194132,
-  "regimeEstGain": 0.0072,
+  "regimeEstGain": 0.0049,
   "signal": "RiskOff",
   "signal_change": true,
   "signalRegimeChange": false,
@@ -106,5 +106,5 @@
     "SPXL": "0.00",
     "SHV": "0.40"
   },
-  "engineRevision": "1.3.0"
+  "engineRevision": "1.2.2"
 }
