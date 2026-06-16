@@ -11,6 +11,7 @@
       "status": "Closed",
       "signalDate": "2026-03-31",
       "tradeDate": "2026-03-31",
+      "spyStartPrice": 650.34, 
       "performanceStartDate": "2026-04-01",
       "performanceEndDate": "2026-04-08",
       "allocation": {
@@ -25,8 +26,8 @@
       "cumulativeValue": 117442.42,
       "cumulativeProfit": 4448.07,
       "cumulativeReturnPct": 3.94,
-      "spyReturnPct": 0,
-      "relativeReturnPct": 3.94,
+      "spyReturnPct": 3.95,
+      "relativeReturnPct": -0.01,
       "notes": "Initial live-tracked trade - defensive allocation while awaiting risk regime change."
     },
     {
@@ -36,6 +37,7 @@
       "status": "Closed",
       "signalDate": "2026-04-08",
       "tradeDate": "2026-04-08",
+      "spyStartPrice": 676.01, 
       "performanceStartDate": "2026-04-09",
       "performanceEndDate": "2026-05-15",
       "allocation": {
@@ -50,8 +52,8 @@
       "cumulativeValue": 150000,
       "cumulativeProfit": 37005.65,
       "cumulativeReturnPct": 32.75,
-      "spyReturnPct": 13.8,
-      "relativeReturnPct": 18.95,
+      "spyReturnPct": 9.27,
+      "relativeReturnPct": 19.23,
       "notes": "Turbo Trade - aggressive, leveraged allocation captured the strong rebound.  Profit-harvest algorithm caused exit."
     },
     {
@@ -60,6 +62,7 @@
       "status": "Closed",
       "signalDate": "2026-05-15",
       "tradeDate": "2026-05-15",
+      "spyStartPrice": 738.65, 
       "performanceStartDate": "2026-05-18",
       "performanceEndDate":"2026-06-05",
       "allocation": {
@@ -74,8 +77,8 @@
       "cumulativeValue": 149491.70,
       "cumulativeProfit": 36597.35,
       "cumulativeReturnPct": 32.4,
-      "spyReturnPct": 13.3,
-      "relativeReturnPct": 19.1,
+      "spyReturnPct": -0.15,
+      "relativeReturnPct": -0.12,
       "notes": "Reduced leverage but still RiskOn.  Changed live account tracking to IBKR (instead of C2)."
     },
         {
@@ -84,6 +87,7 @@
       "status": "Open",
       "signalDate": "2026-06-05",
       "tradeDate": "2026-06-05",
+      "spyStartPrice": 737.55, 
       "performanceStartDate": "2026-06-08",
       "performanceEndDate": null,
       "allocation": {
@@ -98,9 +102,11 @@
       "cumulativeValue": 149882.86,
       "cumulativeProfit": 36828.51,
       "cumulativeReturnPct": 32.59,
-      "spyReturnPct": 13.3,
-      "relativeReturnPct": 19.3,
+      "spyReturnPct": 0.57,
+      "relativeReturnPct": -0.042,
       "notes": "Went defensive.  Name of game is to stay ahead of SPY during these times and preserve our previous gains."
     }
+
+
   ]
 }
