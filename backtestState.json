@@ -20,7 +20,7 @@
     "SPXL": "1.10",
     "SHV": "0.00"
   },
-  "signal_reason": "2026-06-17 09:34:54\n\nTurboRegime transitioned to RiskOn at the close of June 16, moving from a defensive posture back into the market. The model currently favors broad market exposure through SPY while maintaining a modest 15% allocation to SHV for stability.\n\nAfter the first trading day of the new regime, performance stands at -0.51%, with a maximum drawdown of -0.51%. Given that the regime is only one trading day old, short-term volatility is expected and does not materially impact the model's longer-term outlook.\n\nThe return to RiskOn reflects improving market conditions following the prior defensive period. As always, TurboRegime remains focused on participating in sustained market advances while managing downside risk through disciplined regime changes rather than short-term predictions",
+  "signal_reason": "2026-06-17 09:40:35\n\nTurboRegime transitioned to RiskOn at the close of June 15, moving from a defensive posture back into the market. The model currently favors broad market exposure through SPY while maintaining a modest 15% allocation to SHV for stability.\n\nAfter the first trading day of the new regime, performance stands at -0.51%, with a maximum drawdown of -0.51%. Given that the regime is only one trading day old, short-term volatility is expected and does not materially impact the model's longer-term outlook.\n\nThe return to RiskOn reflects improving market conditions following the prior defensive period. As always, TurboRegime remains focused on participating in sustained market advances while managing downside risk through disciplined regime changes rather than short-term predictions",
   "engineHeartbeat": 0,
   "logs": [],
   "regime": "RiskOn",
