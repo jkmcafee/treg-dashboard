@@ -181,7 +181,7 @@ h3 {
 
 .trade-log {
   display: grid;
-  gap: 10px;
+  gap: 12px;
   margin-bottom: 10px;
 }
 
@@ -191,6 +191,123 @@ h3 {
   border-radius: 12px;
   box-shadow: var(--shadow);
   padding: 14px 16px;
+}
+
+.trade-history-title {
+  margin: 8px 0 0;
+  color: var(--white);
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.trade-table-wrap {
+  overflow-x: auto;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.trade-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 980px;
+}
+
+.trade-table th,
+.trade-table td {
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  vertical-align: top;
+  font-size: 13px;
+}
+
+.trade-table th {
+  color: var(--muted);
+  background: var(--panel-soft);
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.trade-table tr:last-child td {
+  border-bottom: none;
+}
+
+.trade-table tr.current-trade td {
+  background: rgba(52, 211, 153, 0.045);
+  border-top: 1px solid rgba(52, 211, 153, 0.28);
+  border-bottom: 1px solid rgba(52, 211, 153, 0.28);
+}
+
+.trade-table tr.current-trade td:first-child {
+  border-left: 3px solid #34d399;
+}
+
+.trade-table .number-cell {
+  color: var(--muted);
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.trade-table .date-cell,
+.trade-table .allocation-cell {
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.trade-table .notes-cell {
+  color: var(--muted);
+  min-width: 260px;
+  line-height: 1.45;
+}
+
+.trade-table th:nth-child(2),
+.trade-table td:nth-child(2) {
+  min-width: 94px;
+}
+
+.note-toggle {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font: inherit;
+  line-height: 1.45;
+  text-align: left;
+  cursor: pointer;
+}
+
+.note-toggle:hover {
+  color: var(--text);
+}
+
+.note-more {
+  color: #60a5fa;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.note-full {
+  display: none;
+}
+
+.note-toggle.expanded .note-short {
+  display: none;
+}
+
+.note-toggle.expanded .note-full {
+  display: inline;
+}
+
+.trade-table .metric-cell {
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .trade-card-header {
@@ -218,11 +335,13 @@ h3 {
 .regime-pill {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
   padding: 5px 10px;
   border-radius: 999px;
   font-size: 12px;
   font-weight: 700;
   letter-spacing: 0.4px;
+  white-space: nowrap;
 }
 
 .regime-riskoff {
@@ -241,6 +360,7 @@ h3 {
   color: #60a5fa;
   border: 1px solid rgba(96, 165, 250, 0.45);
   background: rgba(96, 165, 250, 0.08);
+  min-width: 76px;
 }
 
 .status-pill {
@@ -354,6 +474,10 @@ h3 {
   .trade-metrics {
     grid-template-columns: 1fr;
   }
+
+  .trade-table {
+    min-width: 900px;
+  }
 }
 </style>
 </head>
@@ -456,9 +580,9 @@ h3 {
     </div>
 
     <div class="stat-card">
-      <div class="label">Win Percentage</div>
-      <div id="winPct" class="value">--</div>
-      <div class="note">Closed winning trades</div>
+      <div class="label">Trades Executed</div>
+      <div id="tradeCount" class="value">--</div>
+      <div class="note">Total live trades</div>
     </div>
   </div>
 
@@ -627,11 +751,227 @@ function regimeClass(regime) {
   return "";
 }
 
+function displayRegime(regime) {
+  if (!regime) return "--";
+
+  const text = String(regime);
+
+  if (text.includes("RiskOn++")) return "RiskOn++";
+  if (text.includes("RiskOn")) return "RiskOn";
+  if (text.includes("RiskOff")) return "RiskOff";
+
+  return text;
+}
+
+function htmlEscape(value) {
+  if (value === undefined || value === null) return "";
+
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
+function tradeStatus(trade) {
+  return trade.status || "--";
+}
+
+function tradeIsOpen(trade) {
+  return tradeStatus(trade).toLowerCase() === "open";
+}
+
+function tradeEndDate(trade) {
+  if (trade.performanceEndDate) return formatDate(trade.performanceEndDate);
+  return tradeIsOpen(trade) ? "Present" : "--";
+}
+
+function tradeSPYReturn(trade) {
+  return trade.tradeSPYReturnPct ??
+         trade.tradeSpyReturnPct ??
+         trade.spyReturnPct ??
+         trade.SPYReturnPct ??
+         trade.sp500ReturnPct ??
+         trade.SP500Return;
+}
+
+function tradeAlphaReturn(trade) {
+  const tradeReturn = trade.tradeReturnPct ?? trade.returnPct;
+  const spyReturn = tradeSPYReturn(trade);
+
+  const t = Number(tradeReturn);
+  const s = Number(spyReturn);
+
+  if (Number.isNaN(t) || Number.isNaN(s)) return null;
+
+  return t - s;
+}
+
+function shortNote(value, maxLength = 62) {
+  if (!value) return "";
+
+  const text = String(value);
+
+  if (text.length <= maxLength) return text;
+
+  return text.slice(0, maxLength).trim() + "...";
+}
+
+function renderNote(value, maxLength = 62) {
+  if (!value) return "--";
+
+  const text = String(value);
+
+  if (text.length <= maxLength) {
+    return htmlEscape(text);
+  }
+
+  return `
+    <button type="button" class="note-toggle" onclick="toggleNote(this)">
+      <span class="note-short">${htmlEscape(shortNote(text, maxLength))} <span class="note-more">more</span></span>
+      <span class="note-full">${htmlEscape(text)} <span class="note-more">less</span></span>
+    </button>
+  `;
+}
+
+function toggleNote(button) {
+  if (!button) return;
+  button.classList.toggle("expanded");
+}
+
+function renderActiveTradeCard(trade) {
+  const regime = trade.regimeLabel || trade.regime || "--";
+  const status = tradeStatus(trade);
+  const isOpen = tradeIsOpen(trade);
+
+  const tradeProfit = trade.tradeProfit ?? trade.profit;
+  const tradeReturn = trade.tradeReturnPct ?? trade.returnPct;
+  const spyReturn = tradeSPYReturn(trade);
+
+  const statusClass = isOpen ? "status-pill status-open" : "status-pill";
+  const title = isOpen ? "Current Trade" : "Most Recent Trade";
+
+  return `
+    <div class="trade-card">
+
+      <div class="trade-card-header">
+        <div class="trade-title">
+          <span class="trade-number">${title.toUpperCase()} • TRADE ${trade.tradeNumber ?? "--"}</span>
+          <span class="regime-pill ${regimeClass(regime)}">${htmlEscape(regime)}</span>
+        </div>
+
+        <span class="${statusClass}">${htmlEscape(status)}</span>
+      </div>
+
+      <div class="trade-meta">
+        <div><strong>Live:</strong> ${formatDate(trade.performanceStartDate)} → ${tradeEndDate(trade)}</div>
+        <div><strong>Signal:</strong> ${formatDate(trade.signalDate)}</div>
+      </div>
+
+      <div class="trade-allocation">
+        <strong>Allocation:</strong> ${htmlEscape(allocationText(trade.allocation))}
+      </div>
+
+      <div class="trade-metrics">
+        <div class="trade-metric">
+          <div class="label">Trade Return</div>
+          <div class="value ${valueClass(tradeReturn)}">${pct(tradeReturn)}</div>
+        </div>
+
+        <div class="trade-metric">
+          <div class="label">Trade Profit</div>
+          <div class="value ${valueClass(tradeProfit)}">${money(tradeProfit)}</div>
+        </div>
+
+        <div class="trade-metric">
+          <div class="label">SPY Return</div>
+          <div class="value ${valueClass(spyReturn)}">${pct(spyReturn)}</div>
+        </div>
+
+        <div class="trade-metric">
+          <div class="label">Status</div>
+          <div class="value">${htmlEscape(status)}</div>
+        </div>
+      </div>
+
+      <div class="trade-notes">
+        ${htmlEscape(trade.notes || "")}
+      </div>
+
+    </div>
+  `;
+}
+
+function renderTradeHistoryTable(trades) {
+  if (trades.length === 0) {
+    return '<div class="card muted-text">No trades found.</div>';
+  }
+
+  const rows = trades.map(trade => {
+    const regimeRaw = trade.regimeLabel || trade.regime || "--";
+    const regime = displayRegime(regimeRaw);
+    const status = tradeStatus(trade);
+    const isOpen = tradeIsOpen(trade);
+    const tradeProfit = trade.tradeProfit ?? trade.profit;
+    const tradeReturn = trade.tradeReturnPct ?? trade.returnPct;
+    const spyReturn = tradeSPYReturn(trade);
+    const alphaReturn = tradeAlphaReturn(trade);
+    const statusClass = isOpen ? "status-pill status-open" : "status-pill";
+    const rowClass = isOpen ? "current-trade" : "";
+    const note = trade.notes || "";
+
+    return `
+      <tr class="${rowClass}">
+        <td class="number-cell">TRADE ${trade.tradeNumber ?? "--"}</td>
+        <td><span class="regime-pill ${regimeClass(regime)}">${htmlEscape(regime)}</span></td>
+        <td><span class="${statusClass}">${htmlEscape(status)}</span></td>
+        <td class="date-cell">${formatDate(trade.signalDate)}</td>
+        <td class="date-cell">${formatDate(trade.performanceStartDate)} → ${tradeEndDate(trade)}</td>
+        <td class="allocation-cell">${htmlEscape(allocationText(trade.allocation))}</td>
+        <td class="metric-cell ${valueClass(tradeProfit)}">${money(tradeProfit)}</td>
+        <td class="metric-cell ${valueClass(tradeReturn)}">${pct(tradeReturn)}</td>
+        <td class="metric-cell ${valueClass(spyReturn)}">${pct(spyReturn)}</td>
+        <td class="metric-cell ${valueClass(alphaReturn)}">${pct(alphaReturn)}</td>
+        <td class="notes-cell">${renderNote(note)}</td>
+      </tr>
+    `;
+  }).join("");
+
+  return `
+    <div class="trade-table-wrap">
+      <table class="trade-table">
+        <thead>
+          <tr>
+            <th>Trade</th>
+            <th>Regime</th>
+            <th>Status</th>
+            <th>Signal</th>
+            <th>Live Period</th>
+            <th>Allocation</th>
+            <th>Profit</th>
+            <th>Return</th>
+            <th>SPY Return</th>
+            <th>Alpha</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${rows}
+        </tbody>
+      </table>
+    </div>
+  `;
+}
+
 function renderTradeLog(data) {
   const tradeLog = document.getElementById("tradeLog");
   const tradeLogError = document.getElementById("tradeLogError");
 
   const trades = Array.isArray(data.trades) ? data.trades : [];
+
+  const tradeCountEl = document.getElementById("tradeCount");
+  if (tradeCountEl) tradeCountEl.innerText = trades.length;
 
   if (trades.length === 0) {
     tradeLog.innerHTML = '<div class="card muted-text">No trades found.</div>';
@@ -642,87 +982,7 @@ function renderTradeLog(data) {
     return Number(b.tradeNumber || 0) - Number(a.tradeNumber || 0);
   });
 
-  tradeLog.innerHTML = sortedTrades.map(trade => {
-    const regime = trade.regimeLabel || trade.regime || "--";
-    const status = trade.status || "--";
-    const isOpen = status.toLowerCase() === "open";
-
-    const endDate =
-      trade.performanceEndDate ||
-      (isOpen ? "Present" : "--");
-
-    const tradeProfit =
-      trade.tradeProfit ??
-      trade.profit ??
-      0;
-
-    const tradeReturn =
-      trade.tradeReturnPct ??
-      trade.returnPct ??
-      0;
-
-    const cumulativeProfit =
-      trade.cumulativeProfit ?? 0;
-
-    const cumulativeReturn =
-      trade.cumulativeReturnPct ?? 0;
-
-    const relativeReturn =
-      trade.relativeReturnPct ?? 0;
-
-    const statusClass =
-      isOpen ? "status-pill status-open" : "status-pill";
-
-    return `
-      <div class="trade-card">
-
-        <div class="trade-card-header">
-          <div class="trade-title">
-            <span class="trade-number">TRADE ${trade.tradeNumber ?? "--"}</span>
-            <span class="regime-pill ${regimeClass(trade.regime)}">${regime}</span>
-          </div>
-
-          <span class="${statusClass}">${status}</span>
-        </div>
-
-        <div class="trade-meta">
-          <div><strong>Live:</strong> ${formatDate(trade.performanceStartDate)} → ${endDate === "Present" ? "Present" : formatDate(endDate)}</div>
-          <div><strong>Signal:</strong> ${formatDate(trade.signalDate)}</div>
-        </div>
-
-        <div class="trade-allocation">
-          <strong>Allocation:</strong> ${allocationText(trade.allocation)}
-        </div>
-
-        <div class="trade-metrics">
-          <div class="trade-metric">
-            <div class="label">Trade Return</div>
-            <div class="value ${valueClass(tradeReturn)}">${pct(tradeReturn)}</div>
-          </div>
-
-          <div class="trade-metric">
-            <div class="label">Trade Profit</div>
-            <div class="value ${valueClass(tradeProfit)}">${money(tradeProfit)}</div>
-          </div>
-
-          <div class="trade-metric">
-            <div class="label">Cumulative Return</div>
-            <div class="value ${valueClass(cumulativeReturn)}">${pct(cumulativeReturn)}</div>
-          </div>
-
-          <div class="trade-metric">
-            <div class="label">Relative vs SPY</div>
-            <div class="value ${valueClass(relativeReturn)}">${pct(relativeReturn)}</div>
-          </div>
-        </div>
-
-        <div class="trade-notes">
-          ${trade.notes || ""}
-        </div>
-
-      </div>
-    `;
-  }).join("");
+  tradeLog.innerHTML = renderTradeHistoryTable(sortedTrades);
 
   tradeLogError.style.display = "none";
   tradeLogError.innerText = "";
@@ -764,10 +1024,6 @@ function render(data) {
     strategy.ReturnVsSP500 ??
     (returnPct - spyReturn);
 
-  const winRate =
-    strategy.WinRate ??
-    strategy.WinMonthsRatio ??
-    0;
 
   document.getElementById("sourceBadge").innerText =
     "Source: " +
@@ -810,13 +1066,10 @@ function render(data) {
   document.getElementById("relativeReturnPct").innerText =
     pct(relativeReturn);
 
-  document.getElementById("winPct").innerText =
-    num(winRate, 0) + "%";
 
   setClassBySign("returnPct", returnPct);
   setClassBySign("spyReturnPct", spyReturn);
   setClassBySign("relativeReturnPct", relativeReturn);
-  setClassBySign("winPct", winRate);
 
   const err =
     document.getElementById("loadError");
