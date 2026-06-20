@@ -1,9 +1,15 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-20T16:34:52",
+  "generatedAt": "2026-06-20T16:46:41",
   "entitlements": [
     {
       "licenseKeyHash": "b99f3f5c6d554171746bd7e8446f61f25cf703cae37c51ca90fde1f03849869f",
+      "tier": "Premium",
+      "status": "active",
+      "expires": ""
+    },
+    {
+      "licenseKeyHash": "437bffcb16087529dcb9d91af1a023cbe52241d2c886335ee9f21fbf0a0b6954",
       "tier": "Premium",
       "status": "active",
       "expires": ""
