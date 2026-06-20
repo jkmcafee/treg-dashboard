@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "createdAt": "2026-06-20T16:01:18",
+  "updatedAt": "2026-06-20T16:03:10",
+  "entitlements": [
+    {
+      "licenseKey": "TREG-UX5C-L95G-FF44",
+      "subscriberName": "Jethro Bodine",
+      "subscriberEmail": "jeffmcafee@bellsouth.net",
+      "tier": "Premium",
+      "status": "active",
+      "expires": "2026-06-20",
+      "createdAt": "2026-06-20T16:03:10",
+      "updatedAt": "2026-06-20T16:03:10",
+      "notes": "This is a test"
+    }
+  ]
+}
