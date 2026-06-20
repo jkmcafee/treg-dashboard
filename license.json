@@ -1,18 +1,12 @@
 {
   "schemaVersion": 1,
-  "createdAt": "2026-06-20T16:01:18",
-  "updatedAt": "2026-06-20T16:03:10",
+  "generatedAt": "2026-06-20T16:34:52",
   "entitlements": [
     {
-      "licenseKey": "TREG-UX5C-L95G-FF44",
-      "subscriberName": "Jethro Bodine",
-      "subscriberEmail": "jeffmcafee@bellsouth.net",
+      "licenseKeyHash": "b99f3f5c6d554171746bd7e8446f61f25cf703cae37c51ca90fde1f03849869f",
       "tier": "Premium",
       "status": "active",
-      "expires": "2026-06-20",
-      "createdAt": "2026-06-20T16:03:10",
-      "updatedAt": "2026-06-20T16:03:10",
-      "notes": "This is a test"
+      "expires": ""
     }
   ]
 }
