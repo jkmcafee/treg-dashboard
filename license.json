@@ -1,16 +1,16 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-20T16:46:41",
+  "generatedAt": "2026-06-21T11:53:17",
   "entitlements": [
     {
-      "licenseKeyHash": "b99f3f5c6d554171746bd7e8446f61f25cf703cae37c51ca90fde1f03849869f",
-      "tier": "Premium",
+      "licenseKeyHash": "7f3719d5f3c16c63ea9f1cec6212b74f8b30114aee9aef23ff237c5a9e4c7fbe",
+      "tier": "smartSig",
       "status": "active",
       "expires": ""
     },
     {
-      "licenseKeyHash": "437bffcb16087529dcb9d91af1a023cbe52241d2c886335ee9f21fbf0a0b6954",
-      "tier": "trades",
+      "licenseKeyHash": "c298df4982a28d53e0b3dbb844cf2ef640675bb1391cc933da7e21a9cba05096",
+      "tier": "smartTrade",
       "status": "active",
       "expires": ""
     }
