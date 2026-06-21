@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-06-21T11:53:17",
+  "generatedAt": "2026-06-21T13:53:14",
   "entitlements": [
     {
       "licenseKeyHash": "7f3719d5f3c16c63ea9f1cec6212b74f8b30114aee9aef23ff237c5a9e4c7fbe",
@@ -13,6 +13,24 @@
       "tier": "smartTrade",
       "status": "active",
       "expires": ""
+    },
+    {
+      "licenseKeyHash": "5df152567374c541f4c5ce820fcd9874deecacd802dbac59e84bbbc3d6e15cfe",
+      "tier": "smartTrade",
+      "status": "active",
+      "expires": "2026-01-01"
+    },
+    {
+      "licenseKeyHash": "31bda26fd9190afac2abb537498da582153e69fa90474fe7e4d47a933251ff4f",
+      "tier": "free",
+      "status": "active",
+      "expires": ""
+    },
+    {
+      "licenseKeyHash": "f82016729e9e8a4fc0ea293e0c00d46a00294a4c75d270442b7e94028badad89",
+      "tier": "smartSig",
+      "status": "active",
+      "expires": "2026-01-01"
     }
   ]
 }
