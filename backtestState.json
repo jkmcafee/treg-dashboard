@@ -97,14 +97,14 @@
   "riskOnPPEntry": 206.9,
   "riskOnPPStop": 273.3664394194132,
   "regimeEstGain": 0.007299999999999999,
-  "signal": "RiskOn",
+  "signal": "RiskOff",
   "signal_change": true,
-  "signalRegimeChange": True,
+  "signalRegimeChange": false,
   "signalDate": "2000-01-01",
   "signalAllocations": {
-    "SPY": "0.85",
+    "SPY": "0.60",
     "SPXL": "0.00",
-    "SHV": "0.15"
+    "SHV": "0.40"
   },
   "engineRevision": "1.3.2"
 }
