@@ -1,6 +1,6 @@
 {
   "meta": {
-    "source": "TurboRegime ",
+    "source": "TurboRegime",
     "lastUpdated": "2026-06-12T12:45:00",
     "description": "Investor-facing regime transition log with cumulative performance."
   },
@@ -54,7 +54,7 @@
       "cumulativeReturnPct": 32.75,
       "spyReturnPct": 9.27,
       "relativeReturnPct": 19.23,
-      "notes": "Turbo Trade - aggressive, leveraged allocation captured the strong rebound.  Profit-harvest algorithm caused exit."
+      "notes": "Turbo Trade - aggressive, leveraged allocation captured the strong rebound. Profit-harvest algorithm caused exit."
     },
     {
       "tradeNumber": 3,
@@ -79,14 +79,14 @@
       "cumulativeReturnPct": 32.4,
       "spyReturnPct": -0.15,
       "relativeReturnPct": -0.12,
-      "notes": "Reduced leverage but still RiskOn.  Changed live account tracking to IBKR (instead of C2)."
+      "notes": "Reduced leverage but still RiskOn. Changed live account tracking to IBKR instead of C2."
     },
     {
       "tradeNumber": 4,
       "regime": "RiskOff",
       "status": "Closed",
-      "signalDate": "2026-06-05",
-      "tradeDate": "2026-06-05",
+      "signalDate": "2026-06-04",
+      "tradeDate": "2026-06-04",
       "spyStartPrice": 737.55,
       "performanceStartDate": "2026-06-08",
       "performanceEndDate": "2026-06-15",
@@ -100,11 +100,61 @@
       "tradeProfit": 2061.95,
       "tradeReturnPct": 1.38,
       "cumulativeValue": 151653.65,
-      "cumulativeProfit": 38659.30,
+      "cumulativeProfit": 38659.3,
       "cumulativeReturnPct": 34.21,
-      "spyReturnPct": 2.34,
-      "relativeReturnPct": -0.96,
-      "notes": "Went defensive.  Exited trade on market reaction to Iran Peace Deal."
+      "spyReturnPct": 0.304,
+      "relativeReturnPct": 1.68,
+      "notes": "Went defensive. Exited trade and went RiskOn in reaction to Iran Peace Deal."
+    },
+    {
+      "tradeNumber": 5,
+      "regime": "RiskOn",
+      "status": "Closed",
+      "signalDate": "2026-06-15",
+      "tradeDate": "2026-06-15",
+      "spyStartPrice": 756.16,
+      "performanceStartDate": "2026-06-16",
+      "performanceEndDate": "2026-06-18",
+      "allocation": {
+        "SPY": 0.85,
+        "SPXL": 0,
+        "SHV": 0.15
+      },
+      "startValue": 151653.65,
+      "currentValue": 149744.26,
+      "tradeProfit": -1909.39,
+      "tradeReturnPct": -1.26,
+      "cumulativeValue": 149744.26,
+      "cumulativeProfit": 36749.91,
+      "cumulativeReturnPct": 32.52,
+      "spyReturnPct": -1.84,
+      "relativeReturnPct": 0.58,
+      "notes": "This was a 2 day RiskOn trade that we exited early. Stayed ahead, relative to SPY."
+    },
+    {
+      "tradeNumber": 6,
+      "regime": "RiskOff",
+      "status": "Closed",
+      "signalDate": "2026-06-17",
+      "tradeDate": "2026-06-17",
+      "spyStartPrice": 739.06,
+      "performanceStartDate": "2026-06-18",
+      "performanceEndDate": "2026-06-22",
+      "allocation": {
+        "SPY": 0.6,
+        "SPXL": 0,
+        "SHV": 0.4
+      },
+      "startValue": 149744.26,
+      "currentValue": 150010.16,
+      "tradeProfit": 265.9,
+      "tradeReturnPct": 0.18,
+      "cumulativeValue": 150010.16,
+      "cumulativeProfit": 37015.81,
+      "cumulativeReturnPct": 32.76,
+      "spyReturnPct": 1.04,
+      "relativeReturnPct": -0.86,
+      "notes": "This was a 1 day RiskOff trade that we exited early to return to RiskOn."
     }
   ]
 }
