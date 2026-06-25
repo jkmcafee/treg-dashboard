@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "IBKR",
-    "lastUpdated": "2026-06-17T09:30:53.937106"
+    "lastUpdated": "2026-06-25T06:43:21.907331"
   },
   "accounts": {
     "TReg Live": {
@@ -10,20 +10,20 @@
       "environment": "LIVE",
       "StartingCash": 150000.0,
       "StartDate": "2026-05-15",
-      "ModelAccountValue": 150903.98,
-      "Cash": 2653.53,
-      "Profit": 903.9800000000105,
-      "Return": 0.6026533333333404,
+      "ModelAccountValue": 148704.43,
+      "Cash": 1861.58,
+      "Profit": -1295.570000000007,
+      "Return": -0.863713333333338,
       "ScaledStartDate": "2026-04-01",
       "ScaledStartingCash": 112994.35,
-      "ScaledProfit": 37909.63000000001,
-      "ScaledReturn": 33.550022633875066,
-      "SP500Return": 14.583969077408199,
-      "ReturnVsSP500": 18.966053556466868,
+      "ScaledProfit": 35710.079999999994,
+      "ScaledReturn": 31.60342087900855,
+      "SP500Return": 12.192326650333495,
+      "ReturnVsSP500": 19.411094228675054,
       "WinRate": 100.0,
       "positions": {
-        "SPY": 167.0,
-        "SHV": 207.0
+        "SPY": 168.0,
+        "SHV": 204.0
       }
     }
   }
