@@ -20,7 +20,7 @@
     "SPXL": "1.10",
     "SHV": "0.00"
   },
-  "signal_reason": "2026-06-24 10:43:03\n\nTurboRegime is now four trading days into the RiskOff regime, maintaining its defensive allocation of 60% SPY / 40% SHV. The current RiskOff trade has generated a -0.31% return with a maximum drawdown of -0.41%. While the position has given back the modest gains recorded during the first few days of the regime, performance remains well within the range of normal short-term market fluctuations.",
+  "signal_reason": "2026-06-26 07:59:10\n\nTurboRegime is entering its sixth trading day in the RiskOff regime, maintaining its defensive allocation of 60% SPY / 40% SHV. Through the first five completed trading days, the current RiskOff trade has generated a -0.35% return with a maximum drawdown of -0.44%. While performance has been slightly negative, the trade continues to reflect the type of low-volatility, capital preservation objective that defines the RiskOff strategy.\n\nThe market has remained resilient despite weakening internal momentum, illustrating why disciplined risk management often requires patience. The TReg Regime Signal continues to indicate that market conditions have not improved sufficiently to justify increasing equity exposure. Although headline indexes have avoided a significant correction, relative strength and trend characteristics remain below the threshold required for a return to RiskOn.\n\nRiskOff periods are not designed to outperform during every short-term market move. Instead, their purpose is to reduce portfolio risk when market conditions become less favorable, helping preserve capital until the probability of sustained upside improves. This disciplined approach allows TurboRegime to avoid reacting emotionally to day-to-day price fluctuations while remaining prepared to reallocate aggressively when objective evidence supports doing so.\n\nWith only five completed trading days in the current regime, it remains too early to determine whether this will prove to be a brief defensive pause or the beginning of a longer period of market weakness. As always, the model will continue evaluating incoming data each trading day, allowing the market\u2014not predictions\u2014to dictate the next allocation change.\n\nWhat we'll be watching: Whether the TReg Regime Signal begins to recover toward its trigger threshold. A sustained improvement would increase the probability of a transition back to RiskOn, while continued weakness would support maintaining the current defensive allocation. Until the evidence changes, TurboRegime remains positioned to emphasize capital preservation while maintaining meaningful market participation through its 60% SPY allocation.",
   "engineHeartbeat": 0,
   "logs": [],
   "regime": "RiskOff",
@@ -41,7 +41,7 @@
       "startDate": "2025-06-26",
       "endDate": "2026-06-26",
       "periodYears": "1.00",
-      "lastUpdated": "2026-06-26T07:45:08.979495"
+      "lastUpdated": "2026-06-26T08:45:10.962880"
     },
     "current": {
       "totalReturnPct": "34.93",
