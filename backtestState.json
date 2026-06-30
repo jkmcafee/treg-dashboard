@@ -41,7 +41,7 @@
       "startDate": "2025-06-30",
       "endDate": "2026-06-30",
       "periodYears": "1.00",
-      "lastUpdated": "2026-06-30T14:45:03.025581"
+      "lastUpdated": "2026-06-30T15:07:00.025581"
     },
     "current": {
       "totalReturnPct": "35.64",
@@ -90,13 +90,13 @@
   "regimeStartDate": "2026-06-18",
   "regimeSignalDate": "2026-06-17",
   "regimePeak": 0.007074937320845853,
-  "regimePeakLimit": 0.0,
-  "regimePeakCapture": 1.0,
+  "regimePeakLimit": 0,
+  "regimePeakCapture": 1,
   "regimeMaxDD": -0.007659638405871472,
   "riskOnPPCurrent": 266.08,
   "riskOnPPEntry": 206.5,
-  "riskOnPPStop": 272.83793977819636,
-  "regimeEstGain": 0.011099999999999999,
+  "riskOnPPStop": 272.83793977819635,
+  "regimeEstGain": 0.011099999999999998,
   "signal": "RiskOn",
   "signal_change": true,
   "signalRegimeChange": true,
