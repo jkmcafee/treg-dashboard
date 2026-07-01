@@ -1,12 +1,12 @@
 {
   "engineRunning": true,
   "kill": false,
-  "riskOn": true,
-  "lastRiskOn": false,
+  "riskOn": false,
+  "lastRiskOn": true,
   "signalChange": true,
-  "ratio": "1.2864",
-  "ratioMA": "1.2809",
-  "ratioDelta": "0.0054",
+  "ratio": "1.2767",
+  "ratioMA": "1.2778",
+  "ratioDelta": "-0.0011",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
@@ -23,14 +23,14 @@
   "signal_reason": "2026-06-30 16:25:29\n\nTurboRegime confirmed a transition from RiskOff to RiskOn at today's market close following a sustained improvement in the TReg Regime Signal. After spending eight trading days in the defensive RiskOff regime, the model has determined that market conditions have strengthened sufficiently to warrant increasing equity exposure.\nThe completed RiskOff trade produced a +0.70% return while experiencing a maximum drawdown of just -0.77%. Although the market avoided a significant correction during this period, the defensive allocation successfully limited volatility while allowing the portfolio to participate in market gains. As designed, TurboRegime remained patient throughout the regime, waiting for objective confirmation before increasing risk.\nEffective at today's close, the portfolio has been rebalanced from 60% SPY / 40% SHV to the standard RiskOn allocation of 85% SPY / 15% SHV. The model has not yet signaled a return to RiskOn++ (Turbo Mode), indicating that while market conditions have improved, they have not reached the stronger momentum threshold required for leveraged exposure.\nThis transition illustrates one of the core principles behind TurboRegime. Rather than attempting to predict market turning points, the model responds to measurable changes in market leadership and momentum. By waiting for confirmation before changing allocations, TurboRegime seeks to reduce false signals while remaining responsive to evolving market conditions.\nWhat we'll be watching: The new RiskOn regime begins with tomorrow's trading session. The primary focus will be whether improving market momentum continues to strengthen, supporting the new allocation and potentially laying the groundwork for a future transition to RiskOn++ if market conditions continue to improve. For now, the evidence supports returning to a more constructive investment posture with an 85% SPY / 15% SHV allocation",
   "engineHeartbeat": 0,
   "logs": [],
-  "regime": "RiskOff",
+  "regime": "RiskOn",
   "allocations": {
-    "SPY": "0.60",
+    "SPY": "0.85",
     "SPXL": "0.00",
-    "SHV": "0.40"
+    "SHV": "0.15"
   },
-  "regimeDays": 8,
-  "regimeGain": 0.006934628729375447,
+  "regimeDays": 1,
+  "regimeGain": -0.0046000000000000485,
   "performance": {
     "meta": {
       "strategyName": "TReg",
@@ -41,70 +41,70 @@
       "startDate": "2025-07-01",
       "endDate": "2026-07-01",
       "periodYears": "1.00",
-      "lastUpdated": "2026-07-01T08:45:02.977099"
+      "lastUpdated": "2026-07-01T09:45:02.921002"
     },
     "current": {
-      "totalReturnPct": "35.68",
-      "cagrPct": "35.83",
+      "totalReturnPct": "35.06",
+      "cagrPct": "35.09",
       "maxDrawdownPct": "-8.30",
-      "sharpe": "2.16",
-      "mar": "4.32",
-      "sortino": "3.63",
-      "ulcer": "2.88",
-      "upi": "11.09"
+      "sharpe": "2.12",
+      "mar": "4.23",
+      "sortino": "3.56",
+      "ulcer": "2.89",
+      "upi": "10.93"
     },
     "benchmarks": {
       "SPY": {
-        "totalReturnPct": "22.20",
-        "cagrPct": "22.28",
+        "totalReturnPct": "21.60",
+        "cagrPct": "21.62",
         "maxDrawdownPct": "-8.83",
-        "sharpe": "1.67",
-        "mar": "2.52",
-        "sortino": "2.45",
+        "sharpe": "1.62",
+        "mar": "2.45",
+        "sortino": "2.38",
         "ulcer": "2.02",
-        "upi": "9.13"
+        "upi": "8.96"
       },
       "SPXL": {
-        "totalReturnPct": "57.30",
-        "cagrPct": "57.54",
+        "totalReturnPct": "55.30",
+        "cagrPct": "55.35",
         "maxDrawdownPct": "-26.78",
-        "sharpe": "1.40",
-        "mar": "2.15",
-        "sortino": "2.03",
+        "sharpe": "1.36",
+        "mar": "2.07",
+        "sortino": "1.97",
         "ulcer": "6.72",
-        "upi": "7.99"
+        "upi": "7.71"
       },
       "SHV": {
-        "totalReturnPct": "3.83",
-        "cagrPct": "3.84",
-        "maxDrawdownPct": "-0.03",
-        "sharpe": "1472.16",
-        "mar": "141.03",
-        "sortino": "96.59",
-        "ulcer": "0.00",
-        "upi": "15.80"
+        "totalReturnPct": "3.53",
+        "cagrPct": "3.53",
+        "maxDrawdownPct": "-0.29",
+        "sharpe": "1469.58",
+        "mar": "12.37",
+        "sortino": "12.97",
+        "ulcer": "0.02",
+        "upi": "1.95"
       }
     }
   },
   "boostTrigger": false,
-  "regimeStartDate": "2026-06-18",
-  "regimeSignalDate": "2026-06-17",
-  "regimePeak": 0.006934628729375447,
-  "regimePeakLimit": 0.0,
+  "regimeStartDate": "2026-07-01",
+  "regimeSignalDate": "2026-06-30",
+  "regimePeak": -0.0046000000000000485,
+  "regimePeakLimit": -0.0,
   "regimePeakCapture": 1.0,
-  "regimeMaxDD": -0.007659638405871472,
+  "regimeMaxDD": -0.0046000000000000485,
   "riskOnPPCurrent": 266.08,
   "riskOnPPEntry": 206.5,
   "riskOnPPStop": 272.83793977819636,
-  "regimeEstGain": 0.010799999999999999,
-  "signal": "RiskOn",
+  "regimeEstGain": -0.0124,
+  "signal": "RiskOff",
   "signal_change": true,
   "signalRegimeChange": true,
-  "signalDate": "2026-06-30",
+  "signalDate": "2026-07-01",
   "signalAllocations": {
-    "SPY": "0.85",
+    "SPY": "0.60",
     "SPXL": "0.00",
-    "SHV": "0.15"
+    "SHV": "0.40"
   },
   "engineRevision": "1.3.2"
 }
