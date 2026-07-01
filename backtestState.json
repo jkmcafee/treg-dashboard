@@ -30,7 +30,7 @@
     "SHV": "0.15"
   },
   "regimeDays": 1,
-  "regimeGain": -0.0016100000000000003,
+  "regimeGain": -0.0011750000000000371,
   "performance": {
     "meta": {
       "strategyName": "TReg",
@@ -41,17 +41,17 @@
       "startDate": "2025-07-01",
       "endDate": "2026-07-01",
       "periodYears": "1.00",
-      "lastUpdated": "2026-07-01T19:12:56.182664"
+      "lastUpdated": "2026-07-01T08:45:03.645174"
     },
     "current": {
-      "totalReturnPct": "35.47",
-      "cagrPct": "35.49",
+      "totalReturnPct": "35.52",
+      "cagrPct": "35.55",
       "maxDrawdownPct": "-8.30",
       "sharpe": "2.14",
       "mar": "4.28",
-      "sortino": "3.60",
+      "sortino": "3.61",
       "ulcer": "2.89",
-      "upi": "11.07"
+      "upi": "10.99"
     },
     "benchmarks": {
       "SPY": {
@@ -62,7 +62,7 @@
         "mar": "2.50",
         "sortino": "2.42",
         "ulcer": "2.02",
-        "upi": "9.21"
+        "upi": "9.06"
       },
       "SPXL": {
         "totalReturnPct": "56.90",
@@ -72,27 +72,27 @@
         "mar": "2.13",
         "sortino": "2.01",
         "ulcer": "6.72",
-        "upi": "7.95"
+        "upi": "7.91"
       },
       "SHV": {
-        "totalReturnPct": "3.53",
-        "cagrPct": "3.54",
-        "maxDrawdownPct": "-0.28",
-        "sharpe": "1469.55",
-        "mar": "12.59",
-        "sortino": "13.45",
-        "ulcer": "0.02",
-        "upi": "1.98"
+        "totalReturnPct": "3.83",
+        "cagrPct": "3.84",
+        "maxDrawdownPct": "-0.03",
+        "sharpe": "1467.15",
+        "mar": "140.97",
+        "sortino": "96.64",
+        "ulcer": "0.00",
+        "upi": "15.82"
       }
     }
   },
   "boostTrigger": false,
   "regimeStartDate": "2026-07-01",
   "regimeSignalDate": "2026-06-30",
-  "regimePeak": -0.0016100000000000003,
+  "regimePeak": -0.0011750000000000371,
   "regimePeakLimit": -0.0,
   "regimePeakCapture": 1.0,
-  "regimeMaxDD": -0.0016100000000000003,
+  "regimeMaxDD": -0.0011750000000000371,
   "riskOnPPCurrent": 266.08,
   "riskOnPPEntry": 206.5,
   "riskOnPPStop": 272.83793977819636,
