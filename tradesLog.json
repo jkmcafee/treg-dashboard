@@ -180,7 +180,7 @@
       "cumulativeReturnPct": 31.81101532952753,
       "spyReturnPct": 1.0432170595080285,
       "relativeReturnPct": -1.5809738990690303,
-      "notes": "This was a 1 day RiskOff trade that we exited early to return to RiskOn.",
+      "notes": "We had a head fake day, and alot of volatile days during this 8-day trade.",
       "lastUpdate": "2026-06-30",
       "endValue": 148939,
       "spyEndPrice": 746.77,
@@ -188,6 +188,5 @@
       "portfolioSpyReturn": 15.123252192948651,
       "portfolioRelativeReturn": 16.68776313657888
     }
-
   ]
 }
