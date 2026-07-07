@@ -12,8 +12,8 @@
   "perfSpxl": 5679.6,
   "perfStrat": 2227.6,
   "useAclose": true,
-  "equityFilename": "reports\\TReg_2025-07-06_2026-07-06_Equity.png",
-  "ratioFilename": "reports\\TReg_2025-07-06_2026-07-06_Ratio.png",
+  "equityFilename": "reports\\TReg_2025-07-07_2026-07-07_Equity.png",
+  "ratioFilename": "reports\\TReg_2025-07-07_2026-07-07_Ratio.png",
   "lastTradeTime": "2026-01-22 12:45:00",
   "lastRecommendation": {
     "SPY": "0.00",
@@ -38,10 +38,10 @@
       "riskOnSymbol": "SPXL",
       "refSymbol": "SHV",
       "symbolPair": "SPY/SPXL",
-      "startDate": "2025-07-06",
-      "endDate": "2026-07-06",
+      "startDate": "2025-07-07",
+      "endDate": "2026-07-07",
       "periodYears": "1.00",
-      "lastUpdated": "2026-07-06T22:45:03.744071"
+      "lastUpdated": "2026-07-07T08:59:11.633238"
     },
     "current": {
       "totalReturnPct": "36.62",
