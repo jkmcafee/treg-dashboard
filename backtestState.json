@@ -4,9 +4,9 @@
   "riskOn": true,
   "lastRiskOn": true,
   "signalChange": false,
-  "ratio": "1.2834",
+  "ratio": "1.2831",
   "ratioMA": "1.2470",
-  "ratioDelta": "0.0364",
+  "ratioDelta": "0.0361",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
@@ -41,7 +41,7 @@
       "startDate": "2025-07-10",
       "endDate": "2026-07-10",
       "periodYears": "1.00",
-      "lastUpdated": "2026-07-10T15:48:02.995698"
+      "lastUpdated": "2026-07-10T15:56:03.001554"
     },
     "current": {
       "totalReturnPct": "36.78",
@@ -65,24 +65,24 @@
         "upi": "8.91"
       },
       "SPXL": {
-        "totalReturnPct": "56.60",
-        "cagrPct": "56.65",
+        "totalReturnPct": "56.50",
+        "cagrPct": "56.55",
         "maxDrawdownPct": "-26.77",
         "sharpe": "1.38",
-        "mar": "2.12",
+        "mar": "2.11",
         "sortino": "2.01",
         "ulcer": "6.76",
-        "upi": "7.81"
+        "upi": "7.80"
       },
       "SHV": {
-        "totalReturnPct": "3.84",
+        "totalReturnPct": "3.85",
         "cagrPct": "3.85",
         "maxDrawdownPct": "-0.03",
-        "sharpe": "1477.43",
-        "mar": "141.32",
+        "sharpe": "1477.41",
+        "mar": "141.39",
         "sortino": "94.29",
         "ulcer": "0.00",
-        "upi": "15.44"
+        "upi": "15.45"
       }
     }
   },
@@ -96,7 +96,7 @@
   "riskOnPPCurrent": 266.08,
   "riskOnPPEntry": 206.5,
   "riskOnPPStop": 272.83793977819636,
-  "regimeEstGain": 0.032799999999999996,
+  "regimeEstGain": 0.0326,
   "signal": "RiskOn",
   "signal_change": true,
   "signalRegimeChange": false,
