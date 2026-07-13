@@ -33,7 +33,11 @@
       "spyEndPrice": 674.27,
       "portfolioSpyEnd": 674.27,
       "portfolioSpyReturn": 3.946536759831659,
-      "portfolioRelativeReturn": -0.009994799990311165
+      "portfolioRelativeReturn": -0.009994799990311165,
+      "backtestReturnPct": 2.39,
+      "relativeBacktestReturnPct": 1.55,
+      "cumulativeBacktestReturnPct": 2.39,
+      "cumulativeRelativeBacktestReturnPct": 1.55
     },
     {
       "tradeNumber": 2,
@@ -64,7 +68,11 @@
       "spyEndPrice": 737.27,
       "portfolioSpyEnd": 737.27,
       "portfolioSpyReturn": 13.658717067229876,
-      "portfolioRelativeReturn": 19.091283264645117
+      "portfolioRelativeReturn": 19.091283264645117,
+      "backtestReturnPct": 28.84,
+      "relativeBacktestReturnPct": -1.12,
+      "cumulativeBacktestReturnPct": 31.91,
+      "cumulativeRelativeBacktestReturnPct": 0.84
     },
     {
       "tradeNumber": 3,
@@ -94,15 +102,19 @@
       "endValue": 149491.7,
       "spyEndPrice": 735.65,
       "portfolioSpyEnd": 735.65,
-      "portfolioSpyReturn": 13.408975287896776,
-      "portfolioRelativeReturn": 18.89117954285361
+      "portfolioSpyReturn": 13.408975287896777,
+      "portfolioRelativeReturn": 18.89117954285361,
+      "backtestReturnPct": -0.16,
+      "relativeBacktestReturnPct": -0.18,
+      "cumulativeBacktestReturnPct": 31.71,
+      "cumulativeRelativeBacktestReturnPct": 0.59
     },
     {
       "tradeNumber": 4,
       "regime": "RiskOff",
       "status": "Closed",
-      "signalDate": "2026-06-04",
-      "tradeDate": "2026-06-04",
+      "signalDate": "2026-06-05",
+      "tradeDate": "2026-06-05",
       "spyStartPrice": 755.14,
       "performanceStartDate": "2026-06-08",
       "performanceEndDate": "2026-06-15",
@@ -126,7 +138,11 @@
       "spyEndPrice": 752.89,
       "portfolioSpyEnd": 752.89,
       "portfolioSpyReturn": 16.06672113709591,
-      "portfolioRelativeReturn": 18.146759448437777
+      "portfolioRelativeReturn": 18.146759448437777,
+      "backtestReturnPct": 1.45,
+      "relativeBacktestReturnPct": -0.0,
+      "cumulativeBacktestReturnPct": 33.61,
+      "cumulativeRelativeBacktestReturnPct": 0.6
     },
     {
       "tradeNumber": 5,
@@ -155,7 +171,11 @@
       "lastUpdate": "2026-06-18",
       "endValue": 149744.26,
       "spyEndPrice": 746.74,
-      "portfolioSpyEnd": 746.74
+      "portfolioSpyEnd": 746.74,
+      "backtestReturnPct": -0.93,
+      "relativeBacktestReturnPct": -0.33,
+      "cumulativeBacktestReturnPct": 32.36,
+      "cumulativeRelativeBacktestReturnPct": 0.16
     },
     {
       "tradeNumber": 6,
@@ -178,15 +198,19 @@
       "cumulativeValue": 148939,
       "cumulativeProfit": 37015.81,
       "cumulativeReturnPct": 31.81101532952753,
-      "spyReturnPct": 1.0432170595080285,
+      "spyReturnPct": 1.0432170595080286,
       "relativeReturnPct": -1.5809738990690303,
       "notes": "We had a head fake day, and alot of volatile days during this 8-day trade.",
       "lastUpdate": "2026-06-30",
       "endValue": 148939,
       "spyEndPrice": 746.77,
       "portfolioSpyEnd": 746.77,
-      "portfolioSpyReturn": 15.123252192948651,
-      "portfolioRelativeReturn": 16.68776313657888
+      "portfolioSpyReturn": 15.123252192948652,
+      "portfolioRelativeReturn": 16.68776313657888,
+      "backtestReturnPct": 0.69,
+      "relativeBacktestReturnPct": -1.23,
+      "cumulativeBacktestReturnPct": 32.43,
+      "cumulativeRelativeBacktestReturnPct": -0.62
     }
   ]
 }
