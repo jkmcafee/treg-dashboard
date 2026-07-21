@@ -926,7 +926,6 @@ function renderTradeHistoryTable(trades) {
     const regime = displayRegime(regimeRaw);
     const status = tradeStatus(trade);
     const isOpen = tradeIsOpen(trade);
-    const tradeProfit = trade.tradeProfit ?? trade.profit;
     const tradeReturn = trade.tradeReturnPct ?? trade.returnPct;
     const spyReturn = tradeSPYReturn(trade);
     const alphaReturn = tradeAlphaReturn(trade);
@@ -942,7 +941,6 @@ function renderTradeHistoryTable(trades) {
         <td class="date-cell">${formatDate(trade.signalDate)}</td>
         <td class="date-cell">${formatDate(trade.performanceStartDate)} → ${tradeEndDate(trade)}</td>
         <td class="allocation-cell">${htmlEscape(allocationText(trade.allocation))}</td>
-        <td class="metric-cell ${valueClass(tradeProfit)}">${money(tradeProfit)}</td>
         <td class="metric-cell ${valueClass(tradeReturn)}">${pct(tradeReturn)}</td>
         <td class="metric-cell ${valueClass(spyReturn)}">${pct(spyReturn)}</td>
         <td class="metric-cell ${valueClass(alphaReturn)}">${pct(alphaReturn)}</td>
@@ -962,7 +960,6 @@ function renderTradeHistoryTable(trades) {
             <th>Signal</th>
             <th>Live Period</th>
             <th>Allocation</th>
-            <th>Profit</th>
             <th>Return</th>
             <th>SPY Return</th>
             <th>Alpha</th>
