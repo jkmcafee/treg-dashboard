@@ -1039,7 +1039,8 @@ function render(data) {
 
 
   document.getElementById("sourceBadge").innerText =
-    "Source: Broker");
+    "Source: " +
+    (data.meta?.source || "Broker");
 
   document.getElementById("updatedBadge").innerText =
     "Last Update from Broker: " +
@@ -1101,7 +1102,7 @@ async function load() {
 
     if (!r.ok)
       throw new Error(
-        "Unable to load SState.json"
+        "Unable to load ibkrState.json"
       );
 
     const data = await r.json();
