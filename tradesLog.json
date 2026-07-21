@@ -102,7 +102,7 @@
       "endValue": 149491.7,
       "spyEndPrice": 735.65,
       "portfolioSpyEnd": 735.65,
-      "portfolioSpyReturn": 13.408975287896776,
+      "portfolioSpyReturn": 13.408975287896777,
       "portfolioRelativeReturn": 18.89117954285361,
       "backtestReturnPct": -0.16,
       "relativeBacktestReturnPct": -0.18,
@@ -140,7 +140,7 @@
       "portfolioSpyReturn": 16.06672113709591,
       "portfolioRelativeReturn": 18.146759448437777,
       "backtestReturnPct": 1.45,
-      "relativeBacktestReturnPct": 0,
+      "relativeBacktestReturnPct": -0.0,
       "cumulativeBacktestReturnPct": 33.61,
       "cumulativeRelativeBacktestReturnPct": 0.6
     },
@@ -227,7 +227,7 @@
         "SHV": 0.15
       },
       "spyStartPrice": 746.77001953125,
-      "spyEndPrice": 743.2899780273437,
+      "spyEndPrice": 743.2899780273438,
       "spyReturnPct": -0.4660124821415144,
       "startValue": 148939,
       "endValue": 148972.03,
@@ -242,9 +242,9 @@
       "cumulativeProfit": 35977.67999999999,
       "cumulativeReturnPct": 31.84024687960061,
       "lastUpdate": "2026-07-17",
-      "portfolioSpyEnd": 743.2899780273437,
-      "portfolioSpyReturn": 14.586766464819367,
-      "portfolioRelativeReturn": 17.253480414781243
+      "portfolioSpyEnd": 743.2899780273438,
+      "portfolioSpyReturn": 14.586766464819368,
+      "portfolioRelativeReturn": 17.253480414781244
     }
   ]
 }
