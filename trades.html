@@ -1038,9 +1038,7 @@ function render(data) {
     (returnPct - spyReturn);
 
 
-  document.getElementById("sourceBadge").innerText =
-    "Source: " +
-    (data.meta?.source || "Broker");
+  sourceBadge.innerText = "Source: Broker";
 
   document.getElementById("updatedBadge").innerText =
     "Last Update from Broker: " +
