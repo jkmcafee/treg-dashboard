@@ -616,6 +616,19 @@ function money(v) {
   });
 }
 
+function maskedMoney(v) {
+  if (v === undefined || v === null || v === "") return "--";
+  const n = Number(v);
+  if (Number.isNaN(n)) return "--";
+  const negative = n < 0;
+  const absValue = Math.round(Math.abs(n));
+  const parts = absValue.toLocaleString("en-US").split(",");
+  for (let i = 0; i < parts.length - 1; i++) {
+    parts[i] = parts[i].replace(/\d/g, "x");
+  }
+  return `${negative ? "-" : ""}$${parts.join(",")}`;
+}
+
 function pct(v) {
   if (v === undefined || v === null || v === "") return "--";
   const n = Number(v);
@@ -1045,12 +1058,12 @@ function render(data) {
     daysSince(startDate);
 
   document.getElementById("modelValue").innerText =
-    money(strategy.ModelAccountValue);
+    maskedMoney(strategy.ModelAccountValue);
 
  document.getElementById("startingValue").innerText = "";
 
   document.getElementById("profit").innerText =
-    money(profit);
+    maskedMoney(profit);
 
   document.getElementById("profitSub").innerText =
   "Profit since live tracking began";
