@@ -512,8 +512,8 @@ h3 {
         <h2>Live Trading</h2>
 
         <p>
-          TurboRegime live results are tracked through IBKR. This page shows the live update,
-          including cumulative return, relative return versus SPY, and current IBKR portfolio value.
+          TurboRegime live results are tracked through broker. This page shows the live update,
+          including cumulative return, relative return versus SPY, and current portfolio value.
         </p>
 
         <div class="badge-row">
@@ -1040,10 +1040,10 @@ function render(data) {
 
   document.getElementById("sourceBadge").innerText =
     "Source: " +
-    (data.meta?.source || "IBKR");
+    (data.meta?.source || "Broker");
 
   document.getElementById("updatedBadge").innerText =
-    "Last Update from IBKR: " +
+    "Last Update from Broker: " +
     formatDateTime(data.meta?.lastUpdated);
 
   document.getElementById("strategyName").innerText =
