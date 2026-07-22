@@ -4,16 +4,16 @@
   "riskOn": true,
   "lastRiskOn": false,
   "signalChange": true,
-  "ratio": "1.2487",
-  "ratioMA": "1.2432",
+  "ratio": "1.2489",
+  "ratioMA": "1.2434",
   "ratioDelta": "0.0055",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
   "perfStrat": 2227.6,
   "useAclose": true,
-  "equityFilename": "reports\\TReg_2025-07-21_2026-07-21_Equity.png",
-  "ratioFilename": "reports\\TReg_2025-07-21_2026-07-21_Ratio.png",
+  "equityFilename": "reports\\TReg_2025-07-22_2026-07-22_Equity.png",
+  "ratioFilename": "reports\\TReg_2025-07-22_2026-07-22_Ratio.png",
   "lastTradeTime": "2026-01-22 12:45:00",
   "lastRecommendation": {
     "SPY": "0.00",
@@ -38,51 +38,51 @@
       "riskOnSymbol": "SPXL",
       "refSymbol": "SHV",
       "symbolPair": "SPY/SPXL",
-      "startDate": "2025-07-21",
-      "endDate": "2026-07-21",
+      "startDate": "2025-07-22",
+      "endDate": "2026-07-22",
       "periodYears": "1.00",
-      "lastUpdated": "2026-07-21T23:45:03.273235"
+      "lastUpdated": "2026-07-22T00:45:02.951268"
     },
     "current": {
-      "totalReturnPct": "34.54",
-      "cagrPct": "34.56",
+      "totalReturnPct": "34.72",
+      "cagrPct": "34.85",
       "maxDrawdownPct": "-8.30",
-      "sharpe": "2.09",
-      "mar": "4.16",
-      "sortino": "3.52",
+      "sharpe": "2.10",
+      "mar": "4.20",
+      "sortino": "3.54",
       "ulcer": "2.97",
-      "upi": "10.37"
+      "upi": "10.45"
     },
     "benchmarks": {
       "SPY": {
         "totalReturnPct": "20.30",
-        "cagrPct": "20.32",
-        "maxDrawdownPct": "-8.81",
+        "cagrPct": "20.38",
+        "maxDrawdownPct": "-8.90",
         "sharpe": "1.53",
-        "mar": "2.31",
+        "mar": "2.29",
         "sortino": "2.24",
-        "ulcer": "2.03",
-        "upi": "8.15"
+        "ulcer": "2.04",
+        "upi": "8.13"
       },
       "SPXL": {
         "totalReturnPct": "50.30",
-        "cagrPct": "50.34",
+        "cagrPct": "50.51",
         "maxDrawdownPct": "-26.75",
         "sharpe": "1.27",
-        "mar": "1.88",
-        "sortino": "1.83",
-        "ulcer": "6.82",
-        "upi": "6.82"
+        "mar": "1.89",
+        "sortino": "1.84",
+        "ulcer": "6.83",
+        "upi": "6.84"
       },
       "SHV": {
-        "totalReturnPct": "3.80",
+        "totalReturnPct": "3.79",
         "cagrPct": "3.80",
         "maxDrawdownPct": "-0.03",
-        "sharpe": "1489.41",
-        "mar": "139.59",
-        "sortino": "88.60",
+        "sharpe": "1496.52",
+        "mar": "139.63",
+        "sortino": "88.55",
         "ulcer": "0.00",
-        "upi": "14.52"
+        "upi": "14.49"
       }
     }
   },
