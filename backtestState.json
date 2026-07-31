@@ -30,7 +30,7 @@
     "SHV": "0.40"
   },
   "regimeDays": 6,
-  "regimeGain": 0.00866917240484577,
+  "regimeGain": 0.008709306461242905,
   "performance": {
     "meta": {
       "strategyName": "TReg",
@@ -41,11 +41,11 @@
       "startDate": "2025-07-31",
       "endDate": "2026-07-31",
       "periodYears": "1.00",
-      "lastUpdated": "2026-07-31T15:48:09.013952"
+      "lastUpdated": "2026-07-31T15:56:09.026971"
     },
     "current": {
-      "totalReturnPct": "33.93",
-      "cagrPct": "33.96",
+      "totalReturnPct": "33.94",
+      "cagrPct": "33.97",
       "maxDrawdownPct": "-8.30",
       "sharpe": "2.05",
       "mar": "4.09",
@@ -76,20 +76,20 @@
       },
       "SHV": {
         "totalReturnPct": "3.84",
-        "cagrPct": "3.84",
+        "cagrPct": "3.85",
         "maxDrawdownPct": "-0.03",
-        "sharpe": "1504.52",
-        "mar": "141.14",
-        "sortino": "89.47",
+        "sharpe": "1504.48",
+        "mar": "141.32",
+        "sortino": "89.69",
         "ulcer": "0.00",
-        "upi": "14.67"
+        "upi": "14.69"
       }
     }
   },
   "boostTrigger": false,
   "regimeStartDate": "2026-07-24",
   "regimeSignalDate": "2026-07-23",
-  "regimePeak": 0.00866917240484577,
+  "regimePeak": 0.008709306461242905,
   "regimePeakLimit": 0.0,
   "regimePeakCapture": 1.0,
   "regimeMaxDD": -0.006700778192487045,
