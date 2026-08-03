@@ -102,7 +102,7 @@
       "endValue": 149491.7,
       "spyEndPrice": 735.65,
       "portfolioSpyEnd": 735.65,
-      "portfolioSpyReturn": 13.408975287896776,
+      "portfolioSpyReturn": 13.408975287896777,
       "portfolioRelativeReturn": 18.89117954285361,
       "backtestReturnPct": -0.16,
       "relativeBacktestReturnPct": -0.18,
@@ -140,7 +140,7 @@
       "portfolioSpyReturn": 16.06672113709591,
       "portfolioRelativeReturn": 18.146759448437777,
       "backtestReturnPct": 1.45,
-      "relativeBacktestReturnPct": 0,
+      "relativeBacktestReturnPct": -0.0,
       "cumulativeBacktestReturnPct": 33.61,
       "cumulativeRelativeBacktestReturnPct": 0.6
     },
@@ -242,8 +242,8 @@
       "cumulativeReturnPct": 31.84024687960061,
       "lastUpdate": "2026-07-17",
       "portfolioSpyEnd": 743.29,
-      "portfolioSpyReturn": 14.586766464819367,
-      "portfolioRelativeReturn": 17.253480414781243
+      "portfolioSpyReturn": 14.586766464819368,
+      "portfolioRelativeReturn": 17.253480414781244
     },
     {
       "tradeNumber": 8,
@@ -258,7 +258,7 @@
         "SPXL": 0,
         "SHV": 0.4
       },
-      "spyStartPrice": 743.2899780273437,
+      "spyStartPrice": 743.2899780273438,
       "spyEndPrice": 748.280029296875,
       "spyReturnPct": 0.6713465023132168,
       "startValue": 148972.03,
@@ -275,7 +275,7 @@
       "cumulativeReturnPct": 32.26963118067406,
       "lastUpdate": "2026-07-21",
       "portfolioSpyEnd": 748.280029296875,
-      "portfolioSpyReturn": 15.356040713594747,
+      "portfolioSpyReturn": 15.356040713594748,
       "portfolioRelativeReturn": 16.913590467079313
     },
     {
@@ -296,8 +296,8 @@
       "spyReturnPct": -1.349766962320817,
       "startValue": 149457.21,
       "endValue": 147612.99,
-      "tradeProfit": -1844.2200000000011,
-      "tradeReturnPct": -1.2339451539340264,
+      "tradeProfit": -1844.2200000000012,
+      "tradeReturnPct": -1.2339451539340265,
       "relativeReturnPct": 0.11582180838679057,
       "backtestReturnPct": -1.14,
       "relativeBacktestReturnPct": -0.09,
@@ -320,13 +320,13 @@
       "performanceStartDate": "2026-07-24",
       "performanceEndDate": "2026-07-31",
       "allocation": {
-        "SPY": .60,
+        "SPY": 0.6,
         "SPXL": 0,
-        "SHV": .40
+        "SHV": 0.4
       },
       "spyStartPrice": 738.1799926757812,
       "spyEndPrice": 747.030029296875,
-      "spyReturnPct": 1.1988995514513771,
+      "spyReturnPct": 1.1988995514513772,
       "startValue": 147612.99,
       "endValue": 148956.18,
       "tradeProfit": 1343.1900000000023,
