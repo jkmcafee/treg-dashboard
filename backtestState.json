@@ -6,7 +6,7 @@
   "signalChange": false,
   "ratio": "1.2357",
   "ratioMA": "1.2387",
-  "ratioDelta": "-0.0030",
+  "ratioDelta": "0.0313",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
@@ -20,7 +20,7 @@
     "SPXL": "1.10",
     "SHV": "0.00"
   },
-  "signal_reason": "2026-08-03 15:42:30\n\nCurrent Risk Regime - Practically speaking TurboRegime is already in RiskOn with an allocation of 85% SPY, 0% SPXL, and 15%.  TurboRegime traded us into a RiskOn position near the close on Friday with the trade signal right on the threshold.  Then, a drop in the market after the trade decision took us back to a RiskOff state.\n\nHold or Trade - We are holding in a RiskOn state.\n\nLive Performance - The current trade has returned approximately 1.6% over seven trading days despite experiencing a maximum drawdown of just 0.7%. More importantly, during the recent period of frequent market reversals, TurboRegime has continued to demonstrate the value of disciplined risk management. Over the last seven completed trades, TurboRegime returned -1.6%, compared with -2.4% for a buy-and-hold investment in the S&P 500, outperforming the market by 0.8 percentage points. \n\nGeneral Commentary - Moving averages are stacking nicely, and a 21/8 pinch occured today, both bullish signs for the market.",
+  "signal_reason": "2026-08-04 01:25:19\n\nRegime Change occurred on Friday, 7/31/26",
   "engineHeartbeat": 0,
   "logs": [],
   "regime": "RiskOff",
@@ -41,7 +41,7 @@
       "startDate": "2025-08-04",
       "endDate": "2026-08-04",
       "periodYears": "1.00",
-      "lastUpdated": "2026-08-04T00:51:52.404592"
+      "lastUpdated": "2026-08-034T13:56:52.404592"
     },
     "current": {
       "totalReturnPct": "34.35",
@@ -90,8 +90,8 @@
   "regimeStartDate": "2026-07-24",
   "regimeSignalDate": "2026-07-23",
   "regimePeak": 0.007806290192303944,
-  "regimePeakLimit": 0.0,
-  "regimePeakCapture": 1.0,
+  "regimePeakLimit": 0,
+  "regimePeakCapture": 1,
   "regimeMaxDD": -0.006700778192487045,
   "riskOnPPCurrent": 266.08,
   "riskOnPPEntry": 206.5,
@@ -99,7 +99,7 @@
   "regimeEstGain": 0.012199999999999997,
   "signal": "RiskOff",
   "signal_change": true,
-  "signalRegimeChange": false,
+  "signalRegimeChange": true,
   "signalDate": "2000-01-01",
   "signalAllocations": {
     "SPY": "0.60",
