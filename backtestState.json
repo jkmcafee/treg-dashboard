@@ -6,7 +6,7 @@
   "signalChange": false,
   "ratio": "1.2357",
   "ratioMA": "1.2387",
-  "ratioDelta": "0.0313",
+  "ratioDelta": "-0.0030",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
@@ -41,7 +41,7 @@
       "startDate": "2025-08-04",
       "endDate": "2026-08-04",
       "periodYears": "1.00",
-      "lastUpdated": "2026-08-034T13:56:52.404592"
+      "lastUpdated": "2026-08-04T03:45:13.710568"
     },
     "current": {
       "totalReturnPct": "34.35",
@@ -79,10 +79,10 @@
         "cagrPct": "3.75",
         "maxDrawdownPct": "-0.03",
         "sharpe": "1513.56",
-        "mar": "137.72",
+        "mar": "137.68",
         "sortino": "87.46",
         "ulcer": "0.00",
-        "upi": "14.29"
+        "upi": "14.28"
       }
     }
   },
@@ -90,8 +90,8 @@
   "regimeStartDate": "2026-07-24",
   "regimeSignalDate": "2026-07-23",
   "regimePeak": 0.007806290192303944,
-  "regimePeakLimit": 0,
-  "regimePeakCapture": 1,
+  "regimePeakLimit": 0.0,
+  "regimePeakCapture": 1.0,
   "regimeMaxDD": -0.006700778192487045,
   "riskOnPPCurrent": 266.08,
   "riskOnPPEntry": 206.5,
@@ -99,7 +99,7 @@
   "regimeEstGain": 0.012199999999999997,
   "signal": "RiskOff",
   "signal_change": true,
-  "signalRegimeChange": true,
+  "signalRegimeChange": false,
   "signalDate": "2000-01-01",
   "signalAllocations": {
     "SPY": "0.60",
