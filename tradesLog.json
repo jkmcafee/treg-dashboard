@@ -16,7 +16,7 @@
       "performanceEndDate": "2026-04-08",
       "allocation": {
         "SPY": 0.7,
-        "SPXL": 0,
+        "SPXL": 0.0,
         "SHV": 0.3
       },
       "startValue": 112994.35,
@@ -50,15 +50,15 @@
       "performanceStartDate": "2026-04-09",
       "performanceEndDate": "2026-05-15",
       "allocation": {
-        "SPY": 0,
-        "SPXL": 1,
-        "SHV": 0
+        "SPY": 0.0,
+        "SPXL": 1.0,
+        "SHV": 0.0
       },
       "startValue": 117442.42,
-      "endValue": 150000,
+      "endValue": 150000.0,
       "tradeProfit": 32557.58,
       "tradeReturnPct": 27.72216376331482,
-      "cumulativeValue": 150000,
+      "cumulativeValue": 150000.0,
       "cumulativeProfit": 37005.649999999994,
       "cumulativeReturnPct": 32.75000033187499,
       "spyReturnPct": 9.343438088599523,
@@ -85,7 +85,7 @@
       "performanceEndDate": "2026-06-05",
       "allocation": {
         "SPY": 0.85,
-        "SPXL": 0,
+        "SPXL": 0.0,
         "SHV": 0.15
       },
       "startValue": 150000,
@@ -120,7 +120,7 @@
       "performanceEndDate": "2026-06-15",
       "allocation": {
         "SPY": 0.6,
-        "SPXL": 0,
+        "SPXL": 0.0,
         "SHV": 0.4
       },
       "startValue": 149491.7,
@@ -155,7 +155,7 @@
       "performanceEndDate": "2026-06-18",
       "allocation": {
         "SPY": 0.85,
-        "SPXL": 0,
+        "SPXL": 0.0,
         "SHV": 0.15
       },
       "startValue": 151653.65,
@@ -188,21 +188,21 @@
       "performanceEndDate": "2026-06-30",
       "allocation": {
         "SPY": 0.6,
-        "SPXL": 0,
+        "SPXL": 0.0,
         "SHV": 0.4
       },
       "startValue": 149744.26,
       "currentValue": 150010.16,
       "tradeProfit": -805.2600000000093,
       "tradeReturnPct": -0.5377568395610017,
-      "cumulativeValue": 148939,
+      "cumulativeValue": 148939.0,
       "cumulativeProfit": 35944.649999999994,
       "cumulativeReturnPct": 31.81101532952753,
       "spyReturnPct": 1.043762440441554,
       "relativeReturnPct": -1.5815192800025557,
       "notes": "We had a head fake day, and alot of volatile days during this 8-day trade.",
       "lastUpdate": "2026-06-30",
-      "endValue": 148939,
+      "endValue": 148939.0,
       "spyEndPrice": 746.77,
       "portfolioSpyEnd": 746.77,
       "portfolioSpyReturn": 15.123255203917255,
@@ -222,7 +222,7 @@
       "performanceEndDate": "2026-07-17",
       "allocation": {
         "SPY": 0.85,
-        "SPXL": 0,
+        "SPXL": 0.0,
         "SHV": 0.15
       },
       "spyStartPrice": 746.77,
@@ -243,7 +243,8 @@
       "lastUpdate": "2026-07-17",
       "portfolioSpyEnd": 743.29,
       "portfolioSpyReturn": 14.586766464819368,
-      "portfolioRelativeReturn": 17.253480414781244
+      "portfolioRelativeReturn": 17.253480414781244,
+      "notes": "U.S. and global stocks wrapped up their best quarterly performance in six years due to AI and semiconductors."
     },
     {
       "tradeNumber": 8,
@@ -255,11 +256,11 @@
       "performanceEndDate": "2026-07-21",
       "allocation": {
         "SPY": 0.6,
-        "SPXL": 0,
+        "SPXL": 0.0,
         "SHV": 0.4
       },
-      "spyStartPrice": 743.2899780273438,
-      "spyEndPrice": 748.280029296875,
+      "spyStartPrice": 743.29,
+      "spyEndPrice": 748.28,
       "spyReturnPct": 0.6713465023132168,
       "startValue": 148972.03,
       "endValue": 149457.21,
@@ -274,9 +275,10 @@
       "cumulativeProfit": 36462.859999999986,
       "cumulativeReturnPct": 32.26963118067406,
       "lastUpdate": "2026-07-21",
-      "portfolioSpyEnd": 748.280029296875,
+      "portfolioSpyEnd": 748.28,
       "portfolioSpyReturn": 15.356040713594748,
-      "portfolioRelativeReturn": 16.913590467079313
+      "portfolioRelativeReturn": 16.913590467079313,
+      "notes": "Risk On failed due to contined Iran tension and semiconductor sellof."
     },
     {
       "tradeNumber": 9,
@@ -288,7 +290,7 @@
       "performanceEndDate": "2026-07-23",
       "allocation": {
         "SPY": 0.85,
-        "SPXL": 0,
+        "SPXL": 0.0,
         "SHV": 0.15
       },
       "spyStartPrice": 748.28,
@@ -309,7 +311,8 @@
       "lastUpdate": "2026-07-23",
       "portfolioSpyEnd": 738.18,
       "portfolioSpyReturn": 13.799002987001293,
-      "portfolioRelativeReturn": 16.838493489592437
+      "portfolioRelativeReturn": 16.838493489592437,
+      "notes": "Rebound in semiconductor and AI stocks like Nvidia and Micron Technology, even as Brent crude oil climbed near $92 a barrel amid ongoing U.S.-Iran conflict."
     },
     {
       "tradeNumber": 10,
@@ -321,7 +324,7 @@
       "performanceEndDate": "2026-07-31",
       "allocation": {
         "SPY": 0.6,
-        "SPXL": 0,
+        "SPXL": 0.0,
         "SHV": 0.4
       },
       "spyStartPrice": 738.1799926757812,
@@ -342,7 +345,8 @@
       "lastUpdate": "2026-07-31",
       "portfolioSpyEnd": 747.030029296875,
       "portfolioSpyReturn": 15.163338723368591,
-      "portfolioRelativeReturn": 16.662880906196946
+      "portfolioRelativeReturn": 16.662880906196946,
+      "notes": "Major indexes tumbled\u2014the Nasdaq fell 2.2%, the S&P 500 sank 1.2%, and the Dow dropped 1%\u2014driven by surging oil prices hitting $100 a barrel due to Middle East conflicts and heavy AI cash-burn worries following weak earnings from Tesla and Alphabet."
     }
   ]
 }
