@@ -327,8 +327,8 @@
         "SPXL": 0.0,
         "SHV": 0.4
       },
-      "spyStartPrice": 738.1799926757812,
-      "spyEndPrice": 747.030029296875,
+      "spyStartPrice": 738.18,
+      "spyEndPrice": 747.03,
       "spyReturnPct": 1.1988995514513772,
       "startValue": 147612.99,
       "endValue": 148956.18,
@@ -343,10 +343,44 @@
       "cumulativeProfit": 35961.82999999999,
       "cumulativeReturnPct": 31.82621962956554,
       "lastUpdate": "2026-07-31",
-      "portfolioSpyEnd": 747.030029296875,
+      "portfolioSpyEnd": 747.03,
       "portfolioSpyReturn": 15.163338723368591,
       "portfolioRelativeReturn": 16.662880906196946,
       "notes": "Major indexes tumbled\u2014the Nasdaq fell 2.2%, the S&P 500 sank 1.2%, and the Dow dropped 1%\u2014driven by surging oil prices hitting $100 a barrel due to Middle East conflicts and heavy AI cash-burn worries following weak earnings from Tesla and Alphabet."
+    },
+    {
+      "tradeNumber": 11,
+      "regime": "RiskOn",
+      "status": "Closed",
+      "signalDate": "2026-07-31",
+      "tradeDate": "2026-07-31",
+      "performanceStartDate": "2026-08-01",
+      "performanceEndDate": "2026-08-24",
+      "allocation": {
+        "SPY": 0.0,
+        "SPXL": 0.0,
+        "SHV": 0.0
+      },
+      "spyStartPrice": 747.030029296875,
+      "spyEndPrice": 763.469970703125,
+      "spyReturnPct": 2.2007069008623015,
+      "startValue": 148956.18,
+      "endValue": 151617.0,
+      "tradeProfit": 2660.820000000007,
+      "tradeReturnPct": 1.7863105780505428,
+      "relativeReturnPct": -0.41439632281175864,
+      "backtestReturnPct": 1.55,
+      "relativeBacktestReturnPct": 0.24,
+      "cumulativeBacktestReturnPct": 34.03,
+      "cumulativeRelativeBacktestReturnPct": 0.15,
+      "cumulativeValue": 151617.0,
+      "cumulativeProfit": 38622.649999999994,
+      "cumulativeReturnPct": 34.18104533545261,
+      "lastUpdate": "2026-08-24",
+      "portfolioSpyEnd": 763.469970703125,
+      "portfolioSpyReturn": 17.697746265917193,
+      "portfolioRelativeReturn": 16.483299069535416,
+      "notes": "Modest gain.  Some concern over yields."
     }
   ]
 }
