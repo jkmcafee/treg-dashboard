@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-22T13:13:01",
+  "generatedAt": "2026-08-25T20:23:07",
   "entitlements": [
     {
       "licenseKeyHash": "7f3719d5f3c16c63ea9f1cec6212b74f8b30114aee9aef23ff237c5a9e4c7fbe",
@@ -37,6 +37,12 @@
       "tier": "smartTrade",
       "status": "active",
       "expires": ""
+    },
+    {
+      "licenseKeyHash": "56d67e3968404d092c17e3e238f3d89d3a129fbc53711e0410e5d975e3eae851",
+      "tier": "smartTrade",
+      "status": "active",
+      "expires": "2027-04-01"
     }
   ]
 }
