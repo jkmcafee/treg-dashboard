@@ -429,7 +429,7 @@
     {
       "tradeNumber": 12,
       "regime": "RiskOff",
-      "status": "Open",
+      "status": "Closed",
       "signalDate": "2026-08-24",
       "tradeDate": "2026-08-24",
       "performanceStartDate": "2026-08-25",
@@ -441,7 +441,7 @@
       },
       "spyStartPrice": 763.469970703125,
       "spyEndPrice": 766.0800170898438,
-      "spyReturnPct": 0.34,
+      "spyReturnPct": 0.341866279863634,
       "startValue": 151617.0,
       "endValue": 151843.25,
       "tradeProfit": 226.25,
