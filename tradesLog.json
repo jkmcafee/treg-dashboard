@@ -463,6 +463,40 @@
       "relativeSpyReturnPct": -0.19,
       "cumulativeSpyReturnPct": 18.15,
       "cumulativeRelativeSpyReturnPct": 16.23
+    },
+    {
+      "tradeNumber": 13,
+      "regime": "RiskOn",
+      "status": "Closed",
+      "signalDate": "2026-08-26",
+      "tradeDate": "2026-08-26",
+      "performanceStartDate": "2026-08-27",
+      "performanceEndDate": "2026-08-28",
+      "allocation": {
+        "SPY": 0.0,
+        "SPXL": 0.0,
+        "SHV": 0.0
+      },
+      "spyStartPrice": 766.08,
+      "spyEndPrice": 769.35,
+      "spyReturnPct": 0.4268429437065265,
+      "startValue": 151843.25,
+      "endValue": 152541.41,
+      "tradeProfit": 698.1600000000035,
+      "tradeReturnPct": 0.45978994785741445,
+      "relativeReturnPct": 0.03294700415088797,
+      "backtestReturnPct": 0.18,
+      "relativeBacktestReturnPct": 0.28,
+      "cumulativeBacktestReturnPct": 34.56,
+      "cumulativeRelativeBacktestReturnPct": 0.44,
+      "cumulativeValue": 152541.41,
+      "cumulativeProfit": 39547.06,
+      "cumulativeReturnPct": 34.999148187497866,
+      "lastUpdate": "2026-08-28",
+      "portfolioSpyEnd": 769.35,
+      "portfolioSpyReturn": 18.604217180683175,
+      "portfolioRelativeReturn": 16.39493100681469,
+      "notes": ""
     }
   ]
 }
