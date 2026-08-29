@@ -401,9 +401,9 @@
         "SPXL": 0.0,
         "SHV": 0.0
       },
-      "spyStartPrice": 747.03,
-      "spyEndPrice": 763.47,
-      "spyReturnPct": 2.23,
+      "spyStartPrice": 747.030029296875,
+      "spyEndPrice": 763.469970703125,
+      "spyReturnPct": 2.2007069008623015,
       "startValue": 148956.18,
       "endValue": 151617.0,
       "tradeProfit": 2660.820000000007,
@@ -417,10 +417,10 @@
       "cumulativeProfit": 38622.649999999994,
       "cumulativeReturnPct": 34.18104533545261,
       "lastUpdate": "2026-08-24",
-      "portfolioSpyEnd": 763.47,
+      "portfolioSpyEnd": 763.469970703125,
       "portfolioSpyReturn": 17.697746265917193,
       "portfolioRelativeReturn": 16.483299069535416,
-      "notes": "Modest gain.  Some concern over yields.",
+      "notes": "Modest gain carried over from last week.  Exited trade, concern over yields and inflation.",
       "backtestStartDate": "2026-07-31",
       "relativeSpyReturnPct": -0.44,
       "cumulativeSpyReturnPct": 17.75,
@@ -439,8 +439,8 @@
         "SPXL": 0.0,
         "SHV": 0.0
       },
-      "spyStartPrice": 763.469970703125,
-      "spyEndPrice": 766.0800170898438,
+      "spyStartPrice": 763.47,
+      "spyEndPrice": 766.08,
       "spyReturnPct": 0.341866279863634,
       "startValue": 151617.0,
       "endValue": 151843.25,
@@ -455,10 +455,10 @@
       "cumulativeProfit": 38848.899999999994,
       "cumulativeReturnPct": 34.38127658595319,
       "lastUpdate": "2026-08-26",
-      "portfolioSpyEnd": 766.0800170898438,
+      "portfolioSpyEnd": 766.08,
       "portfolioSpyReturn": 18.10011517255982,
       "portfolioRelativeReturn": 16.281161413393367,
-      "notes": "",
+      "notes": "Flat early in the week, technology rebound based on NVIDIA earnings.",
       "backtestStartDate": "2026-08-24",
       "relativeSpyReturnPct": -0.19,
       "cumulativeSpyReturnPct": 18.15,
@@ -496,7 +496,7 @@
       "portfolioSpyEnd": 769.35,
       "portfolioSpyReturn": 18.604217180683175,
       "portfolioRelativeReturn": 16.39493100681469,
-      "notes": ""
+      "notes": "Exited trade, speech by Fed Chair Warsh was more hawkish than the market was looking for."
     }
   ]
 }
