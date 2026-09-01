@@ -2,18 +2,18 @@
   "engineRunning": true,
   "kill": false,
   "riskOn": false,
-  "lastRiskOn": true,
-  "signalChange": true,
+  "lastRiskOn": false,
+  "signalChange": false,
   "ratio": "1.2658",
-  "ratioMA": "1.2757",
-  "ratioDelta": "-0.0099",
+  "ratioMA": "nan",
+  "ratioDelta": "nan",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
   "perfStrat": 2227.6,
   "useAclose": true,
-  "equityFilename": "reports\\TReg_2025-08-31_2026-08-31_Equity.png",
-  "ratioFilename": "reports\\TReg_2025-08-31_2026-08-31_Ratio.png",
+  "equityFilename": "reports\\TReg_2025-09-01_2026-09-01_Equity.png",
+  "ratioFilename": "reports\\TReg_2025-09-01_2026-09-01_Ratio.png",
   "lastTradeTime": "2026-01-22 12:45:00",
   "lastRecommendation": {
     "SPY": "0.00",
@@ -23,14 +23,14 @@
   "signal_reason": "2026-08-29 06:48:23\n\nGeneral Commentary - This week's market action was characterized by rapid shifts in direction rather than a sustained trend. Technology weakness early in the week was followed by a rebound, hotter-than-expected inflation data, a powerful Nvidia-driven technology rally, and then renewed pressure Friday following Federal Reserve Chair Kevin Warsh's comments on inflation. Despite those crosscurrents, the S&P 500 finished the week modestly higher.\n\nThat environment was also reflected directly in TurboRegime. The strategy experienced an unusual sequence of one-and two-day trades as the TReg Regime Signal repeatedly moved across regime thresholds. While frequent transitions can be frustrating, they are not evidence that the strategy is wrong. They are evidence of a market that has been unable to establish a persistent direction.\n\nThis is one of the inherent trade-offs of a trend-following, risk-management strategy. During sustained market trends, TurboRegime can remain in a regime for extended periods and allow that trend to work. During sideways or rapidly reversing markets, the strategy can experience short-duration trades and occasional whipsaws as it responds to changing conditions. Attempting to eliminate those trades would also risk delaying the transitions that matter when a genuine trend develops.\n\nThe objective is therefore not to make every regime change profitable or to avoid every head fake. It is to remain disciplined through periods of market indecision so that TurboRegime is appropriately positioned when the market ultimately establishes its next sustained direction. This week's concentration of one- and two-day trades is an unusually clear example of that process at work.",
   "engineHeartbeat": 0,
   "logs": [],
-  "regime": "RiskOn",
+  "regime": "RiskOff",
   "allocations": {
-    "SPY": "0.85",
+    "SPY": "0.60",
     "SPXL": "0.00",
-    "SHV": "0.15"
+    "SHV": "0.40"
   },
   "regimeDays": 1,
-  "regimeGain": -0.004475000000000007,
+  "regimeGain": -0.0017599999999999838,
   "performance": {
     "meta": {
       "strategyName": "TReg",
@@ -38,20 +38,20 @@
       "riskOnSymbol": "SPXL",
       "refSymbol": "SHV",
       "symbolPair": "SPY/SPXL",
-      "startDate": "2025-08-31",
-      "endDate": "2026-08-31",
+      "startDate": "2025-09-01",
+      "endDate": "2026-09-01",
       "periodYears": "0.99",
-      "lastUpdated": "2026-08-31T16:37:36.257386"
+      "lastUpdated": "2026-09-01T07:50:26.346581"
     },
     "current": {
-      "totalReturnPct": "34.14",
-      "cagrPct": "34.38",
+      "totalReturnPct": "34.24",
+      "cagrPct": "34.49",
       "maxDrawdownPct": "-8.30",
       "sharpe": "2.07",
-      "mar": "4.14",
-      "sortino": "3.48",
+      "mar": "4.15",
+      "sortino": "3.49",
       "ulcer": "3.10",
-      "upi": "9.89"
+      "upi": "9.93"
     },
     "benchmarks": {
       "SPY": {
@@ -62,45 +62,45 @@
         "mar": "2.39",
         "sortino": "2.31",
         "ulcer": "2.08",
-        "upi": "8.42"
+        "upi": "8.43"
       },
       "SPXL": {
-        "totalReturnPct": "53.30",
-        "cagrPct": "53.71",
-        "maxDrawdownPct": "-26.82",
-        "sharpe": "1.32",
-        "mar": "2.00",
-        "sortino": "1.91",
-        "ulcer": "7.05",
-        "upi": "7.09"
+        "totalReturnPct": "nan",
+        "cagrPct": "nan",
+        "maxDrawdownPct": "-100.00",
+        "sharpe": "nan",
+        "mar": "nan",
+        "sortino": "inf",
+        "ulcer": "9.47",
+        "upi": "nan"
       },
       "SHV": {
         "totalReturnPct": "3.67",
         "cagrPct": "3.69",
         "maxDrawdownPct": "-0.03",
-        "sharpe": "1544.00",
-        "mar": "135.74",
-        "sortino": "90.75",
+        "sharpe": "1538.21",
+        "mar": "135.71",
+        "sortino": "90.57",
         "ulcer": "0.00",
-        "upi": "14.77"
+        "upi": "14.80"
       }
     }
   },
   "boostTrigger": false,
   "regimeStartDate": "2026-08-31",
-  "regimeSignalDate": "2026-08-27",
-  "regimePeak": -0.004475000000000007,
+  "regimeSignalDate": "2026-08-28",
+  "regimePeak": -0.0017599999999999838,
   "regimePeakLimit": -0.0,
   "regimePeakCapture": 1.0,
-  "regimeMaxDD": -0.004475000000000007,
+  "regimeMaxDD": -0.0017599999999999838,
   "riskOnPPCurrent": 266.08,
   "riskOnPPEntry": 206.5,
   "riskOnPPStop": 272.83793977819636,
-  "regimeEstGain": -0.0168,
+  "regimeEstGain": -0.003,
   "signal": "RiskOff",
   "signal_change": true,
-  "signalRegimeChange": true,
-  "signalDate": "2026-08-31",
+  "signalRegimeChange": false,
+  "signalDate": "2000-01-01",
   "signalAllocations": {
     "SPY": "0.60",
     "SPXL": "0.00",
