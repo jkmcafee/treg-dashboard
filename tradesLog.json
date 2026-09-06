@@ -535,7 +535,7 @@
     {
       "tradeNumber": 15,
       "regime": "RiskOn",
-      "status": "Open",
+      "status": "Closed",
       "signalDate": "2026-09-03",
       "tradeDate": "2026-09-03",
       "performanceStartDate": "2026-09-04",
