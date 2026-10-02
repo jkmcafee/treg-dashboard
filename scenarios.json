@@ -7,7 +7,7 @@
       "order": 1,
       "type": "rolling",
       "title": "Late GFC Entry",
-      "subtitle": "Starting during the late stages of the great financial crisis (GFC)",
+      "subtitle": "Starting during the late stages of the great financial crisis (GFC) ",
       "startDate": "2008-11-05",
       "endDate": "2026-10-02",
       "periodYears": 17.91,
@@ -303,7 +303,7 @@
       "periodYears": 2.75,
       "equityFile": "reports/TReg_2023-12-31_2026-10-02_Equity.png",
       "metrics": {
-        "tregReturnPct": 111.0,
+        "tregReturnPct": 111,
         "spyReturnPct": 68.1,
         "tregCagrPct": 31.21,
         "spyCagrPct": 20.8,
