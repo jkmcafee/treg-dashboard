@@ -41,10 +41,10 @@
       "startDate": "2023-07-01",
       "endDate": "2026-05-15",
       "periodYears": "2.87",
-      "lastUpdated": "2026-10-02T17:11:25.547040"
+      "lastUpdated": "2026-10-02T17:12:03.191552"
     },
     "current": {
-      "totalReturnPct": "160.65",
+      "totalReturnPct": "160.63",
       "cagrPct": "39.68",
       "maxDrawdownPct": "-17.33",
       "sharpe": "1.88",
@@ -79,10 +79,10 @@
         "cagrPct": "4.67",
         "maxDrawdownPct": "-0.03",
         "sharpe": "415.75",
-        "mar": "171.31",
+        "mar": "171.41",
         "sortino": "157.42",
         "ulcer": "0.00",
-        "upi": "24.40"
+        "upi": "24.42"
       }
     }
   },
