@@ -1,1 +1,110 @@
-{"engineRunning": true, "kill": false, "riskOn": true, "lastRiskOn": true, "signalChange": false, "ratio": "7.6625", "ratioMA": "7.1711", "ratioDelta": "0.4915", "perfStartDate": "2025-01-03", "perfSpy": -100.0, "perfSpxl": 5679.6, "perfStrat": 2227.6, "useAclose": true, "equityFilename": "reports\\TReg_2008-11-05_2026-05-08_Equity.png", "ratioFilename": "reports\\TReg_2008-11-05_2026-05-08_Ratio.png", "lastTradeTime": "2026-01-22 12:45:00", "lastRecommendation": {"SPY": "0.00", "SPXL": "1.00", "SHV": "0.00"}, "signal_reason": "2026-05-08 07:09:44 \u2014 22 days into a Turbo Trade with a 25% return.  Market seems relentless right now, even with an uncertain geopolitical climate.  Should the market turn, we have identified a trailing stop.", "engineHeartbeat": 0, "logs": [], "regime": "RiskOn++", "allocations": {"SPY": "0.00", "SPXL": "1.00", "SHV": "0.00"}, "regimeDays": 22, "regimeGain": 0.2832884694555764, "performance": {"meta": {"strategyName": "TReg", "riskOffSymbol": "SPY", "riskOnSymbol": "SPXL", "refSymbol": "SHV", "symbolPair": "SPY/SPXL", "startDate": "2008-11-05", "endDate": "2026-05-08", "periodYears": "17.50", "lastUpdated": "2026-05-09T05:37:46.364087"}, "current": {"totalReturnPct": "4369.22", "cagrPct": "24.25", "maxDrawdownPct": "-23.44", "sharpe": "1.24", "mar": "1.03", "sortino": "1.88", "ulcer": "7.47", "upi": "3.07"}, "benchmarks": {"SPY": {"totalReturnPct": "957.10", "cagrPct": "14.42", "maxDrawdownPct": "-33.72", "sharpe": "0.82", "mar": "0.43", "sortino": "1.16", "ulcer": "6.55", "upi": "2.00"}, "SPXL": {"totalReturnPct": "8000.20", "cagrPct": "28.54", "maxDrawdownPct": "-76.86", "sharpe": "0.74", "mar": "0.37", "sortino": "1.03", "ulcer": "23.08", "upi": "1.18"}, "SHV": {"totalReturnPct": "25.58", "cagrPct": "1.31", "maxDrawdownPct": "-0.45", "sharpe": "255.38", "mar": "2.91", "sortino": "8.93", "ulcer": "0.06", "upi": "0.00"}}}, "boostTrigger": false, "regimeStartDate": "2026-04-09", "regimeSignalDate": "2026-04-08", "regimePeak": 0.2832884694555764, "regimePeakLimit": 0.16997308167334585, "regimePeakCapture": 1.0, "regimeMaxDD": -0.025384360000000106, "riskOnPPCurrent": 265.56, "riskOnPPEntry": 206.9, "riskOnPPStop": 242.06743059821525, "regimeEstGain": 0.2546}
+{
+  "engineRunning": true,
+  "kill": false,
+  "riskOn": true,
+  "lastRiskOn": false,
+  "signalChange": true,
+  "ratio": "7.9566",
+  "ratioMA": "7.8979",
+  "ratioDelta": "0.0586",
+  "perfStartDate": "2025-01-03",
+  "perfSpy": -100,
+  "perfSpxl": 5679.6,
+  "perfStrat": 2227.6,
+  "useAclose": true,
+  "equityFilename": "reports\\TReg_2008-11-05_2026-10-02_Equity.png",
+  "ratioFilename": "reports\\TReg_2008-11-05_2026-10-02_Ratio.png",
+  "lastTradeTime": "2026-01-22 12:45:00",
+  "lastRecommendation": {
+    "SPY": "0.00",
+    "SPXL": "1.10",
+    "SHV": "0.00"
+  },
+  "signal_reason": "2026-05-26 22:21:14\n\nThe market spent much of the session consolidating recent gains, with investors continuing to evaluate the strength and durability of the current move. Volatility remained relatively contained, and TReg\u2019s active trade continued to hold near break-even territory with only minor drawdown. The system remains patient, avoiding unnecessary leverage while conditions remain constructive but not fully confirmed.\n\n\nTReg remains in RiskOn, active since May 18. The current regime continues to favor measured market participation with embedded downside protection. No Turbo signal is active at this time, and the strategy remains focused on preserving recent gains while allowing participation if the market trend strengthens further. The system continues monitoring for either expanding momentum that could support leveraged exposure, or renewed weakness that would favor a more defensive posture.",
+  "engineHeartbeat": 0,
+  "logs": [],
+  "regime": "RiskOff",
+  "allocations": {
+    "SPY": "0.60",
+    "SPXL": "0.00",
+    "SHV": "0.40"
+  },
+  "regimeDays": 4,
+  "regimeGain": 0.0029746700895976197,
+  "performance": {
+    "meta": {
+      "strategyName": "TReg",
+      "riskOffSymbol": "SPY",
+      "riskOnSymbol": "SPXL",
+      "refSymbol": "SHV",
+      "symbolPair": "SPY/SPXL",
+      "startDate": "2008-11-05",
+      "endDate": "2026-10-02",
+      "periodYears": "17.91",
+      "lastUpdated": "2026-10-02T11:45:55.035861"
+    },
+    "current": {
+      "totalReturnPct": "4893.80",
+      "cagrPct": "24.41",
+      "maxDrawdownPct": "-24.24",
+      "sharpe": "1.27",
+      "mar": "1.01",
+      "sortino": "1.93",
+      "ulcer": "7.82",
+      "upi": "2.95"
+    },
+    "benchmarks": {
+      "SPY": {
+        "totalReturnPct": "1007.50",
+        "cagrPct": "14.37",
+        "maxDrawdownPct": "-33.72",
+        "sharpe": "0.82",
+        "mar": "0.43",
+        "sortino": "1.16",
+        "ulcer": "6.48",
+        "upi": "2.01"
+      },
+      "SPXL": {
+        "totalReturnPct": "8711.70",
+        "cagrPct": "28.42",
+        "maxDrawdownPct": "-76.86",
+        "sharpe": "0.74",
+        "mar": "0.37",
+        "sortino": "1.03",
+        "ulcer": "22.84",
+        "upi": "1.18"
+      },
+      "SHV": {
+        "totalReturnPct": "27.34",
+        "cagrPct": "1.36",
+        "maxDrawdownPct": "-0.45",
+        "sharpe": "233.45",
+        "mar": "3.02",
+        "sortino": "9.35",
+        "ulcer": "0.06",
+        "upi": "0.22"
+      }
+    }
+  },
+  "boostTrigger": false,
+  "regimeStartDate": "2026-09-29",
+  "regimeSignalDate": "2026-09-28",
+  "regimePeak": 0.0029746700895976197,
+  "regimePeakLimit": 0.0,
+  "regimePeakCapture": 1.0,
+  "regimeMaxDD": -0.0021788287999999767,
+  "riskOnPPCurrent": 287.55,
+  "riskOnPPEntry": 294.24,
+  "riskOnPPStop": 272.5472649755271,
+  "regimeEstGain": 0.0043,
+  "signal": "RiskOn",
+  "signal_change": true,
+  "signalRegimeChange": true,
+  "signalDate": "2026-10-02",
+  "signalAllocations": {
+    "SPY": "0.85",
+    "SPXL": "0.00",
+    "SHV": "0.15"
+  },
+  "engineRevision": "1.3.10"
+}
