@@ -11,7 +11,7 @@
       "status": "Closed",
       "signalDate": "2026-03-31",
       "tradeDate": "2026-03-31",
-      "spyStartPrice": 647.0620727539062,
+      "spyStartPrice": 647.0621337890625,
       "performanceStartDate": "2026-04-01",
       "performanceEndDate": "2026-04-08",
       "allocation": {
@@ -26,22 +26,22 @@
       "cumulativeValue": 117442.42,
       "cumulativeProfit": 4448.069999999992,
       "cumulativeReturnPct": 3.936541959841348,
-      "spyReturnPct": 3.9471714522474013,
-      "relativeReturnPct": -0.010629492406053487,
+      "spyReturnPct": 3.9471616472665194,
+      "relativeReturnPct": -0.010619687425171609,
       "notes": "Initial deposit - 100% SPY allocation while awaiting risk regime change.",
       "lastUpdate": "2026-04-08",
       "spyEndPrice": 672.6027221679688,
       "portfolioSpyEnd": 672.6027221679688,
-      "portfolioSpyReturn": 3.9471714522474013,
-      "portfolioRelativeReturn": -0.010629492406053487,
+      "portfolioSpyReturn": 3.9471616472665194,
+      "portfolioRelativeReturn": -0.010619687425171609,
       "backtestReturnPct": 2.39,
       "relativeBacktestReturnPct": 1.55,
       "cumulativeBacktestReturnPct": 2.39,
       "cumulativeRelativeBacktestReturnPct": 1.55,
       "backtestStartDate": "2026-03-31",
-      "relativeSpyReturnPct": -0.010629492406053487,
-      "cumulativeSpyReturnPct": 3.9471714522474013,
-      "cumulativeRelativeSpyReturnPct": -0.010629492406053487
+      "relativeSpyReturnPct": -0.010619687425171609,
+      "cumulativeSpyReturnPct": 3.9471616472665194,
+      "cumulativeRelativeSpyReturnPct": -0.010619687425171609
     },
     {
       "tradeNumber": 2,
@@ -71,16 +71,16 @@
       "lastUpdate": "2026-05-15",
       "spyEndPrice": 735.4443969726562,
       "portfolioSpyEnd": 735.4443969726562,
-      "portfolioSpyReturn": 13.659017881019276,
-      "portfolioRelativeReturn": 19.09098245085572,
+      "portfolioSpyReturn": 13.659007159953159,
+      "portfolioRelativeReturn": 19.090993171921834,
       "backtestReturnPct": 28.84,
       "relativeBacktestReturnPct": -1.12,
       "cumulativeBacktestReturnPct": 31.91,
       "cumulativeRelativeBacktestReturnPct": 0.84,
       "backtestStartDate": "2026-04-08",
       "relativeSpyReturnPct": 18.379103925237914,
-      "cumulativeSpyReturnPct": 13.659017881019276,
-      "cumulativeRelativeSpyReturnPct": 19.09098245085572
+      "cumulativeSpyReturnPct": 13.659007159953159,
+      "cumulativeRelativeSpyReturnPct": 19.090993171921834
     },
     {
       "tradeNumber": 3,
@@ -110,16 +110,16 @@
       "endValue": 149491.7,
       "spyEndPrice": 733.83251953125,
       "portfolioSpyEnd": 733.83251953125,
-      "portfolioSpyReturn": 13.409910800063955,
-      "portfolioRelativeReturn": 18.890244030686432,
+      "portfolioSpyReturn": 13.409900102495259,
+      "portfolioRelativeReturn": 18.89025472825513,
       "backtestReturnPct": -0.16,
       "relativeBacktestReturnPct": -0.18,
       "cumulativeBacktestReturnPct": 31.71,
       "cumulativeRelativeBacktestReturnPct": 0.59,
       "backtestStartDate": "2026-05-15",
       "relativeSpyReturnPct": -0.11969612868427768,
-      "cumulativeSpyReturnPct": 13.409910800063955,
-      "cumulativeRelativeSpyReturnPct": 18.890244030686432
+      "cumulativeSpyReturnPct": 13.409900102495259,
+      "cumulativeRelativeSpyReturnPct": 18.89025472825513
     },
     {
       "tradeNumber": 4,
@@ -149,16 +149,16 @@
       "endValue": 151653.65,
       "spyEndPrice": 751.0254516601562,
       "portfolioSpyEnd": 751.0254516601562,
-      "portfolioSpyReturn": 16.066986968310513,
-      "portfolioRelativeReturn": 18.146493617223175,
+      "portfolioSpyReturn": 16.066976020108918,
+      "portfolioRelativeReturn": 18.14650456542477,
       "backtestReturnPct": 1.45,
       "relativeBacktestReturnPct": -0.0,
       "cumulativeBacktestReturnPct": 33.61,
       "cumulativeRelativeBacktestReturnPct": 0.6,
       "backtestStartDate": "2026-06-05",
       "relativeSpyReturnPct": -0.8966952237209587,
-      "cumulativeSpyReturnPct": 16.066986968310513,
-      "cumulativeRelativeSpyReturnPct": 18.146493617223175
+      "cumulativeSpyReturnPct": 16.066976020108918,
+      "cumulativeRelativeSpyReturnPct": 18.14650456542477
     },
     {
       "tradeNumber": 5,
@@ -194,10 +194,10 @@
       "cumulativeRelativeBacktestReturnPct": 0.16,
       "backtestStartDate": "2026-06-15",
       "relativeSpyReturnPct": -0.4421377359782218,
-      "cumulativeSpyReturnPct": 15.118825558543088,
-      "cumulativeRelativeSpyReturnPct": 17.40484487276609,
-      "portfolioSpyReturn": 15.118825558543088,
-      "portfolioRelativeReturn": 17.40484487276609
+      "cumulativeSpyReturnPct": 15.118814699778312,
+      "cumulativeRelativeSpyReturnPct": 17.404855731530866,
+      "portfolioSpyReturn": 15.118814699778312,
+      "portfolioRelativeReturn": 17.404855731530866
     },
     {
       "tradeNumber": 6,
@@ -227,16 +227,16 @@
       "endValue": 148939.0,
       "spyEndPrice": 744.9202270507812,
       "portfolioSpyEnd": 744.9202270507812,
-      "portfolioSpyReturn": 15.123456993915463,
-      "portfolioRelativeReturn": 16.687558335612067,
+      "portfolioSpyReturn": 15.123446134713822,
+      "portfolioRelativeReturn": 16.68756919481371,
       "backtestReturnPct": 0.05,
       "relativeBacktestReturnPct": -0.59,
       "cumulativeBacktestReturnPct": 32.43,
       "cumulativeRelativeBacktestReturnPct": -0.62,
       "backtestStartDate": "2026-06-18",
       "relativeSpyReturnPct": -0.5417800176553788,
-      "cumulativeSpyReturnPct": 15.123456993915463,
-      "cumulativeRelativeSpyReturnPct": 16.687558335612067
+      "cumulativeSpyReturnPct": 15.123446134713822,
+      "cumulativeRelativeSpyReturnPct": 16.68756919481371
     },
     {
       "tradeNumber": 7,
@@ -268,13 +268,13 @@
       "cumulativeReturnPct": 31.84024687960061,
       "lastUpdate": "2026-07-17",
       "portfolioSpyEnd": 741.4487915039062,
-      "portfolioSpyReturn": 14.586965103407879,
-      "portfolioRelativeReturn": 17.25328177619273,
+      "portfolioSpyReturn": 14.58695429481168,
+      "portfolioRelativeReturn": 17.25329258478893,
       "notes": "U.S. and global stocks wrapped up their best quarterly performance in six years due to AI and semiconductors.",
       "backtestStartDate": "2026-06-30",
       "relativeSpyReturnPct": 0.4881912670797466,
-      "cumulativeSpyReturnPct": 14.586965103407879,
-      "cumulativeRelativeSpyReturnPct": 17.25328177619273
+      "cumulativeSpyReturnPct": 14.58695429481168,
+      "cumulativeRelativeSpyReturnPct": 17.25329258478893
     },
     {
       "tradeNumber": 8,
@@ -306,13 +306,13 @@
       "cumulativeReturnPct": 32.26963118067406,
       "lastUpdate": "2026-07-21",
       "portfolioSpyEnd": 746.426513671875,
-      "portfolioSpyReturn": 15.356245575493578,
-      "portfolioRelativeReturn": 16.913385605180483,
+      "portfolioSpyReturn": 15.356234694333784,
+      "portfolioRelativeReturn": 16.913396486340275,
       "notes": "Risk On failed due to contined Iran tension and semiconductor sellof.",
       "backtestStartDate": "2026-07-17",
       "relativeSpyReturnPct": -0.3456654714963883,
-      "cumulativeSpyReturnPct": 15.356245575493578,
-      "cumulativeRelativeSpyReturnPct": 16.913385605180483
+      "cumulativeSpyReturnPct": 15.356234694333784,
+      "cumulativeRelativeSpyReturnPct": 16.913396486340275
     },
     {
       "tradeNumber": 9,
@@ -344,13 +344,13 @@
       "cumulativeReturnPct": 30.63749647659373,
       "lastUpdate": "2026-07-23",
       "portfolioSpyEnd": 736.3515014648438,
-      "portfolioSpyReturn": 13.799206053125676,
-      "portfolioRelativeReturn": 16.838290423468052,
+      "portfolioSpyReturn": 13.799195318836095,
+      "portfolioRelativeReturn": 16.838301157757634,
       "notes": "Rebound in semiconductor and AI stocks like Nvidia and Micron Technology, even as Brent crude oil climbed near $92 a barrel amid ongoing U.S.-Iran conflict.",
       "backtestStartDate": "2026-07-21",
       "relativeSpyReturnPct": 0.1158209680475637,
-      "cumulativeSpyReturnPct": 13.799206053125676,
-      "cumulativeRelativeSpyReturnPct": 16.838290423468052
+      "cumulativeSpyReturnPct": 13.799195318836095,
+      "cumulativeRelativeSpyReturnPct": 16.838301157757634
     },
     {
       "tradeNumber": 10,
@@ -382,13 +382,13 @@
       "cumulativeReturnPct": 31.82621962956554,
       "lastUpdate": "2026-07-31",
       "portfolioSpyEnd": 745.1796264648438,
-      "portfolioSpyReturn": 15.16354579296352,
-      "portfolioRelativeReturn": 16.662673836602018,
+      "portfolioSpyReturn": 15.163534929980438,
+      "portfolioRelativeReturn": 16.6626846995851,
       "notes": "Major indexes tumbled\u2014the Nasdaq fell 2.2%, the S&P 500 sank 1.2%, and the Dow dropped 1%\u2014driven by surging oil prices hitting $100 a barrel due to Middle East conflicts and heavy AI cash-burn worries following weak earnings from Tesla and Alphabet.",
       "backtestStartDate": "2026-07-23",
       "relativeSpyReturnPct": -0.28896068705404165,
-      "cumulativeSpyReturnPct": 15.16354579296352,
-      "cumulativeRelativeSpyReturnPct": 16.662673836602018
+      "cumulativeSpyReturnPct": 15.163534929980438,
+      "cumulativeRelativeSpyReturnPct": 16.6626846995851
     },
     {
       "tradeNumber": 11,
@@ -420,13 +420,13 @@
       "cumulativeReturnPct": 34.18104533545261,
       "lastUpdate": "2026-08-24",
       "portfolioSpyEnd": 761.5787963867188,
-      "portfolioSpyReturn": 17.697950236123024,
-      "portfolioRelativeReturn": 16.483095099329585,
+      "portfolioSpyReturn": 17.69793913407825,
+      "portfolioRelativeReturn": 16.48310620137436,
       "notes": "Modest gain carried over from last week.  Exited trade, concern over yields and inflation.",
       "backtestStartDate": "2026-07-31",
       "relativeSpyReturnPct": -0.41438967454133113,
-      "cumulativeSpyReturnPct": 17.697950236123024,
-      "cumulativeRelativeSpyReturnPct": 16.483095099329585
+      "cumulativeSpyReturnPct": 17.69793913407825,
+      "cumulativeRelativeSpyReturnPct": 16.48310620137436
     },
     {
       "tradeNumber": 12,
@@ -458,13 +458,13 @@
       "cumulativeReturnPct": 34.38127658595319,
       "lastUpdate": "2026-08-26",
       "portfolioSpyEnd": 764.182373046875,
-      "portfolioSpyReturn": 18.100319154003717,
-      "portfolioRelativeReturn": 16.28095743194947,
+      "portfolioSpyReturn": 18.100308014004856,
+      "portfolioRelativeReturn": 16.280968571948332,
       "notes": "Flat early in the week, technology rebound based on NVIDIA earnings.",
       "backtestStartDate": "2026-08-24",
       "relativeSpyReturnPct": -0.1926410057959833,
-      "cumulativeSpyReturnPct": 18.100319154003717,
-      "cumulativeRelativeSpyReturnPct": 16.28095743194947
+      "cumulativeSpyReturnPct": 18.100308014004856,
+      "cumulativeRelativeSpyReturnPct": 16.280968571948332
     },
     {
       "tradeNumber": 13,
@@ -496,12 +496,12 @@
       "cumulativeReturnPct": 34.999148187497866,
       "lastUpdate": "2026-08-28",
       "portfolioSpyEnd": 767.4442749023438,
-      "portfolioSpyReturn": 18.604428727539073,
-      "portfolioRelativeReturn": 16.394719459958793,
+      "portfolioSpyReturn": 18.60441753998928,
+      "portfolioRelativeReturn": 16.394730647508585,
       "notes": "Exited trade, speech by Fed Chair Warsh was more hawkish than the market was looking for.",
       "relativeSpyReturnPct": 0.032941335468828936,
-      "cumulativeSpyReturnPct": 18.604428727539073,
-      "cumulativeRelativeSpyReturnPct": 16.394719459958793
+      "cumulativeSpyReturnPct": 18.60441753998928,
+      "cumulativeRelativeSpyReturnPct": 16.394730647508585
     },
     {
       "tradeNumber": 14,
@@ -533,12 +533,12 @@
       "cumulativeReturnPct": 35.062974387657434,
       "lastUpdate": "2026-09-03",
       "portfolioSpyEnd": 771.2548217773438,
-      "portfolioSpyReturn": 19.193328469225715,
-      "portfolioRelativeReturn": 15.869645918431718,
+      "portfolioSpyReturn": 19.19331722612703,
+      "portfolioRelativeReturn": 15.869657161530405,
       "notes": "Back to RiskOn - rally prior to Sep Jobs data.",
       "relativeSpyReturnPct": -0.44924527771483563,
-      "cumulativeSpyReturnPct": 19.193328469225715,
-      "cumulativeRelativeSpyReturnPct": 15.869645918431718
+      "cumulativeSpyReturnPct": 19.19331722612703,
+      "cumulativeRelativeSpyReturnPct": 15.869657161530405
     },
     {
       "tradeNumber": 15,
@@ -570,12 +570,12 @@
       "cumulativeReturnPct": 34.949446587373615,
       "lastUpdate": "2026-09-04",
       "portfolioSpyEnd": 768.2822265625,
-      "portfolioSpyReturn": 18.733929697452194,
-      "portfolioRelativeReturn": 16.21551688992142,
+      "portfolioSpyReturn": 18.733918497687018,
+      "portfolioRelativeReturn": 16.215528089686597,
       "notes": "Back to RiskOff - Non-farm payroll jobs number came in much hotter than expected.",
       "relativeSpyReturnPct": 0.301367769064856,
-      "cumulativeSpyReturnPct": 18.733929697452194,
-      "cumulativeRelativeSpyReturnPct": 16.21551688992142
+      "cumulativeSpyReturnPct": 18.733918497687018,
+      "cumulativeRelativeSpyReturnPct": 16.215528089686597
     },
     {
       "tradeNumber": 16,
@@ -607,12 +607,12 @@
       "cumulativeReturnPct": 35.349696688374245,
       "lastUpdate": "2026-09-21",
       "portfolioSpyEnd": 773.5,
-      "portfolioSpyReturn": 19.54030881580989,
-      "portfolioRelativeReturn": 15.809387872564354,
+      "portfolioSpyReturn": 19.540297539981736,
+      "portfolioRelativeReturn": 15.809399148392508,
       "notes": "Going RiskOn++.  Brent and WTI crude oil prices dropped more than 3% back toward $100 a barrel, easing inflation fears.  AI and Tech stocks rallied.",
       "relativeSpyReturnPct": -0.3825553867442156,
-      "cumulativeSpyReturnPct": 19.54030881580989,
-      "cumulativeRelativeSpyReturnPct": 15.809387872564354
+      "cumulativeSpyReturnPct": 19.540297539981736,
+      "cumulativeRelativeSpyReturnPct": 15.809399148392508
     },
     {
       "tradeNumber": 17,
@@ -644,12 +644,12 @@
       "cumulativeReturnPct": 31.737524929343795,
       "lastUpdate": "2026-09-23",
       "portfolioSpyEnd": 767.8099975585938,
-      "portfolioSpyReturn": 18.660949217867532,
-      "portfolioRelativeReturn": 13.076575711476263,
+      "portfolioSpyReturn": 18.660938024986358,
+      "portfolioRelativeReturn": 13.076586904357438,
       "notes": "Reverted back to RiskOn.  Oil prices and treasury yields are contributing to inflation worries.  Market is still constructive.",
       "relativeSpyReturnPct": -1.9331521083695575,
-      "cumulativeSpyReturnPct": 18.660949217867532,
-      "cumulativeRelativeSpyReturnPct": 13.076575711476263
+      "cumulativeSpyReturnPct": 18.660938024986358,
+      "cumulativeRelativeSpyReturnPct": 13.076586904357438
     },
     {
       "tradeNumber": 18,
@@ -672,21 +672,58 @@
       "tradeProfit": -95.83999999999651,
       "tradeReturnPct": -0.0643843887742194,
       "relativeReturnPct": 0.22214642145573735,
-      "backtestReturnPct": -0.24,
-      "relativeBacktestReturnPct": 0.18,
-      "cumulativeBacktestReturnPct": 31.8,
-      "cumulativeRelativeBacktestReturnPct": -0.15,
+      "backtestReturnPct": -0.23,
+      "relativeBacktestReturnPct": 0.17,
+      "cumulativeBacktestReturnPct": 31.81,
+      "cumulativeRelativeBacktestReturnPct": -0.16,
       "cumulativeValue": 148760.12,
       "cumulativeProfit": 35765.76999999999,
       "cumulativeReturnPct": 31.65270652913176,
       "lastUpdate": "2026-09-28",
       "portfolioSpyEnd": 765.6099853515625,
-      "portfolioSpyReturn": 18.320949038647015,
-      "portfolioRelativeReturn": 13.331757490484744,
+      "portfolioSpyReturn": 18.320937877836897,
+      "portfolioRelativeReturn": 13.331768651294862,
       "notes": "Oil prices, rising treasury yields, and Tech/AI anxiety all contributed to sell off.  Back to RiskOff.",
       "relativeSpyReturnPct": 0.22214642145573735,
-      "cumulativeSpyReturnPct": 18.320949038647015,
-      "cumulativeRelativeSpyReturnPct": 13.331757490484744
+      "cumulativeSpyReturnPct": 18.320937877836897,
+      "cumulativeRelativeSpyReturnPct": 13.331768651294862
+    },
+    {
+      "tradeNumber": 19,
+      "regime": "RiskOff",
+      "status": "Closed",
+      "signalDate": "2026-09-28",
+      "tradeDate": "2026-09-28",
+      "performanceStartDate": "2026-09-29",
+      "performanceEndDate": "2026-10-02",
+      "allocation": {
+        "SPY": 0.6,
+        "SPXL": 0.0,
+        "SHV": 0.4
+      },
+      "spyStartPrice": 765.6099853515625,
+      "spyEndPrice": 769.6400146484375,
+      "spyReturnPct": 0.5263814963207984,
+      "startValue": 148760.12,
+      "endValue": 149268.42,
+      "tradeProfit": 508.30000000001746,
+      "tradeReturnPct": 0.3416910392382162,
+      "relativeReturnPct": -0.18469045708258225,
+      "backtestReturnPct": 0.38,
+      "relativeBacktestReturnPct": -0.04,
+      "cumulativeBacktestReturnPct": 32.32,
+      "cumulativeRelativeBacktestReturnPct": -0.22,
+      "cumulativeValue": 149268.42,
+      "cumulativeProfit": 36274.07000000001,
+      "cumulativeReturnPct": 32.10255203025639,
+      "lastUpdate": "2026-10-02",
+      "portfolioSpyEnd": 769.6400146484375,
+      "portfolioSpyReturn": 18.943757401099056,
+      "portfolioRelativeReturn": 13.158794629157335,
+      "notes": "Jobs data weaker than expected, back to RiskOn.",
+      "relativeSpyReturnPct": -0.18469045708258225,
+      "cumulativeSpyReturnPct": 18.943757401099056,
+      "cumulativeRelativeSpyReturnPct": 13.158794629157335
     }
   ]
 }
