@@ -842,84 +842,9 @@ function renderHomepage(state) {
     "spyBenchmark.refMar"
   ]);
 
-  const bestYearPct = firstNumber(state, [
-    "performance.yearly.bestYearReturnPct",
-    "performance.yearlySummary.bestYearReturnPct",
-    "performance.bestYearReturnPct",
-    "bestYearReturnPct"
-  ]);
-
-  const bestYear = firstText(state, [
-    "performance.yearly.bestYear",
-    "performance.yearlySummary.bestYear",
-    "performance.bestYear",
-    "bestYear"
-  ]);
-
-  const worstYearPct = firstNumber(state, [
-    "performance.yearly.worstYearReturnPct",
-    "performance.yearlySummary.worstYearReturnPct",
-    "performance.worstYearReturnPct",
-    "worstYearReturnPct"
-  ]);
-
-  const worstYear = firstText(state, [
-    "performance.yearly.worstYear",
-    "performance.yearlySummary.worstYear",
-    "performance.worstYear",
-    "worstYear"
-  ]);
-
-  const bestYearSpyPct = firstNumber(state, [
-    "performance.yearly.bestYearSpyReturnPct",
-    "performance.yearlySummary.bestYearSpyReturnPct",
-    "performance.bestYearSpyReturnPct",
-    "bestYearSpyReturnPct"
-  ]);
-
-  const bestYearSpyYear = firstText(state, [
-    "performance.yearly.bestYearSpyYear",
-    "performance.yearlySummary.bestYearSpyYear",
-    "performance.bestYearSpyYear",
-    "bestYearSpyYear"
-  ]);
-
-  const worstYearSpyPct = firstNumber(state, [
-    "performance.yearly.worstYearSpyReturnPct",
-    "performance.yearlySummary.worstYearSpyReturnPct",
-    "performance.worstYearSpyReturnPct",
-    "worstYearSpyReturnPct"
-  ]);
-
-  const worstYearSpyYear = firstText(state, [
-    "performance.yearly.worstYearSpyYear",
-    "performance.yearlySummary.worstYearSpyYear",
-    "performance.worstYearSpyYear",
-    "worstYearSpyYear"
-  ]);
-
-  const avgAnnualSpyPct = firstNumber(state, [
-    "performance.yearly.averageSpyAnnualReturnPct",
-    "performance.yearlySummary.averageSpyAnnualReturnPct",
-    "performance.avgSpyAnnualReturnPct",
-    "averageSpyAnnualReturnPct",
-    "avgSpyAnnualReturnPct"
-  ]);
-
-  const beta = firstNumber({ current, state }, [
-    "current.beta",
-    "state.performance.current.beta",
-    "state.performance.beta",
-    "state.beta"
-  ]);
-
-  const avgAnnualPct = firstNumber(state, [
-    "performance.yearly.averageAnnualReturnPct",
-    "performance.yearlySummary.averageAnnualReturnPct",
-    "performance.avgAnnualReturnPct",
-    "averageAnnualReturnPct",
-    "avgAnnualReturnPct"
-  ]);
+  // Yearly summary cards are populated separately from annual2008.JSON.
+  // This keeps Best Year, Worst Year, Average Yearly Return, and Beta
+  // consistent with yearly.html.
 
   const sharpe = firstNumber({ current, state }, [
     "current.sharpe",
@@ -956,29 +881,7 @@ function renderHomepage(state) {
   if (mar !== null) setText("homeMar", num(mar, 2));
   if (spyMar !== null) setHTML("homeMarSub", "MAR / Calmar ratio<br>vs SPY " + num(spyMar, 2));
 
-  if (bestYearPct !== null) setText("homeBestYear", pctOne(bestYearPct));
-  if (bestYear) setText("homeBestYearYear", "(" + fmtYear(bestYear) + ")");
-  if (bestYearSpyPct !== null) {
-    const y = bestYearSpyYear ? " (" + fmtYear(bestYearSpyYear) + ")" : "";
-    const d = deltaText(bestYearPct, bestYearSpyPct);
-    setHTML("homeBestYearSub", "SPY: " + pctOne(bestYearSpyPct) + y + (d ? " · <span class=\"delta\">" + d + "</span>" : ""));
-  }
 
-  if (worstYearPct !== null) setText("homeWorstYear", pctOne(worstYearPct));
-  if (worstYear) setText("homeWorstYearYear", "(" + fmtYear(worstYear) + ")");
-  if (worstYearSpyPct !== null) {
-    const y = worstYearSpyYear ? " (" + fmtYear(worstYearSpyYear) + ")" : "";
-    const d = deltaText(worstYearPct, worstYearSpyPct);
-    setHTML("homeWorstYearSub", "SPY: " + pctOne(worstYearSpyPct) + y + (d ? " · <span class=\"delta\">" + d + "</span>" : ""));
-  }
-
-  if (avgAnnualPct !== null) setText("homeAvgAnnual", pctOne(avgAnnualPct));
-  if (avgAnnualSpyPct !== null) {
-    const d = deltaText(avgAnnualPct, avgAnnualSpyPct);
-    setHTML("homeAvgAnnualSub", "SPY " + pctOne(avgAnnualSpyPct) + (d ? " · <span class=\"delta\">" + d + "</span>" : ""));
-  }
-
-  if (beta !== null) setText("homeBeta", num(beta, 2));
 
   if (totalReturnPct !== null && spyReturnPct !== null) {
     setText("homeChartSummary", "TReg " + multipleFromReturnPct(totalReturnPct) + " · SPY " + multipleFromReturnPct(spyReturnPct));
@@ -991,6 +894,168 @@ function renderHomepage(state) {
   }
 }
 
+
+
+function normalizeAnnualKey(key) {
+  return String(key || "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, "")
+    .replace(/_/g, "")
+    .replace(/-/g, "")
+    .replace(/\./g, "")
+    .replace(/\$/g, "");
+}
+
+function annualFirstValue(row, aliases) {
+  if (!row) return null;
+
+  for (const key of aliases) {
+    if (Object.prototype.hasOwnProperty.call(row, key)) {
+      return row[key];
+    }
+  }
+
+  const keyMap = {};
+  Object.keys(row).forEach(k => {
+    keyMap[normalizeAnnualKey(k)] = k;
+  });
+
+  for (const key of aliases) {
+    const normalized = normalizeAnnualKey(key);
+    if (Object.prototype.hasOwnProperty.call(keyMap, normalized)) {
+      return row[keyMap[normalized]];
+    }
+  }
+
+  return null;
+}
+
+function annualNumberValue(row, aliases) {
+  const raw = annualFirstValue(row, aliases);
+  if (raw === null || raw === undefined || raw === "") return null;
+
+  const cleaned = String(raw).replace("%", "").replace(",", "").trim();
+  const n = Number(cleaned);
+  return Number.isFinite(n) ? n : null;
+}
+
+function annualYearValue(row) {
+  const raw = annualFirstValue(row, ["year", "Year", "YEAR", "date", "Date"]);
+  if (raw === null || raw === undefined || raw === "") return "";
+
+  const n = Number(String(raw).trim());
+  if (Number.isFinite(n)) {
+    if (n > 1000000) return String(Math.floor(n / 10000));
+    if (n > 10000) return String(Math.floor(n / 100));
+    return String(Math.floor(n));
+  }
+
+  return String(raw);
+}
+
+function extractAnnualRows(json) {
+  if (Array.isArray(json)) return json;
+  if (json && Array.isArray(json.yearly)) return json.yearly;
+  if (json && Array.isArray(json.annual)) return json.annual;
+  if (json && Array.isArray(json.data)) return json.data;
+  if (json && json.performance && Array.isArray(json.performance.yearly)) return json.performance.yearly;
+  return [];
+}
+
+function renderAnnualHomepageSummary(annualJson) {
+  const rows = extractAnnualRows(annualJson).map(row => ({
+    year: annualYearValue(row),
+    tRegReturn: annualNumberValue(row, [
+      "strategyReturnPct", "tregReturnPct", "TReg%", "TREG%",
+      "bSTRAT%", "bStrat%", "bSTRAT", "bStrat", "Strategy%", "strategy%"
+    ]),
+    spyReturn: annualNumberValue(row, [
+      "spyReturnPct", "SPY%", "SPY", "spy%"
+    ])
+  }));
+
+  const valid = rows.filter(r => Number.isFinite(r.tRegReturn));
+  const validSpy = rows.filter(r => Number.isFinite(r.spyReturn));
+
+  if (!valid.length) return;
+
+  const best = valid.reduce((a, b) => b.tRegReturn > a.tRegReturn ? b : a, valid[0]);
+  const worst = valid.reduce((a, b) => b.tRegReturn < a.tRegReturn ? b : a, valid[0]);
+
+  const spyBest = validSpy.length
+    ? validSpy.reduce((a, b) => b.spyReturn > a.spyReturn ? b : a, validSpy[0])
+    : null;
+
+  const spyWorst = validSpy.length
+    ? validSpy.reduce((a, b) => b.spyReturn < a.spyReturn ? b : a, validSpy[0])
+    : null;
+
+  const avg = valid.reduce((sum, r) => sum + r.tRegReturn, 0) / valid.length;
+  const spyAvg = validSpy.length
+    ? validSpy.reduce((sum, r) => sum + r.spyReturn, 0) / validSpy.length
+    : null;
+
+  setText("homeBestYear", pctOne(best.tRegReturn));
+  setText("homeBestYearYear", "(" + best.year + ")");
+
+  if (spyBest) {
+    const d = deltaText(best.tRegReturn, spyBest.spyReturn);
+    setHTML(
+      "homeBestYearSub",
+      "SPY: " + pctOne(spyBest.spyReturn) +
+      " (" + spyBest.year + ")" +
+      (d ? " · <span class=\"delta\">" + d + "</span>" : "")
+    );
+  }
+
+  setText("homeWorstYear", pctOne(worst.tRegReturn));
+  setText("homeWorstYearYear", "(" + worst.year + ")");
+
+  if (spyWorst) {
+    const d = deltaText(worst.tRegReturn, spyWorst.spyReturn);
+    setHTML(
+      "homeWorstYearSub",
+      "SPY: " + pctOne(spyWorst.spyReturn) +
+      " (" + spyWorst.year + ")" +
+      (d ? " · <span class=\"delta\">" + d + "</span>" : "")
+    );
+  }
+
+  setText("homeAvgAnnual", pctOne(avg));
+
+  if (spyAvg !== null) {
+    const d = deltaText(avg, spyAvg);
+    setHTML(
+      "homeAvgAnnualSub",
+      "SPY " + pctOne(spyAvg) +
+      (d ? " · <span class=\"delta\">" + d + "</span>" : "")
+    );
+  }
+
+  const beta = annualJson && annualJson.meta
+    ? Number(annualJson.meta.betaVsSpy)
+    : NaN;
+
+  if (Number.isFinite(beta)) {
+    setText("homeBeta", num(beta, 2));
+  }
+}
+
+async function loadAnnualHomepageSummary() {
+  const files = ["annual2008.JSON", "annual2008.json"];
+
+  for (const f of files) {
+    try {
+      const r = await fetch(f + "?t=" + Date.now());
+      if (!r.ok) continue;
+
+      const annualJson = await r.json();
+      renderAnnualHomepageSummary(annualJson);
+      return;
+    } catch {}
+  }
+}
 
 async function loadScenarioDates() {
   try {
@@ -1049,8 +1114,10 @@ async function loadHomepageState() {
 
 loadHomepageState();
 loadScenarioDates();
+loadAnnualHomepageSummary();
 setInterval(loadHomepageState, 10000);
 setInterval(loadScenarioDates, 10000);
+setInterval(loadAnnualHomepageSummary, 10000);
 
 
 
