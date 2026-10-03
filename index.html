@@ -604,7 +604,7 @@ body {
     <div class="soft-launch-banner">
       <div>
         <strong>Soft launch underway.</strong>
-        <span> Some pages will eventually require a subscription. Signal subscription and automated trading tools coming soon. Currently, all pages are open and available for free.</span>
+        <span> Some pages will eventually require a subscription but currently, all pages are open and available for free.</span>
       </div>
       <span class="premium-pill">Open during soft launch</span>
     </div>
@@ -928,8 +928,24 @@ function renderHomepage(state) {
     "state.sharpe"
   ]);
 
-  if (totalReturnPct !== null) setText("homeTotalReturn", multipleFromReturnPct(totalReturnPct));
-  if (spyReturnPct !== null) setHTML("homeTotalReturnSub", "TReg total return<br>vs SPY " + multipleFromReturnPct(spyReturnPct));
+  
+  if (totalReturnPct !== null) 
+  { 
+    setText("homeTotalReturn", pctOne(totalReturnPct));
+  }
+
+  if (spyReturnPct !== null) {
+    setHTML(
+     "homeTotalReturnSub",
+     "TReg total return · " +
+     multipleFromReturnPct(totalReturnPct) +
+     "<br>vs SPY " +
+     pctOne(spyReturnPct) +
+     " · " +
+     multipleFromReturnPct(spyReturnPct)
+   );
+  }
+
 
   if (cagrPct !== null) setText("homeCagr", pct(cagrPct));
   if (spyCagrPct !== null) setHTML("homeCagrSub", "CAGR annualized<br>vs SPY " + pct(spyCagrPct));
