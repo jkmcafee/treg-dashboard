@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-10-03T14:45:14",
+  "lastUpdated": "2026-10-03T15:18:16",
   "scenarioCount": 14,
   "scenarios": [
     {
@@ -13,7 +13,7 @@
       "periodYears": 17.91,
       "equityFile": "reports/TReg_2008-11-05_2026-10-03_Equity.png",
       "metrics": {
-        "tregReturnPct": 4834.99,
+        "tregReturnPct": 4834.57,
         "spyReturnPct": 1008.6,
         "tregCagrPct": 24.33,
         "spyCagrPct": 14.38,
@@ -42,9 +42,9 @@
       "periodYears": 15.75,
       "equityFile": "reports/TReg_2010-12-31_2026-10-03_Equity.png",
       "metrics": {
-        "tregReturnPct": 2206.42,
+        "tregReturnPct": 2206.93,
         "spyReturnPct": 706.3,
-        "tregCagrPct": 22.04,
+        "tregCagrPct": 22.05,
         "spyCagrPct": 14.17,
         "tregMaxDrawdownPct": -23.91,
         "spyMaxDrawdownPct": -33.73,
@@ -71,9 +71,9 @@
       "periodYears": 15.5,
       "equityFile": "reports/TReg_2011-04-01_2026-10-03_Equity.png",
       "metrics": {
-        "tregReturnPct": 2067.35,
+        "tregReturnPct": 2067.03,
         "spyReturnPct": 658.2,
-        "tregCagrPct": 21.95,
+        "tregCagrPct": 21.94,
         "spyCagrPct": 13.96,
         "tregMaxDrawdownPct": -23.91,
         "spyMaxDrawdownPct": -33.72,
@@ -100,9 +100,9 @@
       "periodYears": 11.75,
       "equityFile": "reports/TReg_2014-12-31_2026-10-03_Equity.png",
       "metrics": {
-        "tregReturnPct": 1142.13,
+        "tregReturnPct": 1141.74,
         "spyReturnPct": 354.4,
-        "tregCagrPct": 23.91,
+        "tregCagrPct": 23.9,
         "spyCagrPct": 13.75,
         "tregMaxDrawdownPct": -23.91,
         "spyMaxDrawdownPct": -33.74,
@@ -133,7 +133,7 @@
         "spyReturnPct": 37.4,
         "tregCagrPct": 19.44,
         "spyCagrPct": 11.17,
-        "tregMaxDrawdownPct": -16.43,
+        "tregMaxDrawdownPct": -16.44,
         "spyMaxDrawdownPct": -13.07,
         "tregSharpe": 1.21,
         "spySharpe": 0.87,
@@ -158,7 +158,7 @@
       "periodYears": 8.75,
       "equityFile": "reports/TReg_2018-01-01_2026-10-03_Equity.png",
       "metrics": {
-        "tregReturnPct": 628.0,
+        "tregReturnPct": 628.08,
         "spyReturnPct": 227.0,
         "tregCagrPct": 25.48,
         "spyCagrPct": 14.5,
@@ -194,7 +194,7 @@
         "tregMaxDrawdownPct": -23.91,
         "spyMaxDrawdownPct": -33.69,
         "tregSharpe": 1.34,
-        "spySharpe": 0.81,
+        "spySharpe": 0.8,
         "tregMar": 1.14,
         "spyMar": 0.43,
         "tregSortino": 2.02,
@@ -274,7 +274,7 @@
       "periodYears": 4.92,
       "equityFile": "reports/TReg_2021-11-01_2026-10-03_Equity.png",
       "metrics": {
-        "tregReturnPct": 144.8,
+        "tregReturnPct": 144.78,
         "spyReturnPct": 78.9,
         "tregCagrPct": 19.97,
         "spyCagrPct": 12.56,
@@ -303,9 +303,9 @@
       "periodYears": 2.75,
       "equityFile": "reports/TReg_2023-12-31_2026-10-03_Equity.png",
       "metrics": {
-        "tregReturnPct": 111.07,
+        "tregReturnPct": 111.05,
         "spyReturnPct": 68.2,
-        "tregCagrPct": 31.23,
+        "tregCagrPct": 31.22,
         "spyCagrPct": 20.82,
         "tregMaxDrawdownPct": -17.33,
         "spyMaxDrawdownPct": -18.74,
