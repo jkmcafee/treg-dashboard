@@ -521,9 +521,9 @@ body {
   </section>
 
   <section class="section">
-    <div class="section-label">17+ Year Backtest</div>
+    <div id="homeBacktestYears" class="section-label">17+ Year Backtest</div>
     <h2>Built to outperform. Designed to protect.</h2>
-    <p class="section-intro">
+    <p id="homeBacktestPeriod" class="section-intro">
       Backtested from Nov 2008 through Apr 2026 across bull markets, crashes,
       corrections, and recoveries.
     </p>
@@ -968,19 +968,54 @@ function renderHomepage(state) {
     setText("homeChartSummary", "TReg " + multipleFromReturnPct(totalReturnPct) + " · SPY " + multipleFromReturnPct(spyReturnPct));
   }
 
-  const startDate = firstText(state, ["performance.meta.startDate", "perfStartDate", "startDate"]);
-  const endDate = firstText(state, ["performance.meta.endDate", "endDate"]);
-  const startLabel = formatMonthYear(startDate);
-  const endLabel = formatMonthYear(endDate);
-  if (startLabel || endLabel) {
-    setText("homeChartTitle", "Equity growth — TReg vs SPY (" + (startLabel || "Start") + " – " + (endLabel || "Current") + ")");
-  }
-
   const equityFilename = firstText(state, ["equityFilename", "performance.meta.equityFilename"]);
   const img = document.getElementById("homeEquityChart");
   if (img && equityFilename) {
     img.src = normalizeImagePath(equityFilename);
   }
+}
+
+
+async function loadScenarioDates() {
+  try {
+    const r = await fetch("scenarios.json?t=" + Date.now());
+    if (!r.ok) return;
+
+    const data = await r.json();
+    const firstScenario = data.scenarios?.[0];
+    if (!firstScenario) return;
+
+    const startDate = firstScenario.startDate;
+    const endDate = firstScenario.endDate;
+    const periodYears = Number(firstScenario.periodYears);
+
+    const startLabel = formatMonthYear(startDate);
+    const endLabel = formatMonthYear(endDate);
+
+    if (!Number.isNaN(periodYears)) {
+      setText("homeBacktestYears", Math.floor(periodYears) + "+ Year Backtest");
+    }
+
+    if (startLabel || endLabel) {
+      setText(
+        "homeBacktestPeriod",
+        "Backtested from " +
+        (startLabel || "Start") +
+        " through " +
+        (endLabel || "Current") +
+        " across bull markets, crashes, corrections, and recoveries."
+      );
+
+      setText(
+        "homeChartTitle",
+        "Equity growth — TReg vs SPY (" +
+        (startLabel || "Start") +
+        " – " +
+        (endLabel || "Current") +
+        ")"
+      );
+    }
+  } catch {}
 }
 
 async function loadHomepageState() {
@@ -997,7 +1032,9 @@ async function loadHomepageState() {
 }
 
 loadHomepageState();
+loadScenarioDates();
 setInterval(loadHomepageState, 10000);
+setInterval(loadScenarioDates, 10000);
 
 
 
