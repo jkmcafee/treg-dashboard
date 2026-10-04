@@ -41,16 +41,16 @@
       "startDate": "2008-11-05",
       "endDate": "2026-10-03",
       "periodYears": "17.91",
-      "lastUpdated": "2026-10-03T15:13:38.052997"
+      "lastUpdated": "2026-10-03T20:19:25.742751"
     },
     "current": {
-      "totalReturnPct": "4834.57",
+      "totalReturnPct": "4835.88",
       "cagrPct": "24.33",
       "maxDrawdownPct": "-23.91",
       "sharpe": "1.27",
       "mar": "1.02",
       "sortino": "1.93",
-      "ulcer": "7.73",
+      "ulcer": "7.72",
       "upi": "2.97"
     },
     "benchmarks": {
@@ -79,7 +79,7 @@
         "cagrPct": "1.36",
         "maxDrawdownPct": "-0.45",
         "sharpe": "233.45",
-        "mar": "3.02",
+        "mar": "3.01",
         "sortino": "9.35",
         "ulcer": "0.06",
         "upi": "0.22"
