@@ -4,9 +4,9 @@
   "riskOn": true,
   "lastRiskOn": true,
   "signalChange": false,
-  "ratio": "1.1863",
+  "ratio": "1.1865",
   "ratioMA": "1.1474",
-  "ratioDelta": "0.0389",
+  "ratioDelta": "0.0391",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
@@ -30,7 +30,7 @@
     "SHV": "0.15"
   },
   "regimeDays": 2,
-  "regimeGain": 0.01129671649999997,
+  "regimeGain": 0.011281630624999872,
   "performance": {
     "meta": {
       "strategyName": "TReg",
@@ -41,7 +41,7 @@
       "startDate": "2025-10-06",
       "endDate": "2026-10-06",
       "periodYears": "1.00",
-      "lastUpdated": "2026-10-06T13:45:04.133737"
+      "lastUpdated": "2026-10-06T14:45:04.219561"
     },
     "current": {
       "totalReturnPct": "26.51",
@@ -65,38 +65,38 @@
         "upi": "6.41"
       },
       "SPXL": {
-        "totalReturnPct": "39.20",
-        "cagrPct": "39.23",
+        "totalReturnPct": "39.30",
+        "cagrPct": "39.33",
         "maxDrawdownPct": "-26.79",
         "sharpe": "1.05",
-        "mar": "1.46",
+        "mar": "1.47",
         "sortino": "1.52",
         "ulcer": "7.23",
-        "upi": "4.92"
+        "upi": "4.94"
       },
       "SHV": {
-        "totalReturnPct": "3.62",
-        "cagrPct": "3.62",
+        "totalReturnPct": "3.61",
+        "cagrPct": "3.61",
         "maxDrawdownPct": "-0.03",
-        "sharpe": "1552.54",
-        "mar": "133.08",
-        "sortino": "81.32",
+        "sharpe": "1552.63",
+        "mar": "132.74",
+        "sortino": "81.11",
         "ulcer": "0.00",
-        "upi": "13.22"
+        "upi": "13.18"
       }
     }
   },
   "boostTrigger": false,
   "regimeStartDate": "2026-10-05",
   "regimeSignalDate": "2026-10-02",
-  "regimePeak": 0.01129671649999997,
+  "regimePeak": 0.011281630624999872,
   "regimePeakLimit": 0.0,
   "regimePeakCapture": 1.0,
   "regimeMaxDD": 0.00572499999999998,
   "riskOnPPCurrent": 287.55,
   "riskOnPPEntry": 294.24,
   "riskOnPPStop": 272.5472649755271,
-  "regimeEstGain": 0.0393,
+  "regimeEstGain": 0.039400000000000004,
   "signal": "RiskOn",
   "signal_change": true,
   "signalRegimeChange": false,
