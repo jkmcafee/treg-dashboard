@@ -30,7 +30,7 @@
     "SHV": "0.15"
   },
   "regimeDays": 5,
-  "regimeGain": 0.009995892095702175,
+  "regimeGain": 0.010081302310972706,
   "performance": {
     "meta": {
       "strategyName": "TReg",
@@ -41,11 +41,11 @@
       "startDate": "2025-10-09",
       "endDate": "2026-10-09",
       "periodYears": "1.00",
-      "lastUpdated": "2026-10-09T15:45:03.959804"
+      "lastUpdated": "2026-10-09T15:48:04.006673"
     },
     "current": {
-      "totalReturnPct": "26.32",
-      "cagrPct": "26.35",
+      "totalReturnPct": "26.34",
+      "cagrPct": "26.36",
       "maxDrawdownPct": "-8.85",
       "sharpe": "1.57",
       "mar": "2.98",
@@ -82,7 +82,7 @@
         "mar": "133.74",
         "sortino": "81.74",
         "ulcer": "0.00",
-        "upi": "13.29"
+        "upi": "13.28"
       }
     }
   },
@@ -91,7 +91,7 @@
   "regimeSignalDate": "2026-10-02",
   "regimePeak": 0.010426764375000008,
   "regimePeakLimit": 0.0,
-  "regimePeakCapture": 0.9586763195367755,
+  "regimePeakCapture": 0.9668677595845929,
   "regimeMaxDD": 0.004826062006677789,
   "riskOnPPCurrent": 287.55,
   "riskOnPPEntry": 294.24,
