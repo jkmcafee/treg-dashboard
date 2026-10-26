@@ -4,9 +4,9 @@
   "riskOn": false,
   "lastRiskOn": false,
   "signalChange": false,
-  "ratio": "1.1018",
+  "ratio": "1.1017",
   "ratioMA": "1.1205",
-  "ratioDelta": "-0.0187",
+  "ratioDelta": "-0.0188",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
@@ -30,7 +30,7 @@
     "SHV": "0.40"
   },
   "regimeDays": 2,
-  "regimeGain": 0.0014263807999999045,
+  "regimeGain": 0.0013266847999999776,
   "performance": {
     "meta": {
       "strategyName": "TReg",
@@ -41,11 +41,11 @@
       "startDate": "2025-10-26",
       "endDate": "2026-10-26",
       "periodYears": "1.00",
-      "lastUpdated": "2026-10-26T15:45:03.550734"
+      "lastUpdated": "2026-10-26T15:48:03.273169"
     },
     "current": {
-      "totalReturnPct": "27.03",
-      "cagrPct": "27.13",
+      "totalReturnPct": "27.02",
+      "cagrPct": "27.12",
       "maxDrawdownPct": "-8.30",
       "sharpe": "1.69",
       "mar": "3.27",
@@ -62,7 +62,7 @@
         "mar": "1.46",
         "sortino": "1.51",
         "ulcer": "2.16",
-        "upi": "4.32"
+        "upi": "4.33"
       },
       "SPXL": {
         "totalReturnPct": "24.40",
@@ -75,28 +75,28 @@
         "upi": "2.87"
       },
       "SHV": {
-        "totalReturnPct": "3.59",
+        "totalReturnPct": "3.58",
         "cagrPct": "3.60",
         "maxDrawdownPct": "-0.03",
-        "sharpe": "1567.84",
-        "mar": "132.28",
-        "sortino": "84.62",
+        "sharpe": "1567.88",
+        "mar": "132.08",
+        "sortino": "84.40",
         "ulcer": "0.00",
-        "upi": "13.72"
+        "upi": "13.70"
       }
     }
   },
   "boostTrigger": false,
   "regimeStartDate": "2026-10-23",
   "regimeSignalDate": "2026-10-22",
-  "regimePeak": 0.0014263807999999045,
+  "regimePeak": 0.0013266847999999776,
   "regimePeakLimit": 0.0,
   "regimePeakCapture": 1.0,
   "regimeMaxDD": -0.0030400000000000427,
   "riskOnPPCurrent": 287.55,
   "riskOnPPEntry": 294.24,
   "riskOnPPStop": 272.5472649755271,
-  "regimeEstGain": 0.0022000000000000006,
+  "regimeEstGain": 0.0021000000000000003,
   "signal": "RiskOff",
   "signal_change": true,
   "signalRegimeChange": false,
