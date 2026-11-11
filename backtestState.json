@@ -4,9 +4,9 @@
   "riskOn": false,
   "lastRiskOn": false,
   "signalChange": false,
-  "ratio": "1.0725",
-  "ratioMA": "1.0988",
-  "ratioDelta": "-0.0262",
+  "ratio": "1.0723",
+  "ratioMA": "1.0987",
+  "ratioDelta": "-0.0264",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
@@ -30,7 +30,7 @@
     "SHV": "0.40"
   },
   "regimeDays": 14,
-  "regimeGain": -0.006269505115001683,
+  "regimeGain": -0.006447490238167597,
   "performance": {
     "meta": {
       "strategyName": "TReg",
@@ -41,17 +41,17 @@
       "startDate": "2025-11-11",
       "endDate": "2026-11-11",
       "periodYears": "1.00",
-      "lastUpdated": "2026-11-11T09:45:04.187081"
+      "lastUpdated": "2026-11-11T10:18:03.252560"
     },
     "current": {
-      "totalReturnPct": "23.80",
-      "cagrPct": "23.81",
+      "totalReturnPct": "23.77",
+      "cagrPct": "23.79",
       "maxDrawdownPct": "-7.98",
       "sharpe": "1.52",
       "mar": "2.98",
-      "sortino": "2.49",
+      "sortino": "2.48",
       "ulcer": "3.30",
-      "upi": "6.24"
+      "upi": "6.23"
     },
     "benchmarks": {
       "SPY": {
@@ -60,7 +60,7 @@
         "maxDrawdownPct": "-8.81",
         "sharpe": "0.89",
         "mar": "1.35",
-        "sortino": "1.26",
+        "sortino": "1.25",
         "ulcer": "2.22",
         "upi": "3.90"
       },
@@ -70,7 +70,7 @@
         "maxDrawdownPct": "-26.73",
         "sharpe": "0.65",
         "mar": "0.75",
-        "sortino": "0.92",
+        "sortino": "0.91",
         "ulcer": "7.49",
         "upi": "2.24"
       },
@@ -91,12 +91,12 @@
   "regimeSignalDate": "2026-10-22",
   "regimePeak": 0.006781062398547144,
   "regimePeakLimit": 0.0,
-  "regimePeakCapture": -0.9245608942257981,
+  "regimePeakCapture": -0.9508082744599112,
   "regimeMaxDD": -0.03142553611703447,
   "riskOnPPCurrent": 287.55,
   "riskOnPPEntry": 294.24,
   "riskOnPPStop": 272.5472649755271,
-  "regimeEstGain": -0.008600000000000005,
+  "regimeEstGain": -0.008900000000000005,
   "signal": "RiskOff",
   "signal_change": true,
   "signalRegimeChange": false,
