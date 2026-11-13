@@ -4,9 +4,9 @@
   "riskOn": false,
   "lastRiskOn": false,
   "signalChange": false,
-  "ratio": "1.0973",
+  "ratio": "1.0986",
   "ratioMA": "1.1295",
-  "ratioDelta": "-0.0322",
+  "ratioDelta": "-0.0309",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
@@ -30,7 +30,7 @@
     "SHV": "0.40"
   },
   "regimeDays": 16,
-  "regimeGain": -0.007184323263119463,
+  "regimeGain": -0.007164404404368274,
   "performance": {
     "meta": {
       "strategyName": "TReg",
@@ -41,7 +41,7 @@
       "startDate": "2025-11-13",
       "endDate": "2026-11-13",
       "periodYears": "1.00",
-      "lastUpdated": "2026-11-13T13:45:03.343518"
+      "lastUpdated": "2026-11-13T14:45:03.371223"
     },
     "current": {
       "totalReturnPct": "26.31",
@@ -55,32 +55,32 @@
     },
     "benchmarks": {
       "SPY": {
-        "totalReturnPct": "13.20",
-        "cagrPct": "13.21",
+        "totalReturnPct": "13.30",
+        "cagrPct": "13.31",
         "maxDrawdownPct": "-8.86",
         "sharpe": "0.98",
-        "mar": "1.49",
+        "mar": "1.50",
         "sortino": "1.40",
         "ulcer": "2.20",
-        "upi": "4.35"
+        "upi": "4.39"
       },
       "SPXL": {
-        "totalReturnPct": "24.30",
-        "cagrPct": "24.32",
+        "totalReturnPct": "24.40",
+        "cagrPct": "24.42",
         "maxDrawdownPct": "-26.81",
         "sharpe": "0.74",
         "mar": "0.91",
         "sortino": "1.05",
         "ulcer": "7.44",
-        "upi": "2.78"
+        "upi": "2.79"
       },
       "SHV": {
         "totalReturnPct": "3.64",
         "cagrPct": "3.64",
         "maxDrawdownPct": "-0.03",
-        "sharpe": "1565.42",
-        "mar": "133.76",
-        "sortino": "87.88",
+        "sharpe": "1565.44",
+        "mar": "133.73",
+        "sortino": "87.65",
         "ulcer": "0.00",
         "upi": "14.24"
       }
@@ -91,12 +91,12 @@
   "regimeSignalDate": "2026-10-22",
   "regimePeak": 0.006781062398547144,
   "regimePeakLimit": 0.0,
-  "regimePeakCapture": -1.0594686851220716,
+  "regimePeakCapture": -1.0565312606330333,
   "regimeMaxDD": -0.03006375792807714,
   "riskOnPPCurrent": 287.55,
   "riskOnPPEntry": 294.24,
   "riskOnPPStop": 272.5472649755271,
-  "regimeEstGain": -0.012700000000000005,
+  "regimeEstGain": -0.012600000000000005,
   "signal": "RiskOff",
   "signal_change": true,
   "signalRegimeChange": false,
