@@ -4,9 +4,9 @@
   "riskOn": false,
   "lastRiskOn": false,
   "signalChange": false,
-  "ratio": "1.0674",
-  "ratioMA": "1.1551",
-  "ratioDelta": "-0.0877",
+  "ratio": "1.0618",
+  "ratioMA": "1.1548",
+  "ratioDelta": "-0.0930",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
@@ -30,7 +30,7 @@
     "SHV": "0.40"
   },
   "regimeDays": 19,
-  "regimeGain": -0.025561497330361282,
+  "regimeGain": -0.02690932246184785,
   "performance": {
     "meta": {
       "strategyName": "TReg",
@@ -41,45 +41,45 @@
       "startDate": "2025-11-18",
       "endDate": "2026-11-18",
       "periodYears": "1.00",
-      "lastUpdated": "2026-11-18T10:45:03.848054"
+      "lastUpdated": "2026-11-18T11:45:03.831040"
     },
     "current": {
-      "totalReturnPct": "27.05",
-      "cagrPct": "27.07",
-      "maxDrawdownPct": "-6.55",
-      "sharpe": "1.74",
-      "mar": "4.13",
-      "sortino": "2.97",
+      "totalReturnPct": "26.88",
+      "cagrPct": "26.90",
+      "maxDrawdownPct": "-6.68",
+      "sharpe": "1.73",
+      "mar": "4.02",
+      "sortino": "2.95",
       "ulcer": "2.78",
-      "upi": "8.45"
+      "upi": "8.38"
     },
     "benchmarks": {
       "SPY": {
-        "totalReturnPct": "11.70",
-        "cagrPct": "11.71",
+        "totalReturnPct": "11.50",
+        "cagrPct": "11.51",
         "maxDrawdownPct": "-8.89",
-        "sharpe": "0.87",
-        "mar": "1.32",
-        "sortino": "1.24",
+        "sharpe": "0.86",
+        "mar": "1.29",
+        "sortino": "1.21",
         "ulcer": "2.27",
-        "upi": "3.56"
+        "upi": "3.47"
       },
       "SPXL": {
-        "totalReturnPct": "19.20",
-        "cagrPct": "19.21",
+        "totalReturnPct": "18.30",
+        "cagrPct": "18.31",
         "maxDrawdownPct": "-26.75",
-        "sharpe": "0.64",
-        "mar": "0.72",
-        "sortino": "0.89",
-        "ulcer": "7.69",
-        "upi": "2.03"
+        "sharpe": "0.62",
+        "mar": "0.68",
+        "sortino": "0.87",
+        "ulcer": "7.70",
+        "upi": "1.91"
       },
       "SHV": {
-        "totalReturnPct": "3.62",
+        "totalReturnPct": "3.61",
         "cagrPct": "3.62",
         "maxDrawdownPct": "-0.03",
-        "sharpe": "1566.92",
-        "mar": "132.87",
+        "sharpe": "1566.94",
+        "mar": "132.85",
         "sortino": "87.21",
         "ulcer": "0.00",
         "upi": "14.15"
@@ -91,12 +91,12 @@
   "regimeSignalDate": "2026-10-22",
   "regimePeak": 0.006781062398547144,
   "regimePeakLimit": 0.0,
-  "regimePeakCapture": -3.769541677693142,
-  "regimeMaxDD": -0.032124719998065654,
+  "regimePeakCapture": -3.9683047994976755,
+  "regimeMaxDD": -0.03346346700257874,
   "riskOnPPCurrent": 287.55,
   "riskOnPPEntry": 294.24,
   "riskOnPPStop": 272.5472649755271,
-  "regimeEstGain": -0.0439,
+  "regimeEstGain": -0.0462,
   "signal": "RiskOff",
   "signal_change": true,
   "signalRegimeChange": false,
