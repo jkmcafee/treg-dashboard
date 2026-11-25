@@ -519,7 +519,7 @@ h3 {
         <div class="badge-row">
           <div class="badge live">● Live Tracking</div>
           <div class="badge" id="sourceBadge">Source: --</div>
-          <div class="badge" id="updatedBadge">Last Update from Broker: --</div>
+          <div class="badge" id="updatedBadge">Last Update from Trades log: --</div>
         </div>
       </div>
 
@@ -974,6 +974,23 @@ function renderTradeHistoryTable(trades) {
   `;
 }
 
+function renderPortfolioReturns(trade) {
+  const spyReturn = trade?.portfolioSpyReturn;
+  const relativeReturn = trade?.portfolioRelativeReturn;
+  const returnPct = Number.isFinite(spyReturn) && Number.isFinite(relativeReturn)
+    ? spyReturn + relativeReturn
+    : null;
+
+  for (const [id, value] of Object.entries({
+    returnPct,
+    spyReturnPct: Number.isFinite(spyReturn) ? spyReturn : null,
+    relativeReturnPct: Number.isFinite(relativeReturn) ? relativeReturn : null
+  })) {
+    document.getElementById(id).innerText = pct(value);
+    setClassBySign(id, value);
+  }
+}
+
 function renderTradeLog(data) {
   const tradeLog = document.getElementById("tradeLog");
   const tradeLogError = document.getElementById("tradeLogError");
@@ -984,6 +1001,7 @@ function renderTradeLog(data) {
   if (tradeCountEl) tradeCountEl.innerText = trades.length;
 
   if (trades.length === 0) {
+    renderPortfolioReturns(null);
     tradeLog.innerHTML = '<div class="card muted-text">No trades found.</div>';
     return;
   }
@@ -992,6 +1010,7 @@ function renderTradeLog(data) {
     return Number(b.tradeNumber || 0) - Number(a.tradeNumber || 0);
   });
 
+  renderPortfolioReturns(sortedTrades[0]);
   tradeLog.innerHTML = renderTradeHistoryTable(sortedTrades);
 
   tradeLogError.style.display = "none";
@@ -1022,22 +1041,7 @@ function render(data) {
     strategy.Profit ??
     0;
 
-  const returnPct =
-    strategy.StrategyReturn ??
-    strategy.Return ??
-    0;
-
-  const spyReturn =
-    strategy.SP500Return ?? 0;
-
-  const relativeReturn = returnPct - spyReturn;
-
-
   sourceBadge.innerText = "Source: Broker";
-
-  document.getElementById("updatedBadge").innerText =
-    "Last Update from Broker: " +
-    formatDateTime(data.meta?.lastUpdated);
 
   document.getElementById("strategyName").innerText =
     strategy.StrategyName ||
@@ -1062,20 +1066,6 @@ function render(data) {
   "Profit since live tracking began";
 
   setClassBySign("profit", profit);
-
-  document.getElementById("returnPct").innerText =
-    pct(returnPct);
-
-  document.getElementById("spyReturnPct").innerText =
-    pct(spyReturn);
-
-  document.getElementById("relativeReturnPct").innerText =
-    pct(relativeReturn);
-
-
-  setClassBySign("returnPct", returnPct);
-  setClassBySign("spyReturnPct", spyReturn);
-  setClassBySign("relativeReturnPct", relativeReturn);
 
   const err =
     document.getElementById("loadError");
@@ -1130,6 +1120,12 @@ async function loadTradeLog() {
       );
 
     const data = await r.json();
+
+    const updatedAt =
+      data.meta?.lastUpdated ?? data.lastUpdated ?? r.headers.get("Last-Modified");
+
+    document.getElementById("updatedBadge").innerText =
+      "Last Update from Trades log: " + formatDateTime(updatedAt);
 
     renderTradeLog(data);
 
