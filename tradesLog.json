@@ -1,7 +1,7 @@
 {
   "meta": {
     "source": "TurboRegime",
-    "lastUpdated": "2026-11-25T17:59:42+00:00",
+    "lastUpdated": "2026-11-25T18:16:34+00:00",
     "description": "Investor-facing regime transition log with cumulative performance."
   },
   "trades": [
@@ -936,28 +936,28 @@
         "SHV": 0.4
       },
       "spyStartPrice": 763.96,
-      "spyEndPrice": 717.62,
-      "spyReturnPct": -6.065762605372016,
+      "spyEndPrice": 718.78,
+      "spyReturnPct": -5.9139221948793175,
       "startValue": 147763.84,
       "endValue": 142820.72,
       "tradeProfit": -4943.119999999995,
       "tradeReturnPct": -3.3452839341478913,
-      "relativeReturnPct": 2.7204786712241247,
-      "backtestReturnPct": -3.45,
-      "relativeBacktestReturnPct": 0.1,
-      "cumulativeBacktestReturnPct": 26.86,
-      "cumulativeRelativeBacktestReturnPct": -0.46,
+      "relativeReturnPct": 2.568638260731426,
+      "backtestReturnPct": -3.35,
+      "relativeBacktestReturnPct": 0.0,
+      "cumulativeBacktestReturnPct": 26.99,
+      "cumulativeRelativeBacktestReturnPct": -0.59,
       "cumulativeValue": 142820.72,
       "cumulativeProfit": 29826.369999999995,
       "cumulativeReturnPct": 26.396337515990844,
       "lastUpdate": "2026-11-24",
-      "portfolioSpyEnd": 717.62,
-      "portfolioSpyReturn": 10.904341720286602,
-      "portfolioRelativeReturn": 15.491995795704241,
+      "portfolioSpyEnd": 718.78,
+      "portfolioSpyReturn": 11.083613530430592,
+      "portfolioRelativeReturn": 15.312723985560252,
       "notes": "",
-      "relativeSpyReturnPct": 2.7204786712241247,
-      "cumulativeSpyReturnPct": 10.904341720286602,
-      "cumulativeRelativeSpyReturnPct": 15.491995795704241,
+      "relativeSpyReturnPct": 2.568638260731426,
+      "cumulativeSpyReturnPct": 11.083613530430592,
+      "cumulativeRelativeSpyReturnPct": 15.312723985560252,
       "backtestStartDate": "2026-10-22"
     }
   ]
