@@ -1023,16 +1023,14 @@ function render(data) {
     0;
 
   const returnPct =
-    strategy.ScaledReturn ??
+    strategy.StrategyReturn ??
     strategy.Return ??
     0;
 
   const spyReturn =
     strategy.SP500Return ?? 0;
 
-  const relativeReturn =
-    strategy.ReturnVsSP500 ??
-    (returnPct - spyReturn);
+  const relativeReturn = returnPct - spyReturn;
 
 
   sourceBadge.innerText = "Source: Broker";
