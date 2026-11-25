@@ -1,30 +1,146 @@
 {
   "meta": {
     "source": "IBKR",
-    "lastUpdated": "2026-11-06T15:56:03.108816"
+    "lastUpdated": "2026-11-25T09:47:39.485728"
   },
   "accounts": {
+    "IBKR Paper": {
+      "account_id": "IBKR Paper",
+      "label": "IBKR Paper",
+      "broker": "IBKR",
+      "environment": "PAPER",
+      "Balance": 221521.28,
+      "Cash": 1696.51,
+      "allocations": {
+        "SPY": 57.34626408020767,
+        "SPXL": 0.0,
+        "SHV": 41.93213320434335
+      },
+      "tradePlan": {
+        "SPY": {
+          "action": "BUY",
+          "quantity": 8.0
+        },
+        "SPXL": {
+          "action": "HOLD",
+          "quantity": 0.0
+        },
+        "SHV": {
+          "action": "SELL",
+          "quantity": 39.0
+        }
+      },
+      "rebalanceRequired": true,
+      "validated": true,
+      "positions": {
+        "SHV": 842.0,
+        "SPY": 182.0
+      },
+      "StartingCash": 183487.0,
+      "StartDate": "2026-04-01",
+      "ModelAccountValue": 221521.28,
+      "Profit": 38034.28,
+      "Return": 20.728596576324207,
+      "StrategyReturn": 20.728596576324207,
+      "SPYReturn": 7.093106839945773,
+      "ScaledStartDate": "2000-01-01",
+      "ScaledStartingCash": 1e-05,
+      "ScaledProfit": 38034.28001,
+      "ScaledReturn": 380342800100.0,
+      "SP500Return": 668.2139276229827,
+      "ReturnVsSP500": 380342799431.7861,
+      "WinRate": 0.0
+    },
     "TReg Live": {
+      "account_id": "TReg Live",
       "label": "TReg Live",
       "broker": "IBKR",
       "environment": "LIVE",
-      "StartingCash": 150000.0,
-      "StartDate": "2026-05-15",
-      "ModelAccountValue": 144611.76,
+      "Balance": 140341.99,
       "Cash": 485.3,
-      "Profit": -5388.239999999991,
-      "Return": -3.5921599999999936,
-      "ScaledStartDate": "2026-04-01",
-      "ScaledStartingCash": 112994.35,
-      "ScaledProfit": 31617.41000000001,
-      "ScaledReturn": 27.981407919953526,
-      "SP500Return": 12.819119545090874,
-      "ReturnVsSP500": 15.162288374862651,
-      "WinRate": 100.0,
+      "allocations": {
+        "SPY": 57.69252585572394,
+        "SPXL": 0.0,
+        "SHV": 41.97627960838456
+      },
+      "tradePlan": {
+        "SPY": {
+          "action": "BUY",
+          "quantity": 4.0
+        },
+        "SPXL": {
+          "action": "HOLD",
+          "quantity": 0.0
+        },
+        "SHV": {
+          "action": "SELL",
+          "quantity": 26.0
+        }
+      },
+      "rebalanceRequired": true,
+      "validated": true,
       "positions": {
         "SPY": 116.0,
         "SHV": 534.0
-      }
+      },
+      "StartingCash": 112994.35,
+      "StartDate": "2026-04-01",
+      "ModelAccountValue": 140341.99,
+      "Profit": 27347.639999999985,
+      "Return": 24.20266146050664,
+      "StrategyReturn": 24.20266146050664,
+      "SPYReturn": 7.111512766841477,
+      "ScaledStartDate": "2026-04-01",
+      "ScaledStartingCash": 112994.35,
+      "ScaledProfit": 64353.289999999986,
+      "ScaledReturn": 56.95266179238164,
+      "SP500Return": 7.111512766841477,
+      "ReturnVsSP500": 49.84114902554016,
+      "WinRate": 100.0
+    },
+    "UNKNOWN": {
+      "account_id": "UNKNOWN",
+      "label": "TReg Live",
+      "broker": "IBKR",
+      "environment": "LIVE",
+      "Balance": 0.0,
+      "Cash": 0.0,
+      "allocations": {
+        "SPY": 0.0,
+        "SPXL": 0.0,
+        "SHV": 0.0
+      },
+      "tradePlan": {
+        "SPY": {
+          "action": "HOLD",
+          "quantity": 0.0
+        },
+        "SPXL": {
+          "action": "HOLD",
+          "quantity": 0.0
+        },
+        "SHV": {
+          "action": "HOLD",
+          "quantity": 0.0
+        }
+      },
+      "rebalanceRequired": false,
+      "validated": true,
+      "positions": {},
+      "StartingCash": 0.0,
+      "StartDate": "2000-01-01",
+      "ModelAccountValue": 0.0,
+      "Profit": 0.0,
+      "Return": 0.0,
+      "StrategyReturn": 0.0,
+      "SPYReturn": 0.0,
+      "ScaledStartDate": "2000-01-01",
+      "ScaledStartingCash": 0.0,
+      "ScaledProfit": 0.0,
+      "ScaledReturn": 0.0,
+      "SP500Return": 0.0,
+      "ReturnVsSP500": 0.0,
+      "WinRate": 0.0
     }
   }
 }
