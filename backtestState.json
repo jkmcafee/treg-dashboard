@@ -4,9 +4,9 @@
   "riskOn": false,
   "lastRiskOn": false,
   "signalChange": false,
-  "ratio": "0.9763",
+  "ratio": "0.9771",
   "ratioMA": "1.0335",
-  "ratioDelta": "-0.0572",
+  "ratioDelta": "-0.0565",
   "perfStartDate": "2025-01-03",
   "perfSpy": -100,
   "perfSpxl": 5679.6,
@@ -30,7 +30,7 @@
     "SHV": "0.40"
   },
   "regimeDays": 25,
-  "regimeGain": -0.027232199300948112,
+  "regimeGain": -0.02740588715966108,
   "performance": {
     "meta": {
       "strategyName": "TReg",
@@ -41,17 +41,17 @@
       "startDate": "2025-11-27",
       "endDate": "2026-11-27",
       "periodYears": "1.00",
-      "lastUpdated": "2026-11-27T11:45:03.578790"
+      "lastUpdated": "2026-11-27T12:45:03.677751"
     },
     "current": {
-      "totalReturnPct": "23.84",
-      "cagrPct": "23.93",
+      "totalReturnPct": "23.82",
+      "cagrPct": "23.91",
       "maxDrawdownPct": "-9.60",
       "sharpe": "1.52",
       "mar": "2.49",
       "sortino": "2.58",
       "ulcer": "3.02",
-      "upi": "6.72"
+      "upi": "6.71"
     },
     "benchmarks": {
       "SPY": {
@@ -75,14 +75,14 @@
         "upi": "0.15"
       },
       "SHV": {
-        "totalReturnPct": "3.61",
-        "cagrPct": "3.62",
+        "totalReturnPct": "3.62",
+        "cagrPct": "3.63",
         "maxDrawdownPct": "-0.03",
-        "sharpe": "1575.22",
-        "mar": "133.11",
+        "sharpe": "1575.17",
+        "mar": "133.28",
         "sortino": "87.38",
         "ulcer": "0.00",
-        "upi": "14.15"
+        "upi": "14.16"
       }
     }
   },
@@ -91,12 +91,12 @@
   "regimeSignalDate": "2026-10-22",
   "regimePeak": 0.006781062398547144,
   "regimePeakLimit": 0.0,
-  "regimePeakCapture": -4.015919291169281,
+  "regimePeakCapture": -4.0415329558879804,
   "regimeMaxDD": -0.06367981133464118,
   "riskOnPPCurrent": 287.55,
   "riskOnPPEntry": 294.24,
   "riskOnPPStop": 272.5472649755271,
-  "regimeEstGain": -0.046400000000000004,
+  "regimeEstGain": -0.046700000000000005,
   "signal": "RiskOff",
   "signal_change": true,
   "signalRegimeChange": false,
